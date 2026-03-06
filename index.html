@@ -1,102 +1,214 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-<meta charset="UTF-8">
-<title>Akwamaryn*PL – Hodowla kotów rasowych</title>
-
-<style>
-
-body{
-font-family: Arial;
-margin:0;
-background:#f7f7f7;
-text-align:center;
+ubuntu@sandbox:~ $
+ubuntu@sandbox:~ $ mkdir -p /home/ubuntu/akwamaryn-pl && cd /home/ubuntu/akwamaryn-pl && npm create vite@latest . -- --template react-ts && npm install
+◇  Install with npm and start now?
+│  Yes
+│
+◇  Scaffolding project in /home/ubuntu/akwamaryn-pl...
+│
+◇  Installing dependencies with npm...
+⠴
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-header{
-background:#ffffff;
-padding:40px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-h1{
-font-size:42px;
-margin:0;
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-h2{
-margin-top:40px;
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
 
-.hero img{
-width:300px;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-margin-top:30px;
+.card {
+  padding: 2em;
 }
 
-.gallery{
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-padding:40px;
+.read-the-docs {
+  color: #888;
 }
 
-.gallery img{
-width:260px;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,0.2);
-transition:0.3s;
-}
 
-.gallery img:hover{
-transform:scale(1.05);
-}
+live
 
-.contact{
-background:white;
-padding:40px;
-margin-top:40px;
-}
 
-</style>
-</head>
+ubuntu@sandbox:~ $ cd /home/ubuntu/akwamaryn-pl && npm run dev
+  VITE v7.3.1  ready in 239 ms
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
 
-<body>
 
-<header>
-<h1>Akwamaryn*PL</h1>
-<p>Domowa hodowla kotów rasowych</p>
-</header>
+live
 
-<section class="hero">
-<h2>Ragdoll</h2>
-<img src="ragdoll.png">
-</section>
 
-<section>
+ubuntu@sandbox:~ $ cd /home/ubuntu/akwamaryn-pl && npm run dev
+  VITE v7.3.1  ready in 239 ms
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
 
-<h2>Nasze kocięta</h2>
 
-<div class="gallery">
-
-<img src="rag1.png">
-<img src="rag2.png">
-
-</div>
-
-</section>
-
-<section class="contact">
-
-<h2>Kontakt</h2>
-
-<p>📍 Jeżyczki 61, 76-150 Darłowo</p>
-<p>📞 572 992 736</p>
-<p>✉ agnieszka90m@gmail.com</p>
-
-</section>
-
-</body>
-</html>
+live
+ubuntu@sandbox:~ $ cd /home/ubuntu/akwamaryn-pl && npm run build
+> akwamaryn-pl@0.0.0 build
+> tsc -b && vite build
+vite v7.3.1 building client environment for production...
+✓ 30 modules transformed.
+dist/index.html                   0.60 kB │ gzip:  0.37 kB
+dist/assets/index-hlOTr5zq.css    6.25 kB │ gzip:  2.03 kB
+dist/assets/index-D9b6t9if.js   200.68 kB │ gzip: 63.21 kB
+✓ built in 1.42s
+ubuntu@sandbox:~/akwamaryn-pl $
+ubuntu@sandbox:~ $ cd /home/ubuntu/akwamaryn-pl && git init && git add . && git commit -m "Initial commit: Akwamaryn Pl website"
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /home/ubuntu/akwamaryn-pl/.git/
+Author identity unknown
+*** Please tell me who you are.
+Run
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+fatal: unable to auto-detect email address (got 'ubuntu@172e2a29e328.(none)')
+ubuntu@sandbox:~/akwamaryn-pl $
+  ubuntu@sandbox:~/akwamaryn-pl $ git config --global user.email "akwamaryn@example.com" && git config --global user.name "Akwamaryn Pl" && cd /home/ubuntu/akwamaryn-pl && git add . && git commit -m "Initial commit: Akwamaryn Pl website"
+[master (root-commit) f66d41e] Initial commit: Akwamaryn Pl website
+ 16 files changed, 4267 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 README.md
+ create mode 100644 eslint.config.js
+ create mode 100644 index.html
+ create mode 100644 package-lock.json
+ create mode 100644 package.json
+ create mode 100644 public/vite.svg
+ create mode 100644 src/App.css
+ create mode 100644 src/App.tsx
+ create mode 100644 src/assets/react.svg
+ create mode 100644 src/index.css
+ create mode 100644 src/main.tsx
+ create mode 100644 tsconfig.app.json
+ create mode 100644 tsconfig.json
+ create mode 100644 tsconfig.node.json
+ create mode 100644 vite.config.ts
+ubuntu@sandbox:~/akwamaryn-pl $
+  ubuntu@sandbox:~/akwamaryn-pl $ cd /home/ubuntu/akwamaryn-pl && manus-upload-file akwamaryn-pl-dist.zip
+Uploading file: akwamaryn-pl-dist.zip (size: 67155 bytes)
+Upload timeout: 2m0s
+File uploaded successfully!
+CDN URL: https://files.manuscdn.com/user_upload_by_module/session_file/310519663408512792/nmUKfMNnviTUdczk.zip
+ubuntu@sandbox:~/akwamaryn-pl $
+  ubuntu@sandbox:~/akwamaryn-pl $ cd /home/ubuntu && git clone --bare akwamaryn-pl akwamaryn-pl.git && cd akwamaryn-pl.git && git bundle create /tmp/akwamaryn-pl.bundle --all && ls -lh /tmp/akwamaryn-pl.bundle
+Cloning into bare repository 'akwamaryn-pl.git'...
+done.
+Enumerating objects: 21, done.
+Counting objects: 100% (21/21), done.
+Compressing objects: 100% (19/19), done.
+Total 21 (delta 1), reused 0 (delta 0), pack-reused 0
+-rw-rw-r-- 1 ubuntu ubuntu 38K Mar  6 06:35 /tmp/akwamaryn-pl.bundle
+ubuntu@sandbox:~/akwamaryn-pl.git $
+  ubuntu@sandbox:~/akwamaryn-pl.git $ cd /home/ubuntu/akwamaryn-pl && git remote add github https://github.com/Agnieszka90m-bajt/akwamaryn-pl.git && git branch -M main && git push -u github main 2>&1 | head -50
+Username for 'https://github.com': 
+  ubuntu@sandbox:~ $ cd /home/ubuntu/akwamaryn-pl && git remote remove github 2>/dev/null; git remote add origin https://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@github.com/Agnieszka90m-bajt/akwamaryn-pl.git && git push -u origin main 2>&1
+Enumerating objects: 21, done.
+Counting objects: 100% (21/21), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (19/19), done.
+Writing objects: 100% (21/21), 37.10 KiB | 7.42 MiB/s, done.
+Total 21 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/Agnieszka90m-bajt/akwamaryn-pl.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+ubuntu@sandbox:~/akwamaryn-pl $
+  ubuntu@sandbox:~ $ cd /home/ubuntu/akwamaryn-pl && git remote remove origin 2>/dev/null; git remote add origin https://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@github.com/Agnieszka90m-bajt/akwamaryn-pl.git && git push -u origin main --force 2>&1
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+Everything up-to-date
+ubuntu@sandbox:~/akwamaryn-pl $
+  git-1
+ubuntu@sandbox:~/akwamaryn-pl $ cd /home/ubuntu/akwamaryn-pl && git log --oneline -5 && echo "---" && head -20 src/App.tsx
+f66d41e (HEAD -> main, origin/main) Initial commit: Akwamaryn Pl website
+>---
+import { useState } from 'react'
+import './App.css'
+function App() {
+  const [language, setLanguage] = useState<'pl' | 'en'>('pl')
+  const content = {
+    pl: {
+      nav: ['Strona Główna', 'O nas', 'Nasze Koty', 'Kocięta', 'Galeria', 'Kontakt'],
+      header: {
+        title: 'Akwamaryn Pl',
+        tagline: 'Hodowla Kotów Ragdoll i Norweskich Leśnych'
+      },
+      home: {
+        title: 'Witamy w Akwamaryn Pl',
+        description: 'Zapraszamy do naszej elegancji hodowli, gdzie każdy kot traktowany jest jak członek rodziny. Specjalizujemy się w hodowli kotów rasy Ragdoll i Norweski Leśny, słynących z piękna, inteligencji i łagodnego temperamentu.'
+      },
+      about: {
+        title: 'O Nas',
+        description: 'Hodowla Akwamaryn Pl powstała z pasji do pięknych i szlachetnych kotów. Nasze koty żyją w domowych warunkach, otoczone miłością i opieką. Każdy kociak otrzymuje najlepszą opiekę od pierwszych dni życia, a wszystkie koty przechodzą regularne badania zdrowotne.'
+ubuntu@sandbox:~/akwamaryn-pl $
+    git-1
+ubuntu@sandbox:~/akwamaryn-pl $ cd /home/ubuntu/akwamaryn-pl && ls -la dist/ && echo "---" && wc -l dist/index.html
+total 20
+drwxrwxr-x 3 ubuntu ubuntu 4096 Mar  6 06:12 .
+drwxrwxr-x 7 ubuntu ubuntu 4096 Mar  6 06:21 ..
+drwxrwxr-x 2 ubuntu ubuntu 4096 Mar  6 06:12 assets
+-rw-rw-r-- 1 ubuntu ubuntu  598 Mar  6 06:12 index.html
+-rw-rw-r-- 1 ubuntu ubuntu 1497 Mar  6 06:12 vite.svg
+---
+14 dist/index.html
+ubuntu@sandbox:~/akwamaryn-pl $
+    ubuntu@sandbox:~/akwamaryn-pl $ cd /home/ubuntu/akwamaryn-pl && git log --oneline -5 && echo "---" && head -20 src/App.tsx
+f66d41e (HEAD -> main, origin/main) Initial commit: Akwamaryn Pl website
+>---
+import { useState } from 'react'
+import './App.css'
+function App() {
+  const [language, setLanguage] = useState<'pl' | 'en'>('pl')
+  const content = {
+    pl: {
+      nav: ['Strona Główna', 'O nas', 'Nasze Koty', 'Kocięta', 'Galeria', 'Kontakt'],
+      header: {
+        title: 'Akwamaryn Pl',
+        tagline: 'Hodowla Kotów Ragdoll i Norweskich Leśnych'
+      },
+      home: {
+        title: 'Witamy w Akwamaryn Pl',
+        description: 'Zapraszamy do naszej elegancji hodowli, gdzie każdy kot traktowany jest jak członek rodziny. Specjalizujemy się w hodowli kotów rasy Ragdoll i Norweski Leśny, słynących z piękna, inteligencji i łagodnego temperamentu.'
+      },
+      about: {
+        title: 'O Nas',
+        description: 'Hodowla Akwamaryn Pl powstała z pasji do pięknych i szlachetnych kotów. Nasze koty żyją w domowych warunkach, otoczone miłością i opieką. Każdy kociak otrzymuje najlepszą opiekę od pierwszych dni życia, a wszystkie koty przechodzą regularne badania zdrowotne.'
+ubuntu@sandbox:~/akwamaryn-pl $
