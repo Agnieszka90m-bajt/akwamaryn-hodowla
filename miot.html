@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aktualny miot | Akwamaryn PL</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Georgia", "Times New Roman", serif;
+      background: linear-gradient(180deg, #fffafc 0%, #f8eef3 100%);
+      color: #4e3b43;
+    }
+    nav {
+      background: rgba(255,248,251,0.95);
+      border-bottom: 1px solid rgba(208,176,188,0.25);
+      box-shadow: 0 8px 24px rgba(171,135,149,0.10);
+    }
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    nav a {
+      color: #7b5564;
+      font-weight: bold;
+      font-size: 15px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+    }
+    nav a:hover { background: #f2dce4; }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 18px 70px;
+    }
+    .section {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(224,195,206,0.5);
+      border-radius: 34px;
+      padding: 42px 28px;
+      margin: 28px 0;
+      box-shadow: 0 18px 40px rgba(173,139,152,0.11);
+    }
+    h1, h2 {
+      text-align: center;
+      color: #7b5564;
+    }
+    p, li {
+      line-height: 1.9;
+      color: #66525b;
+      font-size: 17px;
+    }
+    .status-box {
+      background: linear-gradient(180deg, #fff, #fcf4f7);
+      border-radius: 28px;
+      border: 1px solid rgba(222,192,203,0.45);
+      box-shadow: 0 16px 34px rgba(165,132,146,0.13);
+      padding: 24px;
+      margin-top: 25px;
+    }
+    footer {
+      text-align: center;
+      padding: 32px 20px 50px;
+      color: #866873;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html">Strona główna</a>
+      <a href="kotki.html">Moje kotki</a>
+      <a href="kocieta.html">Moje kocięta</a>
+      <a href="miot.html">Aktualny miot</a>
+      <a href="rezerwacja.html">Rezerwacja</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="section">
+      <h1>Aktualny miot</h1>
+      <p>
+        W tej zakładce publikujemy informacje o aktualnym miocie, planowanych wyjazdach
+        do nowych domów oraz statusie dostępności maluchów.
+      </p>
+
+      <div class="status-box">
+        <h2>Informacje o miocie</h2>
+        <p>Tutaj możesz później wpisać:</p>
+        <ul>
+          <li>datę urodzenia miotu,</li>
+          <li>imiona kociąt,</li>
+          <li>płeć,</li>
+          <li>umaszczenie,</li>
+          <li>status: wolny / obserwacja / rezerwacja / zarezerwowany.</li>
+        </ul>
+        <p>
+          Dzięki temu strona będzie przejrzysta, elegancka i wygodna dla osób zainteresowanych kociętami.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 Akwamaryn PL
+  </footer>
+</body>
+</html>
