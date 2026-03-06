@@ -3,135 +3,382 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Akwamaryn PL</title>
+  <title>Akwamaryn PL | Hodowla Kotów Rasowych</title>
   <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      color: #333;
+      font-family: "Georgia", "Times New Roman", serif;
+      background: linear-gradient(180deg, #fffafc 0%, #f8eef3 100%);
+      color: #4d3a43;
     }
+
     header {
-      background: #ffffff;
+      position: relative;
       text-align: center;
-      padding: 40px 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      padding: 90px 20px 70px;
+      background:
+        linear-gradient(rgba(255,255,255,0.72), rgba(255,255,255,0.82)),
+        url("ragdoll.png") center/cover no-repeat;
+      border-bottom: 1px solid rgba(194, 155, 171, 0.35);
     }
-    header h1 {
+
+    .header-overlay {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(3px);
+      padding: 35px 25px;
+      border-radius: 28px;
+      box-shadow: 0 10px 35px rgba(142, 108, 123, 0.15);
+      border: 1px solid rgba(215, 186, 198, 0.5);
+    }
+
+    .top-badge {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #f4d8e3, #f9edf2);
+      color: #8c6674;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 12px rgba(180, 140, 156, 0.18);
+    }
+
+    h1 {
       margin: 0;
-      font-size: 36px;
+      font-size: 54px;
+      color: #7a5161;
+      letter-spacing: 1px;
     }
-    header p {
-      margin-top: 10px;
-      color: #666;
-      font-size: 18px;
+
+    .subtitle {
+      margin: 16px auto 0;
+      max-width: 760px;
+      font-size: 20px;
+      line-height: 1.7;
+      color: #6e5a62;
     }
+
     nav {
-      background: #ececec;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 248, 251, 0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(205, 169, 184, 0.25);
+      box-shadow: 0 6px 20px rgba(163, 128, 142, 0.08);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px 20px;
       text-align: center;
-      padding: 14px;
     }
+
     nav a {
-      color: #444;
+      display: inline-block;
+      margin: 6px 12px;
       text-decoration: none;
-      margin: 0 14px;
+      color: #7a5161;
       font-weight: bold;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: 0.25s ease;
     }
+
+    nav a:hover {
+      background: #f4dce5;
+      color: #5f3f4c;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 35px 18px 60px;
+    }
+
     .section {
-      max-width: 1100px;
-      margin: 30px auto;
-      background: #fff;
-      padding: 30px 20px;
-      border-radius: 16px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(218, 190, 201, 0.45);
+      border-radius: 30px;
+      padding: 40px 28px;
+      margin: 26px 0;
+      box-shadow: 0 12px 35px rgba(168, 134, 148, 0.10);
     }
+
     .section h2 {
       text-align: center;
-      margin-top: 0;
+      font-size: 34px;
+      color: #7a5161;
+      margin: 0 0 18px;
+      position: relative;
     }
+
+    .section h2::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 3px;
+      margin: 14px auto 0;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #eed2de, #cfa5b7, #eed2de);
+    }
+
+    .lead {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.9;
+      color: #65525a;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .feature-box {
+      background: linear-gradient(180deg, #fff, #fcf4f7);
+      padding: 24px 20px;
+      border-radius: 22px;
+      text-align: center;
+      border: 1px solid rgba(220, 189, 201, 0.45);
+      box-shadow: 0 8px 22px rgba(163, 126, 141, 0.08);
+    }
+
+    .feature-box h3 {
+      margin: 0 0 12px;
+      color: #7a5161;
+      font-size: 20px;
+    }
+
+    .feature-box p {
+      margin: 0;
+      line-height: 1.7;
+      color: #67545c;
+      font-size: 16px;
+    }
+
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
     }
+
     .card {
-      width: 300px;
-      background: #fff;
-      border-radius: 14px;
+      background: linear-gradient(180deg, #fffefe, #fcf4f7);
+      border-radius: 26px;
       overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      box-shadow: 0 12px 30px rgba(161, 128, 142, 0.12);
+      border: 1px solid rgba(220, 190, 201, 0.45);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 34px rgba(161, 128, 142, 0.18);
+    }
+
     .card img {
       width: 100%;
+      height: 340px;
+      object-fit: cover;
       display: block;
     }
+
+    .card-content {
+      padding: 22px 20px 24px;
+    }
+
     .card h3 {
-      margin: 15px 15px 8px;
+      margin: 0 0 10px;
+      color: #7a5161;
+      font-size: 24px;
     }
+
     .card p {
-      margin: 0 15px 15px;
-      color: #666;
+      margin: 0;
+      color: #67545c;
+      line-height: 1.75;
+      font-size: 16px;
     }
+
+    .contact-box {
+      max-width: 850px;
+      margin: 0 auto;
+      text-align: center;
+      background: linear-gradient(180deg, #fff, #fcf1f5);
+      border: 1px solid rgba(219, 188, 200, 0.5);
+      border-radius: 26px;
+      padding: 30px 24px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+    }
+
+    .contact-box p {
+      font-size: 18px;
+      line-height: 1.9;
+      color: #665159;
+      margin: 0 0 12px;
+    }
+
+    .contact-highlight {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #f2d5e0, #f8edf2);
+      color: #7a5161;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(177, 135, 152, 0.14);
+    }
+
     footer {
       text-align: center;
-      padding: 25px;
-      color: #777;
+      padding: 34px 20px 50px;
+      color: #866873;
+      font-size: 15px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 38px;
+      }
+
+      .subtitle {
+        font-size: 17px;
+      }
+
+      .section {
+        padding: 30px 18px;
+      }
+
+      .section h2 {
+        font-size: 28px;
+      }
+
+      .card img {
+        height: 280px;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Akwamaryn PL</h1>
-    <p>Hodowla kotów rasowych</p>
+    <div class="header-overlay">
+      <div class="top-badge">Akwamaryn PL</div>
+      <h1>Akwamaryn PL</h1>
+      <p class="subtitle">
+        Elegancka, domowa hodowla kotów rasowych tworzona z miłości do piękna,
+        charakteru i wyjątkowej relacji człowieka z kotem.
+      </p>
+    </div>
   </header>
 
   <nav>
-    <a href="#onas">O nas</a>
-    <a href="#koty">Nasze koty</a>
-    <a href="#galeria">Galeria</a>
-    <a href="#kontakt">Kontakt</a>
+    <div class="nav-inner">
+      <a href="#onas">O nas</a>
+      <a href="#wartosci">Nasze wartości</a>
+      <a href="#koty">Nasze koty</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
   </nav>
 
-  <section class="section" id="onas">
-    <h2>Witamy w Akwamaryn PL</h2>
-    <p>
-      Nasza hodowla powstała z pasji do pięknych i wyjątkowych kotów. Nasze koty żyją
-      w warunkach domowych, otoczone troską, miłością i najlepszą opieką.
-      Dokładamy wszelkich starań, aby każdy kociak miał najlepszy start w życie.
-    </p>
-  </section>
+  <div class="container">
+    <section class="section" id="onas">
+      <h2>Witamy w Akwamaryn PL</h2>
+      <p class="lead">
+        Nasza hodowla powstała z pasji do kotów wyjątkowych, subtelnych i pełnych uroku.
+        Stawiamy na domowe warunki, troskliwą opiekę, prawidłową socjalizację oraz
+        piękno, które idzie w parze ze zdrowiem i zrównoważonym charakterem.
+      </p>
+    </section>
 
-  <section class="section" id="koty">
-    <h2>Nasze koty</h2>
-    <div class="gallery">
-      <div class="card">
-        <img src="rag1.png" alt="Kot 1">
-        <h3>Nasz kot</h3>
-        <p>Poznaj jednego z naszych wyjątkowych podopiecznych.</p>
+    <section class="section" id="wartosci">
+      <h2>Nasze wartości</h2>
+      <div class="features">
+        <div class="feature-box">
+          <h3>Domowa opieka</h3>
+          <p>Koty są częścią naszej codzienności i wychowują się w atmosferze spokoju, czułości i bliskości.</p>
+        </div>
+        <div class="feature-box">
+          <h3>Zdrowie i troska</h3>
+          <p>Dbamy o dobrostan, profilaktykę i najlepszy możliwy start każdego kocięcia.</p>
+        </div>
+        <div class="feature-box">
+          <h3>Elegancja rasy</h3>
+          <p>Cenimy piękno, typ i wyjątkowy charakter kotów, które zachwycają od pierwszego spojrzenia.</p>
+        </div>
+        <div class="feature-box">
+          <h3>Miłość do kotów</h3>
+          <p>Za naszą hodowlą stoi prawdziwa pasja, doświadczenie i serce wkładane w każdy detal.</p>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <img src="rag2.png" alt="Kot 2">
-        <h3>Nasza kotka</h3>
-        <p>Piękno, charakter i doskonała opieka.</p>
+    <section class="section" id="koty">
+      <h2>Nasze koty</h2>
+      <div class="gallery">
+        <div class="card">
+          <img src="rag1.png" alt="Kot z hodowli Akwamaryn PL">
+          <div class="card-content">
+            <h3>Nasz kocur</h3>
+            <p>Elegancki, pełen wdzięku i klasy. Reprezentuje piękno rasy oraz zrównoważony charakter.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="rag2.png" alt="Kotka z hodowli Akwamaryn PL">
+          <div class="card-content">
+            <h3>Nasza kotka</h3>
+            <p>Subtelna, zachwycająca i wyjątkowa. Delikatność, uroda i cudowny temperament w jednym.</p>
+          </div>
+        </div>
+
+        <div class="card" id="galeria">
+          <img src="ragdoll.png" alt="Ragdoll Akwamaryn PL">
+          <div class="card-content">
+            <h3>Galeria hodowli</h3>
+            <p>Zdjęcia oddające atmosferę naszej hodowli, codzienność kotów i piękno wyjątkowych chwil.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="card" id="galeria">
-        <img src="ragdoll.png" alt="Ragdoll">
-        <h3>Galeria</h3>
-        <p>Zobacz więcej zdjęć naszych kotów i życia hodowli.</p>
+    <section class="section" id="kontakt">
+      <h2>Kontakt</h2>
+      <div class="contact-box">
+        <p>
+          Jeśli chcesz dowiedzieć się więcej o naszych kotach, planowanych miotach
+          lub dostępnych kociętach, zapraszamy do kontaktu.
+        </p>
+        <p>
+          Chętnie odpowiemy na pytania i opowiemy więcej o naszej hodowli Akwamaryn PL.
+        </p>
+        <a class="contact-highlight" href="#">Napisz do nas</a>
       </div>
-    </div>
-  </section>
-
-  <section class="section" id="kontakt">
-    <h2>Kontakt</h2>
-    <p>W sprawie kociąt i rezerwacji zapraszamy do wiadomości prywatnej.</p>
-  </section>
+    </section>
+  </div>
 
   <footer>
-    © 2026 Akwamaryn PL
+    © 2026 Akwamaryn PL | Hodowla kotów rasowych
   </footer>
+
 </body>
 </html>
