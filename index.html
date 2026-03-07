@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Akwamaryn PL | Hodowla kotów rasowych</title>
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -16,44 +18,78 @@
 
     a {
       text-decoration: none;
+      color: inherit;
     }
 
-    nav {
+    .topbar {
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
       background: rgba(255, 248, 251, 0.96);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(208, 176, 188, 0.25);
       box-shadow: 0 8px 24px rgba(171, 135, 149, 0.10);
     }
 
-    .nav-inner {
+    .topbar-inner {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 16px 20px;
+      padding: 14px 18px;
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
     }
 
-    nav a {
-      color: #7b5564;
+    .brand {
+      font-size: 22px;
       font-weight: bold;
-      font-size: 15px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      transition: 0.2s ease;
+      color: #7b5564;
+      letter-spacing: 0.5px;
     }
 
-    nav a:hover {
-      background: #f2dce4;
-      color: #5e414c;
+    .menu-toggle {
+      background: white;
+      border: 1px solid rgba(208, 176, 188, 0.35);
+      border-radius: 14px;
+      padding: 10px 14px;
+      font-size: 24px;
+      line-height: 1;
+      color: #7b5564;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(171, 135, 149, 0.10);
+    }
+
+    .menu-toggle:hover {
+      background: #fdf6f9;
+    }
+
+    .mobile-menu {
+      display: none;
+      background: #fff;
+      border-top: 1px solid rgba(208, 176, 188, 0.18);
+      padding: 8px 0 14px;
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 16px 22px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #7b5564;
+      border-bottom: 1px solid #f1e5eb;
+    }
+
+    .mobile-menu a:hover {
+      background: #fcf3f7;
     }
 
     header {
-      min-height: 88vh;
+      min-height: 78vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -89,7 +125,7 @@
 
     h1 {
       margin: 0;
-      font-size: 58px;
+      font-size: 56px;
       color: #7b5564;
     }
 
@@ -251,26 +287,50 @@
     }
 
     @media (max-width: 768px) {
-      h1 { font-size: 40px; }
-      .hero-subtitle { font-size: 18px; }
-      .section { padding: 30px 18px; }
-      .section h2 { font-size: 30px; }
-      .card img { height: 260px; }
+      h1 {
+        font-size: 38px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+      }
+
+      .section {
+        padding: 30px 18px;
+      }
+
+      .section h2 {
+        font-size: 30px;
+      }
+
+      .card img {
+        height: 260px;
+      }
+
+      .brand {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <div class="nav-inner">
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Akwamaryn PL</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu">
       <a href="index.html">Strona główna</a>
       <a href="kotki.html">Moje kotki</a>
       <a href="kocieta.html">Moje kocięta</a>
       <a href="miot.html">Aktualny miot</a>
+      <a href="galeria.html">Galeria</a>
       <a href="rezerwacja.html">Rezerwacja</a>
       <a href="kontakt.html">Kontakt</a>
     </div>
-  </nav>
+  </div>
 
   <header>
     <div class="hero-box">
@@ -350,6 +410,13 @@
   <footer>
     © 2026 Akwamaryn PL | Agnieszka Markowska | Jeżyczki 61, 76-150 Darłowo | +48 572 992 736
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.classList.toggle("open");
+    }
+  </script>
 
 </body>
 </html>
