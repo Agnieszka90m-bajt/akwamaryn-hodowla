@@ -155,12 +155,12 @@
 
     .hero{
       position:relative;
-      min-height:92vh;
+      min-height:100vh;
       display:flex;
       align-items:flex-start;
       justify-content:center;
       text-align:center;
-      padding:54px 20px 40px;
+      padding:40px 20px 60px;
       overflow:hidden;
       background:linear-gradient(180deg,#fff8fb 0%,#f8eef3 100%);
     }
@@ -170,48 +170,40 @@
       position:absolute;
       inset:0;
       background:
-        linear-gradient(rgba(255,250,252,0.02), rgba(255,250,252,0.05)),
-        url("file_000000007658720aa3e0e1312a65953c.png") center 8% / cover no-repeat;
-      opacity:0.96;
+        linear-gradient(rgba(255,250,252,0.01), rgba(255,250,252,0.03)),
+        url("file_000000007658720aa3e0e1312a65953c.png") center top / cover no-repeat;
+      opacity:0.98;
       z-index:0;
-      transform:scale(1.02);
-    }
-
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:rgba(255,250,252,0.03);
-      z-index:1;
+      transform:scale(1.01);
     }
 
     .hero-box{
       position:relative;
       z-index:2;
       width:min(88%,760px);
-      margin-top:150px;
-      background:rgba(255,255,255,0.04);
-      backdrop-filter:blur(20px) saturate(135%);
-      -webkit-backdrop-filter:blur(20px) saturate(135%);
-      border:1px solid rgba(255,255,255,0.34);
+      margin-top:250px;
+      background:rgba(255,255,255,0.03);
+      backdrop-filter:blur(20px) saturate(140%);
+      -webkit-backdrop-filter:blur(20px) saturate(140%);
+      border:1px solid rgba(255,255,255,0.26);
       border-radius:40px;
       padding:34px 28px;
       box-shadow:
-        0 20px 45px rgba(153,115,130,0.06),
-        inset 0 1px 0 rgba(255,255,255,0.35);
+        0 18px 42px rgba(153,115,130,0.04),
+        inset 0 1px 0 rgba(255,255,255,0.25);
     }
 
     .badge{
       display:inline-block;
       padding:10px 20px;
       border-radius:999px;
-      background:rgba(248,232,239,0.18);
+      background:rgba(248,232,239,0.10);
       color:#8c6673;
       letter-spacing:1.8px;
       text-transform:uppercase;
       font-size:12px;
       margin-bottom:18px;
-      border:1px solid rgba(255,255,255,0.22);
+      border:1px solid rgba(255,255,255,0.16);
       backdrop-filter:blur(8px);
       -webkit-backdrop-filter:blur(8px);
     }
@@ -257,9 +249,9 @@
     }
 
     .btn-secondary{
-      background:rgba(255,255,255,0.22);
+      background:rgba(255,255,255,0.18);
       color:#765562;
-      border:1px solid rgba(190,153,168,0.22);
+      border:1px solid rgba(190,153,168,0.18);
       backdrop-filter:blur(6px);
       -webkit-backdrop-filter:blur(6px);
     }
@@ -367,7 +359,7 @@
       }
 
       .hero-box{
-        margin-top:130px;
+        margin-top:210px;
       }
     }
 
@@ -382,28 +374,28 @@
       }
 
       .hero{
-        min-height:78vh;
-        padding:28px 16px;
+        min-height:82vh;
+        padding:28px 16px 40px;
       }
 
       .hero::before{
         background:
-          linear-gradient(rgba(255,250,252,0.02), rgba(255,250,252,0.05)),
-          url("file_000000007658720aa3e0e1312a65953c.png") center 6% / cover no-repeat;
-        opacity:0.95;
+          linear-gradient(rgba(255,250,252,0.01), rgba(255,250,252,0.03)),
+          url("file_000000007658720aa3e0e1312a65953c.png") center top / cover no-repeat;
+        opacity:0.98;
       }
 
       .hero-box{
         width:min(92%, 760px);
-        margin-top:120px;
-        background:rgba(255,255,255,0.06);
-        backdrop-filter:blur(18px) saturate(130%);
-        -webkit-backdrop-filter:blur(18px) saturate(130%);
+        margin-top:180px;
+        background:rgba(255,255,255,0.03);
+        backdrop-filter:blur(18px) saturate(135%);
+        -webkit-backdrop-filter:blur(18px) saturate(135%);
         padding:24px 18px;
       }
 
       h1{
-        font-size:44px;
+        font-size:42px;
         letter-spacing:0.3px;
       }
 
