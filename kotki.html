@@ -1,361 +1,82 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kotki hodowlane | Akwamaryn PL</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Georgia", "Times New Roman", serif;
-      background: linear-gradient(180deg, #fffafc 0%, #f8eef3 100%);
-      color: #5d4650;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 1200;
-      background: rgba(255, 248, 251, 0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(218, 189, 200, 0.45);
-      box-shadow: 0 8px 24px rgba(171, 135, 149, 0.10);
-    }
-
-    .topbar-inner {
-      max-width: 1250px;
-      margin: 0 auto;
-      padding: 14px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand {
-      font-size: 24px;
-      font-weight: bold;
-      color: #7b5564;
-      letter-spacing: 0.5px;
-    }
-
-    .menu-toggle {
-      background: #fff;
-      border: 1px solid rgba(208, 176, 188, 0.45);
-      border-radius: 14px;
-      padding: 10px 14px;
-      font-size: 18px;
-      font-weight: bold;
-      color: #7b5564;
-      cursor: pointer;
-      box-shadow: 0 6px 16px rgba(171, 135, 149, 0.10);
-      transition: 0.2s ease;
-    }
-
-    .menu-toggle:hover {
-      background: #fcf3f7;
-      transform: translateY(-1px);
-    }
-
-    .menu-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.34);
-      opacity: 0;
-      visibility: hidden;
-      transition: 0.28s ease;
-      z-index: 1298;
-    }
-
-    .menu-overlay.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .side-menu {
-      position: fixed;
-      top: 0;
-      left: -330px;
-      width: 300px;
-      max-width: 85vw;
-      height: 100%;
-      background: linear-gradient(180deg, #fffefe 0%, #fcf2f6 100%);
-      box-shadow: 12px 0 32px rgba(0, 0, 0, 0.14);
-      z-index: 1299;
-      transition: left 0.28s ease;
-      overflow-y: auto;
-    }
-
-    .side-menu.open {
-      left: 0;
-    }
-
-    .side-menu-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 18px 14px;
-      border-bottom: 1px solid #f0e4ea;
-      margin-bottom: 8px;
-    }
-
-    .side-menu-title {
-      font-size: 22px;
-      font-weight: bold;
-      color: #7b5564;
-    }
-
-    .close-btn {
-      background: transparent;
-      border: 0;
-      font-size: 30px;
-      line-height: 1;
-      color: #7b5564;
-      cursor: pointer;
-    }
-
-    .side-menu a {
-      display: block;
-      padding: 16px 22px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #7b5564;
-      border-bottom: 1px solid #f4e9ee;
-    }
-
-    .side-menu a:hover {
-      background: #fcf3f7;
-    }
-
-    .hero {
-      padding: 90px 20px 60px;
-      text-align: center;
-      background: linear-gradient(rgba(255,250,252,0.72), rgba(255,250,252,0.90));
-      border-bottom: 1px solid rgba(220, 191, 202, 0.35);
-    }
-
-    .hero-box {
-      max-width: 980px;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.75);
-      border: 1px solid rgba(222,194,204,0.55);
-      border-radius: 36px;
-      padding: 42px 28px;
-      box-shadow: 0 20px 50px rgba(153,115,130,0.12);
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 52px;
-      color: #7b5564;
-    }
-
-    .hero-text {
-      max-width: 780px;
-      margin: 18px auto 0;
-      font-size: 20px;
-      line-height: 1.9;
-      color: #6d5962;
-    }
-
-    .container {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 34px 18px 70px;
-    }
-
-    .section {
-      background: rgba(255,255,255,0.84);
-      border: 1px solid rgba(224,195,206,0.50);
-      border-radius: 34px;
-      padding: 42px 28px;
-      margin: 28px 0;
-      box-shadow: 0 18px 40px rgba(173,139,152,0.11);
-    }
-
-    .section h2 {
-      margin: 0 0 18px;
-      text-align: center;
-      font-size: 34px;
-      color: #7b5564;
-    }
-
-    .section p {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-      font-size: 18px;
-      line-height: 1.9;
-      color: #6d5962;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 22px;
-      margin-top: 28px;
-    }
-
-    .card {
-      background: linear-gradient(180deg, #fffefe 0%, #fcf3f7 100%);
-      border: 1px solid rgba(223, 194, 205, 0.48);
-      border-radius: 28px;
-      padding: 28px 22px;
-      box-shadow: 0 14px 28px rgba(169, 135, 149, 0.10);
-      text-align: center;
-      min-height: 220px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .card h3 {
-      margin: 0 0 14px;
-      font-size: 26px;
-      color: #7b5564;
-    }
-
-    .card p {
-      margin: 0;
-      font-size: 17px;
-      line-height: 1.8;
-      color: #6e5a63;
-    }
-
-    footer {
-      text-align: center;
-      padding: 32px 20px 50px;
-      color: #866873;
-      font-size: 15px;
-    }
-
-    @media (max-width: 768px) {
-      .brand {
-        font-size: 20px;
-      }
-
-      h1 {
-        font-size: 38px;
-      }
-
-      .hero-text {
-        font-size: 18px;
-      }
-
-      .section {
-        padding: 30px 18px;
-      }
-
-      .section h2 {
-        font-size: 28px;
-      }
-
-      .card h3 {
-        font-size: 22px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moje kotki | Akwamaryn*PL</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Georgia,"Times New Roman",serif;background:linear-gradient(180deg,#fffafc 0%,#f8eef3 100%);color:#654f58;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+.topbar{position:sticky;top:0;z-index:3000;background:rgba(255,248,251,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(218,189,200,0.2);}
+.topbar-inner{max-width:1200px;margin:auto;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
+.brand{font-size:24px;font-weight:600;color:#7a5665;white-space:nowrap;}
+.nav-links{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;font-size:16px;color:#7a5665;}
+.nav-links a{font-weight:600;}
+.container{max-width:1200px;margin:auto;padding:40px 20px;}
+.section{background:white;padding:40px;border-radius:30px;margin-bottom:30px;box-shadow:0 14px 34px rgba(0,0,0,0.05);}
+.section h1,.section h2{text-align:center;margin-bottom:20px;font-size:34px;color:#7a5665;}
+.section p{max-width:920px;margin:auto;text-align:center;font-size:19px;line-height:1.8;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:26px;}
+.card{background:#fff8fb;border:1px solid #f0dfe6;border-radius:24px;padding:24px;text-align:center;}
+.card h3{font-size:26px;margin-bottom:12px;color:#7a5665;}
+.card p{font-size:17px;line-height:1.7;}
+footer{text-align:center;padding:30px;font-size:14px;color:#866873;}
+@media(max-width:768px){
+.section{padding:28px 18px;}
+.section h1,.section h2{font-size:28px;}
+.section p{font-size:17px;}
+.nav-links{gap:12px;font-size:14px;}
+.brand{font-size:20px;}
+.card h3{font-size:22px;}
+}
+</style>
 </head>
 <body>
 
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">Akwamaryn PL</div>
-      <button class="menu-toggle" onclick="openMenu()">☰ Menu</button>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><a href="index.html">Akwamaryn*PL</a></div>
+    <div class="nav-links">
+      <a href="index.html">Strona główna</a>
+      <a href="kotki.html">Moje kotki</a>
+      <a href="kocury.html">Kocury hodowlane</a>
+      <a href="kocieta.html">Moje kocięta</a>
+      <a href="miot.html">Aktualny miot</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="rezerwacja.html">Rezerwacja</a>
+      <a href="kontakt.html">Kontakt</a>
     </div>
   </div>
+</div>
 
-  <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+<div class="container">
+  <section class="section">
+    <h1>Moje kotki</h1>
+    <p>
+      W tej zakładce możesz przedstawić swoje kotki hodowlane, ich charakter, pochodzenie, umaszczenie oraz najważniejsze informacje o każdej z nich. To idealne miejsce, aby opisać dziewczynki tworzące Twoją hodowlę.
+    </p>
+  </section>
 
-  <div class="side-menu" id="sideMenu">
-    <div class="side-menu-header">
-      <div class="side-menu-title">Akwamaryn PL</div>
-      <button class="close-btn" onclick="closeMenu()">×</button>
-    </div>
-
-    <a href="index.html">Strona główna</a>
-    <a href="index.html#onas">O nas</a>
-    <a href="kotki.html">Kotki hodowlane</a>
-    <a href="kocury.html">Kocury hodowlane</a>
-    <a href="miot.html">Aktualny miot</a>
-    <a href="kocieta.html">Kocięta z naszej hodowli</a>
-    <a href="galeria.html">Galeria</a>
-    <a href="rezerwacja.html">Rezerwacja</a>
-    <a href="kontakt.html">Kontakt</a>
-  </div>
-
-  <section class="hero">
-    <div class="hero-box">
-      <h1>Kotki hodowlane</h1>
-      <div class="hero-text">
-        W tej sekcji znajdą się nasze kotki hodowlane. Później uzupełnimy ją
-        o imiona, opisy, umaszczenia i wszystkie najważniejsze informacje o każdej kotce.
+  <section class="section">
+    <h2>Kotki hodowlane</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Imię kotki</h3>
+        <p>Tu możesz wpisać opis kotki, jej rasę, umaszczenie, charakter i najważniejsze informacje.</p>
+      </div>
+      <div class="card">
+        <h3>Imię kotki</h3>
+        <p>Tu możesz wpisać opis kolejnej kotki hodowlanej, jej cechy i wszystko, co chcesz pokazać odwiedzającym.</p>
+      </div>
+      <div class="card">
+        <h3>Imię kotki</h3>
+        <p>To miejsce możesz wykorzystać na kolejną kotkę lub pozostawić na przyszłość.</p>
       </div>
     </div>
   </section>
+</div>
 
-  <div class="container">
-    <section class="section">
-      <h2>Nasze kotki</h2>
-      <p>
-        To miejsce przygotowane pod prezentację kotek hodowlanych. Na razie układ
-        jest uporządkowany i gotowy, a w kolejnym kroku wstawimy tu prawidłowe dane
-        i opisy każdej kotki osobno.
-      </p>
-
-      <div class="cards">
-        <div class="card">
-          <h3>Kotka 1</h3>
-          <p>
-            Tutaj później dodamy imię, rasę, umaszczenie i krótki opis tej kotki.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Kotka 2</h3>
-          <p>
-            Tutaj później dodamy imię, rasę, umaszczenie i krótki opis tej kotki.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Kotka 3</h3>
-          <p>
-            Tutaj później dodamy imię, rasę, umaszczenie i krótki opis tej kotki.
-          </p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <footer>
-    © 2026 Akwamaryn PL | Agnieszka Markowska
-  </footer>
-
-  <script>
-    function openMenu() {
-      document.getElementById("sideMenu").classList.add("open");
-      document.getElementById("menuOverlay").classList.add("open");
-    }
-
-    function closeMenu() {
-      document.getElementById("sideMenu").classList.remove("open");
-      document.getElementById("menuOverlay").classList.remove("open");
-    }
-  </script>
-
+<footer>© 2026 Akwamaryn*PL</footer>
 </body>
 </html>
