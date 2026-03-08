@@ -30,10 +30,10 @@ color:inherit;
 .topbar{
 position:sticky;
 top:0;
-background:rgba(255,248,251,0.9);
-backdrop-filter:blur(8px);
+background:rgba(255,248,251,0.92);
+backdrop-filter:blur(10px);
 z-index:2000;
-border-bottom:1px solid #eee;
+border-bottom:1px solid rgba(218,189,200,0.2);
 }
 
 .topbar-inner{
@@ -47,8 +47,8 @@ align-items:center;
 
 .brand{
 font-size:24px;
-font-weight:600;
 color:#7a5665;
+font-weight:600;
 }
 
 .menu-toggle{
@@ -60,7 +60,7 @@ cursor:pointer;
 font-size:18px;
 }
 
-/* MENU BOCZNE */
+/* MENU */
 
 .side-menu{
 position:fixed;
@@ -97,7 +97,9 @@ color:white;
 padding:14px 10px;
 border-radius:14px 0 0 14px;
 writing-mode:vertical-rl;
+text-orientation:mixed;
 font-weight:700;
+z-index:3000;
 }
 
 /* HERO */
@@ -105,28 +107,38 @@ font-weight:700;
 .hero{
 position:relative;
 width:100%;
-min-height:80vh;
+min-height:85vh;
 display:flex;
 align-items:flex-end;
 justify-content:center;
-text-align:center;
-padding-bottom:60px;
+padding:40px 20px 80px;
 overflow:hidden;
 }
 
-/* zdjęcie kotów */
+/* kontener zdjęcia */
 
-.hero img{
+.hero-image{
 position:absolute;
 top:0;
 left:0;
 width:100%;
 height:100%;
-object-fit:cover;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:40px;
 z-index:0;
 }
 
-/* gradient wtapiający zdjęcie w tło */
+/* zdjęcie */
+
+.hero-image img{
+max-width:100%;
+max-height:100%;
+object-fit:contain;
+}
+
+/* rozmycie wtopienia */
 
 .hero::after{
 content:"";
@@ -134,26 +146,28 @@ position:absolute;
 bottom:0;
 left:0;
 width:100%;
-height:40%;
+height:220px;
 background:linear-gradient(to bottom, rgba(255,250,252,0) 0%, #fffafc 100%);
 z-index:1;
 }
 
-/* okienko z napisem */
+/* okno z napisem */
 
 .hero-box{
 position:relative;
 z-index:2;
-background:rgba(255,255,255,0.25);
-backdrop-filter:blur(6px);
+background:rgba(255,255,255,0.35);
+backdrop-filter:blur(8px);
 border-radius:40px;
-padding:24px 40px;
+padding:24px 36px;
+text-align:center;
 }
 
 .hero-title{
 font-size:48px;
-letter-spacing:6px;
+letter-spacing:4px;
 color:#7a5665;
+font-weight:600;
 }
 
 .hero-sub{
@@ -175,12 +189,14 @@ background:white;
 padding:40px;
 border-radius:30px;
 margin-bottom:30px;
+box-shadow:0 14px 34px rgba(0,0,0,0.05);
 }
 
 .section h2{
 text-align:center;
 margin-bottom:20px;
 font-size:34px;
+color:#7a5665;
 }
 
 .section p{
@@ -207,6 +223,8 @@ text-align:center;
 .logo-card img{
 max-width:200px;
 margin-bottom:14px;
+width:100%;
+height:auto;
 }
 
 /* STOPKA */
@@ -215,23 +233,50 @@ footer{
 text-align:center;
 padding:30px;
 font-size:14px;
+color:#866873;
 }
 
-/* TELEFON */
+/* RESPONSYWNOŚĆ */
 
-@media(max-width:768px){
-
-.hero{
-min-height:60vh;
-}
+@media(max-width:900px){
 
 .hero-title{
-font-size:30px;
+font-size:36px;
 letter-spacing:2px;
 }
 
 .hero-sub{
+font-size:17px;
+}
+
+.hero{
+min-height:70vh;
+}
+
+}
+
+@media(max-width:768px){
+
+.hero{
+min-height:65vh;
+padding:20px 10px 60px;
+}
+
+.hero-title{
+font-size:28px;
+letter-spacing:1px;
+}
+
+.hero-sub{
 font-size:16px;
+}
+
+.section{
+padding:28px 18px;
+}
+
+.section h2{
+font-size:28px;
 }
 
 .section p{
@@ -258,7 +303,7 @@ font-size:17px;
 <a href="kotki.html">Kotki hodowlane</a>
 <a href="kocury.html">Kocury hodowlane</a>
 <a href="miot.html">Aktualny miot</a>
-<a href="kocieta.html">Kocięta</a>
+<a href="kocieta.html">Kocięta z naszej hodowli</a>
 <a href="galeria.html">Galeria</a>
 <a href="rezerwacja.html">Rezerwacja</a>
 <a href="kontakt.html">Kontakt</a>
@@ -268,7 +313,9 @@ font-size:17px;
 
 <section class="hero">
 
-<img src="file_00000000a6c87243902e6d68aaef4518.png" alt="Ragdoll kittens">
+<div class="hero-image">
+<img src="file_00000000a9f4720ab60032632f8d464e.png">
+</div>
 
 <div class="hero-box">
 <div class="hero-title">AKWAMARYN*PL</div>
@@ -283,8 +330,7 @@ font-size:17px;
 <h2>O nas</h2>
 
 <p>
-Akwamaryn*PL to domowa hodowla kotów rasowych prowadzona z ogromnej pasji do tych niezwykłych zwierząt. W naszej hodowli mieszkają koty rasy Ragdoll oraz koty norweskie leśne. 
-Naszym priorytetem jest zdrowie, doskonała socjalizacja oraz wychowanie kociąt w atmosferze spokoju i miłości. Każdy kot w naszej hodowli traktowany jest jak członek rodziny, dzięki czemu kocięta wyrastają na zrównoważone, ufne i wyjątkowo towarzyskie zwierzęta.
+Akwamaryn*PL to domowa hodowla kotów rasowych prowadzona z ogromnej pasji do tych niezwykłych zwierząt. W naszej hodowli mieszkają koty rasy Ragdoll oraz koty norweskie leśne. Naszym priorytetem jest zdrowie, doskonała socjalizacja oraz wychowanie kociąt w atmosferze spokoju i miłości. Każdy kot w naszej hodowli traktowany jest jak członek rodziny.
 </p>
 
 </section>
@@ -296,14 +342,12 @@ Naszym priorytetem jest zdrowie, doskonała socjalizacja oraz wychowanie kociąt
 
 <div class="logo-card">
 <img src="Logo-WCF-green_transparent (1).png">
-<h3>WCF</h3>
-<p>World Cat Federation to międzynarodowa organizacja felinologiczna zrzeszająca hodowców kotów rasowych z całego świata.</p>
+<p>World Cat Federation</p>
 </div>
 
 <div class="logo-card">
 <img src="file_0000000057e87243a0ccc6268d392dfa.jpg">
-<h3>SKR</h3>
-<p>Stowarzyszenie Koty Rasowe to organizacja wspierająca hodowle kotów rasowych oraz promująca odpowiedzialną felinologię.</p>
+<p>Stowarzyszenie Koty Rasowe</p>
 </div>
 
 </div>
