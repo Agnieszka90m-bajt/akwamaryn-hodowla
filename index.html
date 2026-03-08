@@ -177,24 +177,17 @@
       transform:scale(1.01);
     }
 
-    /* PODMIENIONA CHMURA */
-
     .hero-box{
       position:relative;
       z-index:2;
       width:min(88%,760px);
       margin-top:380px;
-
-      background:transparent;
-
-      backdrop-filter:blur(20px);
-      -webkit-backdrop-filter:blur(20px);
-
-      border:1px solid rgba(255,255,255,0.18);
-
+      background:rgba(255,255,255,0.02);
+      backdrop-filter:blur(30px) saturate(140%);
+      -webkit-backdrop-filter:blur(30px) saturate(140%);
+      border:1px solid rgba(255,255,255,0.25);
       border-radius:40px;
       padding:34px 28px;
-
       box-shadow:0 10px 30px rgba(0,0,0,0.04);
     }
 
@@ -278,6 +271,71 @@
       box-shadow:0 18px 40px rgba(173,139,152,0.08);
     }
 
+    .section h2{
+      margin:0 0 18px;
+      text-align:center;
+      font-size:38px;
+      color:#7a5665;
+      font-weight:600;
+    }
+
+    .section p{
+      max-width:940px;
+      margin:0 auto;
+      text-align:center;
+      font-size:20px;
+      line-height:1.9;
+      color:#6d5962;
+    }
+
+    .logos-box{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:24px;
+      margin-top:28px;
+      align-items:stretch;
+    }
+
+    .logo-card{
+      background:rgba(255,255,255,0.72);
+      border:1px solid rgba(223,194,205,0.40);
+      border-radius:30px;
+      padding:28px 22px;
+      box-shadow:0 14px 28px rgba(169,135,149,0.08);
+      text-align:center;
+    }
+
+    .logo-card img{
+      max-width:180px;
+      max-height:140px;
+      width:auto;
+      height:auto;
+      display:block;
+      margin:0 auto 16px;
+    }
+
+    .logo-card h3{
+      margin:0 0 10px;
+      font-size:26px;
+      color:#7a5665;
+      font-weight:600;
+    }
+
+    .logo-card p{
+      margin:0;
+      font-size:17px;
+      line-height:1.8;
+      color:#6e5a63;
+    }
+
+    .contact-box{
+      text-align:center;
+    }
+
+    .contact-box p{
+      font-size:22px;
+    }
+
     footer{
       text-align:center;
       padding:30px 20px 46px;
@@ -285,16 +343,107 @@
       font-size:15px;
     }
 
+    @media (max-width:900px){
+      .brand{
+        font-size:24px;
+      }
+
+      h1{
+        font-size:56px;
+      }
+
+      .hero-text{
+        font-size:19px;
+      }
+
+      .hero-box{
+        margin-top:310px;
+      }
+    }
+
+    @media (max-width:768px){
+      .brand{
+        font-size:20px;
+      }
+
+      .menu-toggle{
+        font-size:16px;
+        padding:10px 14px;
+      }
+
+      .hero{
+        min-height:82vh;
+        padding:28px 16px 40px;
+      }
+
+      .hero::before{
+        background:
+          linear-gradient(rgba(255,250,252,0.01), rgba(255,250,252,0.03)),
+          url("file_000000007658720aa3e0e1312a65953c.png") center top / cover no-repeat;
+        opacity:0.98;
+      }
+
+      .hero-box{
+        width:min(92%,760px);
+        margin-top:260px;
+        background:rgba(255,255,255,0.02);
+        backdrop-filter:blur(24px) saturate(140%);
+        -webkit-backdrop-filter:blur(24px) saturate(140%);
+        padding:24px 18px;
+      }
+
+      h1{
+        font-size:42px;
+        letter-spacing:0.3px;
+      }
+
+      .hero-text{
+        font-size:18px;
+      }
+
+      .section{
+        padding:30px 18px;
+      }
+
+      .section h2{
+        font-size:30px;
+      }
+
+      .section p{
+        font-size:18px;
+      }
+
+      .facebook-side{
+        font-size:15px;
+        padding:14px 9px;
+      }
+    }
   </style>
 </head>
-
 <body>
 
   <div class="topbar">
     <div class="topbar-inner">
       <div class="brand">Akwamaryn*PL</div>
-      <button class="menu-toggle">☰ Menu</button>
+      <button class="menu-toggle" onclick="openMenu()">☰ Menu</button>
     </div>
+  </div>
+
+  <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+
+  <div class="side-menu" id="sideMenu">
+    <div class="side-menu-header">
+      <div class="side-menu-title">Akwamaryn*PL</div>
+      <button class="close-btn" onclick="closeMenu()">×</button>
+    </div>
+
+    <a href="index.html" onclick="closeMenu()">Strona główna</a>
+    <a href="#onas" onclick="closeMenu()">O nas</a>
+    <a href="kotki.html">Moje kotki</a>
+    <a href="kocieta.html">Moje kocięta</a>
+    <a href="miot.html">Aktualny miot</a>
+    <a href="rezerwacja.html">Rezerwacja</a>
+    <a href="kontakt.html">Kontakt</a>
   </div>
 
   <a class="facebook-side" href="https://www.facebook.com/share/1NDiWJEyeZ/?mibextid=wwXIfr" target="_blank">Facebook</a>
@@ -308,8 +457,71 @@
         klasy, zdrowia i wyjątkowego charakteru. Każdy nasz kot jest otoczony
         troską, miłością i codzienną opieką.
       </div>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="kocieta.html">Zobacz kocięta</a>
+        <a class="btn btn-secondary" href="kontakt.html">Kontakt</a>
+      </div>
     </div>
   </section>
+
+  <div class="container">
+    <section class="section" id="onas">
+      <h2>O nas</h2>
+      <p>
+        Tutaj możesz opisać swoją hodowlę Akwamaryn*PL. Jak powstała hodowla,
+        jakie masz podejście do kotów, jak wygląda ich wychowanie, socjalizacja
+        i codzienna opieka nad maluchami oraz dorosłymi kotami.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Rejestracje</h2>
+      <div class="logos-box">
+        <div class="logo-card">
+          <img src="wcf.png" alt="Logo WCF">
+          <h3>WCF</h3>
+          <p>
+            Tutaj możesz dodać informację o rejestracji hodowli w World Cat Federation.
+          </p>
+        </div>
+
+        <div class="logo-card">
+          <img src="skr.png" alt="Logo SKR">
+          <h3>SKR</h3>
+          <p>
+            Tutaj możesz dodać informację o swojej rejestracji i przynależności.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Kontakt</h2>
+      <div class="contact-box">
+        <p>
+          Agnieszka Markowska<br>
+          Jeżyczki 61, 76-150 Darłowo<br>
+          Tel. +48 572 992 736
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    © 2026 Akwamaryn*PL | Agnieszka Markowska
+  </footer>
+
+  <script>
+    function openMenu() {
+      document.getElementById("sideMenu").classList.add("open");
+      document.getElementById("menuOverlay").classList.add("open");
+    }
+
+    function closeMenu() {
+      document.getElementById("sideMenu").classList.remove("open");
+      document.getElementById("menuOverlay").classList.remove("open");
+    }
+  </script>
 
 </body>
 </html>
