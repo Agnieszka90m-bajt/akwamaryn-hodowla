@@ -25,15 +25,15 @@ text-decoration:none;
 color:inherit;
 }
 
-/* MENU */
+/* TOPBAR */
 
 .topbar{
 position:sticky;
 top:0;
 background:rgba(255,248,251,0.92);
 backdrop-filter:blur(10px);
-border-bottom:1px solid rgba(218,189,200,0.2);
 z-index:2000;
+border-bottom:1px solid rgba(218,189,200,0.2);
 }
 
 .topbar-inner{
@@ -88,7 +88,7 @@ padding-top:40px;
 padding-bottom:60px;
 }
 
-/* kontener zdjęcia */
+/* zdjęcie */
 
 .hero-image{
 position:relative;
@@ -97,8 +97,6 @@ max-width:1200px;
 margin:auto;
 }
 
-/* zdjęcie */
-
 .hero-image img{
 width:100%;
 height:auto;
@@ -106,7 +104,7 @@ display:block;
 border-radius:30px;
 }
 
-/* ROZMYCIE KRAWĘDZI */
+/* DELIKATNE WTOPIENIE GÓRA / DÓŁ */
 
 .hero-image::before{
 content:"";
@@ -119,10 +117,8 @@ pointer-events:none;
 border-radius:30px;
 
 background:
-linear-gradient(to top,#fffafc 0%,rgba(255,250,252,0) 40%),
-linear-gradient(to bottom,#fffafc 0%,rgba(255,250,252,0) 40%),
-linear-gradient(to left,#fffafc 0%,rgba(255,250,252,0) 40%),
-linear-gradient(to right,#fffafc 0%,rgba(255,250,252,0) 40%);
+linear-gradient(to top,#fffafc 0%,rgba(255,250,252,0) 35%),
+linear-gradient(to bottom,#fffafc 0%,rgba(255,250,252,0) 35%);
 }
 
 /* napis */
@@ -130,7 +126,7 @@ linear-gradient(to right,#fffafc 0%,rgba(255,250,252,0) 40%);
 .hero-box{
 margin-top:20px;
 text-align:center;
-background:rgba(255,255,255,0.4);
+background:rgba(255,255,255,0.35);
 backdrop-filter:blur(6px);
 padding:20px 30px;
 border-radius:30px;
