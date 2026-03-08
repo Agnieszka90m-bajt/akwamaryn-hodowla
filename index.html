@@ -1,329 +1,434 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Akwamaryn*PL</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akwamaryn*PL | Hodowla Kotów Rasowych</title>
+  <meta name="description" content="Akwamaryn*PL - hodowla kotów rasowych">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #222;
+      line-height: 1.6;
+    }
 
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-body{
-font-family:Georgia,"Times New Roman",serif;
-background:linear-gradient(180deg,#fffafc 0%,#f8eef3 100%);
-color:#654f58;
-overflow-x:hidden;
-}
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-a{
-text-decoration:none;
-color:inherit;
-}
+    header {
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-.topbar{
-position:sticky;
-top:0;
-z-index:3000;
-background:rgba(255,248,251,0.8);
-backdrop-filter:blur(12px);
-border-bottom:1px solid rgba(218,189,200,0.2);
-}
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-.topbar-inner{
-max-width:1200px;
-margin:auto;
-padding:16px 20px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-}
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 90px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-.brand{
-font-size:26px;
-font-weight:600;
-color:#7d5968;
-}
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
 
-.menu-toggle{
-background:#f3e4ea;
-border:0;
-padding:10px 16px;
-border-radius:12px;
-font-size:16px;
-cursor:pointer;
-}
+    .logo-box img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
 
-.side-menu{
-position:fixed;
-top:0;
-left:-300px;
-width:260px;
-height:100%;
-background:white;
-box-shadow:10px 0 30px rgba(0,0,0,0.15);
-transition:0.3s;
-z-index:4000;
-padding-top:20px;
-}
+    .logo-text h1 {
+      font-size: 28px;
+      color: #333;
+    }
 
-.side-menu.open{
-left:0;
-}
+    .logo-text p {
+      font-size: 14px;
+      color: #777;
+    }
 
-.side-menu a{
-display:block;
-padding:15px 20px;
-border-bottom:1px solid #eee;
-font-weight:600;
-}
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-.facebook-side{
-position:fixed;
-right:0;
-top:50%;
-transform:translateY(-50%);
-background:#4267B2;
-color:white;
-padding:14px 8px;
-border-radius:12px 0 0 12px;
-font-weight:bold;
-writing-mode:vertical-rl;
-text-orientation:mixed;
-}
+    nav a {
+      font-weight: bold;
+      color: #333;
+      transition: 0.2s;
+    }
 
-.hero{
-position:relative;
-min-height:90vh;
-display:flex;
-justify-content:center;
-align-items:flex-start;
-text-align:center;
-padding-top:60px;
-}
+    nav a:hover {
+      color: #8a6f63;
+    }
 
-.hero::before{
-content:"";
-position:absolute;
-inset:0;
-background:url("file_000000007658720aa3e0e1312a65953c.png") center top/cover no-repeat;
-z-index:-1;
-}
+    .hero {
+      background: linear-gradient(rgba(255,255,255,0.65), rgba(255,255,255,0.65)),
+      url("file_000000057e87243a0ccc626c.jpg") center/cover no-repeat;
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+    }
 
-.hero-box{
-margin-top:360px;
-max-width:760px;
-background:transparent;
-backdrop-filter:blur(18px);
-border-radius:40px;
-padding:30px;
-}
+    .hero-content {
+      max-width: 620px;
+      background: rgba(255,255,255,0.78);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
 
-h1{
-font-size:60px;
-color:#7a5665;
-}
+    .hero-content h2 {
+      font-size: 46px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: #2c2c2c;
+    }
 
-.hero-text{
-margin-top:16px;
-font-size:22px;
-line-height:1.7;
-}
+    .hero-content p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 28px;
+    }
 
-.hero-buttons{
-margin-top:25px;
-}
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
 
-.btn{
-padding:12px 22px;
-border-radius:999px;
-font-weight:600;
-margin:5px;
-display:inline-block;
-}
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
 
-.btn-primary{
-background:#eac8d5;
-}
+    .btn-primary {
+      background: #8a6f63;
+      color: #fff;
+    }
 
-.btn-secondary{
-background:#eee;
-}
+    .btn-primary:hover {
+      background: #755d53;
+    }
 
-.container{
-max-width:1200px;
-margin:auto;
-padding:40px 20px;
-}
+    .btn-secondary {
+      background: #fff;
+      color: #333;
+      border: 1px solid #ddd;
+    }
 
-.section{
-background:white;
-border-radius:30px;
-padding:40px;
-margin:30px 0;
-box-shadow:0 15px 35px rgba(0,0,0,0.08);
-}
+    .btn-secondary:hover {
+      background: #f2f2f2;
+    }
 
-.section h2{
-text-align:center;
-font-size:36px;
-margin-bottom:20px;
-}
+    .section {
+      padding: 70px 0;
+    }
 
-.section p{
-text-align:center;
-font-size:20px;
-line-height:1.8;
-max-width:900px;
-margin:auto;
-}
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-.logos-box{
-display:flex;
-justify-content:center;
-gap:60px;
-flex-wrap:wrap;
-margin-top:30px;
-}
+    .section-title h3 {
+      font-size: 34px;
+      margin-bottom: 10px;
+      color: #333;
+    }
 
-.logo-card{
-text-align:center;
-max-width:300px;
-}
+    .section-title p {
+      color: #666;
+      font-size: 17px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
 
-.logo-card img{
-width:220px;
-height:auto;
-display:block;
-margin:auto;
-}
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
 
-.logo-card h3{
-margin-top:12px;
-font-size:24px;
-}
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
 
-footer{
-text-align:center;
-padding:30px;
-color:#866873;
-}
+    .card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
 
-</style>
+    .card-content {
+      padding: 22px;
+    }
+
+    .card-content h4 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .card-content p {
+      color: #666;
+      font-size: 16px;
+    }
+
+    .wcf-section {
+      background: #ffffff;
+    }
+
+    .wcf-box {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 30px;
+      align-items: center;
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .wcf-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fafafa;
+      border-radius: 16px;
+      padding: 20px;
+      min-height: 220px;
+    }
+
+    .wcf-logo img {
+      width: 100%;
+      max-width: 240px;
+      max-height: 180px;
+      object-fit: contain;
+    }
+
+    .wcf-text h3 {
+      font-size: 30px;
+      margin-bottom: 16px;
+      color: #333;
+    }
+
+    .wcf-text p {
+      font-size: 17px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .contact-box {
+      text-align: center;
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .contact-box h3 {
+      font-size: 34px;
+      margin-bottom: 14px;
+      color: #333;
+    }
+
+    .contact-box p {
+      font-size: 17px;
+      color: #666;
+      margin-bottom: 22px;
+    }
+
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 28px 20px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 992px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .wcf-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 520px;
+      }
+
+      .hero-content h2 {
+        font-size: 36px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header-inner {
+        justify-content: center;
+        padding: 14px 0;
+      }
+
+      .logo-box {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero-content {
+        padding: 24px;
+      }
+
+      .hero-content h2 {
+        font-size: 30px;
+      }
+
+      .section-title h3,
+      .contact-box h3,
+      .wcf-text h3 {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="topbar">
-<div class="topbar-inner">
-<div class="brand">Akwamaryn*PL</div>
-<button class="menu-toggle" onclick="openMenu()">☰ Menu</button>
-</div>
-</div>
+  <header>
+    <div class="container header-inner">
+      <div class="logo-box">
+        <img src="file_0000000002ca8720a9b4f895839332ce1.jpg" alt="Logo Akwamaryn">
+        <div class="logo-text">
+          <h1>Akwamaryn*PL</h1>
+          <p>Hodowla Kotów Rasowych</p>
+        </div>
+      </div>
 
-<div class="side-menu" id="menu">
-<a href="index.html">Strona główna</a>
-<a href="#onas">O nas</a>
-<a href="kotki.html">Moje kotki</a>
-<a href="kocieta.html">Moje kocięta</a>
-<a href="miot.html">Aktualny miot</a>
-<a href="galeria.html">Galeria</a>
-<a href="rezerwacja.html">Rezerwacja</a>
-<a href="kontakt.html">Kontakt</a>
-</div>
+      <nav>
+        <a href="index.html">Start</a>
+        <a href="kocury.html">Kocury</a>
+        <a href="kocieta.html">Kocięta</a>
+        <a href="galeria.html">Galeria</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+    </div>
+  </header>
 
-<a class="facebook-side" href="https://www.facebook.com/share/1NDiWJEyeZ/?mibextid=wwXIfr" target="_blank">Facebook</a>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h2>Witamy w hodowli Akwamaryn*PL</h2>
+        <p>Domowa hodowla kotów rasowych tworzona z pasją, miłością i troską o najwyższy standard opieki, zdrowia oraz socjalizacji.</p>
+        <div class="buttons">
+          <a href="kocieta.html" class="btn btn-primary">Zobacz kocięta</a>
+          <a href="kontakt.html" class="btn btn-secondary">Kontakt</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section class="hero">
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h3>O naszej hodowli</h3>
+        <p>Nasze koty wychowują się w warunkach domowych, w bliskości człowieka, z ogromną troską o ich rozwój, charakter i najlepszy start.</p>
+      </div>
 
-<div class="hero-box">
+      <div class="cards">
+        <div class="card">
+          <img src="file_000000076558720aa3e0e131.jpg" alt="Kocury">
+          <div class="card-content">
+            <h4>Nasze kocury</h4>
+            <p>Poznajte wyjątkowych reproduktorów naszej hodowli, ich urodę, typ i charakter.</p>
+          </div>
+        </div>
 
-<div style="letter-spacing:2px;font-size:12px;margin-bottom:10px;">
-AKWAMARYN*PL
-</div>
+        <div class="card">
+          <img src="file_000000057e87243a0ccc626c.jpg" alt="Kotki">
+          <div class="card-content">
+            <h4>Nasze kotki</h4>
+            <p>Piękne i wyjątkowe kotki, które są sercem naszej hodowli i przyszłych miotów.</p>
+          </div>
+        </div>
 
-<h1>Akwamaryn*PL</h1>
+        <div class="card">
+          <img src="file_0000000002ca8720a9b4f895839332ce1.jpg" alt="Kocięta">
+          <div class="card-content">
+            <h4>Nasze kocięta</h4>
+            <p>Maluchy wychowywane z miłością, odpowiedzialnością i pełnym zaangażowaniem od pierwszych dni życia.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="hero-text">
-Luksusowa, domowa hodowla kotów rasowych stworzona z pasji do piękna,
-klasy, zdrowia i wyjątkowego charakteru.
-</div>
+  <section class="section wcf-section">
+    <div class="container">
+      <div class="wcf-box">
+        <div class="wcf-logo">
+          <img src="Logo-WCF-green_transparent (1).png" alt="Logo WCF">
+        </div>
+        <div class="wcf-text">
+          <h3>WCF Registered Cattery</h3>
+          <p>Nasza hodowla działa zgodnie ze standardami międzynarodowej organizacji felinologicznej WCF.</p>
+          <p>Logo zostało ustawione tak, żeby wyświetlało się w całości i nie było nigdzie ucinane.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="hero-buttons">
-<a class="btn btn-primary" href="kocieta.html">Zobacz kocięta</a>
-<a class="btn btn-secondary" href="kontakt.html">Kontakt</a>
-</div>
+  <section class="section">
+    <div class="container">
+      <div class="contact-box">
+        <h3>Zapraszamy do kontaktu</h3>
+        <p>Jeśli chcesz dowiedzieć się więcej o naszej hodowli, planowanych miotach lub dostępnych kociętach, skontaktuj się z nami.</p>
+        <a href="kontakt.html" class="btn btn-primary">Przejdź do kontaktu</a>
+      </div>
+    </div>
+  </section>
 
-</div>
-</section>
-
-<div class="container">
-
-<section class="section" id="onas">
-<h2>O nas</h2>
-
-<p>
-Akwamaryn*PL to domowa hodowla kotów rasowych stworzona z prawdziwej pasji do piękna, harmonii i wyjątkowego charakteru kotów. Nasze koty są pełnoprawnymi członkami rodziny i wychowują się w domu w atmosferze spokoju, miłości i codziennej troski. Ogromną wagę przywiązujemy do właściwej socjalizacji, zdrowia, żywienia oraz komfortu każdego kota i każdego kocięcia od pierwszych dni życia. Zależy nam nie tylko na urodzie i typie, ale przede wszystkim na zdrowiu, cudownym charakterze oraz odpowiedzialnym doborze przyszłych opiekunów dla naszych maluchów.
-</p>
-
-</section>
-
-<section class="section">
-
-<h2>Rejestracje</h2>
-
-<div class="logos-box">
-
-<div class="logo-card">
-<img src="file_000000002ca8720a9b4f895839332ce1.jpg">
-<h3>WCF</h3>
-<p>
-Nasza hodowla jest zarejestrowana w World Cat Federation, międzynarodowej organizacji felinologicznej.
-</p>
-</div>
-
-<div class="logo-card">
-<img src="file_0000000057e87243a0ccc6268d392dfa.jpg">
-<h3>SKR</h3>
-<p>
-Hodowla Akwamaryn*PL należy do Stowarzyszenia Koty Rasowe.
-</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2>Kontakt</h2>
-
-<p>
-Agnieszka Markowska<br>
-Jeżyczki 61<br>
-76-150 Darłowo<br>
-Tel. +48 572 992 736
-</p>
-
-</section>
-
-</div>
-
-<footer>
-© 2026 Akwamaryn*PL
-</footer>
-
-<script>
-
-function openMenu(){
-document.getElementById("menu").classList.toggle("open");
-}
-
-</script>
+  <footer>
+    Akwamaryn*PL | Hodowla Kotów Rasowych | WCF Registered Cattery
+  </footer>
 
 </body>
 </html>
