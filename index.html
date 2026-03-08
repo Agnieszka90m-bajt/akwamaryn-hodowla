@@ -7,15 +7,7 @@
 
 <style>
 
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
-
-html{
-scroll-behavior:smooth;
-}
+*{box-sizing:border-box;margin:0;padding:0;}
 
 body{
 font-family:Georgia,"Times New Roman",serif;
@@ -24,44 +16,37 @@ color:#654f58;
 overflow-x:hidden;
 }
 
-a{
-text-decoration:none;
-color:inherit;
-}
+a{text-decoration:none;color:inherit}
 
-/* GÓRNE MENU */
+/* MENU */
 
 .topbar{
 position:sticky;
 top:0;
+background:rgba(255,248,251,0.8);
+backdrop-filter:blur(10px);
 z-index:3000;
-background:rgba(255,248,251,0.68);
-backdrop-filter:blur(12px);
-border-bottom:1px solid rgba(218,189,200,0.20);
 }
 
 .topbar-inner{
-max-width:1280px;
-margin:0 auto;
+max-width:1200px;
+margin:auto;
 padding:16px 20px;
 display:flex;
-align-items:center;
 justify-content:space-between;
+align-items:center;
 }
 
 .brand{
-font-size:26px;
-font-weight:600;
-color:#7d5968;
+font-size:24px;
+color:#7a5665;
 }
 
 .menu-toggle{
-background:rgba(246,227,234,0.65);
-border:1px solid rgba(208,176,188,0.28);
-border-radius:16px;
-padding:10px 16px;
-font-size:18px;
-color:#7d5968;
+background:#f3e4ea;
+border:0;
+padding:10px 14px;
+border-radius:10px;
 cursor:pointer;
 }
 
@@ -69,27 +54,23 @@ cursor:pointer;
 
 .side-menu{
 position:fixed;
+left:-320px;
 top:0;
-left:-340px;
 width:300px;
 height:100%;
 background:white;
-box-shadow:12px 0 32px rgba(0,0,0,0.14);
-transition:left 0.3s ease;
-z-index:5000;
+box-shadow:10px 0 30px rgba(0,0,0,0.2);
+transition:0.3s;
+z-index:4000;
 }
 
-.side-menu.open{
-left:0;
-}
+.side-menu.open{left:0}
 
 .side-menu a{
 display:block;
-padding:18px 22px;
+padding:18px;
+border-bottom:1px solid #eee;
 font-size:18px;
-font-weight:600;
-color:#7d5968;
-border-bottom:1px solid #f4e9ee;
 }
 
 /* FACEBOOK */
@@ -99,14 +80,12 @@ position:fixed;
 right:0;
 top:50%;
 transform:translateY(-50%);
-z-index:5000;
-background:linear-gradient(180deg,#7c89ca,#536cbc);
-color:#fff;
-padding:16px 10px;
-border-radius:16px 0 0 16px;
-font-size:16px;
-font-weight:700;
+background:#4267B2;
+color:white;
+padding:14px 10px;
+border-radius:14px 0 0 14px;
 writing-mode:vertical-rl;
+font-weight:700;
 }
 
 /* HERO */
@@ -117,8 +96,8 @@ min-height:90vh;
 display:flex;
 align-items:flex-end;
 justify-content:center;
-text-align:center;
 padding-bottom:60px;
+text-align:center;
 }
 
 .hero::before{
@@ -126,54 +105,54 @@ content:"";
 position:absolute;
 inset:0;
 background:url("file_000000007658720aa3e0e1312a65953c.png") center/cover no-repeat;
-z-index:0;
+opacity:0.35; /* tu jest przezroczystość kota */
+filter:blur(1px);
 }
 
 .hero-box{
 position:relative;
 z-index:2;
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.2);
+backdrop-filter:blur(8px);
+padding:28px 40px;
 border-radius:40px;
-padding:24px 36px;
 }
 
 .hero-title{
-font-size:46px;
+font-size:50px;
+letter-spacing:6px;
 color:#7a5665;
-font-weight:600;
 }
 
 .hero-sub{
-margin-top:6px;
 font-size:20px;
-color:#7a5665;
+margin-top:8px;
 }
 
 /* SEKCJE */
 
 .container{
-max-width:1240px;
-margin:0 auto;
-padding:36px 18px 70px;
+max-width:1200px;
+margin:auto;
+padding:40px 20px;
 }
 
 .section{
-background:rgba(255,255,255,0.85);
-border-radius:36px;
-padding:42px 30px;
-margin:28px 0;
+background:white;
+padding:40px;
+border-radius:30px;
+margin-bottom:30px;
 }
 
 .section h2{
 text-align:center;
-font-size:34px;
 margin-bottom:20px;
+font-size:34px;
 }
 
 .section p{
 max-width:900px;
-margin:0 auto;
+margin:auto;
 text-align:center;
 font-size:19px;
 line-height:1.8;
@@ -183,42 +162,24 @@ line-height:1.8;
 
 .logos-box{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:24px;
-margin-top:28px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:20px;
 }
 
-.logo-card{
-text-align:center;
-}
+.logo-card{text-align:center}
 
 .logo-card img{
-max-width:220px;
-height:auto;
-display:block;
-margin:0 auto 16px;
-}
-
-.logo-card p{
-font-size:17px;
-}
-
-/* KONTAKT */
-
-.contact-box{
-text-align:center;
-}
-
-.contact-box p{
-font-size:20px;
+max-width:200px;
+margin-bottom:14px;
 }
 
 /* STOPKA */
 
 footer{
 text-align:center;
-padding:30px 20px 40px;
-font-size:15px;
+padding:30px;
+font-size:14px;
 }
 
 /* TELEFON */
@@ -226,7 +187,8 @@ font-size:15px;
 @media(max-width:768px){
 
 .hero-title{
-font-size:34px;
+font-size:32px;
+letter-spacing:2px; /* na telefonie nie rozciąga */
 }
 
 .hero-sub{
@@ -251,7 +213,7 @@ font-size:17px;
 </div>
 </div>
 
-<div class="side-menu" id="sideMenu">
+<div class="side-menu" id="menu">
 <a href="index.html">Strona główna</a>
 <a href="#onas">O nas</a>
 <a href="kotki.html">Kotki hodowlane</a>
@@ -267,7 +229,7 @@ font-size:17px;
 
 <section class="hero">
 <div class="hero-box">
-<div class="hero-title">Akwamaryn*PL</div>
+<div class="hero-title">AKWAMARYN*PL</div>
 <div class="hero-sub">hodowla kotów rasowych</div>
 </div>
 </section>
@@ -278,13 +240,7 @@ font-size:17px;
 <h2>O nas</h2>
 
 <p>
-Akwamaryn*PL to domowa hodowla kotów rasowych stworzona z prawdziwej pasji do kotów oraz ogromnego szacunku do ich natury, piękna i charakteru. Nasze koty są pełnoprawnymi członkami rodziny i mieszkają razem z nami w domu, dzięki czemu od pierwszych dni życia otoczone są troską, spokojem i codziennym kontaktem z człowiekiem.
-</p>
-
-<br>
-
-<p>
-W naszej hodowli znajdują się koty rasy Ragdoll oraz koty norweskie leśne. Obie rasy zachwycają nie tylko swoim wyjątkowym wyglądem, ale przede wszystkim wspaniałym charakterem.
+Akwamaryn*PL to domowa hodowla kotów rasowych stworzona z prawdziwej pasji do kotów oraz ogromnego szacunku do ich natury. W naszej hodowli znajdują się koty rasy Ragdoll oraz koty norweskie leśne.
 </p>
 
 </section>
@@ -297,7 +253,7 @@ W naszej hodowli znajdują się koty rasy Ragdoll oraz koty norweskie leśne. Ob
 <div class="logo-card">
 <img src="Logo-WCF-green_transparent (1).png">
 <h3>WCF</h3>
-<p>World Cat Federation – międzynarodowa federacja felinologiczna zrzeszająca hodowle kotów rasowych z całego świata.</p>
+<p>World Cat Federation – międzynarodowa federacja felinologiczna zrzeszająca hodowców kotów rasowych.</p>
 </div>
 
 <div class="logo-card">
@@ -313,14 +269,12 @@ W naszej hodowli znajdują się koty rasy Ragdoll oraz koty norweskie leśne. Ob
 <section class="section">
 <h2>Kontakt</h2>
 
-<div class="contact-box">
 <p>
 Agnieszka Markowska<br>
 Jeżyczki 61<br>
 76-150 Darłowo<br>
 Tel. +48 572 992 736
 </p>
-</div>
 
 </section>
 
@@ -332,7 +286,7 @@ Tel. +48 572 992 736
 
 <script>
 function openMenu(){
-document.getElementById("sideMenu").classList.toggle("open");
+document.getElementById("menu").classList.toggle("open");
 }
 </script>
 
