@@ -146,15 +146,16 @@
       padding-left:28px;
     }
 
+    /* FACEBOOK PO PRAWEJ, WYSUWANY */
     .facebook-side{
       position:fixed;
-      right:-92px;
+      right:-74px;
       top:50%;
       transform:translateY(-50%);
-      z-index:1400;
+      z-index:5000;
       background:linear-gradient(180deg,#8f6b79,#6e4f5d);
       color:#fff;
-      padding:18px 16px;
+      padding:18px 14px;
       border-radius:18px 0 0 18px;
       font-size:18px;
       font-weight:700;
@@ -163,41 +164,62 @@
       writing-mode:vertical-rl;
       text-orientation:mixed;
       letter-spacing:1px;
+      display:block;
     }
 
     .facebook-side:hover{
       right:0;
     }
 
+    /* HERO */
     .hero{
+      position:relative;
       min-height:88vh;
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
       padding:40px 20px;
-      background:
-        linear-gradient(rgba(255,250,252,0.10), rgba(255,250,252,0.18)),
-        url("494C47E8-BD8D-4114-80EA-EC8A194DC0BD.jpeg") center/cover no-repeat;
+      background:linear-gradient(180deg,#fdf7fa 0%,#f8eef3 100%);
       border-bottom:1px solid rgba(220,191,202,0.28);
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:url("494C47E8-BD8D-4114-80EA-EC8A194DC0BD.jpeg") center top / contain no-repeat;
+      opacity:0.96;
+      z-index:0;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(rgba(255,250,252,0.06), rgba(255,250,252,0.14));
+      z-index:1;
     }
 
     .hero-box{
+      position:relative;
+      z-index:2;
       width:min(92%, 820px);
-      background:rgba(255,255,255,0.18);
+      background:rgba(255,255,255,0.10);
       backdrop-filter:blur(18px);
       -webkit-backdrop-filter:blur(18px);
-      border:1px solid rgba(255,255,255,0.38);
+      border:1px solid rgba(255,255,255,0.34);
       border-radius:38px;
       padding:34px 30px;
-      box-shadow:0 18px 42px rgba(153,115,130,0.10);
+      box-shadow:0 18px 42px rgba(153,115,130,0.08);
     }
 
     .badge{
       display:inline-block;
       padding:10px 20px;
       border-radius:999px;
-      background:rgba(248,232,239,0.58);
+      background:rgba(248,232,239,0.42);
       color:#8c6673;
       letter-spacing:1.8px;
       text-transform:uppercase;
@@ -249,9 +271,9 @@
     }
 
     .btn-secondary{
-      background:rgba(255,255,255,0.58);
+      background:rgba(255,255,255,0.46);
       color:#765562;
-      border:1px solid rgba(190,153,168,0.34);
+      border:1px solid rgba(190,153,168,0.30);
     }
 
     .btn:hover{
@@ -372,9 +394,13 @@
         padding:28px 16px;
       }
 
+      .hero::before{
+        background:url("494C47E8-BD8D-4114-80EA-EC8A194DC0BD.jpeg") center top / cover no-repeat;
+      }
+
       .hero-box{
         padding:24px 20px;
-        background:rgba(255,255,255,0.18);
+        background:rgba(255,255,255,0.14);
       }
 
       h1{
@@ -399,9 +425,9 @@
       }
 
       .facebook-side{
-        right:-82px;
+        right:-70px;
         font-size:16px;
-        padding:16px 14px;
+        padding:16px 12px;
       }
     }
   </style>
