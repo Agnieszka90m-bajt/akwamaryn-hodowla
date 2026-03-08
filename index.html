@@ -29,6 +29,8 @@ text-decoration:none;
 color:inherit;
 }
 
+/* GÓRNE MENU */
+
 .topbar{
 position:sticky;
 top:0;
@@ -36,7 +38,6 @@ z-index:3000;
 background:rgba(255,248,251,0.68);
 backdrop-filter:blur(12px);
 border-bottom:1px solid rgba(218,189,200,0.20);
-box-shadow:0 8px 24px rgba(171,135,149,0.05);
 }
 
 .topbar-inner{
@@ -49,7 +50,7 @@ justify-content:space-between;
 }
 
 .brand{
-font-size:28px;
+font-size:26px;
 font-weight:600;
 color:#7d5968;
 }
@@ -58,23 +59,24 @@ color:#7d5968;
 background:rgba(246,227,234,0.65);
 border:1px solid rgba(208,176,188,0.28);
 border-radius:16px;
-padding:12px 18px;
+padding:10px 16px;
 font-size:18px;
-font-weight:600;
 color:#7d5968;
 cursor:pointer;
 }
+
+/* MENU BOCZNE */
 
 .side-menu{
 position:fixed;
 top:0;
 left:-340px;
-width:310px;
-max-width:86vw;
+width:300px;
 height:100%;
 background:white;
 box-shadow:12px 0 32px rgba(0,0,0,0.14);
-transition:left 0.30s ease;
+transition:left 0.3s ease;
+z-index:5000;
 }
 
 .side-menu.open{
@@ -83,12 +85,14 @@ left:0;
 
 .side-menu a{
 display:block;
-padding:17px 22px;
-font-size:19px;
+padding:18px 22px;
+font-size:18px;
 font-weight:600;
 color:#7d5968;
 border-bottom:1px solid #f4e9ee;
 }
+
+/* FACEBOOK */
 
 .facebook-side{
 position:fixed;
@@ -103,53 +107,50 @@ border-radius:16px 0 0 16px;
 font-size:16px;
 font-weight:700;
 writing-mode:vertical-rl;
-text-orientation:mixed;
-letter-spacing:1px;
 }
+
+/* HERO */
 
 .hero{
 position:relative;
-min-height:100vh;
+min-height:90vh;
 display:flex;
-align-items:flex-start;
+align-items:flex-end;
 justify-content:center;
 text-align:center;
-padding:40px 20px 60px;
-overflow:hidden;
+padding-bottom:60px;
 }
 
 .hero::before{
 content:"";
 position:absolute;
 inset:0;
-background:url("file_000000007658720aa3e0e1312a65953c.png") center top/cover no-repeat;
-opacity:0.98;
+background:url("file_000000007658720aa3e0e1312a65953c.png") center/cover no-repeat;
 z-index:0;
 }
 
 .hero-box{
 position:relative;
 z-index:2;
-width:min(88%,760px);
-margin-top:380px;
-background:transparent;
-backdrop-filter:blur(18px);
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
 border-radius:40px;
-padding:34px 28px;
+padding:24px 36px;
 }
 
 .hero-title{
-font-size:48px;
+font-size:46px;
 color:#7a5665;
 font-weight:600;
 }
 
 .hero-sub{
-margin-top:10px;
-font-size:18px;
-letter-spacing:1px;
+margin-top:6px;
+font-size:20px;
 color:#7a5665;
 }
+
+/* SEKCJE */
 
 .container{
 max-width:1240px;
@@ -158,26 +159,27 @@ padding:36px 18px 70px;
 }
 
 .section{
-background:rgba(255,255,255,0.78);
+background:rgba(255,255,255,0.85);
 border-radius:36px;
 padding:42px 30px;
 margin:28px 0;
-box-shadow:0 18px 40px rgba(173,139,152,0.08);
 }
 
 .section h2{
 text-align:center;
-font-size:38px;
-margin-bottom:18px;
+font-size:34px;
+margin-bottom:20px;
 }
 
 .section p{
-max-width:940px;
+max-width:900px;
 margin:0 auto;
 text-align:center;
-font-size:20px;
-line-height:1.9;
+font-size:19px;
+line-height:1.8;
 }
+
+/* LOGA */
 
 .logos-box{
 display:grid;
@@ -197,27 +199,44 @@ display:block;
 margin:0 auto 16px;
 }
 
-.logo-card h3{
-margin-bottom:8px;
-}
-
 .logo-card p{
 font-size:17px;
-line-height:1.7;
-color:#6e5a63;
 }
+
+/* KONTAKT */
 
 .contact-box{
 text-align:center;
 }
 
 .contact-box p{
-font-size:22px;
+font-size:20px;
 }
+
+/* STOPKA */
 
 footer{
 text-align:center;
-padding:30px 20px 46px;
+padding:30px 20px 40px;
+font-size:15px;
+}
+
+/* TELEFON */
+
+@media(max-width:768px){
+
+.hero-title{
+font-size:34px;
+}
+
+.hero-sub{
+font-size:16px;
+}
+
+.section p{
+font-size:17px;
+}
+
 }
 
 </style>
@@ -228,16 +247,18 @@ padding:30px 20px 46px;
 <div class="topbar">
 <div class="topbar-inner">
 <div class="brand">Akwamaryn*PL</div>
-<button class="menu-toggle" onclick="openMenu()">☰ Menu</button>
+<button class="menu-toggle" onclick="openMenu()">☰</button>
 </div>
 </div>
 
 <div class="side-menu" id="sideMenu">
 <a href="index.html">Strona główna</a>
 <a href="#onas">O nas</a>
-<a href="kotki.html">Moje kotki</a>
-<a href="kocieta.html">Moje kocięta</a>
+<a href="kotki.html">Kotki hodowlane</a>
+<a href="kocury.html">Kocury hodowlane</a>
 <a href="miot.html">Aktualny miot</a>
+<a href="kocieta.html">Kocięta z naszej hodowli</a>
+<a href="galeria.html">Galeria</a>
 <a href="rezerwacja.html">Rezerwacja</a>
 <a href="kontakt.html">Kontakt</a>
 </div>
@@ -246,10 +267,8 @@ padding:30px 20px 46px;
 
 <section class="hero">
 <div class="hero-box">
-
 <div class="hero-title">Akwamaryn*PL</div>
 <div class="hero-sub">hodowla kotów rasowych</div>
-
 </div>
 </section>
 
@@ -265,19 +284,7 @@ Akwamaryn*PL to domowa hodowla kotów rasowych stworzona z prawdziwej pasji do k
 <br>
 
 <p>
-W naszej hodowli znajdują się koty rasy Ragdoll oraz koty norweskie leśne. Obie rasy zachwycają nie tylko swoim wyjątkowym wyglądem, ale przede wszystkim wspaniałym charakterem. Ragdolle znane są ze swojej łagodności, przywiązania do człowieka i spokojnego temperamentu, natomiast koty norweskie leśne łączą w sobie naturalne piękno, inteligencję oraz niezwykłą równowagę charakteru.
-</p>
-
-<br>
-
-<p>
-Ogromną wagę przywiązujemy do zdrowia naszych kotów, odpowiedniej opieki, właściwego żywienia oraz starannej socjalizacji kociąt. Naszym celem jest prowadzenie hodowli w sposób odpowiedzialny, z dbałością o dobrostan zwierząt oraz zgodność ze standardami rasowymi.
-</p>
-
-<br>
-
-<p>
-Kocięta urodzone w hodowli Akwamaryn*PL wychowują się w domowej atmosferze, są przyzwyczajone do codziennych dźwięków domu oraz kontaktu z ludźmi. Dzięki temu wyrastają na zrównoważone, ufne i dobrze przygotowane do życia w nowych, kochających domach.
+W naszej hodowli znajdują się koty rasy Ragdoll oraz koty norweskie leśne. Obie rasy zachwycają nie tylko swoim wyjątkowym wyglądem, ale przede wszystkim wspaniałym charakterem.
 </p>
 
 </section>
@@ -288,19 +295,15 @@ Kocięta urodzone w hodowli Akwamaryn*PL wychowują się w domowej atmosferze, s
 <div class="logos-box">
 
 <div class="logo-card">
-<img src="Logo-WCF-green_transparent (1).png" alt="Logo WCF">
+<img src="Logo-WCF-green_transparent (1).png">
 <h3>WCF</h3>
-<p>
-World Cat Federation to międzynarodowa organizacja felinologiczna zrzeszająca hodowców kotów rasowych z całego świata.
-</p>
+<p>World Cat Federation – międzynarodowa federacja felinologiczna zrzeszająca hodowle kotów rasowych z całego świata.</p>
 </div>
 
 <div class="logo-card">
-<img src="file_0000000057e87243a0ccc6268d392dfa.jpg" alt="Logo SKR">
+<img src="file_0000000057e87243a0ccc6268d392dfa.jpg">
 <h3>SKR</h3>
-<p>
-Stowarzyszenie Koty Rasowe wspiera odpowiedzialną hodowlę kotów rasowych w Polsce.
-</p>
+<p>Stowarzyszenie Koty Rasowe wspiera odpowiedzialną hodowlę kotów rasowych w Polsce.</p>
 </div>
 
 </div>
