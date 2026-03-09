@@ -6,26 +6,37 @@
 <title>Moje kotki | Akwamaryn*PL</title>
 
 <style>
-
 *{
 box-sizing:border-box;
 margin:0;
 padding:0;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 font-family:Georgia,"Times New Roman",serif;
 background:linear-gradient(180deg,#fffafc 0%,#f8eef3 100%);
 color:#654f58;
+overflow-x:hidden;
 }
 
-/* MENU */
+a{
+text-decoration:none;
+color:inherit;
+}
+
+/* TOPBAR */
 
 .topbar{
 position:sticky;
 top:0;
 z-index:5000;
 background:rgba(255,248,251,0.95);
+backdrop-filter:blur(10px);
+-webkit-backdrop-filter:blur(10px);
 border-bottom:1px solid rgba(218,189,200,0.2);
 }
 
@@ -58,38 +69,75 @@ color:#7a5665;
 text-decoration:none;
 color:inherit;
 font-size:16px;
+transition:opacity 0.25s ease;
 }
 
-/* SEKCJA */
+.nav-links a:hover{
+opacity:0.72;
+}
+
+/* CONTAINER */
 
 .container{
-max-width:1200px;
+max-width:1240px;
 margin:auto;
-padding:40px 20px;
+padding:38px 20px 70px;
+}
+
+.section{
+background:rgba(255,255,255,0.84);
+border:1px solid rgba(238,221,229,0.7);
+border-radius:38px;
+padding:40px 24px;
+box-shadow:0 20px 40px rgba(173,139,152,0.08);
 }
 
 .section h1{
 text-align:center;
-font-size:48px;
-margin-bottom:30px;
+font-size:54px;
+margin-bottom:18px;
 color:#7a5665;
+line-height:1.05;
+}
+
+.section-intro{
+max-width:930px;
+margin:0 auto 34px;
+text-align:center;
+font-size:19px;
+line-height:1.9;
+color:#6e5a63;
 }
 
 /* KOTKI */
 
 .cats-wrap{
 display:grid;
-gap:30px;
+gap:32px;
 }
 
 .cat-card{
 display:grid;
 grid-template-columns:380px 1fr;
 gap:30px;
-background:white;
-border-radius:30px;
+background:linear-gradient(180deg,#fffefe 0%,#fff7fb 100%);
+border-radius:34px;
 padding:24px;
 box-shadow:0 16px 36px rgba(0,0,0,0.08);
+border:1px solid rgba(240,223,230,0.95);
+transition:transform 0.35s ease, box-shadow 0.35s ease, opacity 0.8s ease;
+opacity:0;
+transform:translateY(26px);
+}
+
+.cat-card.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+.cat-card:hover{
+transform:translateY(-6px);
+box-shadow:0 22px 42px rgba(165,129,144,0.14);
 }
 
 /* RAMKA ZDJĘCIA */
@@ -103,7 +151,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 padding:16px;
-box-shadow:0 12px 28px rgba(0,0,0,0.08);
+box-shadow:inset 0 0 0 1px rgba(244,226,234,0.65), 0 12px 28px rgba(0,0,0,0.08);
 overflow:hidden;
 }
 
@@ -112,223 +160,23 @@ overflow:hidden;
 .cat-photo-frame img{
 max-width:100%;
 max-height:100%;
-border-radius:22px;
+border-radius:24px;
 cursor:pointer;
-transition:0.3s;
+transition:transform 0.35s ease, filter 0.35s ease;
+display:block;
 }
 
 .cat-photo-frame img:hover{
 transform:scale(1.03);
+filter:brightness(1.02);
 }
 
 .cat-info h2{
-font-size:32px;
+font-size:34px;
 margin-bottom:16px;
 color:#7a5665;
+line-height:1.15;
 }
 
 .cat-meta{
-display:grid;
-gap:6px;
-margin-bottom:16px;
-font-size:18px;
-}
-
-.cat-description{
-font-size:18px;
-line-height:1.8;
-}
-
-/* POWIĘKSZENIE ZDJĘCIA */
-
-.lightbox{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.85);
-align-items:center;
-justify-content:center;
-z-index:6000;
-}
-
-.lightbox img{
-max-width:90%;
-max-height:90%;
-border-radius:16px;
-}
-
-footer{
-text-align:center;
-padding:30px;
-color:#866873;
-}
-
-/* RESPONSYWNOŚĆ */
-
-@media(max-width:900px){
-
-.cat-card{
-grid-template-columns:1fr;
-}
-
-.section h1{
-font-size:36px;
-}
-
-.nav-links{
-justify-content:center;
-}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="topbar">
-<div class="topbar-inner">
-
-<div class="brand">
-Akwamaryn*PL
-</div>
-
-<div class="nav-links">
-<a href="index.html">Strona główna</a>
-<a href="kotki.html">Moje kotki</a>
-<a href="kocury.html">Kocury hodowlane</a>
-<a href="kocieta.html">Moje kocięta</a>
-<a href="miot.html">Aktualny miot</a>
-<a href="galeria.html">Galeria</a>
-<a href="rezerwacja.html">Rezerwacja</a>
-<a href="kontakt.html">Kontakt</a>
-</div>
-
-</div>
-</div>
-
-<div class="container">
-
-<section class="section">
-
-<h1>Moje kotki</h1>
-
-<div class="cats-wrap">
-
-<!-- Infinity -->
-
-<div class="cat-card">
-
-<div class="cat-photo-frame">
-<img src="file_0000000094747246a63ed013e526d3c4.png" onclick="openImage(this)">
-</div>
-
-<div class="cat-info">
-
-<h2>Infinity Ragtone*PL</h2>
-
-<div class="cat-meta">
-<div>Rasa: Ragdoll</div>
-<div>Umaszczenie: blue bicolor</div>
-<div>Kod EMS: RAG a 03</div>
-<div>Status: kotka hodowlana</div>
-<div>PKD N/N</div>
-<div>HCM N/N</div>
-<div>FIV/FELV N/N</div>
-</div>
-
-<div class="cat-description">
-Infinity to elegancka kotka ragdoll o spokojnym charakterze i harmonijnej budowie. Wyróżnia się pięknymi niebieskimi oczami oraz łagodnym temperamentem typowym dla rasy.
-</div>
-
-</div>
-</div>
-
-<!-- Prada -->
-
-<div class="cat-card">
-
-<div class="cat-photo-frame">
-<img src="file_0000000050b8724399c9df40c51226df.png" onclick="openImage(this)">
-</div>
-
-<div class="cat-info">
-
-<h2>Prada Pałuckie Pupile*PL</h2>
-
-<div class="cat-meta">
-<div>Rasa: Ragdoll</div>
-<div>Umaszczenie: blue mitted</div>
-<div>Kod EMS: RAG a 04</div>
-<div>Status: kotka hodowlana</div>
-<div>PKD N/N</div>
-<div>HCM N/N</div>
-<div>FIV/FELV N/N</div>
-</div>
-
-<div class="cat-description">
-Prada, w domu nazywana Pandorą, to niezwykle łagodna i kontaktowa kotka o pięknym umaszczeniu blue mitted.
-</div>
-
-</div>
-</div>
-
-<!-- Dalia -->
-
-<div class="cat-card">
-
-<div class="cat-photo-frame">
-<img src="file_00000000a454724689df1045122b6b79.png" onclick="openImage(this)">
-</div>
-
-<div class="cat-info">
-
-<h2>Dalia Pałuckie Pupile*PL</h2>
-
-<div class="cat-meta">
-<div>Rasa: Norweska leśna</div>
-<div>Umaszczenie: niebiesko-srebrny bicolor</div>
-<div>Kod EMS: NFO as 03</div>
-<div>Status: kotka hodowlana</div>
-<div>FIV/FELV N/N</div>
-</div>
-
-<div class="cat-description">
-Dalia to piękna kotka norweska leśna o majestatycznej sylwetce i gęstym futrze. Charakteryzuje się inteligencją, spokojem i naturalnym urokiem tej rasy.
-</div>
-
-</div>
-</div>
-
-</div>
-
-</section>
-
-</div>
-
-<div class="lightbox" id="lightbox" onclick="closeImage()">
-<img id="lightbox-img">
-</div>
-
-<footer>
-© 2026 Akwamaryn*PL
-</footer>
-
-<script>
-
-function openImage(img){
-document.getElementById("lightbox").style.display="flex";
-document.getElementById("lightbox-img").src=img.src;
-}
-
-function closeImage(){
-document.getElementById("lightbox").style.display="none";
-}
-
-</script>
-
-</body>
-</html>
+display
