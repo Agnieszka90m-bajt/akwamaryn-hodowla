@@ -293,15 +293,25 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.88);
+background:rgba(0,0,0,0.92);
 align-items:center;
 justify-content:center;
 z-index:7000;
 padding:20px;
+touch-action:pan-y;
 }
 
 .lightbox.show{
 display:flex;
+}
+
+.lightbox-inner{
+position:relative;
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 .lightbox img{
@@ -309,6 +319,26 @@ max-width:92%;
 max-height:92%;
 border-radius:18px;
 box-shadow:0 24px 55px rgba(0,0,0,0.35);
+user-select:none;
+-webkit-user-drag:none;
+}
+
+.lightbox-close{
+position:absolute;
+top:18px;
+right:18px;
+background:rgba(255,255,255,0.14);
+border:1px solid rgba(255,255,255,0.25);
+color:white;
+font-size:28px;
+line-height:1;
+width:44px;
+height:44px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
 }
 
 /* FOOTER */
@@ -444,7 +474,7 @@ background:#fff;
         <div><strong>Data urodzenia:</strong> 19.12.2025</div>
         <div class="parents-links">
           <strong>Rodzice miotu:</strong>
-          <a href="kotki.html">Infinity Ragtone*PL</a> ×
+          <a href="kotki.html?from=miot#infinity">Infinity Ragtone*PL</a> ×
           <a href="kocury.html#amor">Amor Błękitne Sny*PL</a>
         </div>
         <div><strong>Liczba kociąt:</strong> 4</div>
@@ -515,22 +545,25 @@ background:#fff;
     <h3>Galeria miotu I</h3>
 
     <div class="gallery-grid">
-      <div class="gallery-item"><img src="179CF8BF-14BD-4AFA-847E-81F78A726A84.PNG" alt="Miot I zdjęcie 1" onclick="openImage(this)"></div>
-      <div class="gallery-item"><img src="9DC7F011-E96F-4AAA-ACC2-D31F8355DBC1.PNG" alt="Miot I zdjęcie 2" onclick="openImage(this)"></div>
-      <div class="gallery-item"><img src="16C1FA6C-F8DB-4B6F-9B1F-288C29FB4E21.PNG" alt="Miot I zdjęcie 3" onclick="openImage(this)"></div>
-      <div class="gallery-item"><img src="CC9CBEB4-B120-493A-995C-D30737BC4C55.PNG" alt="Miot I zdjęcie 4" onclick="openImage(this)"></div>
-      <div class="gallery-item"><img src="7609D8BB-1057-42E2-8D4C-BC680CF0DF02.PNG" alt="Miot I zdjęcie 5" onclick="openImage(this)"></div>
-      <div class="gallery-item"><img src="AAC29BB6-5D57-4612-9939-F0D4F3CC8790.jpg" alt="Miot I zdjęcie 6" onclick="openImage(this)"></div>
-      <div class="gallery-item"><img src="IMG_4415.JPG" alt="Miot I zdjęcie 7" onclick="openImage(this)"></div>
-      <div class="gallery-item"><img src="file_0000000054bc720a8316a3473cb9dfed.png" alt="Miot I zdjęcie 8" onclick="openImage(this)"></div>
-      <div class="gallery-item"><img src="file_00000000363c720aba1500940ebf295f.png" alt="Miot I zdjęcie 9" onclick="openImage(this)"></div>
+      <div class="gallery-item"><img src="179CF8BF-14BD-4AFA-847E-81F78A726A84.PNG" alt="Miot I zdjęcie 1" onclick="openImageByIndex(0)"></div>
+      <div class="gallery-item"><img src="9DC7F011-E96F-4AAA-ACC2-D31F8355DBC1.PNG" alt="Miot I zdjęcie 2" onclick="openImageByIndex(1)"></div>
+      <div class="gallery-item"><img src="16C1FA6C-F8DB-4B6F-9B1F-288C29FB4E21.PNG" alt="Miot I zdjęcie 3" onclick="openImageByIndex(2)"></div>
+      <div class="gallery-item"><img src="CC9CBEB4-B120-493A-995C-D30737BC4C55.PNG" alt="Miot I zdjęcie 4" onclick="openImageByIndex(3)"></div>
+      <div class="gallery-item"><img src="7609D8BB-1057-42E2-8D4C-BC680CF0DF02.PNG" alt="Miot I zdjęcie 5" onclick="openImageByIndex(4)"></div>
+      <div class="gallery-item"><img src="AAC29BB6-5D57-4612-9939-F0D4F3CC8790.jpg" alt="Miot I zdjęcie 6" onclick="openImageByIndex(5)"></div>
+      <div class="gallery-item"><img src="IMG_4415.JPG" alt="Miot I zdjęcie 7" onclick="openImageByIndex(6)"></div>
+      <div class="gallery-item"><img src="file_0000000095d07246904e1feee15a0a34.png" alt="Miot I zdjęcie 8" onclick="openImageByIndex(7)"></div>
+      <div class="gallery-item"><img src="file_0000000095d07246904e1feee15a0a34.png" alt="Miot I zdjęcie 9" onclick="openImageByIndex(8)"></div>
     </div>
   </section>
 
 </div>
 
-<div class="lightbox" id="lightbox" onclick="closeImage()">
-  <img id="lightbox-img" alt="">
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeImage()">×</button>
+    <img id="lightbox-img" alt="">
+  </div>
 </div>
 
 <footer>
@@ -538,14 +571,69 @@ background:#fff;
 </footer>
 
 <script>
-function openImage(img){
-document.getElementById("lightbox").classList.add("show");
-document.getElementById("lightbox-img").src = img.src;
-document.getElementById("lightbox-img").alt = img.alt || "";
+const galleryImages = [
+  "179CF8BF-14BD-4AFA-847E-81F78A726A84.PNG",
+  "9DC7F011-E96F-4AAA-ACC2-D31F8355DBC1.PNG",
+  "16C1FA6C-F8DB-4B6F-9B1F-288C29FB4E21.PNG",
+  "CC9CBEB4-B120-493A-995C-D30737BC4C55.PNG",
+  "7609D8BB-1057-42E2-8D4C-BC680CF0DF02.PNG",
+  "AAC29BB6-5D57-4612-9939-F0D4F3CC8790.jpg",
+  "IMG_4415.JPG",
+  "file_0000000095d07246904e1feee15a0a34.png",
+  "file_0000000095d07246904e1feee15a0a34.png"
+];
+
+let currentImageIndex = 0;
+let touchStartX = 0;
+let touchEndX = 0;
+
+function openImageByIndex(index){
+  currentImageIndex = index;
+  const box = document.getElementById("lightbox");
+  const img = document.getElementById("lightbox-img");
+  img.src = galleryImages[currentImageIndex];
+  box.classList.add("show");
 }
 
 function closeImage(){
-document.getElementById("lightbox").classList.remove("show");
+  document.getElementById("lightbox").classList.remove("show");
+}
+
+function showNextImage(){
+  currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+  document.getElementById("lightbox-img").src = galleryImages[currentImageIndex];
+}
+
+function showPrevImage(){
+  currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+  document.getElementById("lightbox-img").src = galleryImages[currentImageIndex];
+}
+
+const lightbox = document.getElementById("lightbox");
+
+lightbox.addEventListener("click", function(e){
+  if(e.target === lightbox){
+    closeImage();
+  }
+});
+
+lightbox.addEventListener("touchstart", function(e){
+  touchStartX = e.changedTouches[0].screenX;
+}, {passive:true});
+
+lightbox.addEventListener("touchend", function(e){
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+}, {passive:true});
+
+function handleSwipe(){
+  const diff = touchEndX - touchStartX;
+  if(Math.abs(diff) < 40) return;
+  if(diff < 0){
+    showNextImage();
+  }else{
+    showPrevImage();
+  }
 }
 </script>
 
