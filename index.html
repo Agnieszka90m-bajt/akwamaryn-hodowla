@@ -93,6 +93,7 @@ box-shadow:10px 0 30px rgba(0,0,0,0.2);
 transition:left 0.3s ease;
 z-index:4000;
 padding-top:20px;
+overflow-y:auto;
 }
 
 .side-menu.open{
@@ -106,6 +107,23 @@ border-bottom:1px solid #eee;
 font-size:18px;
 color:#7a5665;
 font-weight:600;
+}
+
+/* OVERLAY */
+
+.menu-overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.24);
+opacity:0;
+visibility:hidden;
+transition:0.25s ease;
+z-index:3500;
+}
+
+.menu-overlay.open{
+opacity:1;
+visibility:visible;
 }
 
 /* FACEBOOK */
@@ -328,9 +346,8 @@ transform:translateY(0);
 100%{text-shadow:0 0 0 rgba(255,255,255,0);}
 }
 
-/* RESPONSIVE */
-
-@media(max-width:1100px){
+/* TABLET I TELEFON — TU WŁĄCZAMY HAMBURGER */
+@media(max-width:1279px){
 .menu-toggle{
 display:block;
 }
@@ -432,13 +449,6 @@ padding:12px 8px;
 }
 }
 
-@media(min-width:769px) and (max-width:1024px){
-.hero-image{
-object-fit:cover;
-object-position:center center;
-}
-}
-
 </style>
 </head>
 <body>
@@ -462,15 +472,17 @@ object-position:center center;
 </div>
 </div>
 
+<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+
 <div class="side-menu" id="menu">
-<a href="index.html">Strona główna</a>
-<a href="kotki.html">Moje kotki</a>
-<a href="kocury.html">Kocury hodowlane</a>
-<a href="kocieta.html">Moje kocięta</a>
-<a href="miot.html">Aktualny miot</a>
-<a href="galeria.html">Galeria</a>
-<a href="rezerwacja.html">Rezerwacja</a>
-<a href="kontakt.html">Kontakt</a>
+<a href="index.html" onclick="closeMenu()">Strona główna</a>
+<a href="kotki.html" onclick="closeMenu()">Moje kotki</a>
+<a href="kocury.html" onclick="closeMenu()">Kocury hodowlane</a>
+<a href="kocieta.html" onclick="closeMenu()">Moje kocięta</a>
+<a href="miot.html" onclick="closeMenu()">Aktualny miot</a>
+<a href="galeria.html" onclick="closeMenu()">Galeria</a>
+<a href="rezerwacja.html" onclick="closeMenu()">Rezerwacja</a>
+<a href="kontakt.html" onclick="closeMenu()">Kontakt</a>
 </div>
 
 <a class="facebook-side" href="https://www.facebook.com/share/1NDiWJEyeZ/?mibextid=wwXIfr" target="_blank">Facebook</a>
@@ -537,7 +549,13 @@ Tel. +48 572 992 736
 
 <script>
 function openMenu(){
-document.getElementById("menu").classList.toggle("open");
+document.getElementById("menu").classList.add("open");
+document.getElementById("menuOverlay").classList.add("open");
+}
+
+function closeMenu(){
+document.getElementById("menu").classList.remove("open");
+document.getElementById("menuOverlay").classList.remove("open");
 }
 
 const observer = new IntersectionObserver((entries)=>{
