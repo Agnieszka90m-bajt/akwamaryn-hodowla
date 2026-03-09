@@ -6,11 +6,14 @@
 <title>Moje kocury | Akwamaryn*PL</title>
 
 <style>
-
 *{
 box-sizing:border-box;
 margin:0;
 padding:0;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
@@ -25,7 +28,7 @@ text-decoration:none;
 color:inherit;
 }
 
-/* MENU */
+/* TOPBAR */
 
 .topbar{
 position:sticky;
@@ -73,7 +76,7 @@ transition:opacity 0.25s ease;
 opacity:0.72;
 }
 
-/* STRONA */
+/* CONTAINER */
 
 .container{
 max-width:1240px;
@@ -106,7 +109,12 @@ line-height:1.9;
 color:#6e5a63;
 }
 
-/* KARTA */
+/* KOCURY */
+
+.cats-wrap{
+display:grid;
+gap:32px;
+}
 
 .cat-card{
 display:grid;
@@ -115,7 +123,6 @@ gap:30px;
 background:linear-gradient(180deg,#fffefe 0%,#fff7fb 100%);
 border-radius:34px;
 padding:24px;
-margin-bottom:32px;
 box-shadow:0 16px 36px rgba(0,0,0,0.08);
 border:1px solid rgba(240,223,230,0.95);
 transition:transform 0.35s ease, box-shadow 0.35s ease;
@@ -342,119 +349,136 @@ font-size:13px;
 padding:8px 12px;
 }
 }
-
 </style>
 </head>
 
 <body>
 
 <div class="topbar">
-<div class="topbar-inner">
+  <div class="topbar-inner">
+    <div class="brand">Akwamaryn*PL</div>
 
-<div class="brand">
-Akwamaryn*PL
-</div>
-
-<div class="nav-links">
-<a href="index.html">Strona główna</a>
-<a href="kotki.html">Moje kotki</a>
-<a href="kocury.html">Kocury hodowlane</a>
-<a href="kocieta.html">Moje kocięta</a>
-<a href="miot.html">Aktualny miot</a>
-<a href="galeria.html">Galeria</a>
-<a href="rezerwacja.html">Rezerwacja</a>
-<a href="kontakt.html">Kontakt</a>
-</div>
-
-</div>
+    <div class="nav-links">
+      <a href="index.html">Strona główna</a>
+      <a href="kotki.html">Moje kotki</a>
+      <a href="kocury.html">Kocury hodowlane</a>
+      <a href="kocieta.html">Moje kocięta</a>
+      <a href="miot.html">Aktualny miot</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="rezerwacja.html">Rezerwacja</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+  </div>
 </div>
 
 <div class="container">
+  <section class="section">
 
-<section class="section">
+    <h1>Moje kocury</h1>
 
-<h1>Moje kocury</h1>
+    <div class="section-intro">
+      W tej sekcji prezentujemy nasze kocury hodowlane. Każdy z nich wyróżnia się wyjątkową urodą, doskonałym zdrowiem oraz spokojnym charakterem typowym dla rasy ragdoll.
+    </div>
 
-<div class="section-intro">
-W tej sekcji prezentujemy nasze kocury hodowlane. Każdy z nich wyróżnia się wyjątkową urodą, doskonałym zdrowiem oraz spokojnym charakterem typowym dla rasy ragdoll.
-</div>
+    <div class="cats-wrap">
 
-<!-- OREO -->
+      <!-- OREO -->
+      <div class="cat-card">
+        <div class="cat-photo">
+          <div class="cat-photo-frame">
+            <img src="file_000000009f0872438e4ae2b0c8ec575d.jpg" alt="Oreo Pałuckie Pupile*PL" onclick="openImage(this)">
+          </div>
+        </div>
 
-<div class="cat-card">
+        <div class="cat-info">
+          <h2>Oreo Pałuckie Pupile*PL</h2>
 
-<div class="cat-photo">
-<div class="cat-photo-frame">
-<img src="file_000000009f0872438e4ae2b0c8ec575d.jpg" alt="Oreo Pałuckie Pupile*PL" onclick="openImage(this)">
-</div>
-</div>
+          <div class="cat-meta">
+            <div><strong>Rasa:</strong> Ragdoll</div>
+            <div><strong>Umaszczenie:</strong> seal mitted</div>
+            <div><strong>Kod EMS:</strong> RAG n 04</div>
+            <div><strong>Status:</strong> kocur hodowlany</div>
+          </div>
 
-<div class="cat-info">
+          <div class="badges">
+            <span class="badge">PKD N/N</span>
+            <span class="badge">HCM N/N</span>
+            <span class="badge">FIV/FELV N/N</span>
+          </div>
 
-<h2>Oreo Pałuckie Pupile*PL</h2>
+          <div class="cat-description">
+            Oreo to piękny kocur ragdoll o harmonijnej budowie i bardzo spokojnym charakterze. Wyróżnia się intensywnie niebieskimi oczami oraz klasycznym umaszczeniem seal mitted. Jest niezwykle łagodny, kontaktowy i doskonale oddaje typowy charakter tej wyjątkowej rasy.
+          </div>
+        </div>
+      </div>
 
-<div class="cat-meta">
-<div><strong>Rasa:</strong> Ragdoll</div>
-<div><strong>Umaszczenie:</strong> seal mitted</div>
-<div><strong>Kod EMS:</strong> RAG n 04</div>
-<div><strong>Status:</strong> kocur hodowlany</div>
-</div>
+      <!-- ARES -->
+      <div class="cat-card">
+        <div class="cat-photo">
+          <div class="cat-photo-frame">
+            <img src="file_0000000057687246842c044d7fb3e790.png" alt="Ares Chouchou Chat*PL" onclick="openImage(this)">
+          </div>
+        </div>
 
-<div class="badges">
-<span class="badge">PKD N/N</span>
-<span class="badge">HCM N/N</span>
-<span class="badge">FIV/FELV N/N</span>
-</div>
+        <div class="cat-info">
+          <h2>Ares Chouchou Chat*PL</h2>
 
-<div class="cat-description">
-Oreo to piękny kocur ragdoll o harmonijnej budowie i bardzo spokojnym charakterze. Wyróżnia się intensywnie niebieskimi oczami oraz klasycznym umaszczeniem seal mitted. Jest niezwykle łagodny, kontaktowy i doskonale oddaje typowy charakter tej wyjątkowej rasy.
-</div>
+          <div class="cat-meta">
+            <div><strong>Rasa:</strong> Ragdoll</div>
+            <div><strong>Umaszczenie:</strong> blue bicolor lynx</div>
+            <div><strong>Kod EMS:</strong> RAG a 03 21</div>
+            <div><strong>Status:</strong> kocur hodowlany</div>
+          </div>
 
-</div>
+          <div class="badges">
+            <span class="badge">PKD N/N</span>
+            <span class="badge">HCM N/N</span>
+            <span class="badge">FIV/FELV N/N</span>
+          </div>
 
-</div>
+          <div class="cat-description">
+            Ares to imponujący kocur ragdoll o bardzo eleganckiej sylwetce i wyjątkowym umaszczeniu blue bicolor lynx. Charakteryzuje się spokojnym temperamentem, doskonałą budową oraz typowym dla ragdolli łagodnym charakterem. Jest niezwykle kontaktowy i stanowi ważny element programu hodowlanego Akwamaryn*PL.
+          </div>
+        </div>
+      </div>
 
-<!-- ARES -->
+      <!-- AMOR -->
+      <div class="cat-card" id="amor">
+        <div class="cat-photo">
+          <div class="cat-photo-frame">
+            <img src="02D8D665-A28D-49BF-8F27-C4CD270B46E9.PNG" alt="Amor Błękitne Sny*PL" onclick="openImage(this)">
+          </div>
+        </div>
 
-<div class="cat-card">
+        <div class="cat-info">
+          <h2>Amor Błękitne Sny*PL</h2>
 
-<div class="cat-photo">
-<div class="cat-photo-frame">
-<img src="file_0000000057687246842c044d7fb3e790.png" alt="Ares Chouchou Chat*PL" onclick="openImage(this)">
-</div>
-</div>
+          <div class="cat-meta">
+            <div><strong>Rasa:</strong> Ragdoll</div>
+            <div><strong>Umaszczenie:</strong> blue bicolor</div>
+            <div><strong>Kod EMS:</strong> RAG a 03</div>
+            <div><strong>Status:</strong> kocur hodowlany</div>
+          </div>
 
-<div class="cat-info">
+          <div class="badges">
+            <span class="badge">PKD N/N</span>
+            <span class="badge">HCM N/N</span>
+            <span class="badge">FIV/FELV N/N</span>
+          </div>
 
-<h2>Ares Chouchou Chat*PL</h2>
+          <div class="cat-description">
+            Amor Błękitne Sny*PL to elegancki kocur rasy ragdoll o harmonijnej budowie i pięknym umaszczeniu blue bicolor. Wyróżnia się intensywnie niebieskimi oczami oraz spokojnym, zrównoważonym charakterem typowym dla tej rasy. Jest bardzo łagodny, kontaktowy i przekazuje potomstwu nie tylko urodę, ale również wspaniały temperament.
+          </div>
+        </div>
+      </div>
 
-<div class="cat-meta">
-<div><strong>Rasa:</strong> Ragdoll</div>
-<div><strong>Umaszczenie:</strong> blue bicolor lynx</div>
-<div><strong>Kod EMS:</strong> RAG a 03 21</div>
-<div><strong>Status:</strong> kocur hodowlany</div>
-</div>
+    </div>
 
-<div class="badges">
-<span class="badge">PKD N/N</span>
-<span class="badge">HCM N/N</span>
-<span class="badge">FIV/FELV N/N</span>
-</div>
-
-<div class="cat-description">
-Ares to imponujący kocur ragdoll o bardzo eleganckiej sylwetce i wyjątkowym umaszczeniu blue bicolor lynx. Charakteryzuje się spokojnym temperamentem, doskonałą budową oraz typowym dla ragdolli łagodnym charakterem. Jest niezwykle kontaktowy i stanowi ważny element programu hodowlanego Akwamaryn*PL.
-</div>
-
-</div>
-
-</div>
-
-</section>
-
+  </section>
 </div>
 
 <div class="lightbox" id="lightbox" onclick="closeImage()">
-<img id="lightbox-img" alt="">
+  <img id="lightbox-img" alt="">
 </div>
 
 <footer>
