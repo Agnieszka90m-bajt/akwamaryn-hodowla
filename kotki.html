@@ -26,7 +26,6 @@ position:sticky;
 top:0;
 z-index:5000;
 background:rgba(255,248,251,0.95);
-backdrop-filter:blur(10px);
 border-bottom:1px solid rgba(218,189,200,0.2);
 }
 
@@ -35,8 +34,10 @@ max-width:1280px;
 margin:auto;
 padding:16px 20px;
 display:flex;
-justify-content:space-between;
+flex-wrap:wrap;
 align-items:center;
+justify-content:space-between;
+gap:10px;
 }
 
 .brand{
@@ -47,7 +48,8 @@ color:#7a5665;
 
 .nav-links{
 display:flex;
-gap:20px;
+flex-wrap:wrap;
+gap:16px;
 font-weight:600;
 color:#7a5665;
 }
@@ -55,9 +57,10 @@ color:#7a5665;
 .nav-links a{
 text-decoration:none;
 color:inherit;
+font-size:16px;
 }
 
-/* CONTAINER */
+/* SEKCJA */
 
 .container{
 max-width:1200px;
@@ -175,6 +178,10 @@ grid-template-columns:1fr;
 font-size:36px;
 }
 
+.nav-links{
+justify-content:center;
+}
+
 }
 
 </style>
@@ -234,7 +241,7 @@ Akwamaryn*PL
 </div>
 
 <div class="cat-description">
-Infinity to elegancka kotka ragdoll o spokojnym charakterze i bardzo harmonijnej budowie. Wyróżnia się pięknymi niebieskimi oczami oraz delikatnym, łagodnym temperamentem charakterystycznym dla rasy.
+Infinity to elegancka kotka ragdoll o spokojnym charakterze i harmonijnej budowie. Wyróżnia się pięknymi niebieskimi oczami oraz łagodnym temperamentem typowym dla rasy.
 </div>
 
 </div>
@@ -263,7 +270,7 @@ Infinity to elegancka kotka ragdoll o spokojnym charakterze i bardzo harmonijnej
 </div>
 
 <div class="cat-description">
-Prada, w domu nazywana Pandorą, to niezwykle łagodna i kontaktowa kotka. Jej umaszczenie blue mitted oraz spokojny charakter idealnie oddają elegancję rasy ragdoll.
+Prada, w domu nazywana Pandorą, to niezwykle łagodna i kontaktowa kotka o pięknym umaszczeniu blue mitted.
 </div>
 
 </div>
@@ -290,7 +297,7 @@ Prada, w domu nazywana Pandorą, to niezwykle łagodna i kontaktowa kotka. Jej u
 </div>
 
 <div class="cat-description">
-Dalia to piękna kotka norweska leśna o majestatycznej sylwetce i gęstym futrze. Charakteryzuje się spokojem, inteligencją oraz naturalnym urokiem typowym dla tej rasy.
+Dalia to piękna kotka norweska leśna o majestatycznej sylwetce i gęstym futrze. Charakteryzuje się inteligencją, spokojem i naturalnym urokiem tej rasy.
 </div>
 
 </div>
