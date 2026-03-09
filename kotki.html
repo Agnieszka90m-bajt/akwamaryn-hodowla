@@ -28,8 +28,6 @@ text-decoration:none;
 color:inherit;
 }
 
-/* TOPBAR */
-
 .topbar{
 position:sticky;
 top:0;
@@ -76,8 +74,6 @@ transition:opacity 0.25s ease;
 opacity:0.72;
 }
 
-/* CONTAINER */
-
 .container{
 max-width:1240px;
 margin:auto;
@@ -109,8 +105,6 @@ line-height:1.9;
 color:#6e5a63;
 }
 
-/* KOTKI */
-
 .cats-wrap{
 display:grid;
 gap:32px;
@@ -140,8 +134,6 @@ transform:translateY(-6px);
 box-shadow:0 22px 42px rgba(165,129,144,0.14);
 }
 
-/* RAMKA ZDJĘCIA */
-
 .cat-photo-frame{
 width:100%;
 min-height:420px;
@@ -155,8 +147,6 @@ box-shadow:inset 0 0 0 1px rgba(244,226,234,0.65), 0 12px 28px rgba(0,0,0,0.08);
 overflow:hidden;
 }
 
-/* ZAOKRĄGLONE ZDJĘCIE */
-
 .cat-photo-frame img{
 max-width:100%;
 max-height:100%;
@@ -169,6 +159,41 @@ display:block;
 .cat-photo-frame img:hover{
 transform:scale(1.03);
 filter:brightness(1.02);
+}
+
+.thumb-row{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+margin-top:12px;
+}
+
+.thumb{
+background:linear-gradient(180deg,#fffdfd 0%,#f8eef3 100%);
+border:1px solid rgba(240,223,230,0.95);
+border-radius:18px;
+padding:6px;
+cursor:pointer;
+transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+box-shadow:0 8px 18px rgba(0,0,0,0.05);
+}
+
+.thumb:hover{
+transform:translateY(-2px);
+box-shadow:0 12px 22px rgba(165,129,144,0.14);
+}
+
+.thumb.active{
+border-color:#d9b7c5;
+box-shadow:0 12px 24px rgba(165,129,144,0.18);
+}
+
+.thumb img{
+width:100%;
+height:90px;
+object-fit:cover;
+border-radius:12px;
+display:block;
 }
 
 .cat-info h2{
@@ -225,8 +250,6 @@ line-height:1.88;
 color:#654f58;
 }
 
-/* POWIĘKSZENIE ZDJĘCIA */
-
 .lightbox{
 display:none;
 position:fixed;
@@ -252,16 +275,12 @@ border-radius:18px;
 box-shadow:0 24px 55px rgba(0,0,0,0.35);
 }
 
-/* STOPKA */
-
 footer{
 text-align:center;
 padding:30px;
 color:#866873;
 font-size:14px;
 }
-
-/* RESPONSYWNOŚĆ */
 
 @media(max-width:900px){
 .cat-card{
@@ -347,6 +366,11 @@ border-radius:24px;
 border-radius:20px;
 }
 
+.thumb img{
+height:72px;
+border-radius:10px;
+}
+
 .cat-info h2{
 font-size:24px;
 }
@@ -406,8 +430,22 @@ W tej zakładce prezentujemy nasze kotki hodowlane, ich urodę, charakter oraz n
 <!-- Infinity -->
 <div class="cat-card reveal-card">
 
+<div class="cat-photo">
 <div class="cat-photo-frame">
-<img src="file_0000000094747246a63ed013e526d3c4.png" alt="Infinity Ragtone*PL" onclick="openImage(this)">
+<img id="infinity-main" src="file_0000000094747246a63ed013e526d3c4.png" alt="Infinity Ragtone*PL" onclick="openImage(this)">
+</div>
+
+<div class="thumb-row">
+<div class="thumb active" onclick="setMainImage('infinity-main', 'file_0000000094747246a63ed013e526d3c4.png', this)">
+<img src="file_0000000094747246a63ed013e526d3c4.png" alt="Infinity 1">
+</div>
+<div class="thumb" onclick="setMainImage('infinity-main', 'file_0000000098d071f4a9a1e88d8453c369.png', this)">
+<img src="file_0000000098d071f4a9a1e88d8453c369.png" alt="Infinity 2">
+</div>
+<div class="thumb" onclick="setMainImage('infinity-main', 'file_00000000cb2872468719003545bb5997.png', this)">
+<img src="file_00000000cb2872468719003545bb5997.png" alt="Infinity 3">
+</div>
+</div>
 </div>
 
 <div class="cat-info">
@@ -520,6 +558,15 @@ document.getElementById("lightbox-img").alt = img.alt || "";
 
 function closeImage(){
 document.getElementById("lightbox").classList.remove("show");
+}
+
+function setMainImage(targetId, newSrc, thumbEl){
+const mainImg = document.getElementById(targetId);
+mainImg.src = newSrc;
+
+const row = thumbEl.parentElement;
+row.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+thumbEl.classList.add('active');
 }
 
 const observer = new IntersectionObserver((entries)=>{
