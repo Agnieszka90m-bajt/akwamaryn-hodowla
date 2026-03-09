@@ -28,8 +28,6 @@ text-decoration:none;
 color:inherit;
 }
 
-/* TOPBAR */
-
 .topbar{
 position:sticky;
 top:0;
@@ -76,8 +74,6 @@ transition:opacity 0.25s ease;
 opacity:0.72;
 }
 
-/* CONTAINER */
-
 .container{
 max-width:1240px;
 margin:auto;
@@ -109,7 +105,29 @@ line-height:1.9;
 color:#6e5a63;
 }
 
-/* KOCURY */
+.back-wrap{
+display:none;
+justify-content:center;
+margin-bottom:22px;
+}
+
+.back-wrap.show{
+display:flex;
+}
+
+.back-button{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:10px 16px;
+border-radius:999px;
+background:linear-gradient(180deg,#fff4f8 0%,#fdeef4 100%);
+border:1px solid rgba(230,204,216,0.95);
+color:#7a5665;
+font-size:15px;
+font-weight:600;
+box-shadow:0 6px 14px rgba(176,139,154,0.08);
+}
 
 .cats-wrap{
 display:grid;
@@ -214,8 +232,6 @@ font-size:17px;
 color:#654f58;
 }
 
-/* LIGHTBOX */
-
 .lightbox{
 display:none;
 position:fixed;
@@ -241,16 +257,12 @@ border-radius:18px;
 box-shadow:0 24px 55px rgba(0,0,0,0.35);
 }
 
-/* STOPKA */
-
 footer{
 text-align:center;
 padding:30px;
 font-size:14px;
 color:#866873;
 }
-
-/* RESPONSYWNOŚĆ */
 
 @media(max-width:920px){
 .cat-card{
@@ -374,6 +386,10 @@ padding:8px 12px;
 <div class="container">
   <section class="section">
 
+    <div class="back-wrap" id="backToMiotWrap">
+      <a class="back-button" href="miot.html">← Wróć do aktualnego miotu</a>
+    </div>
+
     <h1>Moje kocury</h1>
 
     <div class="section-intro">
@@ -382,7 +398,6 @@ padding:8px 12px;
 
     <div class="cats-wrap">
 
-      <!-- OREO -->
       <div class="cat-card">
         <div class="cat-photo">
           <div class="cat-photo-frame">
@@ -412,7 +427,6 @@ padding:8px 12px;
         </div>
       </div>
 
-      <!-- ARES -->
       <div class="cat-card">
         <div class="cat-photo">
           <div class="cat-photo-frame">
@@ -442,7 +456,6 @@ padding:8px 12px;
         </div>
       </div>
 
-      <!-- AMOR -->
       <div class="cat-card" id="amor">
         <div class="cat-photo">
           <div class="cat-photo-frame">
@@ -494,6 +507,11 @@ document.getElementById("lightbox-img").alt = img.alt || "";
 
 function closeImage(){
 document.getElementById("lightbox").classList.remove("show");
+}
+
+const params = new URLSearchParams(window.location.search);
+if(params.get("from") === "miot"){
+  document.getElementById("backToMiotWrap").classList.add("show");
 }
 </script>
 
