@@ -28,8 +28,6 @@ text-decoration:none;
 color:inherit;
 }
 
-/* TOPBAR */
-
 .topbar{
 position:sticky;
 top:0;
@@ -76,8 +74,6 @@ transition:opacity 0.25s ease;
 opacity:0.72;
 }
 
-/* CONTAINER */
-
 .container{
 max-width:1240px;
 margin:auto;
@@ -109,7 +105,29 @@ line-height:1.9;
 color:#6e5a63;
 }
 
-/* KOTKI */
+.back-wrap{
+display:none;
+justify-content:center;
+margin-bottom:22px;
+}
+
+.back-wrap.show{
+display:flex;
+}
+
+.back-button{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:10px 16px;
+border-radius:999px;
+background:linear-gradient(180deg,#fff4f8 0%,#fdeef4 100%);
+border:1px solid rgba(230,204,216,0.95);
+color:#7a5665;
+font-size:15px;
+font-weight:600;
+box-shadow:0 6px 14px rgba(176,139,154,0.08);
+}
 
 .cats-wrap{
 display:grid;
@@ -229,8 +247,6 @@ line-height:1.88;
 color:#654f58;
 }
 
-/* LIGHTBOX */
-
 .lightbox{
 display:none;
 position:fixed;
@@ -256,16 +272,12 @@ border-radius:18px;
 box-shadow:0 24px 55px rgba(0,0,0,0.35);
 }
 
-/* STOPKA */
-
 footer{
 text-align:center;
 padding:30px;
 color:#866873;
 font-size:14px;
 }
-
-/* RESPONSYWNOŚĆ */
 
 @media(max-width:920px){
 .cat-card{
@@ -389,6 +401,10 @@ padding:8px 12px;
 <div class="container">
   <section class="section">
 
+    <div class="back-wrap" id="backToMiotWrap">
+      <a class="back-button" href="miot.html">← Wróć do aktualnego miotu</a>
+    </div>
+
     <h1>Moje kotki</h1>
 
     <div class="section-intro">
@@ -398,7 +414,7 @@ padding:8px 12px;
     <div class="cats-wrap">
 
       <!-- Infinity -->
-      <div class="cat-card reveal-card">
+      <div class="cat-card reveal-card" id="infinity">
         <div class="cat-photo">
           <div class="cat-photo-frame">
             <img src="file_0000000094747246a63ed013e526d3c4.png" alt="Infinity Ragtone*PL" onclick="openImage(this)">
@@ -523,6 +539,11 @@ entry.target.classList.add("visible");
 document.querySelectorAll(".reveal-card").forEach(card=>{
 observer.observe(card);
 });
+
+const params = new URLSearchParams(window.location.search);
+if(params.get("from") === "miot"){
+  document.getElementById("backToMiotWrap").classList.add("show");
+}
 </script>
 
 </body>
