@@ -6,544 +6,321 @@
 <title>Moje kotki | Akwamaryn*PL</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
 
-html{
-  scroll-behavior:smooth;
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
 body{
-  font-family:Georgia,"Times New Roman",serif;
-  background:linear-gradient(180deg,#fffafc 0%,#f8eef3 100%);
-  color:#654f58;
-  overflow-x:hidden;
+font-family:Georgia,"Times New Roman",serif;
+background:linear-gradient(180deg,#fffafc 0%,#f8eef3 100%);
+color:#654f58;
 }
 
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-/* TOPBAR */
+/* MENU */
 
 .topbar{
-  position:sticky;
-  top:0;
-  z-index:5000;
-  background:rgba(255,248,251,0.95);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(218,189,200,0.2);
+position:sticky;
+top:0;
+z-index:5000;
+background:rgba(255,248,251,0.95);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(218,189,200,0.2);
 }
 
 .topbar-inner{
-  max-width:1280px;
-  margin:0 auto;
-  padding:16px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
+max-width:1280px;
+margin:auto;
+padding:16px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
 .brand{
-  font-size:26px;
-  color:#7a5665;
-  font-weight:600;
-  white-space:nowrap;
+font-size:26px;
+font-weight:600;
+color:#7a5665;
 }
 
 .nav-links{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:18px;
-  font-size:16px;
-  color:#7a5665;
+display:flex;
+gap:20px;
+font-weight:600;
+color:#7a5665;
 }
 
 .nav-links a{
-  font-weight:600;
-}
-
-.menu-toggle{
-  display:none;
-  border:0;
-  background:#f1e5ea;
-  color:#7a5665;
-  border-radius:16px;
-  padding:12px 16px;
-  font-size:24px;
-  line-height:1;
-  cursor:pointer;
-  position:relative;
-  z-index:6001;
-  box-shadow:0 6px 14px rgba(171,135,149,0.10);
-}
-
-/* OVERLAY */
-
-.menu-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.28);
-  opacity:0;
-  visibility:hidden;
-  transition:0.25s ease;
-  z-index:5998;
-}
-
-.menu-overlay.open{
-  opacity:1;
-  visibility:visible;
-}
-
-/* MENU BOCZNE */
-
-.side-menu{
-  position:fixed;
-  top:0;
-  left:-340px;
-  width:310px;
-  max-width:84vw;
-  height:100%;
-  background:#ffffff;
-  box-shadow:12px 0 30px rgba(0,0,0,0.18);
-  transition:left 0.28s ease;
-  z-index:5999;
-  overflow-y:auto;
-  padding-top:20px;
-}
-
-.side-menu.open{
-  left:0;
-}
-
-.side-menu-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:0 18px 16px;
-  border-bottom:1px solid #eee;
-}
-
-.side-menu-title{
-  font-size:24px;
-  color:#7a5665;
-  font-weight:600;
-}
-
-.close-btn{
-  border:0;
-  background:transparent;
-  color:#7a5665;
-  font-size:34px;
-  line-height:1;
-  cursor:pointer;
-}
-
-.side-menu a{
-  display:block;
-  padding:18px 22px;
-  border-bottom:1px solid #eee;
-  font-size:18px;
-  color:#7a5665;
-  font-weight:600;
+text-decoration:none;
+color:inherit;
 }
 
 /* CONTAINER */
 
 .container{
-  max-width:1240px;
-  margin:0 auto;
-  padding:34px 18px 70px;
-}
-
-.section{
-  background:rgba(255,255,255,0.90);
-  border-radius:36px;
-  padding:40px 28px;
-  margin-bottom:28px;
-  box-shadow:0 18px 40px rgba(173,139,152,0.08);
+max-width:1200px;
+margin:auto;
+padding:40px 20px;
 }
 
 .section h1{
-  text-align:center;
-  margin-bottom:18px;
-  font-size:52px;
-  color:#7a5665;
-  font-weight:600;
-  line-height:1.05;
+text-align:center;
+font-size:48px;
+margin-bottom:30px;
+color:#7a5665;
 }
 
-.section-intro{
-  max-width:940px;
-  margin:0 auto;
-  text-align:center;
-  font-size:20px;
-  line-height:1.85;
-  color:#6d5962;
-}
-
-/* KARTY KOTEK */
+/* KOTKI */
 
 .cats-wrap{
-  display:grid;
-  gap:28px;
-  margin-top:32px;
+display:grid;
+gap:30px;
 }
 
 .cat-card{
-  display:grid;
-  grid-template-columns:minmax(300px,420px) 1fr;
-  gap:30px;
-  align-items:center;
-  background:#fff8fb;
-  border:1px solid #f0dfe6;
-  border-radius:30px;
-  padding:24px;
+display:grid;
+grid-template-columns:380px 1fr;
+gap:30px;
+background:white;
+border-radius:30px;
+padding:24px;
+box-shadow:0 16px 36px rgba(0,0,0,0.08);
 }
 
-.cat-photo{
-  width:100%;
-}
+/* RAMKA ZDJĘCIA */
 
 .cat-photo-frame{
-  width:100%;
-  min-height:420px;
-  background:linear-gradient(180deg,#fffdfd 0%,#f8eef3 100%);
-  border-radius:24px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:16px;
-  box-shadow:0 12px 28px rgba(0,0,0,0.08);
-  overflow:hidden;
+width:100%;
+min-height:420px;
+background:linear-gradient(180deg,#fffdfd 0%,#f8eef3 100%);
+border-radius:30px;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:16px;
+box-shadow:0 12px 28px rgba(0,0,0,0.08);
+overflow:hidden;
 }
 
-.cat-photo img{
-  max-width:100%;
-  max-height:100%;
-  width:auto;
-  height:auto;
-  display:block;
-  cursor:pointer;
-  transition:transform 0.25s ease;
+/* ZAOKRĄGLONE ZDJĘCIE */
+
+.cat-photo-frame img{
+max-width:100%;
+max-height:100%;
+border-radius:22px;
+cursor:pointer;
+transition:0.3s;
 }
 
-.cat-photo img:hover{
-  transform:scale(1.02);
+.cat-photo-frame img:hover{
+transform:scale(1.03);
 }
 
 .cat-info h2{
-  font-size:34px;
-  color:#7a5665;
-  margin-bottom:16px;
-  line-height:1.15;
-  font-weight:600;
+font-size:32px;
+margin-bottom:16px;
+color:#7a5665;
 }
 
 .cat-meta{
-  display:grid;
-  gap:8px;
-  margin-bottom:18px;
-}
-
-.cat-meta div{
-  font-size:18px;
-  line-height:1.6;
-  color:#6b5861;
-}
-
-.cat-meta strong{
-  color:#7a5665;
+display:grid;
+gap:6px;
+margin-bottom:16px;
+font-size:18px;
 }
 
 .cat-description{
-  font-size:18px;
-  line-height:1.85;
-  color:#654f58;
+font-size:18px;
+line-height:1.8;
 }
 
-/* LIGHTBOX */
+/* POWIĘKSZENIE ZDJĘCIA */
 
 .lightbox{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.86);
-  align-items:center;
-  justify-content:center;
-  z-index:7000;
-  padding:20px;
-}
-
-.lightbox.show{
-  display:flex;
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
+align-items:center;
+justify-content:center;
+z-index:6000;
 }
 
 .lightbox img{
-  max-width:92vw;
-  max-height:92vh;
-  border-radius:14px;
-  box-shadow:0 20px 50px rgba(0,0,0,0.35);
+max-width:90%;
+max-height:90%;
+border-radius:16px;
 }
 
-/* STOPKA */
-
 footer{
-  text-align:center;
-  padding:30px 20px 46px;
-  font-size:14px;
-  color:#866873;
+text-align:center;
+padding:30px;
+color:#866873;
 }
 
 /* RESPONSYWNOŚĆ */
 
-@media(max-width:1100px){
-  .menu-toggle{
-    display:block;
-  }
+@media(max-width:900px){
 
-  .nav-links{
-    display:none;
-  }
-
-  .cat-card{
-    grid-template-columns:1fr;
-  }
-
-  .cat-info h2{
-    text-align:center;
-    font-size:28px;
-  }
-
-  .cat-meta{
-    text-align:center;
-  }
-
-  .cat-description{
-    text-align:center;
-  }
+.cat-card{
+grid-template-columns:1fr;
 }
 
-@media(max-width:768px){
-  .brand{
-    font-size:20px;
-  }
-
-  .menu-toggle{
-    padding:10px 14px;
-    font-size:22px;
-  }
-
-  .section{
-    padding:28px 16px;
-  }
-
-  .section h1{
-    font-size:34px;
-    margin-bottom:14px;
-  }
-
-  .section-intro{
-    font-size:17px;
-    line-height:1.75;
-  }
-
-  .cat-card{
-    padding:16px;
-    gap:20px;
-  }
-
-  .cat-photo-frame{
-    min-height:320px;
-    padding:12px;
-  }
-
-  .cat-info h2{
-    font-size:22px;
-  }
-
-  .cat-meta div{
-    font-size:16px;
-  }
-
-  .cat-description{
-    font-size:16px;
-    line-height:1.75;
-  }
+.section h1{
+font-size:36px;
 }
+
+}
+
 </style>
 </head>
+
 <body>
 
 <div class="topbar">
-  <div class="topbar-inner">
-    <div class="brand"><a href="index.html">Akwamaryn*PL</a></div>
+<div class="topbar-inner">
 
-    <button type="button" class="menu-toggle" onclick="openMenu()">☰</button>
-
-    <div class="nav-links">
-      <a href="index.html">Strona główna</a>
-      <a href="kotki.html">Moje kotki</a>
-      <a href="kocury.html">Kocury hodowlane</a>
-      <a href="kocieta.html">Moje kocięta</a>
-      <a href="miot.html">Aktualny miot</a>
-      <a href="galeria.html">Galeria</a>
-      <a href="rezerwacja.html">Rezerwacja</a>
-      <a href="kontakt.html">Kontakt</a>
-    </div>
-  </div>
+<div class="brand">
+Akwamaryn*PL
 </div>
 
-<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+<div class="nav-links">
+<a href="index.html">Strona główna</a>
+<a href="kotki.html">Moje kotki</a>
+<a href="kocury.html">Kocury hodowlane</a>
+<a href="kocieta.html">Moje kocięta</a>
+<a href="miot.html">Aktualny miot</a>
+<a href="galeria.html">Galeria</a>
+<a href="rezerwacja.html">Rezerwacja</a>
+<a href="kontakt.html">Kontakt</a>
+</div>
 
-<div class="side-menu" id="menu">
-  <div class="side-menu-header">
-    <div class="side-menu-title">Akwamaryn*PL</div>
-    <button type="button" class="close-btn" onclick="closeMenu()">×</button>
-  </div>
-
-  <a href="index.html" onclick="closeMenu()">Strona główna</a>
-  <a href="kotki.html" onclick="closeMenu()">Moje kotki</a>
-  <a href="kocury.html" onclick="closeMenu()">Kocury hodowlane</a>
-  <a href="kocieta.html" onclick="closeMenu()">Moje kocięta</a>
-  <a href="miot.html" onclick="closeMenu()">Aktualny miot</a>
-  <a href="galeria.html" onclick="closeMenu()">Galeria</a>
-  <a href="rezerwacja.html" onclick="closeMenu()">Rezerwacja</a>
-  <a href="kontakt.html" onclick="closeMenu()">Kontakt</a>
+</div>
 </div>
 
 <div class="container">
 
-  <section class="section">
-    <h1>Moje kotki</h1>
+<section class="section">
 
-    <div class="section-intro">
-      W tej zakładce prezentujemy nasze kotki hodowlane, ich urodę, charakter oraz najważniejsze informacje. To właśnie one są wyjątkową częścią hodowli Akwamaryn*PL.
-    </div>
+<h1>Moje kotki</h1>
 
-    <div class="cats-wrap">
+<div class="cats-wrap">
 
-      <!-- Infinity -->
-      <div class="cat-card">
-        <div class="cat-photo">
-          <div class="cat-photo-frame">
-            <img src="file_0000000094747246a63ed013e526d3c4.png" alt="Infinity Ragtone*PL" onclick="openImage(this)">
-          </div>
-        </div>
+<!-- Infinity -->
 
-        <div class="cat-info">
-          <h2>Infinity Ragtone*PL</h2>
+<div class="cat-card">
 
-          <div class="cat-meta">
-            <div><strong>Rasa:</strong> Ragdoll</div>
-            <div><strong>Umaszczenie:</strong> blue bicolor</div>
-            <div><strong>Kod EMS:</strong> RAG a 03</div>
-            <div><strong>Status:</strong> kotka hodowlana</div>
-            <div><strong>PKD:</strong> N/N</div>
-            <div><strong>HCM:</strong> N/N</div>
-            <div><strong>FIV/FELV:</strong> N/N</div>
-          </div>
+<div class="cat-photo-frame">
+<img src="file_0000000094747246a63ed013e526d3c4.png" onclick="openImage(this)">
+</div>
 
-          <div class="cat-description">
-            Infinity to elegancka kotka ragdoll o spokojnym i bardzo zrównoważonym charakterze. Wyróżnia się piękną budową, głębokimi niebieskimi oczami oraz niezwykle łagodnym temperamentem typowym dla tej rasy. Jest subtelna, harmonijna i doskonale oddaje delikatny urok ragdolli.
-          </div>
-        </div>
-      </div>
+<div class="cat-info">
 
-      <!-- Prada -->
-      <div class="cat-card">
-        <div class="cat-photo">
-          <div class="cat-photo-frame">
-            <img src="file_0000000050b8724399c9df40c51226df.png" alt="Prada Pałuckie Pupile*PL" onclick="openImage(this)">
-          </div>
-        </div>
+<h2>Infinity Ragtone*PL</h2>
 
-        <div class="cat-info">
-          <h2>Prada Pałuckie Pupile*PL</h2>
+<div class="cat-meta">
+<div>Rasa: Ragdoll</div>
+<div>Umaszczenie: blue bicolor</div>
+<div>Kod EMS: RAG a 03</div>
+<div>Status: kotka hodowlana</div>
+<div>PKD N/N</div>
+<div>HCM N/N</div>
+<div>FIV/FELV N/N</div>
+</div>
 
-          <div class="cat-meta">
-            <div><strong>Rasa:</strong> Ragdoll</div>
-            <div><strong>Umaszczenie:</strong> blue mitted</div>
-            <div><strong>Kod EMS:</strong> RAG a 04</div>
-            <div><strong>Status:</strong> kotka hodowlana</div>
-            <div><strong>PKD:</strong> N/N</div>
-            <div><strong>HCM:</strong> N/N</div>
-            <div><strong>FIV/FELV:</strong> N/N</div>
-          </div>
+<div class="cat-description">
+Infinity to elegancka kotka ragdoll o spokojnym charakterze i bardzo harmonijnej budowie. Wyróżnia się pięknymi niebieskimi oczami oraz delikatnym, łagodnym temperamentem charakterystycznym dla rasy.
+</div>
 
-          <div class="cat-description">
-            Prada, w domu nazywana Pandorą, to kotka o wyjątkowo delikatnym usposobieniu i bardzo ciepłym kontakcie z człowiekiem. Jej blue mitted podkreśla elegancję i typowość rasy, a spokojny charakter sprawia, że doskonale odnajduje się w codziennym życiu domowym.
-          </div>
-        </div>
-      </div>
+</div>
+</div>
 
-      <!-- Dalia -->
-      <div class="cat-card">
-        <div class="cat-photo">
-          <div class="cat-photo-frame">
-            <img src="file_00000000a454724689df1045122b6b79.png" alt="Dalia Pałuckie Pupile*PL" onclick="openImage(this)">
-          </div>
-        </div>
+<!-- Prada -->
 
-        <div class="cat-info">
-          <h2>Dalia Pałuckie Pupile*PL</h2>
+<div class="cat-card">
 
-          <div class="cat-meta">
-            <div><strong>Rasa:</strong> Norweska leśna</div>
-            <div><strong>Umaszczenie:</strong> niebiesko-srebrny bicolor</div>
-            <div><strong>Kod EMS:</strong> NFO as 03</div>
-            <div><strong>Status:</strong> kotka hodowlana</div>
-            <div><strong>FIV/FELV:</strong> N/N</div>
-          </div>
+<div class="cat-photo-frame">
+<img src="file_0000000050b8724399c9df40c51226df.png" onclick="openImage(this)">
+</div>
 
-          <div class="cat-description">
-            Dalia to kotka norweska leśna o naturalnej, szlachetnej urodzie i bardzo wyrazistej sylwetce. Jej srebrzysty odcień futra, piękna kryza oraz puszysty ogon nadają jej wyjątkowego charakteru. Jest czujna, inteligentna i pełna wdzięku, a jednocześnie doskonale odnajduje się w domowym otoczeniu.
-          </div>
-        </div>
-      </div>
+<div class="cat-info">
 
-    </div>
-  </section>
+<h2>Prada Pałuckie Pupile*PL</h2>
+
+<div class="cat-meta">
+<div>Rasa: Ragdoll</div>
+<div>Umaszczenie: blue mitted</div>
+<div>Kod EMS: RAG a 04</div>
+<div>Status: kotka hodowlana</div>
+<div>PKD N/N</div>
+<div>HCM N/N</div>
+<div>FIV/FELV N/N</div>
+</div>
+
+<div class="cat-description">
+Prada, w domu nazywana Pandorą, to niezwykle łagodna i kontaktowa kotka. Jej umaszczenie blue mitted oraz spokojny charakter idealnie oddają elegancję rasy ragdoll.
+</div>
+
+</div>
+</div>
+
+<!-- Dalia -->
+
+<div class="cat-card">
+
+<div class="cat-photo-frame">
+<img src="file_00000000a454724689df1045122b6b79.png" onclick="openImage(this)">
+</div>
+
+<div class="cat-info">
+
+<h2>Dalia Pałuckie Pupile*PL</h2>
+
+<div class="cat-meta">
+<div>Rasa: Norweska leśna</div>
+<div>Umaszczenie: niebiesko-srebrny bicolor</div>
+<div>Kod EMS: NFO as 03</div>
+<div>Status: kotka hodowlana</div>
+<div>FIV/FELV N/N</div>
+</div>
+
+<div class="cat-description">
+Dalia to piękna kotka norweska leśna o majestatycznej sylwetce i gęstym futrze. Charakteryzuje się spokojem, inteligencją oraz naturalnym urokiem typowym dla tej rasy.
+</div>
+
+</div>
+</div>
+
+</div>
+
+</section>
 
 </div>
 
 <div class="lightbox" id="lightbox" onclick="closeImage()">
-  <img id="lightbox-img" alt="">
+<img id="lightbox-img">
 </div>
 
 <footer>
-  © 2026 Akwamaryn*PL
+© 2026 Akwamaryn*PL
 </footer>
 
 <script>
-function openMenu(){
-  document.getElementById("menu").classList.add("open");
-  document.getElementById("menuOverlay").classList.add("open");
-}
-
-function closeMenu(){
-  document.getElementById("menu").classList.remove("open");
-  document.getElementById("menuOverlay").classList.remove("open");
-}
 
 function openImage(img){
-  const box = document.getElementById('lightbox');
-  const big = document.getElementById('lightbox-img');
-  big.src = img.src;
-  big.alt = img.alt || '';
-  box.classList.add('show');
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("lightbox-img").src=img.src;
 }
 
 function closeImage(){
-  document.getElementById('lightbox').classList.remove('show');
+document.getElementById("lightbox").style.display="none";
 }
+
 </script>
 
 </body>
