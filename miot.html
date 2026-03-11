@@ -127,7 +127,7 @@ a{
   color:#6e5a63;
 }
 
-/* LITTER CARD */
+/* HERO BOX MIOTU */
 
 .litter-card{
   background:linear-gradient(180deg,#fffefe 0%,#fff7fb 100%);
@@ -187,7 +187,7 @@ a{
   background:linear-gradient(180deg,#f8edf2 0%,#f3e3ea 100%);
 }
 
-/* KITTENS */
+/* KOCIĘTA */
 
 .kitten-list{
   display:grid;
@@ -211,7 +211,7 @@ a{
   width:100%;
   margin-bottom:12px;
   background:linear-gradient(180deg,#fffdfd 0%,#f8eef3 100%);
-  border-radius:22px;
+  border-radius:28px;
   padding:8px;
   display:flex;
   align-items:center;
@@ -226,10 +226,9 @@ a{
   max-height:260px;
   object-fit:contain;
   display:block;
-  border-radius:18px;
+  border-radius:28px;
   cursor:pointer;
   background:#fff;
-  padding:4px;
 }
 
 .kitten-name{
@@ -245,7 +244,7 @@ a{
   line-height:1.6;
 }
 
-/* TEXT */
+/* TEXT BLOCKS */
 
 .text-block{
   max-width:960px;
@@ -260,7 +259,7 @@ a{
   margin-top:16px;
 }
 
-/* DOCS */
+/* DOCUMENTS */
 
 .doc-list{
   display:grid;
@@ -313,51 +312,117 @@ a{
   cursor:pointer;
 }
 
-/* LIGHTBOX */
+/* SLIDER */
 
-.lightbox{
+.slider-overlay{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.9);
+  background:rgba(0,0,0,0.92);
   z-index:8000;
   align-items:center;
   justify-content:center;
   padding:20px;
+  touch-action:none;
 }
 
-.lightbox.show{
+.slider-overlay.show{
   display:flex;
 }
 
-.lightbox-inner{
+.slider-topbar{
+  position:absolute;
+  top:14px;
+  left:14px;
+  right:14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:3;
+}
+
+.slider-counter{
+  background:rgba(255,255,255,0.14);
+  color:#fff;
+  padding:10px 14px;
+  border-radius:999px;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  font-size:15px;
+}
+
+.slider-close{
+  border:none;
+  background:rgba(255,255,255,0.16);
+  color:#fff;
+  padding:10px 14px;
+  border-radius:999px;
+  font-size:15px;
+  cursor:pointer;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+
+.slider-inner{
   position:relative;
-  max-width:95vw;
-  max-height:95vh;
+  width:100%;
+  max-width:1100px;
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
-.lightbox img{
-  max-width:92vw;
-  max-height:88vh;
-  border-radius:20px;
-  box-shadow:0 24px 55px rgba(0,0,0,0.35);
+.slider-image-wrap{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:70vh;
+  touch-action:none;
 }
 
-.lightbox-close{
+.slider-image{
+  max-width:92vw;
+  max-height:82vh;
+  border-radius:18px;
+  box-shadow:0 24px 55px rgba(0,0,0,0.35);
+  user-select:none;
+  -webkit-user-drag:none;
+  pointer-events:none;
+}
+
+.slider-btn{
   position:absolute;
-  top:-8px;
-  right:-8px;
+  top:50%;
+  transform:translateY(-50%);
   border:none;
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  background:rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.16);
   color:#fff;
-  font-size:26px;
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  font-size:28px;
   cursor:pointer;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  z-index:2;
+}
+
+.slider-prev{
+  left:6px;
+}
+
+.slider-next{
+  right:6px;
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  color:#866873;
 }
 
 /* RESPONSIVE */
@@ -437,12 +502,12 @@ a{
 
   .kitten-photo{
     min-height:240px;
-    border-radius:22px;
+    border-radius:28px;
   }
 
   .kitten-photo img{
     max-height:280px;
-    border-radius:18px;
+    border-radius:28px;
   }
 
   .gallery-grid{
@@ -458,6 +523,24 @@ a{
     height:180px;
     object-fit:cover;
     border-radius:16px;
+  }
+
+  .slider-btn{
+    width:46px;
+    height:46px;
+    font-size:24px;
+  }
+
+  .slider-topbar{
+    top:10px;
+    left:10px;
+    right:10px;
+  }
+
+  .slider-counter,
+  .slider-close{
+    font-size:13px;
+    padding:8px 12px;
   }
 }
 </style>
@@ -511,7 +594,7 @@ a{
       <div class="kitten-list">
         <div class="kitten-item">
           <div class="kitten-photo">
-            <img src="file_000000003488720ab10a35d2c061f697.jpg" alt="Isabella" onclick="openLightbox(this.src)">
+            <img src="file_000000003488720ab10a35d2c061f697.jpg" alt="Isabella" onclick="openSlider(0)">
           </div>
           <div class="kitten-name">Isabella</div>
           <div class="kitten-status">Kotka<br>Zarezerwowana</div>
@@ -519,7 +602,7 @@ a{
 
         <div class="kitten-item">
           <div class="kitten-photo">
-            <img src="7609D8BB-1057-42E2-8D4C-BC680CF0DF02.PNG" alt="Inka" onclick="openLightbox(this.src)">
+            <img src="7609D8BB-1057-42E2-8D4C-BC680CF0DF02.PNG" alt="Inka" onclick="openSlider(1)">
           </div>
           <div class="kitten-name">Inka</div>
           <div class="kitten-status">Kotka<br>Zarezerwowana</div>
@@ -527,7 +610,7 @@ a{
 
         <div class="kitten-item">
           <div class="kitten-photo">
-            <img src="16C1FA6C-F8DB-4B6F-9B1F-288C29FB4E21.PNG" alt="I'Henio" onclick="openLightbox(this.src)">
+            <img src="16C1FA6C-F8DB-4B6F-9B1F-288C29FB4E21.PNG" alt="I'Henio" onclick="openSlider(2)">
           </div>
           <div class="kitten-name">I'Henio</div>
           <div class="kitten-status">Kocurek<br>Zarezerwowany</div>
@@ -535,7 +618,7 @@ a{
 
         <div class="kitten-item">
           <div class="kitten-photo">
-            <img src="CC9CBEB4-B120-493A-995C-D30737BC4C55.PNG" alt="I'Henryk" onclick="openLightbox(this.src)">
+            <img src="CC9CBEB4-B120-493A-995C-D30737BC4C55.PNG" alt="I'Henryk" onclick="openSlider(3)">
           </div>
           <div class="kitten-name">I'Henryk</div>
           <div class="kitten-status">Kocurek<br>Zarezerwowany</div>
@@ -581,24 +664,34 @@ a{
     <h3>Galeria miotu I</h3>
 
     <div class="gallery-grid">
-      <div class="gallery-item"><img src="179CF8BF-14BD-4AFA-847E-81F78A726A84.PNG" alt="Miot I zdjęcie 1" onclick="openLightbox(this.src)"></div>
-      <div class="gallery-item"><img src="9DC7F011-E96F-4AAA-ACC2-D31F8355DBC1.PNG" alt="Miot I zdjęcie 2" onclick="openLightbox(this.src)"></div>
-      <div class="gallery-item"><img src="16C1FA6C-F8DB-4B6F-9B1F-288C29FB4E21.PNG" alt="Miot I zdjęcie 3" onclick="openLightbox(this.src)"></div>
-      <div class="gallery-item"><img src="CC9CBEB4-B120-493A-995C-D30737BC4C55.PNG" alt="Miot I zdjęcie 4" onclick="openLightbox(this.src)"></div>
-      <div class="gallery-item"><img src="7609D8BB-1057-42E2-8D4C-BC680CF0DF02.PNG" alt="Miot I zdjęcie 5" onclick="openLightbox(this.src)"></div>
-      <div class="gallery-item"><img src="AAC29BB6-5D57-4612-9939-F0D4F3CC8790.jpg" alt="Miot I zdjęcie 6" onclick="openLightbox(this.src)"></div>
-      <div class="gallery-item"><img src="IMG_4415.JPG" alt="Miot I zdjęcie 7" onclick="openLightbox(this.src)"></div>
-      <div class="gallery-item"><img src="file_0000000054bc720a8316a3473cb9dfed.png" alt="Miot I zdjęcie 8" onclick="openLightbox(this.src)"></div>
-      <div class="gallery-item"><img src="file_000000003488720ab10a35d2c061f697.jpg" alt="Miot I zdjęcie 9" onclick="openLightbox(this.src)"></div>
+      <div class="gallery-item"><img src="179CF8BF-14BD-4AFA-847E-81F78A726A84.PNG" alt="Miot I zdjęcie 1" onclick="openSlider(4)"></div>
+      <div class="gallery-item"><img src="9DC7F011-E96F-4AAA-ACC2-D31F8355DBC1.PNG" alt="Miot I zdjęcie 2" onclick="openSlider(5)"></div>
+      <div class="gallery-item"><img src="16C1FA6C-F8DB-4B6F-9B1F-288C29FB4E21.PNG" alt="Miot I zdjęcie 3" onclick="openSlider(2)"></div>
+      <div class="gallery-item"><img src="CC9CBEB4-B120-493A-995C-D30737BC4C55.PNG" alt="Miot I zdjęcie 4" onclick="openSlider(3)"></div>
+      <div class="gallery-item"><img src="7609D8BB-1057-42E2-8D4C-BC680CF0DF02.PNG" alt="Miot I zdjęcie 5" onclick="openSlider(1)"></div>
+      <div class="gallery-item"><img src="AAC29BB6-5D57-4612-9939-F0D4F3CC8790.jpg" alt="Miot I zdjęcie 6" onclick="openSlider(6)"></div>
+      <div class="gallery-item"><img src="IMG_4415.JPG" alt="Miot I zdjęcie 7" onclick="openSlider(7)"></div>
+      <div class="gallery-item"><img src="file_0000000054bc720a8316a3473cb9dfed.png" alt="Miot I zdjęcie 8" onclick="openSlider(8)"></div>
+      <div class="gallery-item"><img src="file_000000003488720ab10a35d2c061f697.jpg" alt="Miot I zdjęcie 9" onclick="openSlider(0)"></div>
     </div>
   </section>
 
 </div>
 
-<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-  <div class="lightbox-inner">
-    <button class="lightbox-close" type="button" onclick="closeLightbox(event)">×</button>
-    <img id="lightbox-img" src="" alt="">
+<div class="slider-overlay" id="sliderOverlay">
+  <div class="slider-topbar">
+    <div class="slider-counter" id="sliderCounter">1 / 9</div>
+    <button class="slider-close" type="button" onclick="closeSlider()">Zamknij</button>
+  </div>
+
+  <div class="slider-inner">
+    <button class="slider-btn slider-prev" type="button" onclick="prevSlide()">‹</button>
+
+    <div class="slider-image-wrap" id="sliderTouchArea">
+      <img id="sliderImage" class="slider-image" src="" alt="">
+    </div>
+
+    <button class="slider-btn slider-next" type="button" onclick="nextSlide()">›</button>
   </div>
 </div>
 
@@ -607,17 +700,84 @@ a{
 </footer>
 
 <script>
-function openLightbox(src){
-  document.getElementById('lightbox-img').src = src;
-  document.getElementById('lightbox').classList.add('show');
+const galleryImages = [
+  "file_000000003488720ab10a35d2c061f697.jpg",
+  "7609D8BB-1057-42E2-8D4C-BC680CF0DF02.PNG",
+  "16C1FA6C-F8DB-4B6F-9B1F-288C29FB4E21.PNG",
+  "CC9CBEB4-B120-493A-995C-D30737BC4C55.PNG",
+  "179CF8BF-14BD-4AFA-847E-81F78A726A84.PNG",
+  "9DC7F011-E96F-4AAA-ACC2-D31F8355DBC1.PNG",
+  "AAC29BB6-5D57-4612-9939-F0D4F3CC8790.jpg",
+  "IMG_4415.JPG",
+  "file_0000000054bc720a8316a3473cb9dfed.png"
+];
+
+let currentSlide = 0;
+let touchStartX = 0;
+let touchEndX = 0;
+
+function updateSlider(){
+  const img = document.getElementById("sliderImage");
+  const counter = document.getElementById("sliderCounter");
+  img.src = galleryImages[currentSlide];
+  img.alt = "Zdjęcie " + (currentSlide + 1);
+  counter.textContent = (currentSlide + 1) + " / " + galleryImages.length;
 }
 
-function closeLightbox(event){
-  if(!event || event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')){
-    document.getElementById('lightbox').classList.remove('show');
-    document.getElementById('lightbox-img').src = '';
-  }
+function openSlider(index){
+  currentSlide = index;
+  updateSlider();
+  document.getElementById("sliderOverlay").classList.add("show");
+  document.body.style.overflow = "hidden";
 }
+
+function closeSlider(){
+  document.getElementById("sliderOverlay").classList.remove("show");
+  document.body.style.overflow = "";
+}
+
+function prevSlide(){
+  currentSlide = (currentSlide - 1 + galleryImages.length) % galleryImages.length;
+  updateSlider();
+}
+
+function nextSlide(){
+  currentSlide = (currentSlide + 1) % galleryImages.length;
+  updateSlider();
+}
+
+document.addEventListener("keydown", function(e){
+  const open = document.getElementById("sliderOverlay").classList.contains("show");
+  if(!open) return;
+
+  if(e.key === "ArrowLeft") prevSlide();
+  if(e.key === "ArrowRight") nextSlide();
+  if(e.key === "Escape") closeSlider();
+});
+
+const touchArea = document.getElementById("sliderTouchArea");
+
+touchArea.addEventListener("touchstart", function(e){
+  touchStartX = e.changedTouches[0].clientX;
+}, {passive:true});
+
+touchArea.addEventListener("touchend", function(e){
+  touchEndX = e.changedTouches[0].clientX;
+  const diff = touchEndX - touchStartX;
+  if(Math.abs(diff) < 35) return;
+
+  if(diff > 0){
+    prevSlide();
+  }else{
+    nextSlide();
+  }
+}, {passive:true});
+
+document.getElementById("sliderOverlay").addEventListener("click", function(e){
+  if(e.target.id === "sliderOverlay"){
+    closeSlider();
+  }
+});
 </script>
 
 </body>
