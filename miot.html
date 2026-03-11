@@ -201,15 +201,25 @@ overflow:hidden;
 .kitten-photo{
 width:100%;
 margin-bottom:12px;
+background:linear-gradient(180deg,#fffdfd 0%,#f8eef3 100%);
+border-radius:18px;
+padding:8px;
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:220px;
 }
 
 .kitten-photo img{
 width:100%;
-height:220px;
-object-fit:cover;
+height:auto;
+max-height:260px;
+object-fit:contain;
 display:block;
 border-radius:18px;
 cursor:pointer;
+background:#fff;
+padding:4px;
 }
 
 .kitten-name{
@@ -472,8 +482,12 @@ font-size:16px;
 font-size:20px;
 }
 
+.kitten-photo{
+min-height:240px;
+}
+
 .kitten-photo img{
-height:250px;
+max-height:280px;
 }
 
 .gallery-grid{
