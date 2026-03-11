@@ -187,13 +187,13 @@
       background:linear-gradient(180deg,#f8edf2 0%,#f3e3ea 100%);
     }
 
-    /* KITTENS */
+    /* KOCIĘTA */
 
     .kitten-list{
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:16px;
-      max-width:920px;
+      gap:18px;
+      max-width:940px;
       margin:24px auto 0;
     }
 
@@ -201,34 +201,33 @@
       background:#fff8fb;
       border:1px solid rgba(240,223,230,0.95);
       border-radius:24px;
-      padding:14px;
+      padding:16px;
       text-align:center;
       box-shadow:0 10px 22px rgba(0,0,0,0.05);
-      overflow:hidden;
     }
 
     .kitten-photo{
       width:100%;
-      margin-bottom:12px;
-      background:linear-gradient(180deg,#fffdfd 0%,#f8eef3 100%);
-      border-radius:28px;
-      padding:10px;
+      margin-bottom:14px;
       display:flex;
       align-items:center;
       justify-content:center;
-      min-height:230px;
-      overflow:hidden;
+      background:transparent;
+      padding:0;
+      border-radius:28px;
+      overflow:visible;
+      min-height:0;
     }
 
     .kitten-photo img{
-      width:100%;
-      height:auto;
-      max-height:290px;
-      object-fit:contain;
       display:block;
-      border-radius:26px;
+      width:auto;
+      max-width:100%;
+      height:auto;
+      max-height:320px;
+      border-radius:28px;
       cursor:pointer;
-      background:#fff;
+      box-shadow:0 10px 24px rgba(0,0,0,0.08);
     }
 
     .kitten-name{
@@ -312,7 +311,7 @@
       cursor:pointer;
     }
 
-    /* SLIDER / LIGHTBOX */
+    /* SLIDER */
 
     .slider-overlay{
       display:none;
@@ -500,14 +499,9 @@
         font-size:20px;
       }
 
-      .kitten-photo{
-        min-height:240px;
-        border-radius:28px;
-      }
-
       .kitten-photo img{
-        max-height:290px;
-        border-radius:26px;
+        max-height:300px;
+        border-radius:28px;
       }
 
       .gallery-grid{
