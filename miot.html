@@ -32,7 +32,7 @@
       position:sticky;
       top:0;
       z-index:5000;
-      background:rgba(255,248,251,0.96);
+      background:rgba(255,248,251,0.95);
       backdrop-filter:blur(10px);
       -webkit-backdrop-filter:blur(10px);
       border-bottom:1px solid rgba(218,189,200,0.2);
@@ -43,27 +43,27 @@
       margin:0 auto;
       padding:16px 20px;
       display:flex;
-      flex-direction:column;
+      flex-wrap:wrap;
       align-items:center;
+      justify-content:space-between;
       gap:12px;
     }
 
     .brand{
-      font-size:28px;
+      font-size:26px;
       font-weight:600;
       color:#7a5665;
-      text-align:center;
-      line-height:1.1;
+      white-space:nowrap;
     }
 
     .nav-links{
       display:flex;
       flex-wrap:wrap;
-      justify-content:center;
-      gap:12px 18px;
+      gap:14px;
       font-weight:600;
       color:#7a5665;
-      text-align:center;
+      justify-content:flex-end;
+      max-width:920px;
     }
 
     .nav-links a{
@@ -78,21 +78,21 @@
     .container{
       max-width:1240px;
       margin:0 auto;
-      padding:34px 18px 70px;
+      padding:38px 20px 70px;
     }
 
     .section{
-      background:rgba(255,255,255,0.88);
-      border:1px solid rgba(238,221,229,0.8);
+      background:rgba(255,255,255,0.86);
+      border:1px solid rgba(238,221,229,0.7);
       border-radius:38px;
       padding:40px 24px;
-      box-shadow:0 18px 38px rgba(173,139,152,0.08);
+      box-shadow:0 20px 40px rgba(173,139,152,0.08);
       margin-bottom:28px;
     }
 
     .section h1{
       text-align:center;
-      font-size:52px;
+      font-size:54px;
       margin-bottom:18px;
       color:#7a5665;
       line-height:1.05;
@@ -123,54 +123,56 @@
       color:#6e5a63;
     }
 
-    .hero-card{
+    .litter-hero{
       max-width:1040px;
       margin:0 auto;
       background:linear-gradient(180deg,#fffefe 0%,#fff7fb 100%);
       border-radius:34px;
-      padding:30px 22px;
+      padding:28px 24px;
       box-shadow:0 16px 36px rgba(0,0,0,0.08);
       border:1px solid rgba(240,223,230,0.95);
     }
 
-    .hero-title{
+    .hero-top{
       text-align:center;
-      font-size:40px;
-      line-height:1.15;
+      margin-bottom:22px;
+    }
+
+    .hero-title{
+      font-size:38px;
       color:#7a5665;
+      line-height:1.2;
       margin-bottom:10px;
     }
 
-    .hero-subtitle{
-      text-align:center;
+    .hero-date{
       font-size:18px;
-      line-height:1.8;
       color:#6b5861;
-      margin-bottom:18px;
+      line-height:1.8;
     }
 
-    .info-box{
-      max-width:820px;
-      margin:0 auto 20px;
+    .parents-box{
+      max-width:780px;
+      margin:0 auto 24px;
       background:#fff8fb;
       border:1px solid rgba(240,223,230,0.95);
       border-radius:24px;
-      padding:20px 18px;
-      box-shadow:0 10px 22px rgba(0,0,0,0.05);
+      padding:18px 16px;
       text-align:center;
+      box-shadow:0 10px 22px rgba(0,0,0,0.05);
     }
 
-    .info-box p{
+    .parents-box p{
       font-size:18px;
       line-height:1.9;
       color:#654f58;
     }
 
-    .info-box strong{
+    .parents-box strong{
       color:#7a5665;
     }
 
-    .info-box a{
+    .parents-links a{
       color:#7a5665;
       font-weight:700;
       border-bottom:1px solid rgba(122,86,101,0.24);
@@ -179,8 +181,8 @@
     .badges{
       display:flex;
       flex-wrap:wrap;
-      justify-content:center;
       gap:10px;
+      justify-content:center;
       margin:16px 0 22px;
     }
 
@@ -198,8 +200,8 @@
       box-shadow:0 6px 14px rgba(176,139,154,0.08);
     }
 
-    .text-block{
-      max-width:920px;
+    .litter-text{
+      max-width:910px;
       margin:0 auto;
       text-align:center;
       font-size:18px;
@@ -207,7 +209,7 @@
       color:#654f58;
     }
 
-    .text-block p + p{
+    .litter-text p + p{
       margin-top:16px;
     }
 
@@ -246,36 +248,78 @@
       margin:0 auto;
       background:linear-gradient(180deg,#fffefe 0%,#fff7fb 100%);
       border-radius:34px;
-      padding:28px 22px;
+      padding:28px 24px;
       box-shadow:0 16px 36px rgba(0,0,0,0.08);
       border:1px solid rgba(240,223,230,0.95);
     }
 
-    .archive-note{
-      margin-top:18px;
+    .archive-text{
+      max-width:860px;
+      margin:0 auto;
       text-align:center;
-      color:#7a5665;
-      font-weight:700;
       font-size:18px;
+      line-height:1.9;
+      color:#654f58;
     }
 
-    .lightbox{
+    .archive-note{
+      margin-top:18px;
+      font-size:18px;
+      font-weight:700;
+      color:#7a5665;
+      text-align:center;
+    }
+
+    .slider-overlay{
       display:none;
       position:fixed;
       inset:0;
       background:rgba(0,0,0,0.92);
+      z-index:8000;
       align-items:center;
       justify-content:center;
-      z-index:8000;
       padding:20px;
       touch-action:none;
     }
 
-    .lightbox.show{
+    .slider-overlay.show{
       display:flex;
     }
 
-    .lightbox-inner{
+    .slider-topbar{
+      position:absolute;
+      top:14px;
+      left:14px;
+      right:14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:3;
+    }
+
+    .slider-counter{
+      background:rgba(255,255,255,0.14);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:999px;
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      font-size:15px;
+    }
+
+    .slider-close{
+      border:none;
+      background:rgba(255,255,255,0.16);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:15px;
+      cursor:pointer;
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+    }
+
+    .slider-inner{
       position:relative;
       width:100%;
       max-width:1100px;
@@ -284,58 +328,48 @@
       justify-content:center;
     }
 
-    .lightbox-img-wrap{
+    .slider-image-wrap{
       width:100%;
       display:flex;
       align-items:center;
       justify-content:center;
       min-height:70vh;
+      touch-action:none;
     }
 
-    .lightbox img{
+    .slider-image{
       max-width:92vw;
-      max-height:86vh;
-      border-radius:20px;
+      max-height:82vh;
+      border-radius:18px;
       box-shadow:0 24px 55px rgba(0,0,0,0.35);
       user-select:none;
       -webkit-user-drag:none;
       pointer-events:none;
     }
 
-    .lightbox-close{
-      position:absolute;
-      top:-6px;
-      right:0;
-      width:42px;
-      height:42px;
-      border:none;
-      border-radius:50%;
-      background:rgba(255,255,255,0.2);
-      color:#fff;
-      font-size:26px;
-      cursor:pointer;
-    }
-
-    .lightbox-nav{
+    .slider-btn{
       position:absolute;
       top:50%;
       transform:translateY(-50%);
-      width:50px;
-      height:50px;
       border:none;
-      border-radius:50%;
-      background:rgba(255,255,255,0.18);
+      background:rgba(255,255,255,0.16);
       color:#fff;
-      font-size:26px;
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      font-size:28px;
       cursor:pointer;
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      z-index:2;
     }
 
-    .lightbox-prev{
-      left:0;
+    .slider-prev{
+      left:6px;
     }
 
-    .lightbox-next{
-      right:0;
+    .slider-next{
+      right:6px;
     }
 
     footer{
@@ -345,7 +379,7 @@
       color:#866873;
     }
 
-    @media(max-width:980px){
+    @media(max-width:900px){
       .gallery-grid{
         grid-template-columns:repeat(2,minmax(0,1fr));
       }
@@ -354,14 +388,19 @@
     @media(max-width:768px){
       .topbar-inner{
         padding:14px 14px;
+        justify-content:center;
       }
 
       .brand{
         font-size:20px;
+        width:100%;
+        text-align:center;
       }
 
       .nav-links{
+        justify-content:center;
         gap:10px 12px;
+        max-width:100%;
       }
 
       .nav-links a{
@@ -390,24 +429,25 @@
       }
 
       .section-intro,
-      .text-block,
-      .info-box p,
-      .hero-subtitle{
+      .litter-text,
+      .archive-text,
+      .parents-box p,
+      .hero-date{
         font-size:17px;
         line-height:1.8;
       }
 
-      .hero-card,
+      .litter-hero,
       .archive-box{
         padding:20px 14px;
         border-radius:26px;
       }
 
       .hero-title{
-        font-size:30px;
+        font-size:29px;
       }
 
-      .info-box{
+      .parents-box{
         border-radius:22px;
       }
 
@@ -425,10 +465,22 @@
         border-radius:16px;
       }
 
-      .lightbox-nav{
-        width:44px;
-        height:44px;
-        font-size:22px;
+      .slider-btn{
+        width:46px;
+        height:46px;
+        font-size:24px;
+      }
+
+      .slider-topbar{
+        top:10px;
+        left:10px;
+        right:10px;
+      }
+
+      .slider-counter,
+      .slider-close{
+        font-size:13px;
+        padding:8px 12px;
       }
     }
   </style>
@@ -443,7 +495,9 @@
         <a href="index.html">Strona główna</a>
         <a href="kotki.html">Moje kotki</a>
         <a href="kocury.html">Kocury hodowlane</a>
+        <a href="kocieta.html">Moje kocięta</a>
         <a href="miot.html">Aktualny miot</a>
+        <a href="galeria.html">Galeria</a>
         <a href="rezerwacja.html">Rezerwacja</a>
         <a href="kontakt.html">Kontakt</a>
       </div>
@@ -456,15 +510,17 @@
       <h1>Aktualny miot</h1>
 
       <div class="section-intro">
-        W tej zakładce prezentujemy nasz obecny miot oraz najważniejsze informacje dotyczące kociąt. Chcemy, aby wszystko było czytelne, uporządkowane i wygodne do oglądania na telefonie, tablecie i komputerze.
+        W tej zakładce prezentujemy nasz obecny miot oraz najważniejsze informacje dotyczące kociąt. Całość została uporządkowana tak, aby wszystko było czytelne, eleganckie i przejrzyste.
       </div>
 
-      <div class="hero-card">
-        <div class="hero-title">Miot norweski leśny „M”</div>
-        <div class="hero-subtitle">Data urodzenia: 27.03.2026</div>
+      <div class="litter-hero">
+        <div class="hero-top">
+          <div class="hero-title">Miot norweski leśny „M”</div>
+          <div class="hero-date">Data urodzenia: 27.03.2026</div>
+        </div>
 
-        <div class="info-box">
-          <p>
+        <div class="parents-box">
+          <p class="parents-links">
             <strong>Rodzice miotu:</strong><br>
             <a href="kotki.html#dalia">Dalia Pałuckie Pupile*PL</a> ×
             <a href="kocury.html#posejdon">Posejdon Ice Land*NL</a>
@@ -483,18 +539,18 @@
           <span class="badge">Możliwość wyboru imienia</span>
         </div>
 
-        <div class="text-block">
+        <div class="litter-text">
           <p>
-            27 marca 2026 roku w naszej hodowli przyszedł na świat wyjątkowy miot kotów norweskich leśnych oznaczony literą „M”.
+            27 marca 2026 roku w naszej hodowli przyszedł na świat wyjątkowy miot kotów norweskich leśnych.
           </p>
           <p>
-            W miocie urodziło się <strong>5 dziewczynek</strong>: <strong>3 niebiesko-srebrne szylkretki (NFO gs 22)</strong> oraz <strong>2 czarno-srebrne szylkretki (NFO fs 22)</strong>.
+            W miocie urodziło się <strong>5 dziewczynek</strong>: <strong>3 niebiesko-srebrne szylkretki</strong> oraz <strong>2 czarno-srebrne szylkretki</strong>.
           </p>
           <p>
             To niezwykle urocze, delikatne i pełne wdzięku maluszki, które od pierwszych dni życia rozwijają się pod czujnym okiem swojej mamy. Każde z nich ma już swój wyjątkowy charakter – są ciekawskie, spokojne i bardzo kontaktowe.
           </p>
           <p>
-            Wychowują się w domowej atmosferze, w stałym kontakcie z człowiekiem, dzięki czemu od najmłodszych dni uczą się bliskości, czułości i zaufania.
+            Kocięta wychowują się w domowej atmosferze, w stałym kontakcie z człowiekiem, dzięki czemu od najmłodszych dni uczą się bliskości, czułości i zaufania.
           </p>
           <p>
             Nowi opiekunowie będą mieli możliwość wyboru imienia dla swojego kociaka zgodnie z literą miotu.
@@ -502,17 +558,16 @@
         </div>
 
         <div class="gallery-grid">
-  <div class="gallery-item"><img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Miot norweski zdjęcie 1" onclick="openLightbox(this.src)"></div>
-  <div class="gallery-item"><img src="file_000000001aa47243b5ef692c7926902d.png" alt="Miot norweski zdjęcie 2" onclick="openLightbox(this.src)"></div>
-  <div class="gallery-item"><img src="file_000000006f947243b32fb0f9a979bc82.png" alt="Miot norweski zdjęcie 3" onclick="openLightbox(this.src)"></div>
-  <div class="gallery-item"><img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Miot norweski zdjęcie 4" onclick="openLightbox(this.src)"></div>
-  <div class="gallery-item"><img src="file_0000000090b8720bb77f08f165cf4553.png" alt="Miot norweski zdjęcie 5" onclick="openLightbox(this.src)"></div>
-  <div class="gallery-item"><img src="file_000000009d18720a9eee94a619faf953.png" alt="Miot norweski zdjęcie 6" onclick="openLightbox(this.src)"></div>
-  <div class="gallery-item"><img src="file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Miot norweski zdjęcie 7" onclick="openLightbox(this.src)"></div>
-  <div class="gallery-item"><img src="file_00000000bdb472438f85c836c30364e5.png" alt="Miot norweski zdjęcie 8" onclick="openLightbox(this.src)"></div>
-  <div class="gallery-item"><img src="file_00000000c60072439aee95ed8f84caaf.png" alt="Miot norweski zdjęcie 9" onclick="openLightbox(this.src)"></div>
-</div>
-          
+          <div class="gallery-item"><img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Miot norweski zdjęcie 1" onclick="openSlider(0)"></div>
+          <div class="gallery-item"><img src="file_000000001aa47243b5ef692c7926902d.png" alt="Miot norweski zdjęcie 2" onclick="openSlider(1)"></div>
+          <div class="gallery-item"><img src="file_000000006f947243b32fb0f9a979bc82.png" alt="Miot norweski zdjęcie 3" onclick="openSlider(2)"></div>
+          <div class="gallery-item"><img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Miot norweski zdjęcie 4" onclick="openSlider(3)"></div>
+          <div class="gallery-item"><img src="file_0000000090b8720bb77f08f165cf4553.png" alt="Miot norweski zdjęcie 5" onclick="openSlider(4)"></div>
+          <div class="gallery-item"><img src="file_000000009d18720a9eee94a619faf953.png" alt="Miot norweski zdjęcie 6" onclick="openSlider(5)"></div>
+          <div class="gallery-item"><img src="file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Miot norweski zdjęcie 7" onclick="openSlider(6)"></div>
+          <div class="gallery-item"><img src="file_00000000bdb472438f85c836c30364e5.png" alt="Miot norweski zdjęcie 8" onclick="openSlider(7)"></div>
+          <div class="gallery-item"><img src="file_00000000c60072439aee95ed8f84caaf.png" alt="Miot norweski zdjęcie 9" onclick="openSlider(8)"></div>
+        </div>
       </div>
     </section>
 
@@ -520,8 +575,8 @@
       <h2>Nasze wcześniejsze mioty</h2>
 
       <div class="archive-box">
-        <div class="text-block">
-          Wcześniej w naszej hodowli przyszły na świat również ragdollki, które znalazły już swoje kochające, odpowiedzialne domy. To dla nas ogromna radość obserwować, jak nasze kocięta dorastają w nowych rodzinach i rozpoczynają swoje piękne życie u boku opiekunów.
+        <div class="archive-text">
+          Wcześniej w naszej hodowli przyszły na świat również ragdollki, które znalazły już swoje kochające i odpowiedzialne domy. To dla nas ogromna radość obserwować, jak nasze kocięta dorastają w nowych rodzinach i rozpoczynają swoje piękne życie u boku opiekunów.
         </div>
         <div class="archive-note">
           Wszystkie ragdollki pojechały już do swoich nowych domków.
@@ -531,14 +586,20 @@
 
   </div>
 
-  <div class="lightbox" id="lightbox">
-    <div class="lightbox-inner">
-      <button class="lightbox-close" type="button" onclick="closeLightbox()">×</button>
-      <button class="lightbox-nav lightbox-prev" type="button" onclick="prevImage()">‹</button>
-      <div class="lightbox-img-wrap">
-        <img id="lightbox-img" src="" alt="">
+  <div class="slider-overlay" id="sliderOverlay">
+    <div class="slider-topbar">
+      <div class="slider-counter" id="sliderCounter">1 / 9</div>
+      <button class="slider-close" type="button" onclick="closeSlider()">Zamknij</button>
+    </div>
+
+    <div class="slider-inner">
+      <button class="slider-btn slider-prev" type="button" onclick="prevSlide()">‹</button>
+
+      <div class="slider-image-wrap" id="sliderTouchArea">
+        <img id="sliderImage" class="slider-image" src="" alt="">
       </div>
-      <button class="lightbox-nav lightbox-next" type="button" onclick="nextImage()">›</button>
+
+      <button class="slider-btn slider-next" type="button" onclick="nextSlide()">›</button>
     </div>
   </div>
 
@@ -547,7 +608,7 @@
   </footer>
 
   <script>
-    const images = [
+    const galleryImages = [
       "file_00000000166072439b0458ff2eaa1e44.png",
       "file_000000001aa47243b5ef692c7926902d.png",
       "file_000000006f947243b32fb0f9a979bc82.png",
@@ -559,62 +620,72 @@
       "file_00000000c60072439aee95ed8f84caaf.png"
     ];
 
-    let currentIndex = 0;
-    let startX = 0;
+    let currentSlide = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
 
-    function openLightbox(index){
-      currentIndex = index;
-      document.getElementById("lightbox-img").src = images[currentIndex];
-      document.getElementById("lightbox").classList.add("show");
+    function updateSlider(){
+      const img = document.getElementById("sliderImage");
+      const counter = document.getElementById("sliderCounter");
+      img.src = galleryImages[currentSlide];
+      img.alt = "Miot norweski zdjęcie " + (currentSlide + 1);
+      counter.textContent = (currentSlide + 1) + " / " + galleryImages.length;
+    }
+
+    function openSlider(index){
+      currentSlide = index;
+      updateSlider();
+      document.getElementById("sliderOverlay").classList.add("show");
       document.body.style.overflow = "hidden";
     }
 
-    function closeLightbox(){
-      document.getElementById("lightbox").classList.remove("show");
+    function closeSlider(){
+      document.getElementById("sliderOverlay").classList.remove("show");
       document.body.style.overflow = "";
     }
 
-    function prevImage(){
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      document.getElementById("lightbox-img").src = images[currentIndex];
+    function prevSlide(){
+      currentSlide = (currentSlide - 1 + galleryImages.length) % galleryImages.length;
+      updateSlider();
     }
 
-    function nextImage(){
-      currentIndex = (currentIndex + 1) % images.length;
-      document.getElementById("lightbox-img").src = images[currentIndex];
+    function nextSlide(){
+      currentSlide = (currentSlide + 1) % galleryImages.length;
+      updateSlider();
     }
-
-    document.getElementById("lightbox").addEventListener("click", function(e){
-      if(e.target.id === "lightbox"){
-        closeLightbox();
-      }
-    });
 
     document.addEventListener("keydown", function(e){
-      const opened = document.getElementById("lightbox").classList.contains("show");
-      if(!opened) return;
+      const open = document.getElementById("sliderOverlay").classList.contains("show");
+      if(!open) return;
 
-      if(e.key === "Escape") closeLightbox();
-      if(e.key === "ArrowLeft") prevImage();
-      if(e.key === "ArrowRight") nextImage();
+      if(e.key === "ArrowLeft") prevSlide();
+      if(e.key === "ArrowRight") nextSlide();
+      if(e.key === "Escape") closeSlider();
     });
 
-    const lightbox = document.getElementById("lightbox");
+    const touchArea = document.getElementById("sliderTouchArea");
 
-    lightbox.addEventListener("touchstart", function(e){
-      startX = e.changedTouches[0].screenX;
+    touchArea.addEventListener("touchstart", function(e){
+      touchStartX = e.changedTouches[0].clientX;
     }, {passive:true});
 
-    lightbox.addEventListener("touchend", function(e){
-      const endX = e.changedTouches[0].screenX;
-      const diff = endX - startX;
-      if(Math.abs(diff) < 40) return;
+    touchArea.addEventListener("touchend", function(e){
+      touchEndX = e.changedTouches[0].clientX;
+      const diff = touchEndX - touchStartX;
+      if(Math.abs(diff) < 35) return;
+
       if(diff > 0){
-        prevImage();
+        prevSlide();
       }else{
-        nextImage();
+        nextSlide();
       }
     }, {passive:true});
+
+    document.getElementById("sliderOverlay").addEventListener("click", function(e){
+      if(e.target.id === "sliderOverlay"){
+        closeSlider();
+      }
+    });
   </script>
 
 </body>
