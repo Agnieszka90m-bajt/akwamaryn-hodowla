@@ -1,797 +1,1019 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aktualny miot | Akwamaryn*PL</title>
-
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:Georgia,"Times New Roman",serif;
-  background:linear-gradient(180deg,#fffafc 0%,#f8eef3 100%);
-  color:#654f58;
-  overflow-x:hidden;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-/* TOPBAR */
-
-.topbar{
-  position:sticky;
-  top:0;
-  z-index:5000;
-  background:rgba(255,248,251,0.95);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(218,189,200,0.2);
-}
-
-.topbar-inner{
-  max-width:1280px;
-  margin:0 auto;
-  padding:16px 20px;
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-}
-
-.brand{
-  font-size:26px;
-  font-weight:600;
-  color:#7a5665;
-  white-space:nowrap;
-}
-
-.nav-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:14px;
-  font-weight:600;
-  color:#7a5665;
-  justify-content:flex-end;
-  max-width:920px;
-}
-
-.nav-links a{
-  font-size:15px;
-  transition:opacity 0.25s ease;
-}
-
-.nav-links a:hover{
-  opacity:0.72;
-}
-
-/* CONTAINER */
-
-.container{
-  max-width:1240px;
-  margin:0 auto;
-  padding:38px 20px 70px;
-}
-
-.section{
-  background:rgba(255,255,255,0.86);
-  border:1px solid rgba(238,221,229,0.7);
-  border-radius:38px;
-  padding:40px 24px;
-  box-shadow:0 20px 40px rgba(173,139,152,0.08);
-  margin-bottom:28px;
-}
-
-.section h1{
-  text-align:center;
-  font-size:54px;
-  margin-bottom:18px;
-  color:#7a5665;
-  line-height:1.05;
-}
-
-.section h2{
-  text-align:center;
-  font-size:34px;
-  margin-bottom:18px;
-  color:#7a5665;
-  line-height:1.15;
-}
-
-.section h3{
-  font-size:28px;
-  margin-bottom:16px;
-  color:#7a5665;
-  line-height:1.2;
-  text-align:center;
-}
-
-.section-intro{
-  max-width:980px;
-  margin:0 auto 30px;
-  text-align:center;
-  font-size:19px;
-  line-height:1.9;
-  color:#6e5a63;
-}
-
-/* HERO CARD */
-
-.hero-card{
-  background:linear-gradient(180deg,#fffefe 0%,#fff7fb 100%);
-  border-radius:34px;
-  padding:28px 24px;
-  box-shadow:0 16px 36px rgba(0,0,0,0.08);
-  border:1px solid rgba(240,223,230,0.95);
-  max-width:1040px;
-  margin:0 auto;
-}
-
-.litter-badge{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:10px 18px;
-  border-radius:999px;
-  background:linear-gradient(180deg,#fff4f8 0%,#fdeef4 100%);
-  border:1px solid rgba(230,204,216,0.95);
-  color:#7a5665;
-  font-size:14px;
-  font-weight:700;
-  box-shadow:0 6px 14px rgba(176,139,154,0.08);
-}
-
-.center-row{
-  text-align:center;
-  margin-bottom:18px;
-}
-
-.hero-title{
-  text-align:center;
-  font-size:38px;
-  color:#7a5665;
-  margin-bottom:16px;
-  line-height:1.15;
-}
-
-.meta-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
-  max-width:920px;
-  margin:0 auto 20px;
-}
-
-.meta-box{
-  background:#fff8fb;
-  border:1px solid rgba(240,223,230,0.95);
-  border-radius:24px;
-  padding:18px 16px;
-  text-align:center;
-  box-shadow:0 10px 22px rgba(0,0,0,0.05);
-}
-
-.meta-box strong{
-  display:block;
-  margin-bottom:6px;
-  color:#7a5665;
-  font-size:17px;
-}
-
-.meta-box span{
-  font-size:17px;
-  line-height:1.7;
-  color:#654f58;
-}
-
-.parents-links a{
-  color:#7a5665;
-  font-weight:700;
-  border-bottom:1px solid rgba(122,86,101,0.24);
-}
-
-.tags-row{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:10px;
-  margin:8px 0 22px;
-}
-
-.tag{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:9px 14px;
-  border-radius:999px;
-  background:linear-gradient(180deg,#fff4f8 0%,#fdeef4 100%);
-  border:1px solid rgba(230,204,216,0.95);
-  color:#7a5665;
-  font-size:14px;
-  font-weight:600;
-  box-shadow:0 6px 14px rgba(176,139,154,0.08);
-}
-
-.long-text{
-  max-width:940px;
-  margin:0 auto;
-  text-align:center;
-  font-size:18px;
-  line-height:1.95;
-  color:#654f58;
-}
-
-.long-text p + p{
-  margin-top:16px;
-}
-
-/* GALLERY */
-
-.gallery-wrap{
-  margin-top:34px;
-}
-
-.gallery-title{
-  text-align:center;
-  font-size:26px;
-  color:#7a5665;
-  margin-bottom:18px;
-}
-
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:16px;
-}
-
-.gallery-item{
-  background:linear-gradient(180deg,#fffefe 0%,#fff7fb 100%);
-  border:1px solid rgba(240,223,230,0.95);
-  border-radius:24px;
-  padding:10px;
-  box-shadow:0 12px 28px rgba(0,0,0,0.06);
-  transition:transform 0.28s ease, box-shadow 0.28s ease;
-}
-
-.gallery-item:hover{
-  transform:translateY(-4px);
-  box-shadow:0 18px 34px rgba(165,129,144,0.12);
-}
-
-.gallery-item img{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  display:block;
-  border-radius:18px;
-  cursor:pointer;
-}
-
-/* PREVIOUS LITTER */
-
-.archive-grid{
-  display:grid;
-  grid-template-columns:360px 1fr;
-  gap:28px;
-  align-items:center;
-  background:linear-gradient(180deg,#fffefe 0%,#fff7fb 100%);
-  border:1px solid rgba(240,223,230,0.95);
-  border-radius:30px;
-  padding:22px;
-  box-shadow:0 14px 30px rgba(0,0,0,0.06);
-}
-
-.archive-photo{
-  background:linear-gradient(180deg,#fffdfd 0%,#f8eef3 100%);
-  border-radius:24px;
-  padding:10px;
-  box-shadow:inset 0 0 0 1px rgba(244,226,234,0.65);
-}
-
-.archive-photo img{
-  width:100%;
-  display:block;
-  border-radius:18px;
-  cursor:pointer;
-}
-
-.archive-content h3{
-  text-align:left;
-  margin-bottom:14px;
-}
-
-.archive-content p{
-  font-size:18px;
-  line-height:1.9;
-  color:#654f58;
-}
-
-.archive-content p + p{
-  margin-top:10px;
-}
-
-/* LIGHTBOX / SLIDER */
-
-.slider-overlay{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.92);
-  z-index:8000;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  touch-action:none;
-}
-
-.slider-overlay.show{
-  display:flex;
-}
-
-.slider-topbar{
-  position:absolute;
-  top:14px;
-  left:14px;
-  right:14px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  z-index:3;
-}
-
-.slider-counter{
-  background:rgba(255,255,255,0.14);
-  color:#fff;
-  padding:10px 14px;
-  border-radius:999px;
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-  font-size:15px;
-}
-
-.slider-close{
-  border:none;
-  background:rgba(255,255,255,0.16);
-  color:#fff;
-  padding:10px 14px;
-  border-radius:999px;
-  font-size:15px;
-  cursor:pointer;
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-}
-
-.slider-inner{
-  position:relative;
-  width:100%;
-  max-width:1100px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.slider-image-wrap{
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:70vh;
-  touch-action:none;
-}
-
-.slider-image{
-  max-width:92vw;
-  max-height:82vh;
-  border-radius:18px;
-  box-shadow:0 24px 55px rgba(0,0,0,0.35);
-  user-select:none;
-  -webkit-user-drag:none;
-  pointer-events:none;
-}
-
-.slider-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  border:none;
-  background:rgba(255,255,255,0.16);
-  color:#fff;
-  width:54px;
-  height:54px;
-  border-radius:50%;
-  font-size:28px;
-  cursor:pointer;
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-  z-index:2;
-}
-
-.slider-prev{
-  left:6px;
-}
-
-.slider-next{
-  right:6px;
-}
-
-/* FOOTER */
-
-footer{
-  text-align:center;
-  padding:30px;
-  font-size:14px;
-  color:#866873;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:980px){
-  .meta-grid{
-    grid-template-columns:1fr;
-  }
-
-  .archive-grid{
-    grid-template-columns:1fr;
-  }
-
-  .archive-content h3{
-    text-align:center;
-  }
-
-  .archive-content p{
-    text-align:center;
-  }
-}
-
-@media(max-width:900px){
-  .gallery-grid{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-}
-
-@media(max-width:768px){
-  .topbar-inner{
-    padding:14px 14px;
-    justify-content:center;
-  }
-
-  .brand{
-    font-size:20px;
-    width:100%;
-    text-align:center;
-  }
-
-  .nav-links{
-    justify-content:center;
-    gap:10px 12px;
-    max-width:100%;
-  }
-
-  .nav-links a{
-    font-size:13px;
-  }
-
-  .container{
-    padding:24px 12px 46px;
-  }
-
-  .section{
-    padding:26px 14px;
-    border-radius:26px;
-  }
-
-  .section h1{
-    font-size:34px;
-  }
-
-  .section h2{
-    font-size:28px;
-  }
-
-  .section h3{
-    font-size:24px;
-  }
-
-  .section-intro,
-  .long-text,
-  .archive-content p{
-    font-size:17px;
-    line-height:1.8;
-  }
-
-  .hero-card{
-    padding:18px 14px;
-    border-radius:26px;
-  }
-
-  .hero-title{
-    font-size:28px;
-  }
-
-  .meta-box{
-    border-radius:20px;
-  }
-
-  .gallery-grid{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:12px;
-  }
-
-  .gallery-item{
-    border-radius:20px;
-  }
-
-  .gallery-item img{
-    height:180px;
-    object-fit:cover;
-    border-radius:16px;
-  }
-
-  .slider-btn{
-    width:46px;
-    height:46px;
-    font-size:24px;
-  }
-
-  .slider-topbar{
-    top:10px;
-    left:10px;
-    right:10px;
-  }
-
-  .slider-counter,
-  .slider-close{
-    font-size:13px;
-    padding:8px 12px;
-  }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aktualny miot | Akwamaryn*PL</title>
+  <meta name="description" content="Aktualny miot norweskich kotów leśnych w hodowli Akwamaryn*PL." />
+  <style>
+    :root {
+      --bg: #f6f0eb;
+      --bg-2: #efe4db;
+      --white: rgba(255,255,255,0.72);
+      --white-strong: rgba(255,255,255,0.88);
+      --line: rgba(255,255,255,0.45);
+      --gold: #b9915f;
+      --gold-soft: #d8bc97;
+      --text: #2a2421;
+      --text-soft: #6b5b52;
+      --shadow: 0 20px 60px rgba(82, 57, 34, 0.12);
+      --shadow-hover: 0 24px 70px rgba(82, 57, 34, 0.18);
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --radius-md: 20px;
+      --max: 1380px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Georgia", "Times New Roman", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.95), rgba(255,255,255,0) 35%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,0.85), rgba(255,255,255,0) 28%),
+        linear-gradient(135deg, #f9f5f1 0%, #f1e6de 50%, #ecdfd5 100%);
+      min-height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page-shell {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-shell::before,
+    .page-shell::after {
+      content: "";
+      position: fixed;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.24;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-shell::before {
+      top: -120px;
+      left: -90px;
+      background: #f7e1cf;
+    }
+
+    .page-shell::after {
+      bottom: -160px;
+      right: -80px;
+      background: #ead7ff;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .topbar {
+      padding: 18px 0;
+    }
+
+    .topbar-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 22px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.52);
+      border: 1px solid rgba(255,255,255,0.5);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .brand span {
+      color: var(--gold);
+    }
+
+    .back-link {
+      font-size: 14px;
+      color: var(--text-soft);
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.66);
+      border: 1px solid rgba(255,255,255,0.6);
+      transition: 0.25s ease;
+    }
+
+    .back-link:hover {
+      transform: translateY(-2px);
+      color: var(--text);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    }
+
+    .hero {
+      padding: 12px 0 38px;
+    }
+
+    .hero-box {
+      position: relative;
+      min-height: 720px;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(115deg, rgba(19,16,14,0.28), rgba(19,16,14,0.08)),
+        url("images/miot-m/hero.jpg") center center / cover no-repeat;
+    }
+
+    .hero-box::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.00) 0%, rgba(34,25,18,0.10) 50%, rgba(34,25,18,0.18) 100%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: 38px;
+      z-index: 2;
+    }
+
+    .glass-panel {
+      width: min(760px, 100%);
+      padding: 32px 34px;
+      border-radius: 32px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.42), rgba(255,255,255,0.18));
+      border: 1px solid rgba(255,255,255,0.38);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.34);
+      border: 1px solid rgba(255,255,255,0.36);
+      color: #fff;
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 0 0 16px;
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 0.98;
+      color: #fff;
+      font-weight: 500;
+      text-shadow: 0 8px 30px rgba(0,0,0,0.18);
+    }
+
+    .hero p {
+      margin: 0 0 24px;
+      font-size: 18px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.94);
+      max-width: 680px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .hero-stat {
+      padding: 16px 14px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.22);
+      border: 1px solid rgba(255,255,255,0.28);
+      text-align: center;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .hero-stat span {
+      display: block;
+      font-size: 13px;
+      color: rgba(255,255,255,0.90);
+      line-height: 1.45;
+    }
+
+    .main-content {
+      padding: 24px 0 90px;
+    }
+
+    .section {
+      margin-bottom: 34px;
+    }
+
+    .section-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.70));
+      border: 1px solid rgba(255,255,255,0.62);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      overflow: hidden;
+    }
+
+    .section-inner {
+      padding: 34px;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.08;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .section-lead {
+      margin: 0;
+      max-width: 900px;
+      font-size: 17px;
+      line-height: 1.85;
+      color: var(--text-soft);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+    }
+
+    .info-box {
+      background: linear-gradient(180deg, rgba(255,255,255,0.70), rgba(255,255,255,0.52));
+      border: 1px solid rgba(255,255,255,0.55);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+    }
+
+    .info-box h3 {
+      margin: 0 0 18px;
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .info-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 165px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(110, 87, 66, 0.10);
+    }
+
+    .info-row:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .info-label {
+      color: var(--gold);
+      font-size: 14px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .info-value {
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .note-box {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.75), rgba(255,255,255,0.45)),
+        linear-gradient(135deg, rgba(185,145,95,0.06), rgba(255,255,255,0.00));
+      border: 1px solid rgba(185,145,95,0.16);
+      border-radius: 28px;
+      padding: 28px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .note-box p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.95;
+      color: var(--text-soft);
+    }
+
+    .parents-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 28px;
+    }
+
+    .parent-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      min-height: 620px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #fff;
+    }
+
+    .parent-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .parent-image {
+      position: absolute;
+      inset: 0;
+    }
+
+    .parent-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .parent-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(25,18,12,0.02) 0%, rgba(25,18,12,0.20) 55%, rgba(25,18,12,0.72) 100%);
+    }
+
+    .parent-overlay {
+      position: absolute;
+      inset: auto 20px 20px 20px;
+      z-index: 2;
+      padding: 24px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.34), rgba(255,255,255,0.16));
+      border: 1px solid rgba(255,255,255,0.28);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      color: #fff;
+    }
+
+    .parent-role {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.16);
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    .parent-overlay h3 {
+      margin: 0 0 8px;
+      font-size: 34px;
+      font-weight: 500;
+      line-height: 1.04;
+    }
+
+    .parent-overlay p {
+      margin: 0 0 16px;
+      color: rgba(255,255,255,0.92);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .parent-meta {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .parent-meta div {
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .parent-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.94);
+      color: #5d4634;
+      font-size: 15px;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    .parent-button:hover {
+      transform: translateY(-2px);
+      background: #fff;
+    }
+
+    .gallery-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .gallery-head p {
+      margin: 0;
+      max-width: 760px;
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-soft);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .kitten-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: var(--shadow);
+      min-height: 360px;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .kitten-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .kitten-card.large {
+      grid-column: span 6;
+    }
+
+    .kitten-card.small {
+      grid-column: span 4;
+    }
+
+    .kitten-photo {
+      position: absolute;
+      inset: 0;
+    }
+
+    .kitten-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .kitten-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.00) 15%, rgba(22,16,12,0.16) 62%, rgba(22,16,12,0.62) 100%);
+    }
+
+    .kitten-content {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      z-index: 2;
+      padding: 18px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.34), rgba(255,255,255,0.14));
+      border: 1px solid rgba(255,255,255,0.26);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: #fff;
+    }
+
+    .kitten-content h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+    .kitten-content p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .reservation-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .reservation-text {
+      padding: 10px 0;
+    }
+
+    .reservation-text h2 {
+      margin: 0 0 14px;
+      font-size: clamp(30px, 4.6vw, 46px);
+      line-height: 1.08;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .reservation-text p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.9;
+      color: var(--text-soft);
+    }
+
+    .reservation-panel {
+      padding: 28px;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.82), rgba(255,255,255,0.58)),
+        linear-gradient(135deg, rgba(185,145,95,0.08), rgba(255,255,255,0.00));
+      border: 1px solid rgba(185,145,95,0.18);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.06);
+    }
+
+    .reservation-panel h3 {
+      margin: 0 0 16px;
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    .reservation-panel .res-line {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(110, 87, 66, 0.10);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-soft);
+    }
+
+    .reservation-panel .res-line:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .footer-space {
+      height: 20px;
+    }
+
+    @media (max-width: 1180px) {
+      .hero-box {
+        min-height: 640px;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .info-grid,
+      .reservation-box {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .kitten-card.large,
+      .kitten-card.small {
+        grid-column: auto;
+      }
+
+      .kitten-card {
+        min-height: 420px;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .topbar-box {
+        border-radius: 26px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-content {
+        padding: 18px;
+      }
+
+      .glass-panel {
+        padding: 24px 20px;
+        border-radius: 26px;
+      }
+
+      .hero-box {
+        min-height: 620px;
+        background-position: center;
+      }
+
+      .section-inner {
+        padding: 22px;
+      }
+
+      .parents-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .parent-card {
+        min-height: 560px;
+      }
+
+      .gallery-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .kitten-card {
+        min-height: 380px;
+      }
+
+      .info-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(var(--max), calc(100% - 18px));
+      }
+
+      .hero {
+        padding-top: 8px;
+      }
+
+      .hero-box {
+        min-height: 560px;
+        border-radius: 28px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+        line-height: 1.72;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .hero-stat {
+        padding: 13px 10px;
+        border-radius: 18px;
+      }
+
+      .section-card {
+        border-radius: 28px;
+      }
+
+      .section-inner {
+        padding: 18px;
+      }
+
+      .info-box,
+      .note-box,
+      .reservation-panel {
+        padding: 20px;
+        border-radius: 24px;
+      }
+
+      .parent-overlay {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .parent-overlay h3 {
+        font-size: 28px;
+      }
+
+      .kitten-content {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        padding: 14px;
+        border-radius: 20px;
+      }
+
+      .kitten-content h3 {
+        font-size: 18px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page-shell">
 
-<div class="topbar">
-  <div class="topbar-inner">
-    <div class="brand">Akwamaryn*PL</div>
+    <header class="topbar">
+      <div class="container">
+        <div class="topbar-box">
+          <div class="brand">Akwamaryn<span>*PL</span></div>
+          <a class="back-link" href="index.html">Powrót do strony głównej</a>
+        </div>
+      </div>
+    </header>
 
-    <div class="nav-links">
-      <a href="index.html">Strona główna</a>
-      <a href="kotki.html">Moje kotki</a>
-      <a href="kocury.html">Kocury hodowlane</a>
-      <a href="kocieta.html">Moje kocięta</a>
-      <a href="miot.html">Aktualny miot</a>
-      <a href="galeria.html">Galeria</a>
-      <a href="rezerwacja.html">Rezerwacja</a>
-      <a href="kontakt.html">Kontakt</a>
-    </div>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-box">
+          <div class="hero-content">
+            <div class="glass-panel">
+              <span class="eyebrow">Aktualny miot Akwamaryn*PL</span>
+              <h1>Miot „M”<br>Norweski kot leśny</h1>
+              <p>
+                27.03.2026 na świat przyszło pięć wyjątkowych dziewczynek. To elegancki,
+                starannie zaplanowany miot norweskich kotów leśnych, wychowywany w domowym cieple,
+                z ogromną troską o zdrowie, charakter i piękny typ.
+              </p>
+
+              <div class="hero-stats">
+                <div class="hero-stat">
+                  <strong>27.03.2026</strong>
+                  <span>data urodzenia</span>
+                </div>
+                <div class="hero-stat">
+                  <strong>5</strong>
+                  <span>dziewczynek</span>
+                </div>
+                <div class="hero-stat">
+                  <strong>Miot M</strong>
+                  <span>norweski kot leśny</span>
+                </div>
+                <div class="hero-stat">
+                  <strong>Dostępne</strong>
+                  <span>możliwość wyboru imion</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main class="main-content">
+      <div class="container">
+
+        <section class="section">
+          <div class="section-card">
+            <div class="section-inner">
+              <div class="info-grid">
+                <div class="info-box">
+                  <h3>Informacje o miocie</h3>
+                  <div class="info-list">
+                    <div class="info-row">
+                      <div class="info-label">Rasa</div>
+                      <div class="info-value">Norweski kot leśny</div>
+                    </div>
+                    <div class="info-row">
+                      <div class="info-label">Oznaczenie</div>
+                      <div class="info-value">Miot „M”</div>
+                    </div>
+                    <div class="info-row">
+                      <div class="info-label">Data urodzenia</div>
+                      <div class="info-value">27.03.2026</div>
+                    </div>
+                    <div class="info-row">
+                      <div class="info-label">Liczba kociąt</div>
+                      <div class="info-value">5 kotek</div>
+                    </div>
+                    <div class="info-row">
+                      <div class="info-label">Umaszczenie</div>
+                      <div class="info-value">3 niebiesko srebrne szylkretki oraz 2 czarno srebrne szylkretki</div>
+                    </div>
+                    <div class="info-row">
+                      <div class="info-label">Dostępność</div>
+                      <div class="info-value">Wszystkie maluszki są dostępne, a przyszli opiekunowie będą mogli wybrać imię dla swojego kociaka</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="note-box">
+                  <h3 style="margin-top:0; margin-bottom:18px; font-size:24px; font-weight:500; color:var(--text);">Kilka słów o maluszkach</h3>
+                  <p>
+                    Nasze dziewczynki od pierwszych chwil zachwycają delikatnością, szlachetnym wyglądem
+                    i cudownym potencjałem. Są wychowywane w spokojnym, domowym otoczeniu, z troską o ich
+                    prawidłowy rozwój, socjalizację i najlepszy start w przyszłość. To wyjątkowy miot,
+                    łączący piękne pochodzenie, elegancką kolorystykę oraz typ tak charakterystyczny
+                    dla norweskich kotów leśnych.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-card">
+            <div class="section-inner">
+              <h2 class="section-title">Rodzice miotu</h2>
+              <p class="section-lead">
+                Starannie dobrane skojarzenie, piękne linie i harmonijne połączenie typu, urody oraz charakteru.
+              </p>
+
+              <div class="parents-grid">
+
+                <a href="kotki-hodowlane.html#dalia" class="parent-card">
+                  <div class="parent-image">
+                    <img src="images/rodzice/dalia.jpg" alt="Dalia Akwamaryn*PL">
+                  </div>
+                  <div class="parent-overlay">
+                    <span class="parent-role">Matka miotu</span>
+                    <h3>Dalia</h3>
+                    <p>Piękna, elegancka kotka o wyjątkowym wyrazie i szlachetnym typie, troskliwa i czujna mama.</p>
+                    <div class="parent-meta">
+                      <div><strong>Kolor:</strong> fs 22</div>
+                      <div><strong>Rasa:</strong> norweski kot leśny</div>
+                    </div>
+                    <span class="parent-button">Zobacz profil matki</span>
+                  </div>
+                </a>
+
+                <a href="kocury-hodowlane.html#posejdon" class="parent-card">
+                  <div class="parent-image">
+                    <img src="images/rodzice/posejdon.jpg" alt="Posejdon Akwamaryn*PL">
+                  </div>
+                  <div class="parent-overlay">
+                    <span class="parent-role">Ojciec miotu</span>
+                    <h3>Posejdon</h3>
+                    <p>Imponujący kocur hodowlany o mocnym, efektownym typie i pięknym umaszczeniu, doskonały reprezentant rasy.</p>
+                    <div class="parent-meta">
+                      <div><strong>Kolor:</strong> ns 22</div>
+                      <div><strong>Rasa:</strong> norweski kot leśny</div>
+                    </div>
+                    <span class="parent-button">Zobacz profil ojca</span>
+                  </div>
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-card">
+            <div class="section-inner">
+              <div class="gallery-head">
+                <div>
+                  <h2 class="section-title" style="margin-bottom:8px;">Galeria miotu „M”</h2>
+                  <p>
+                    Poniżej możesz zobaczyć nasze maluszki. Układ galerii jest premium, elegancki i lekki,
+                    dzięki czemu zdjęcia są na pierwszym planie i całość wygląda estetycznie zarówno na komputerze,
+                    jak i na telefonie.
+                  </p>
+                </div>
+              </div>
+
+              <div class="gallery-grid">
+
+                <article class="kitten-card large">
+                  <div class="kitten-photo">
+                    <img src="images/miot-m/maluch-1.jpg" alt="Dziewczynka 1 z miotu M Akwamaryn*PL">
+                  </div>
+                  <div class="kitten-content">
+                    <h3>Dziewczynka 1</h3>
+                    <p>Niebieska srebrna szylkretka</p>
+                  </div>
+                </article>
+
+                <article class="kitten-card large">
+                  <div class="kitten-photo">
+                    <img src="images/miot-m/maluch-2.jpg" alt="Dziewczynka 2 z miotu M Akwamaryn*PL">
+                  </div>
+                  <div class="kitten-content">
+                    <h3>Dziewczynka 2</h3>
+                    <p>Niebieska srebrna szylkretka</p>
+                  </div>
+                </article>
+
+                <article class="kitten-card small">
+                  <div class="kitten-photo">
+                    <img src="images/miot-m/maluch-3.jpg" alt="Dziewczynka 3 z miotu M Akwamaryn*PL">
+                  </div>
+                  <div class="kitten-content">
+                    <h3>Dziewczynka 3</h3>
+                    <p>Niebieska srebrna szylkretka</p>
+                  </div>
+                </article>
+
+                <article class="kitten-card small">
+                  <div class="kitten-photo">
+                    <img src="images/miot-m/maluch-4.jpg" alt="Dziewczynka 4 z miotu M Akwamaryn*PL">
+                  </div>
+                  <div class="kitten-content">
+                    <h3>Dziewczynka 4</h3>
+                    <p>Czarna srebrna szylkretka</p>
+                  </div>
+                </article>
+
+                <article class="kitten-card small">
+                  <div class="kitten-photo">
+                    <img src="images/miot-m/maluch-5.jpg" alt="Dziewczynka 5 z miotu M Akwamaryn*PL">
+                  </div>
+                  <div class="kitten-content">
+                    <h3>Dziewczynka 5</h3>
+                    <p>Czarna srebrna szylkretka</p>
+                  </div>
+                </article>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-card">
+            <div class="section-inner">
+              <div class="reservation-box">
+                <div class="reservation-text">
+                  <h2>Rezerwacja kociąt</h2>
+                  <p>
+                    Jeśli interesuje Cię któryś z naszych maluszków, zapraszamy do kontaktu.
+                    Zależy nam na najlepszych, świadomych i kochających domach. Chętnie opowiemy więcej
+                    o charakterze kociąt, planie odchowu oraz dalszych etapach rezerwacji.
+                  </p>
+                </div>
+
+                <div class="reservation-panel">
+                  <h3>Najważniejsze informacje</h3>
+                  <div class="res-line"><strong>Rezerwacja:</strong> po wcześniejszym kontakcie i ustaleniu szczegółów</div>
+                  <div class="res-line"><strong>Zadatek:</strong> 500 zł</div>
+                  <div class="res-line"><strong>Imię:</strong> przyszły opiekun może wybrać imię dla swojego maluszka</div>
+                  <div class="res-line"><strong>Kontakt:</strong> przez wiadomość prywatną, telefonicznie lub przez formularz na stronie</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="footer-space"></div>
+
+      </div>
+    </main>
   </div>
-</div>
-
-<div class="container">
-
-  <section class="section">
-    <h1>Aktualny miot</h1>
-
-    <div class="section-intro">
-      W tej zakładce prezentujemy nasz aktualny miot oraz najważniejsze informacje o kociętach. Chcieliśmy, aby wszystko było czytelne i uporządkowane — dlatego obecny miot został wyraźnie oddzielony od wcześniejszych.
-    </div>
-
-    <div class="hero-card">
-      <div class="center-row">
-        <span class="litter-badge">Aktualny miot</span>
-      </div>
-
-      <div class="hero-title">Miot norweski leśny „M”</div>
-
-      <div class="meta-grid">
-        <div class="meta-box">
-          <strong>Data urodzenia</strong>
-          <span>27.03.2026</span>
-        </div>
-
-        <div class="meta-box">
-          <strong>Rodzice miotu</strong>
-          <span class="parents-links">
-            <a href="kotki.html#dalia">Dalia Pałuckie Pupile*PL</a> ×
-            <a href="kocury.html#posejdon">Posejdon Ice Land*NL</a>
-          </span>
-        </div>
-
-        <div class="meta-box">
-          <strong>Kod EMS rodziców</strong>
-          <span>matka: NFO as 22<br>ojciec: NFO d 03 22</span>
-        </div>
-
-        <div class="meta-box">
-          <strong>W miocie urodziło się</strong>
-          <span>5 dziewczynek</span>
-        </div>
-      </div>
-
-      <div class="tags-row">
-        <span class="tag">3 niebiesko-srebrne szylkretki · NFO gs 22</span>
-        <span class="tag">2 czarno-srebrne szylkretki · NFO fs 22</span>
-        <span class="tag">Wszystkie maluszki dostępne</span>
-        <span class="tag">Możliwość wyboru imienia</span>
-      </div>
-
-      <div class="long-text">
-        <p>
-          27 marca 2026 roku w naszej hodowli przyszedł na świat wyjątkowy miot kotów norweskich leśnych oznaczony literą „M”.
-        </p>
-        <p>
-          To niezwykle urocze, delikatne i pełne wdzięku kocięta, które od pierwszych dni życia rozwijają się pod czujnym okiem swojej mamy. Każde z nich ma już swój wyjątkowy charakter — są ciekawskie, spokojne i bardzo kontaktowe.
-        </p>
-        <p>
-          Maluszki wychowują się w domowej atmosferze, w stałym kontakcie z człowiekiem, dzięki czemu od najmłodszych dni uczą się bliskości, czułości i zaufania.
-        </p>
-        <p>
-          Nowi opiekunowie będą mieli możliwość wyboru imienia dla swojego kociaka zgodnie z literą miotu.
-        </p>
-      </div>
-
-      <div class="gallery-wrap">
-        <div class="gallery-title">Galeria miotu norweskiego</div>
-
-        <div class="gallery-grid">
-          <div class="gallery-item"><img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Miot norweski zdjęcie 1" onclick="openSlider(0)"></div>
-          <div class="gallery-item"><img src="file_000000001aa47243b5ef692c7926902d.png" alt="Miot norweski zdjęcie 2" onclick="openSlider(1)"></div>
-          <div class="gallery-item"><img src="file_000000006f947243b32fb0f9a979bc82.png" alt="Miot norweski zdjęcie 3" onclick="openSlider(2)"></div>
-          <div class="gallery-item"><img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Miot norweski zdjęcie 4" onclick="openSlider(3)"></div>
-          <div class="gallery-item"><img src="file_0000000090b8720bb77f08f165cf4553.png" alt="Miot norweski zdjęcie 5" onclick="openSlider(4)"></div>
-          <div class="gallery-item"><img src="file_000000009d18720a9eee94a619faf953.png" alt="Miot norweski zdjęcie 6" onclick="openSlider(5)"></div>
-          <div class="gallery-item"><img src="file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Miot norweski zdjęcie 7" onclick="openSlider(6)"></div>
-          <div class="gallery-item"><img src="file_00000000bdb472438f85c836c30364e5.png" alt="Miot norweski zdjęcie 8" onclick="openSlider(7)"></div>
-          <div class="gallery-item"><img src="file_00000000c60072439aee95ed8f84caaf.png" alt="Miot norweski zdjęcie 9" onclick="openSlider(8)"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Nasze wcześniejsze mioty</h2>
-
-    <div class="archive-grid">
-      <div class="archive-photo">
-        <img src="file_000000003488720ab10a35d2c061f697.jpg" alt="Wcześniejszy miot ragdolli" onclick="openSlider(9)">
-      </div>
-
-      <div class="archive-content">
-        <h3>Miot ragdolli</h3>
-        <p>
-          Wcześniejszy miot naszej hodowli stanowiły ragdollki, które zdążyły już wyjechać do swoich kochających domów.
-        </p>
-        <p>
-          Był to dla nas wyjątkowy czas pełen wzruszeń i pięknych chwil, a wszystkie maluszki znalazły cudowne rodziny.
-        </p>
-        <p>
-          Chcieliśmy zachować ten miot w formie spokojnego archiwum, aby historia naszej hodowli była uporządkowana i czytelna.
-        </p>
-        <p class="parents-links">
-          Rodzice wcześniejszego miotu:
-          <a href="kotki.html#infinity">Infinity Ragtone*PL</a> ×
-          <a href="kocury.html#amor">Amor Błękitne Sny*PL</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-</div>
-
-<div class="slider-overlay" id="sliderOverlay">
-  <div class="slider-topbar">
-    <div class="slider-counter" id="sliderCounter">1 / 10</div>
-    <button class="slider-close" type="button" onclick="closeSlider()">Zamknij</button>
-  </div>
-
-  <div class="slider-inner">
-    <button class="slider-btn slider-prev" type="button" onclick="prevSlide()">‹</button>
-
-    <div class="slider-image-wrap" id="sliderTouchArea">
-      <img id="sliderImage" class="slider-image" src="" alt="">
-    </div>
-
-    <button class="slider-btn slider-next" type="button" onclick="nextSlide()">›</button>
-  </div>
-</div>
-
-<footer>
-© 2026 Akwamaryn*PL
-</footer>
-
-<script>
-const galleryImages = [
-  "file_00000000166072439b0458ff2eaa1e44.png",
-  "file_000000001aa47243b5ef692c7926902d.png",
-  "file_000000006f947243b32fb0f9a979bc82.png",
-  "file_00000000830c7246abb014fcfb6edff0.png",
-  "file_0000000090b8720bb77f08f165cf4553.png",
-  "file_000000009d18720a9eee94a619faf953.png",
-  "file_00000000b24c7246b1ed773e2b9cf89d.png",
-  "file_00000000bdb472438f85c836c30364e5.png",
-  "file_00000000c60072439aee95ed8f84caaf.png",
-  "file_000000003488720ab10a35d2c061f697.jpg"
-];
-
-let currentSlide = 0;
-let touchStartX = 0;
-let touchEndX = 0;
-
-function updateSlider(){
-  const img = document.getElementById("sliderImage");
-  const counter = document.getElementById("sliderCounter");
-  img.src = galleryImages[currentSlide];
-  img.alt = "Zdjęcie " + (currentSlide + 1);
-  counter.textContent = (currentSlide + 1) + " / " + galleryImages.length;
-}
-
-function openSlider(index){
-  currentSlide = index;
-  updateSlider();
-  document.getElementById("sliderOverlay").classList.add("show");
-  document.body.style.overflow = "hidden";
-}
-
-function closeSlider(){
-  document.getElementById("sliderOverlay").classList.remove("show");
-  document.body.style.overflow = "";
-}
-
-function prevSlide(){
-  currentSlide = (currentSlide - 1 + galleryImages.length) % galleryImages.length;
-  updateSlider();
-}
-
-function nextSlide(){
-  currentSlide = (currentSlide + 1) % galleryImages.length;
-  updateSlider();
-}
-
-document.addEventListener("keydown", function(e){
-  const open = document.getElementById("sliderOverlay").classList.contains("show");
-  if(!open) return;
-
-  if(e.key === "ArrowLeft") prevSlide();
-  if(e.key === "ArrowRight") nextSlide();
-  if(e.key === "Escape") closeSlider();
-});
-
-const touchArea = document.getElementById("sliderTouchArea");
-
-touchArea.addEventListener("touchstart", function(e){
-  touchStartX = e.changedTouches[0].clientX;
-}, {passive:true});
-
-touchArea.addEventListener("touchend", function(e){
-  touchEndX = e.changedTouches[0].clientX;
-  const diff = touchEndX - touchStartX;
-  if(Math.abs(diff) < 35) return;
-
-  if(diff > 0){
-    prevSlide();
-  }else{
-    nextSlide();
-  }
-}, {passive:true});
-
-document.getElementById("sliderOverlay").addEventListener("click", function(e){
-  if(e.target.id === "sliderOverlay"){
-    closeSlider();
-  }
-});
-</script>
-
 </body>
 </html>
