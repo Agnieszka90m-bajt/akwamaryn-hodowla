@@ -28,6 +28,11 @@
       color:inherit;
     }
 
+    img{
+      display:block;
+      max-width:100%;
+    }
+
     .topbar{
       position:sticky;
       top:0;
@@ -213,29 +218,45 @@
       margin-top:16px;
     }
 
-    .gallery-grid{
+    .gallery-section{
+      margin-top:30px;
+    }
+
+    .gallery-shell{
+      position:relative;
+      width:100%;
+    }
+
+    .gallery-track{
       display:flex;
-      gap:16px;
-      margin-top:28px;
+      gap:18px;
       overflow-x:auto;
       overflow-y:hidden;
-      scroll-snap-type:x mandatory;
+      scroll-behavior:smooth;
       -webkit-overflow-scrolling:touch;
-      padding-bottom:8px;
+      padding:8px 4px 18px;
+      scroll-snap-type:x mandatory;
+      scrollbar-width:thin;
+      scrollbar-color:rgba(176,139,154,0.45) rgba(240,223,230,0.35);
     }
 
-    .gallery-grid::-webkit-scrollbar{
-      height:8px;
+    .gallery-track::-webkit-scrollbar{
+      height:10px;
     }
 
-    .gallery-grid::-webkit-scrollbar-thumb{
-      background:rgba(176,139,154,0.35);
+    .gallery-track::-webkit-scrollbar-track{
+      background:rgba(240,223,230,0.35);
+      border-radius:999px;
+    }
+
+    .gallery-track::-webkit-scrollbar-thumb{
+      background:rgba(176,139,154,0.45);
       border-radius:999px;
     }
 
     .gallery-item{
-      flex:0 0 calc(33.333% - 11px);
-      min-width:calc(33.333% - 11px);
+      flex:0 0 calc((100% - 36px) / 3);
+      min-width:calc((100% - 36px) / 3);
       background:linear-gradient(180deg,#fffefe 0%,#fff7fb 100%);
       border:1px solid rgba(240,223,230,0.95);
       border-radius:24px;
@@ -254,9 +275,34 @@
       width:100%;
       height:280px;
       object-fit:cover;
-      display:block;
       border-radius:18px;
       cursor:pointer;
+    }
+
+    .gallery-controls{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      margin-top:10px;
+    }
+
+    .gallery-btn{
+      width:46px;
+      height:46px;
+      border:none;
+      border-radius:50%;
+      background:linear-gradient(180deg,#fff4f8 0%,#fdeef4 100%);
+      border:1px solid rgba(230,204,216,0.95);
+      color:#7a5665;
+      font-size:22px;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(176,139,154,0.12);
+      transition:transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .gallery-btn:hover{
+      transform:translateY(-2px);
+      opacity:0.9;
     }
 
     .archive-box{
@@ -340,8 +386,8 @@
 
     @media(max-width:900px){
       .gallery-item{
-        flex:0 0 calc(50% - 8px);
-        min-width:calc(50% - 8px);
+        flex:0 0 calc((100% - 18px) / 2);
+        min-width:calc((100% - 18px) / 2);
       }
     }
 
@@ -411,19 +457,30 @@
         border-radius:22px;
       }
 
-      .gallery-grid{
-        gap:12px;
+      .gallery-track{
+        gap:14px;
+        padding:8px 2px 16px;
       }
 
       .gallery-item{
-        flex:0 0 82%;
-        min-width:82%;
+        flex:0 0 100%;
+        min-width:100%;
         border-radius:20px;
       }
 
       .gallery-item img{
-        height:220px;
+        height:260px;
         border-radius:16px;
+      }
+
+      .gallery-controls{
+        margin-top:8px;
+      }
+
+      .gallery-btn{
+        width:42px;
+        height:42px;
+        font-size:20px;
       }
     }
   </style>
@@ -500,15 +557,24 @@
           </p>
         </div>
 
-        <div class="gallery-grid">
-          <div class="gallery-item"><img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Miot norweski zdjęcie 1" onclick="openLightbox(this.src)"></div>
-          <div class="gallery-item"><img src="file_000000001aa47243b5ef692c7926902d.png" alt="Miot norweski zdjęcie 2" onclick="openLightbox(this.src)"></div>
-          <div class="gallery-item"><img src="file_000000006f947243b32fb0f9a979bc82.png" alt="Miot norweski zdjęcie 3" onclick="openLightbox(this.src)"></div>
-          <div class="gallery-item"><img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Miot norweski zdjęcie 4" onclick="openLightbox(this.src)"></div>
-          <div class="gallery-item"><img src="file_000000009d18720a9eee94a619faf953.png" alt="Miot norweski zdjęcie 6" onclick="openLightbox(this.src)"></div>
-          <div class="gallery-item"><img src="file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Miot norweski zdjęcie 7" onclick="openLightbox(this.src)"></div>
-          <div class="gallery-item"><img src="file_00000000bdb472438f85c836c30364e5.png" alt="Miot norweski zdjęcie 8" onclick="openLightbox(this.src)"></div>
-          <div class="gallery-item"><img src="file_00000000c60072439aee95ed8f84caaf.png" alt="Miot norweski zdjęcie 9" onclick="openLightbox(this.src)"></div>
+        <div class="gallery-section">
+          <div class="gallery-shell">
+            <div class="gallery-track" id="galleryTrack">
+              <div class="gallery-item"><img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Miot norweski zdjęcie 1" onclick="openLightbox(this.src)"></div>
+              <div class="gallery-item"><img src="file_000000001aa47243b5ef692c7926902d.png" alt="Miot norweski zdjęcie 2" onclick="openLightbox(this.src)"></div>
+              <div class="gallery-item"><img src="file_000000006f947243b32fb0f9a979bc82.png" alt="Miot norweski zdjęcie 3" onclick="openLightbox(this.src)"></div>
+              <div class="gallery-item"><img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Miot norweski zdjęcie 4" onclick="openLightbox(this.src)"></div>
+              <div class="gallery-item"><img src="file_000000009d18720a9eee94a619faf953.png" alt="Miot norweski zdjęcie 6" onclick="openLightbox(this.src)"></div>
+              <div class="gallery-item"><img src="file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Miot norweski zdjęcie 7" onclick="openLightbox(this.src)"></div>
+              <div class="gallery-item"><img src="file_00000000bdb472438f85c836c30364e5.png" alt="Miot norweski zdjęcie 8" onclick="openLightbox(this.src)"></div>
+              <div class="gallery-item"><img src="file_00000000c60072439aee95ed8f84caaf.png" alt="Miot norweski zdjęcie 9" onclick="openLightbox(this.src)"></div>
+            </div>
+
+            <div class="gallery-controls">
+              <button class="gallery-btn" type="button" onclick="scrollGallery(-1)">‹</button>
+              <button class="gallery-btn" type="button" onclick="scrollGallery(1)">›</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -550,6 +616,21 @@
         document.getElementById('lightbox').classList.remove('show');
         document.getElementById('lightbox-img').src = '';
       }
+    }
+
+    function scrollGallery(direction){
+      const track = document.getElementById('galleryTrack');
+      const firstItem = track.querySelector('.gallery-item');
+      if(!firstItem) return;
+
+      const itemWidth = firstItem.offsetWidth;
+      const gap = 18;
+      const scrollAmount = itemWidth + gap;
+
+      track.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+      });
     }
   </script>
 
