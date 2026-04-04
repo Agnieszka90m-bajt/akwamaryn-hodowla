@@ -152,7 +152,7 @@
     }
 
     .parents-box{
-      max-width:760px;
+      max-width:780px;
       margin:0 auto 24px;
       background:#fff8fb;
       border:1px solid rgba(240,223,230,0.95);
@@ -270,49 +270,106 @@
       text-align:center;
     }
 
-    .lightbox{
+    .slider-overlay{
       display:none;
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,0.9);
-      align-items:center;
-      justify-content:center;
+      background:rgba(0,0,0,0.92);
       z-index:8000;
+      align-items:center;
+      justify-content:center;
       padding:20px;
+      touch-action:none;
     }
 
-    .lightbox.show{
+    .slider-overlay.show{
       display:flex;
     }
 
-    .lightbox-inner{
+    .slider-topbar{
+      position:absolute;
+      top:14px;
+      left:14px;
+      right:14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:3;
+    }
+
+    .slider-counter{
+      background:rgba(255,255,255,0.14);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:999px;
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      font-size:15px;
+    }
+
+    .slider-close{
+      border:none;
+      background:rgba(255,255,255,0.16);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:15px;
+      cursor:pointer;
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+    }
+
+    .slider-inner{
       position:relative;
-      max-width:95vw;
-      max-height:95vh;
+      width:100%;
+      max-width:1100px;
       display:flex;
       align-items:center;
       justify-content:center;
     }
 
-    .lightbox img{
-      max-width:92vw;
-      max-height:88vh;
-      border-radius:20px;
-      box-shadow:0 24px 55px rgba(0,0,0,0.35);
+    .slider-image-wrap{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:70vh;
+      touch-action:none;
     }
 
-    .lightbox-close{
+    .slider-image{
+      max-width:92vw;
+      max-height:82vh;
+      border-radius:18px;
+      box-shadow:0 24px 55px rgba(0,0,0,0.35);
+      user-select:none;
+      -webkit-user-drag:none;
+      pointer-events:none;
+    }
+
+    .slider-btn{
       position:absolute;
-      top:-8px;
-      right:-8px;
-      width:42px;
-      height:42px;
+      top:50%;
+      transform:translateY(-50%);
       border:none;
-      border-radius:50%;
-      background:rgba(255,255,255,0.2);
+      background:rgba(255,255,255,0.16);
       color:#fff;
-      font-size:26px;
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      font-size:28px;
       cursor:pointer;
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      z-index:2;
+    }
+
+    .slider-prev{
+      left:6px;
+    }
+
+    .slider-next{
+      right:6px;
     }
 
     footer{
@@ -407,6 +464,24 @@
         height:180px;
         border-radius:16px;
       }
+
+      .slider-btn{
+        width:46px;
+        height:46px;
+        font-size:24px;
+      }
+
+      .slider-topbar{
+        top:10px;
+        left:10px;
+        right:10px;
+      }
+
+      .slider-counter,
+      .slider-close{
+        font-size:13px;
+        padding:8px 12px;
+      }
     }
   </style>
 </head>
@@ -435,7 +510,7 @@
       <h1>Aktualny miot</h1>
 
       <div class="section-intro">
-        W tej zakładce prezentujemy nasz obecny miot oraz najważniejsze informacje dotyczące kociąt. Wszystko zostało ułożone tak, aby było czytelne, uporządkowane i przyjemne w odbiorze.
+        W tej zakładce prezentujemy nasz obecny miot oraz najważniejsze informacje dotyczące kociąt. Wszystko zostało uporządkowane tak, aby było czytelne i wygodne do oglądania.
       </div>
 
       <div class="litter-hero">
@@ -466,35 +541,32 @@
 
         <div class="litter-text">
           <p>
-            27 marca 2026 roku w naszej hodowli przyszedł na świat wyjątkowy miot kotów norweskich leśnych oznaczony literą „M”.
+            27 marca 2026 roku w naszej hodowli przyszedł na świat wyjątkowy miot kotów norweskich leśnych.
           </p>
           <p>
-            W miocie urodziło się <strong>5 dziewczynek</strong>: <strong>3 niebiesko-srebrne szylkretki (NFO gs 22)</strong> oraz <strong>2 czarno-srebrne szylkretki (NFO fs 22)</strong>.
+            W miocie urodziło się <strong>5 dziewczynek</strong>: <strong>3 niebiesko-srebrne szylkretki</strong> oraz <strong>2 czarno-srebrne szylkretki</strong>.
           </p>
           <p>
-            Wszystkie maluszki są obecnie <strong>dostępne</strong>.
-          </p>
-          <p>
-            To niezwykle urocze, delikatne i pełne wdzięku kocięta, które od pierwszych dni życia rozwijają się pod czujnym okiem swojej mamy. Każde z nich ma już swój wyjątkowy charakter – są ciekawskie, spokojne i bardzo kontaktowe.
+            To niezwykle urocze, delikatne i pełne wdzięku maluszki, które od pierwszych dni życia rozwijają się pod czujnym okiem swojej mamy. Każde z nich ma już swój wyjątkowy charakter – są ciekawskie, spokojne i bardzo kontaktowe.
           </p>
           <p>
             Kocięta wychowują się w domowej atmosferze, w stałym kontakcie z człowiekiem, dzięki czemu od najmłodszych dni uczą się bliskości, czułości i zaufania.
           </p>
           <p>
-            Nowi opiekunowie będą mieli możliwość wyboru imienia dla swojego kociaka zgodnie z literą miotu.
+            Wszystkie maluszki są obecnie dostępne, a nowi opiekunowie będą mieli możliwość wyboru imienia dla swojego kociaka zgodnie z literą miotu.
           </p>
         </div>
 
         <div class="gallery-grid">
-          <div class="gallery-item"><img src="Norweskie27.03.2026/file_00000000166072439b0458ff2eaa1e44.png" alt="Miot norweski zdjęcie 1" onclick="openLightbox(this.src)"></div>
-          <div class="gallery-item"><img src="Norweskie27.03.2026/file_000000001aa47243b5ef692c7926902d.png" alt="Miot norweski zdjęcie 2" onclick="openLightbox(this.src)"></div>
-          <div class="gallery-item"><img src="Norweskie27.03.2026/file_000000006f947243b32fb0f9a979bc82.png" alt="Miot norweski zdjęcie 3" onclick="openLightbox(this.src)"></div>
-          <div class="gallery-item"><img src="Norweskie27.03.2026/file_00000000830c7246abb014fcfb6edff0.png" alt="Miot norweski zdjęcie 4" onclick="openLightbox(this.src)"></div>
-          <div class="gallery-item"><img src="Norweskie27.03.2026/file_0000000090b8720bb77f08f165cf4553.png" alt="Miot norweski zdjęcie 5" onclick="openLightbox(this.src)"></div>
-          <div class="gallery-item"><img src="Norweskie27.03.2026/file_000000009d18720a9eee94a619faf953.png" alt="Miot norweski zdjęcie 6" onclick="openLightbox(this.src)"></div>
-          <div class="gallery-item"><img src="Norweskie27.03.2026/file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Miot norweski zdjęcie 7" onclick="openLightbox(this.src)"></div>
-          <div class="gallery-item"><img src="Norweskie27.03.2026/file_00000000bdb472438f85c836c30364e5.png" alt="Miot norweski zdjęcie 8" onclick="openLightbox(this.src)"></div>
-          <div class="gallery-item"><img src="Norweskie27.03.2026/file_00000000c60072439aee95ed8f84caaf.png" alt="Miot norweski zdjęcie 9" onclick="openLightbox(this.src)"></div>
+          <div class="gallery-item"><img src="Norweskie27.03.2026/file_00000000166072439b0458ff2eaa1e44.png" alt="Miot norweski zdjęcie 1" onclick="openSlider(0)"></div>
+          <div class="gallery-item"><img src="Norweskie27.03.2026/file_000000001aa47243b5ef692c7926902d.png" alt="Miot norweski zdjęcie 2" onclick="openSlider(1)"></div>
+          <div class="gallery-item"><img src="Norweskie27.03.2026/file_000000006f947243b32fb0f9a979bc82.png" alt="Miot norweski zdjęcie 3" onclick="openSlider(2)"></div>
+          <div class="gallery-item"><img src="Norweskie27.03.2026/file_00000000830c7246abb014fcfb6edff0.png" alt="Miot norweski zdjęcie 4" onclick="openSlider(3)"></div>
+          <div class="gallery-item"><img src="Norweskie27.03.2026/file_0000000090b8720bb77f08f165cf4553.png" alt="Miot norweski zdjęcie 5" onclick="openSlider(4)"></div>
+          <div class="gallery-item"><img src="Norweskie27.03.2026/file_000000009d18720a9eee94a619faf953.png" alt="Miot norweski zdjęcie 6" onclick="openSlider(5)"></div>
+          <div class="gallery-item"><img src="Norweskie27.03.2026/file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Miot norweski zdjęcie 7" onclick="openSlider(6)"></div>
+          <div class="gallery-item"><img src="Norweskie27.03.2026/file_00000000bdb472438f85c836c30364e5.png" alt="Miot norweski zdjęcie 8" onclick="openSlider(7)"></div>
+          <div class="gallery-item"><img src="Norweskie27.03.2026/file_00000000c60072439aee95ed8f84caaf.png" alt="Miot norweski zdjęcie 9" onclick="openSlider(8)"></div>
         </div>
       </div>
     </section>
@@ -504,7 +576,7 @@
 
       <div class="archive-box">
         <div class="archive-text">
-          W naszej hodowli przyszły na świat również ragdollki, które znalazły już swoje kochające, odpowiedzialne domy. To dla nas ogromna radość obserwować, jak nasze kocięta dorastają w nowych rodzinach i rozpoczynają swoje piękne życie u boku opiekunów.
+          Wcześniej w naszej hodowli przyszły na świat również ragdollki, które znalazły już swoje kochające, odpowiedzialne domy. To dla nas ogromna radość obserwować, jak nasze kocięta dorastają w nowych rodzinach i rozpoczynają swoje piękne życie u boku opiekunów.
         </div>
         <div class="archive-note">
           Wszystkie ragdollki pojechały już do swoich nowych domków.
@@ -514,10 +586,20 @@
 
   </div>
 
-  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-    <div class="lightbox-inner">
-      <button class="lightbox-close" type="button" onclick="closeLightbox(event)">×</button>
-      <img id="lightbox-img" src="" alt="">
+  <div class="slider-overlay" id="sliderOverlay">
+    <div class="slider-topbar">
+      <div class="slider-counter" id="sliderCounter">1 / 9</div>
+      <button class="slider-close" type="button" onclick="closeSlider()">Zamknij</button>
+    </div>
+
+    <div class="slider-inner">
+      <button class="slider-btn slider-prev" type="button" onclick="prevSlide()">‹</button>
+
+      <div class="slider-image-wrap" id="sliderTouchArea">
+        <img id="sliderImage" class="slider-image" src="" alt="">
+      </div>
+
+      <button class="slider-btn slider-next" type="button" onclick="nextSlide()">›</button>
     </div>
   </div>
 
@@ -526,17 +608,84 @@
   </footer>
 
   <script>
-    function openLightbox(src){
-      document.getElementById('lightbox-img').src = src;
-      document.getElementById('lightbox').classList.add('show');
+    const galleryImages = [
+      "Norweskie27.03.2026/file_00000000166072439b0458ff2eaa1e44.png",
+      "Norweskie27.03.2026/file_000000001aa47243b5ef692c7926902d.png",
+      "Norweskie27.03.2026/file_000000006f947243b32fb0f9a979bc82.png",
+      "Norweskie27.03.2026/file_00000000830c7246abb014fcfb6edff0.png",
+      "Norweskie27.03.2026/file_0000000090b8720bb77f08f165cf4553.png",
+      "Norweskie27.03.2026/file_000000009d18720a9eee94a619faf953.png",
+      "Norweskie27.03.2026/file_00000000b24c7246b1ed773e2b9cf89d.png",
+      "Norweskie27.03.2026/file_00000000bdb472438f85c836c30364e5.png",
+      "Norweskie27.03.2026/file_00000000c60072439aee95ed8f84caaf.png"
+    ];
+
+    let currentSlide = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function updateSlider(){
+      const img = document.getElementById("sliderImage");
+      const counter = document.getElementById("sliderCounter");
+      img.src = galleryImages[currentSlide];
+      img.alt = "Miot norweski zdjęcie " + (currentSlide + 1);
+      counter.textContent = (currentSlide + 1) + " / " + galleryImages.length;
     }
 
-    function closeLightbox(event){
-      if(!event || event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')){
-        document.getElementById('lightbox').classList.remove('show');
-        document.getElementById('lightbox-img').src = '';
-      }
+    function openSlider(index){
+      currentSlide = index;
+      updateSlider();
+      document.getElementById("sliderOverlay").classList.add("show");
+      document.body.style.overflow = "hidden";
     }
+
+    function closeSlider(){
+      document.getElementById("sliderOverlay").classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    function prevSlide(){
+      currentSlide = (currentSlide - 1 + galleryImages.length) % galleryImages.length;
+      updateSlider();
+    }
+
+    function nextSlide(){
+      currentSlide = (currentSlide + 1) % galleryImages.length;
+      updateSlider();
+    }
+
+    document.addEventListener("keydown", function(e){
+      const open = document.getElementById("sliderOverlay").classList.contains("show");
+      if(!open) return;
+
+      if(e.key === "ArrowLeft") prevSlide();
+      if(e.key === "ArrowRight") nextSlide();
+      if(e.key === "Escape") closeSlider();
+    });
+
+    const touchArea = document.getElementById("sliderTouchArea");
+
+    touchArea.addEventListener("touchstart", function(e){
+      touchStartX = e.changedTouches[0].clientX;
+    }, {passive:true});
+
+    touchArea.addEventListener("touchend", function(e){
+      touchEndX = e.changedTouches[0].clientX;
+      const diff = touchEndX - touchStartX;
+      if(Math.abs(diff) < 35) return;
+
+      if(diff > 0){
+        prevSlide();
+      }else{
+        nextSlide();
+      }
+    }, {passive:true});
+
+    document.getElementById("sliderOverlay").addEventListener("click", function(e){
+      if(e.target.id === "sliderOverlay"){
+        closeSlider();
+      }
+    });
   </script>
 
 </body>
