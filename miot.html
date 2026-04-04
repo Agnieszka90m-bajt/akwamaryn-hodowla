@@ -1,229 +1,675 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aktualny miot | Akwamaryn*PL</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aktualny miot | Akwamaryn*PL</title>
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0;}
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
 
-body{
-font-family:Georgia,serif;
-background:linear-gradient(180deg,#fffafc 0%,#f8eef3 100%);
-color:#654f58;
-}
+    html{
+      scroll-behavior:smooth;
+    }
 
-/* MENU */
-.topbar{
-background:rgba(255,248,251,0.95);
-border-bottom:1px solid #ead6de;
-padding:18px;
-text-align:center;
-}
+    body{
+      font-family:Georgia,"Times New Roman",serif;
+      background:linear-gradient(180deg,#fffafc 0%,#f8eef3 100%);
+      color:#654f58;
+      overflow-x:hidden;
+    }
 
-.brand{
-font-size:26px;
-color:#7a5665;
-margin-bottom:10px;
-}
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
 
-.nav{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:14px;
-font-weight:600;
-}
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:5000;
+      background:rgba(255,248,251,0.95);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(218,189,200,0.2);
+    }
 
-/* SEKCJA */
-.container{
-max-width:1100px;
-margin:auto;
-padding:30px 15px;
-}
+    .topbar-inner{
+      max-width:1280px;
+      margin:0 auto;
+      padding:16px 20px;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
 
-.section{
-background:white;
-border-radius:30px;
-padding:30px;
-margin-bottom:40px;
-box-shadow:0 10px 25px rgba(0,0,0,0.05);
-}
+    .brand{
+      font-size:26px;
+      font-weight:600;
+      color:#7a5665;
+      white-space:nowrap;
+    }
 
-h1{
-text-align:center;
-color:#7a5665;
-margin-bottom:15px;
-}
+    .nav-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      font-weight:600;
+      color:#7a5665;
+      justify-content:flex-end;
+      max-width:920px;
+    }
 
-h2{
-text-align:center;
-color:#7a5665;
-margin-bottom:15px;
-}
+    .nav-links a{
+      font-size:15px;
+      transition:opacity 0.25s ease;
+    }
 
-.text{
-text-align:center;
-line-height:1.8;
-margin-bottom:15px;
-}
+    .nav-links a:hover{
+      opacity:0.72;
+    }
 
-.parents a{
-color:#7a5665;
-font-weight:700;
-text-decoration:underline;
-}
+    .container{
+      max-width:1240px;
+      margin:0 auto;
+      padding:38px 20px 70px;
+    }
 
-/* BADGE */
-.badges{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:10px;
-margin:20px 0;
-}
+    .section{
+      background:rgba(255,255,255,0.86);
+      border:1px solid rgba(238,221,229,0.7);
+      border-radius:38px;
+      padding:40px 24px;
+      box-shadow:0 20px 40px rgba(173,139,152,0.08);
+      margin-bottom:28px;
+    }
 
-.badge{
-background:#fdeef4;
-padding:8px 14px;
-border-radius:999px;
-font-size:14px;
-}
+    .section h1{
+      text-align:center;
+      font-size:54px;
+      margin-bottom:18px;
+      color:#7a5665;
+      line-height:1.05;
+    }
 
-/* GALERIA */
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:18px;
-margin-top:20px;
-}
+    .section h2{
+      text-align:center;
+      font-size:34px;
+      margin-bottom:18px;
+      color:#7a5665;
+      line-height:1.15;
+    }
 
-.gallery img{
-width:100%;
-height:260px;
-object-fit:cover;
-border-radius:20px;
-cursor:pointer;
-}
+    .section h3{
+      text-align:center;
+      font-size:28px;
+      margin-bottom:14px;
+      color:#7a5665;
+      line-height:1.2;
+    }
 
-/* LIGHTBOX */
-.lightbox{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.9);
-display:none;
-justify-content:center;
-align-items:center;
-}
+    .section-intro{
+      max-width:980px;
+      margin:0 auto 28px;
+      text-align:center;
+      font-size:19px;
+      line-height:1.9;
+      color:#6e5a63;
+    }
 
-.lightbox img{
-max-width:90%;
-max-height:90%;
-border-radius:20px;
-}
+    .litter-hero{
+      max-width:1040px;
+      margin:0 auto;
+      background:linear-gradient(180deg,#fffefe 0%,#fff7fb 100%);
+      border-radius:34px;
+      padding:28px 24px;
+      box-shadow:0 16px 36px rgba(0,0,0,0.08);
+      border:1px solid rgba(240,223,230,0.95);
+    }
 
-</style>
+    .hero-top{
+      text-align:center;
+      margin-bottom:22px;
+    }
+
+    .hero-title{
+      font-size:38px;
+      color:#7a5665;
+      line-height:1.2;
+      margin-bottom:10px;
+    }
+
+    .hero-date{
+      font-size:18px;
+      color:#6b5861;
+      line-height:1.8;
+    }
+
+    .parents-box{
+      max-width:780px;
+      margin:0 auto 24px;
+      background:#fff8fb;
+      border:1px solid rgba(240,223,230,0.95);
+      border-radius:24px;
+      padding:18px 16px;
+      text-align:center;
+      box-shadow:0 10px 22px rgba(0,0,0,0.05);
+    }
+
+    .parents-box p{
+      font-size:18px;
+      line-height:1.9;
+      color:#654f58;
+    }
+
+    .parents-box strong{
+      color:#7a5665;
+    }
+
+    .parents-links a{
+      color:#7a5665;
+      font-weight:700;
+      border-bottom:1px solid rgba(122,86,101,0.24);
+    }
+
+    .badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+      margin:16px 0 22px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:9px 14px;
+      border-radius:999px;
+      background:linear-gradient(180deg,#fff4f8 0%,#fdeef4 100%);
+      border:1px solid rgba(230,204,216,0.95);
+      color:#7a5665;
+      font-size:14px;
+      font-weight:600;
+      box-shadow:0 6px 14px rgba(176,139,154,0.08);
+    }
+
+    .litter-text{
+      max-width:900px;
+      margin:0 auto;
+      text-align:center;
+      font-size:18px;
+      line-height:1.95;
+      color:#654f58;
+    }
+
+    .litter-text p + p{
+      margin-top:16px;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+      margin-top:28px;
+    }
+
+    .gallery-item{
+      background:linear-gradient(180deg,#fffefe 0%,#fff7fb 100%);
+      border:1px solid rgba(240,223,230,0.95);
+      border-radius:24px;
+      padding:10px;
+      box-shadow:0 12px 28px rgba(0,0,0,0.06);
+      transition:transform 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .gallery-item:hover{
+      transform:translateY(-4px);
+      box-shadow:0 18px 34px rgba(165,129,144,0.12);
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:280px;
+      object-fit:cover;
+      display:block;
+      border-radius:18px;
+      cursor:pointer;
+    }
+
+    .archive-box{
+      max-width:980px;
+      margin:0 auto;
+      background:linear-gradient(180deg,#fffefe 0%,#fff7fb 100%);
+      border-radius:34px;
+      padding:28px 24px;
+      box-shadow:0 16px 36px rgba(0,0,0,0.08);
+      border:1px solid rgba(240,223,230,0.95);
+    }
+
+    .archive-text{
+      max-width:860px;
+      margin:0 auto;
+      text-align:center;
+      font-size:18px;
+      line-height:1.9;
+      color:#654f58;
+    }
+
+    .archive-note{
+      margin-top:18px;
+      font-size:18px;
+      font-weight:700;
+      color:#7a5665;
+      text-align:center;
+    }
+
+    .lightbox{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.92);
+      z-index:8000;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      touch-action:none;
+    }
+
+    .lightbox.show{
+      display:flex;
+    }
+
+    .lightbox-inner{
+      position:relative;
+      width:100%;
+      max-width:1100px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .lightbox-img-wrap{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:70vh;
+      touch-action:none;
+    }
+
+    .lightbox img{
+      max-width:92vw;
+      max-height:88vh;
+      border-radius:20px;
+      box-shadow:0 24px 55px rgba(0,0,0,0.35);
+      user-select:none;
+      -webkit-user-drag:none;
+      pointer-events:none;
+    }
+
+    .lightbox-close{
+      position:absolute;
+      top:-8px;
+      right:-8px;
+      width:42px;
+      height:42px;
+      border:none;
+      border-radius:50%;
+      background:rgba(255,255,255,0.2);
+      color:#fff;
+      font-size:26px;
+      cursor:pointer;
+      z-index:2;
+    }
+
+    .lightbox-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:52px;
+      height:52px;
+      border:none;
+      border-radius:50%;
+      background:rgba(255,255,255,0.18);
+      color:#fff;
+      font-size:28px;
+      cursor:pointer;
+      z-index:2;
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+    }
+
+    .lightbox-prev{
+      left:8px;
+    }
+
+    .lightbox-next{
+      right:8px;
+    }
+
+    .lightbox-counter{
+      position:absolute;
+      top:-6px;
+      left:0;
+      background:rgba(255,255,255,0.14);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:14px;
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      font-size:14px;
+      color:#866873;
+    }
+
+    @media(max-width:900px){
+      .gallery-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+
+    @media(max-width:768px){
+      .topbar-inner{
+        padding:14px 14px;
+        justify-content:center;
+      }
+
+      .brand{
+        font-size:20px;
+        width:100%;
+        text-align:center;
+      }
+
+      .nav-links{
+        justify-content:center;
+        gap:10px 12px;
+        max-width:100%;
+      }
+
+      .nav-links a{
+        font-size:13px;
+      }
+
+      .container{
+        padding:24px 12px 46px;
+      }
+
+      .section{
+        padding:26px 14px;
+        border-radius:26px;
+      }
+
+      .section h1{
+        font-size:34px;
+      }
+
+      .section h2{
+        font-size:28px;
+      }
+
+      .section h3{
+        font-size:24px;
+      }
+
+      .section-intro,
+      .litter-text,
+      .archive-text,
+      .parents-box p,
+      .hero-date{
+        font-size:17px;
+        line-height:1.8;
+      }
+
+      .litter-hero,
+      .archive-box{
+        padding:20px 14px;
+        border-radius:26px;
+      }
+
+      .hero-title{
+        font-size:29px;
+      }
+
+      .parents-box{
+        border-radius:22px;
+      }
+
+      .gallery-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:12px;
+      }
+
+      .gallery-item{
+        border-radius:20px;
+      }
+
+      .gallery-item img{
+        height:180px;
+        border-radius:16px;
+      }
+
+      .lightbox-btn{
+        width:44px;
+        height:44px;
+        font-size:24px;
+      }
+
+      .lightbox-counter{
+        font-size:13px;
+        padding:8px 12px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="topbar">
-<div class="brand">Akwamaryn*PL</div>
-<div class="nav">
-<a href="index.html">Strona główna</a>
-<a href="kotki.html">Moje kotki</a>
-<a href="kocury.html">Kocury hodowlane</a>
-<a href="miot.html">Aktualny miot</a>
-<a href="rezerwacja.html">Rezerwacja</a>
-<a href="kontakt.html">Kontakt</a>
-</div>
-</div>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Akwamaryn*PL</div>
 
-<div class="container">
+      <div class="nav-links">
+        <a href="index.html">Strona główna</a>
+        <a href="kotki.html">Moje kotki</a>
+        <a href="kocury.html">Kocury hodowlane</a>
+        <a href="kocieta.html">Moje kocięta</a>
+        <a href="miot.html">Aktualny miot</a>
+        <a href="galeria.html">Galeria</a>
+        <a href="rezerwacja.html">Rezerwacja</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+    </div>
+  </div>
 
-<!-- NORWESKI MIOT -->
-<div class="section">
+  <div class="container">
 
-<h1>Miot norweski leśny „M”</h1>
+    <section class="section">
+      <h1>Aktualny miot</h1>
 
-<div class="text">
-Data urodzenia: 27.03.2026
-</div>
+      <div class="section-intro">
+        W tej zakładce prezentujemy nasz obecny miot oraz najważniejsze informacje dotyczące kociąt. Wszystko zostało uporządkowane tak, aby strona była czytelna, elegancka i przejrzysta dla przyszłych opiekunów.
+      </div>
 
-<div class="text parents">
-<a href="kotki.html#dalia">Dalia Pałuckie Pupile*PL</a> × 
-<a href="kocury.html#posejdon">Posejdon Ice Land*NL</a>
-</div>
+      <div class="litter-hero">
+        <div class="hero-top">
+          <div class="hero-title">Miot norweski leśny „M”</div>
+          <div class="hero-date">Data urodzenia: 27.03.2026</div>
+        </div>
 
-<div class="text">
-matka: NFO as 22<br>
-ojciec: NFO d 03 22
-</div>
+        <div class="parents-box">
+          <p class="parents-links">
+            <strong>Rodzice miotu:</strong><br>
+            <a href="kotki.html#dalia">Dalia Pałuckie Pupile*PL</a> ×
+            <a href="kocury.html#posejdon">Posejdon Ice Land*NL</a>
+          </p>
+          <p>
+            <strong>Kod EMS rodziców:</strong><br>
+            matka: NFO as 22<br>
+            ojciec: NFO d 03 22
+          </p>
+        </div>
 
-<div class="badges">
-<div class="badge">5 dziewczynek</div>
-<div class="badge">Miot na „M”</div>
-<div class="badge">Wszystkie dostępne</div>
-<div class="badge">Możliwość wyboru imienia</div>
-</div>
+        <div class="badges">
+          <span class="badge">Miot na „M”</span>
+          <span class="badge">5 dziewczynek</span>
+          <span class="badge">Wszystkie maluszki dostępne</span>
+          <span class="badge">Możliwość wyboru imienia</span>
+        </div>
 
-<div class="text">
-27 marca 2026 roku w naszej hodowli przyszedł na świat wyjątkowy miot kotów norweskich leśnych.<br><br>
+        <div class="litter-text">
+          <p>
+            27 marca 2026 roku w naszej hodowli przyszedł na świat wyjątkowy miot kotów norweskich leśnych oznaczony literą „M”.
+          </p>
+          <p>
+            W miocie urodziło się <strong>5 dziewczynek</strong>: <strong>3 niebiesko-srebrne szylkretki</strong> oraz <strong>2 czarno-srebrne szylkretki</strong>.
+          </p>
+          <p>
+            To niezwykle urocze, delikatne i pełne wdzięku maluszki, które od pierwszych dni życia rozwijają się pod czujnym okiem swojej mamy. Każde z nich ma już swój wyjątkowy charakter – są ciekawskie, spokojne i bardzo kontaktowe.
+          </p>
+          <p>
+            Kocięta wychowują się w domowej atmosferze, w stałym kontakcie z człowiekiem, dzięki czemu od najmłodszych dni uczą się bliskości, czułości i zaufania.
+          </p>
+          <p>
+            Nowi opiekunowie będą mieli możliwość wyboru imienia dla swojego kociaka zgodnie z literą miotu.
+          </p>
+        </div>
 
-W miocie urodziło się 5 dziewczynek:<br>
-3 niebiesko-srebrne szylkretki (NFO gs 22)<br>
-2 czarno-srebrne szylkretki (NFO fs 22)<br><br>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Miot norweski zdjęcie 1" onclick="openLightbox(0)"></div>
+          <div class="gallery-item"><img src="file_000000001aa47243b5ef692c7926902d.png" alt="Miot norweski zdjęcie 2" onclick="openLightbox(1)"></div>
+          <div class="gallery-item"><img src="file_000000006f947243b32fb0f9a979bc82.png" alt="Miot norweski zdjęcie 3" onclick="openLightbox(2)"></div>
+          <div class="gallery-item"><img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Miot norweski zdjęcie 4" onclick="openLightbox(3)"></div>
+          <div class="gallery-item"><img src="file_0000000090b8720bb77f08f165cf4553.png" alt="Miot norweski zdjęcie 5" onclick="openLightbox(4)"></div>
+          <div class="gallery-item"><img src="file_000000009d18720a9eee94a619faf953.png" alt="Miot norweski zdjęcie 6" onclick="openLightbox(5)"></div>
+          <div class="gallery-item"><img src="file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Miot norweski zdjęcie 7" onclick="openLightbox(6)"></div>
+          <div class="gallery-item"><img src="file_00000000bdb472438f85c836c30364e5.png" alt="Miot norweski zdjęcie 8" onclick="openLightbox(7)"></div>
+          <div class="gallery-item"><img src="file_00000000c60072439aee95ed8f84caaf.png" alt="Miot norweski zdjęcie 9" onclick="openLightbox(8)"></div>
+        </div>
+      </div>
+    </section>
 
-To niezwykle urocze i delikatne maluszki wychowywane w domowej atmosferze, w stałym kontakcie z człowiekiem. Każde z nich ma swój wyjątkowy charakter i już teraz pokazuje swoją ciekawską, spokojną naturę.
-</div>
+    <section class="section">
+      <h2>Nasze wcześniejsze mioty</h2>
 
-<div class="gallery">
+      <div class="archive-box">
+        <div class="archive-text">
+          Wcześniej w naszej hodowli przyszły na świat również ragdollki, które znalazły już swoje kochające, odpowiedzialne domy. To dla nas ogromna radość obserwować, jak nasze kocięta dorastają w nowych rodzinach i rozpoczynają swoje piękne życie u boku opiekunów.
+        </div>
+        <div class="archive-note">
+          Wszystkie ragdollki pojechały już do swoich nowych domków.
+        </div>
+      </div>
+    </section>
 
-<img src="file_00000000166072439b0458ff2eaa1e44.png" onclick="openImg(this.src)">
-<img src="file_000000001aa47243b5ef692c7926902d.png" onclick="openImg(this.src)">
-<img src="file_000000006f947243b32fb0f9a979bc82.png" onclick="openImg(this.src)">
-<img src="file_00000000830c7246abb014fcfb6edff0.png" onclick="openImg(this.src)">
-<img src="file_0000000090b8720bb77f08f165cf4553.png" onclick="openImg(this.src)">
-<img src="file_000000009d18720a9eee94a619faf953.png" onclick="openImg(this.src)">
-<img src="file_00000000b24c7246b1ed773e2b9cf89d.png" onclick="openImg(this.src)">
-<img src="file_00000000bdb472438f85c836c30364e5.png" onclick="openImg(this.src)">
-<img src="file_00000000c60072439aee95ed8f84caaf.png" onclick="openImg(this.src)">
+  </div>
 
-</div>
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <div class="lightbox-counter" id="lightboxCounter">1 / 9</div>
+      <button class="lightbox-close" type="button" onclick="closeLightbox()">×</button>
+      <button class="lightbox-btn lightbox-prev" type="button" onclick="prevImage()">‹</button>
 
-</div>
+      <div class="lightbox-img-wrap" id="lightboxSwipeArea">
+        <img id="lightboxImg" src="" alt="">
+      </div>
 
-<!-- ARCHIWUM -->
-<div class="section">
+      <button class="lightbox-btn lightbox-next" type="button" onclick="nextImage()">›</button>
+    </div>
+  </div>
 
-<h2>Nasze wcześniejsze mioty</h2>
+  <footer>
+    © 2026 Akwamaryn*PL
+  </footer>
 
-<div class="text">
-Miot ragdolli<br><br>
-Wszystkie kocięta znalazły już swoje kochające domy.
-</div>
+  <script>
+    const images = [
+      "file_00000000166072439b0458ff2eaa1e44.png",
+      "file_000000001aa47243b5ef692c7926902d.png",
+      "file_000000006f947243b32fb0f9a979bc82.png",
+      "file_00000000830c7246abb014fcfb6edff0.png",
+      "file_0000000090b8720bb77f08f165cf4553.png",
+      "file_000000009d18720a9eee94a619faf953.png",
+      "file_00000000b24c7246b1ed773e2b9cf89d.png",
+      "file_00000000bdb472438f85c836c30364e5.png",
+      "file_00000000c60072439aee95ed8f84caaf.png"
+    ];
 
-</div>
+    let currentIndex = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
 
-</div>
+    function updateLightbox(){
+      document.getElementById("lightboxImg").src = images[currentIndex];
+      document.getElementById("lightboxCounter").textContent = (currentIndex + 1) + " / " + images.length;
+    }
 
-<div class="lightbox" id="lightbox" onclick="closeImg()">
-<img id="lightbox-img">
-</div>
+    function openLightbox(index){
+      currentIndex = index;
+      updateLightbox();
+      document.getElementById("lightbox").classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
 
-<script>
-function openImg(src){
-document.getElementById("lightbox").style.display="flex";
-document.getElementById("lightbox-img").src=src;
-}
-function closeImg(){
-document.getElementById("lightbox").style.display="none";
-}
-</script>
+    function closeLightbox(){
+      document.getElementById("lightbox").classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    function prevImage(){
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateLightbox();
+    }
+
+    function nextImage(){
+      currentIndex = (currentIndex + 1) % images.length;
+      updateLightbox();
+    }
+
+    document.addEventListener("keydown", function(e){
+      const open = document.getElementById("lightbox").classList.contains("show");
+      if(!open) return;
+
+      if(e.key === "ArrowLeft") prevImage();
+      if(e.key === "ArrowRight") nextImage();
+      if(e.key === "Escape") closeLightbox();
+    });
+
+    const swipeArea = document.getElementById("lightboxSwipeArea");
+
+    swipeArea.addEventListener("touchstart", function(e){
+      touchStartX = e.changedTouches[0].clientX;
+    }, {passive:true});
+
+    swipeArea.addEventListener("touchend", function(e){
+      touchEndX = e.changedTouches[0].clientX;
+      const diff = touchEndX - touchStartX;
+
+      if(Math.abs(diff) < 35) return;
+
+      if(diff > 0){
+        prevImage();
+      }else{
+        nextImage();
+      }
+    }, {passive:true});
+
+    document.getElementById("lightbox").addEventListener("click", function(e){
+      if(e.target.id === "lightbox"){
+        closeLightbox();
+      }
+    });
+  </script>
 
 </body>
 </html>
