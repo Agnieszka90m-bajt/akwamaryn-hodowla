@@ -123,7 +123,7 @@
       color:#6e5a63;
     }
 
-    .litter-hero{
+    .hero-card{
       max-width:1040px;
       margin:0 auto;
       background:linear-gradient(180deg,#fffefe 0%,#fff7fb 100%);
@@ -133,27 +133,25 @@
       border:1px solid rgba(240,223,230,0.95);
     }
 
-    .hero-top{
-      text-align:center;
-      margin-bottom:22px;
-    }
-
     .hero-title{
-      font-size:38px;
+      text-align:center;
+      font-size:40px;
       color:#7a5665;
       line-height:1.2;
       margin-bottom:10px;
     }
 
-    .hero-date{
+    .hero-subtitle{
+      text-align:center;
       font-size:18px;
       color:#6b5861;
       line-height:1.8;
+      margin-bottom:20px;
     }
 
     .parents-box{
-      max-width:760px;
-      margin:0 auto 24px;
+      max-width:780px;
+      margin:0 auto 22px;
       background:#fff8fb;
       border:1px solid rgba(240,223,230,0.95);
       border-radius:24px;
@@ -234,31 +232,16 @@
       box-shadow:0 18px 34px rgba(165,129,144,0.12);
     }
 
-    .gallery-image-wrap{
-      width:100%;
-      min-height:280px;
-      background:linear-gradient(180deg,#fffdfd 0%,#f8eef3 100%);
-      border-radius:18px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px;
-      overflow:hidden;
-    }
-
     .gallery-item img{
       width:100%;
-      height:100%;
-      max-width:100%;
-      max-height:260px;
-      object-fit:contain;
+      height:280px;
+      object-fit:cover;
       display:block;
-      border-radius:14px;
+      border-radius:18px;
       cursor:pointer;
-      background:#fff;
     }
 
-    .archive-box{
+    .archive-card{
       max-width:980px;
       margin:0 auto;
       background:linear-gradient(180deg,#fffefe 0%,#fff7fb 100%);
@@ -277,6 +260,10 @@
       color:#654f58;
     }
 
+    .archive-text p + p{
+      margin-top:16px;
+    }
+
     .archive-note{
       margin-top:18px;
       font-size:18px;
@@ -285,107 +272,49 @@
       text-align:center;
     }
 
-    .slider-overlay{
+    .lightbox{
       display:none;
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,0.92);
+      background:rgba(0,0,0,0.9);
+      align-items:center;
+      justify-content:center;
       z-index:8000;
-      align-items:center;
-      justify-content:center;
       padding:20px;
-      touch-action:none;
     }
 
-    .slider-overlay.show{
+    .lightbox.show{
       display:flex;
     }
 
-    .slider-topbar{
-      position:absolute;
-      top:14px;
-      left:14px;
-      right:14px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      z-index:3;
-    }
-
-    .slider-counter{
-      background:rgba(255,255,255,0.14);
-      color:#fff;
-      padding:10px 14px;
-      border-radius:999px;
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
-      font-size:15px;
-    }
-
-    .slider-close{
-      border:none;
-      background:rgba(255,255,255,0.16);
-      color:#fff;
-      padding:10px 14px;
-      border-radius:999px;
-      font-size:15px;
-      cursor:pointer;
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
-    }
-
-    .slider-inner{
+    .lightbox-inner{
       position:relative;
-      width:100%;
-      max-width:1100px;
+      max-width:95vw;
+      max-height:95vh;
       display:flex;
       align-items:center;
       justify-content:center;
     }
 
-    .slider-image-wrap{
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:70vh;
-      touch-action:none;
-    }
-
-    .slider-image{
+    .lightbox img{
       max-width:92vw;
-      max-height:82vh;
-      border-radius:18px;
+      max-height:88vh;
+      border-radius:20px;
       box-shadow:0 24px 55px rgba(0,0,0,0.35);
-      user-select:none;
-      -webkit-user-drag:none;
-      pointer-events:none;
-      background:#fff;
     }
 
-    .slider-btn{
+    .lightbox-close{
       position:absolute;
-      top:50%;
-      transform:translateY(-50%);
+      top:-8px;
+      right:-8px;
+      width:42px;
+      height:42px;
       border:none;
-      background:rgba(255,255,255,0.16);
-      color:#fff;
-      width:54px;
-      height:54px;
       border-radius:50%;
-      font-size:28px;
+      background:rgba(255,255,255,0.2);
+      color:#fff;
+      font-size:26px;
       cursor:pointer;
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
-      z-index:2;
-    }
-
-    .slider-prev{
-      left:6px;
-    }
-
-    .slider-next{
-      right:6px;
     }
 
     footer{
@@ -448,13 +377,13 @@
       .litter-text,
       .archive-text,
       .parents-box p,
-      .hero-date{
+      .hero-subtitle{
         font-size:17px;
         line-height:1.8;
       }
 
-      .litter-hero,
-      .archive-box{
+      .hero-card,
+      .archive-card{
         padding:20px 14px;
         border-radius:26px;
       }
@@ -476,32 +405,9 @@
         border-radius:20px;
       }
 
-      .gallery-image-wrap{
-        min-height:190px;
-        border-radius:16px;
-      }
-
       .gallery-item img{
-        max-height:170px;
-        border-radius:12px;
-      }
-
-      .slider-btn{
-        width:46px;
-        height:46px;
-        font-size:24px;
-      }
-
-      .slider-topbar{
-        top:10px;
-        left:10px;
-        right:10px;
-      }
-
-      .slider-counter,
-      .slider-close{
-        font-size:13px;
-        padding:8px 12px;
+        height:180px;
+        border-radius:16px;
       }
     }
   </style>
@@ -531,14 +437,12 @@
       <h1>Aktualny miot</h1>
 
       <div class="section-intro">
-        W tej zakładce prezentujemy nasz obecny miot oraz najważniejsze informacje dotyczące kociąt. Wszystko zostało uporządkowane tak, aby było czytelne, eleganckie i przyjemne w oglądaniu.
+        W tej zakładce prezentujemy nasz obecny miot oraz najważniejsze informacje dotyczące kociąt. Wszystko zostało ułożone tak, aby było przejrzyście, czytelnie i elegancko.
       </div>
 
-      <div class="litter-hero">
-        <div class="hero-top">
-          <div class="hero-title">Miot norweski leśny „M”</div>
-          <div class="hero-date">Data urodzenia: 27.03.2026</div>
-        </div>
+      <div class="hero-card">
+        <div class="hero-title">Miot norweski leśny „M”</div>
+        <div class="hero-subtitle">Data urodzenia: 27.03.2026</div>
 
         <div class="parents-box">
           <p class="parents-links">
@@ -568,10 +472,13 @@
             W miocie urodziło się <strong>5 dziewczynek</strong>: <strong>3 niebiesko-srebrne szylkretki (NFO gs 22)</strong> oraz <strong>2 czarno-srebrne szylkretki (NFO fs 22)</strong>.
           </p>
           <p>
-            To niezwykle urocze, delikatne i pełne wdzięku maluszki, które od pierwszych dni życia rozwijają się pod czujnym okiem swojej mamy. Każde z nich ma już swój wyjątkowy charakter — są ciekawskie, spokojne i bardzo kontaktowe.
+            Wszystkie maluszki są obecnie <strong>dostępne</strong>.
           </p>
           <p>
-            Kocięta wychowują się w domowej atmosferze, w stałym kontakcie z człowiekiem, dzięki czemu od najmłodszych dni uczą się bliskości, czułości i zaufania.
+            To niezwykle urocze, delikatne i pełne wdzięku kocięta, które od pierwszych dni życia rozwijają się pod czujnym okiem swojej mamy. Każde z nich ma już swój wyjątkowy charakter – są ciekawskie, spokojne i bardzo kontaktowe.
+          </p>
+          <p>
+            Maluszki wychowują się w domowej atmosferze, w stałym kontakcie z człowiekiem, dzięki czemu od najmłodszych dni uczą się bliskości, czułości i zaufania.
           </p>
           <p>
             Nowi opiekunowie będą mieli możliwość wyboru imienia dla swojego kociaka zgodnie z literą miotu.
@@ -579,15 +486,15 @@
         </div>
 
         <div class="gallery-grid">
-          <div class="gallery-item"><div class="gallery-image-wrap"><img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Miot norweski zdjęcie 1" onclick="openSlider(0)"></div></div>
-          <div class="gallery-item"><div class="gallery-image-wrap"><img src="file_000000001aa47243b5ef692c7926902d.png" alt="Miot norweski zdjęcie 2" onclick="openSlider(1)"></div></div>
-          <div class="gallery-item"><div class="gallery-image-wrap"><img src="file_000000006f947243b32fb0f9a979bc82.png" alt="Miot norweski zdjęcie 3" onclick="openSlider(2)"></div></div>
-          <div class="gallery-item"><div class="gallery-image-wrap"><img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Miot norweski zdjęcie 4" onclick="openSlider(3)"></div></div>
-          <div class="gallery-item"><div class="gallery-image-wrap"><img src="file_0000000090b8720bb77f08f165cf4553.png" alt="Miot norweski zdjęcie 5" onclick="openSlider(4)"></div></div>
-          <div class="gallery-item"><div class="gallery-image-wrap"><img src="file_000000009d18720a9eee94a619faf953.png" alt="Miot norweski zdjęcie 6" onclick="openSlider(5)"></div></div>
-          <div class="gallery-item"><div class="gallery-image-wrap"><img src="file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Miot norweski zdjęcie 7" onclick="openSlider(6)"></div></div>
-          <div class="gallery-item"><div class="gallery-image-wrap"><img src="file_00000000bdb472438f85c836c30364e5.png" alt="Miot norweski zdjęcie 8" onclick="openSlider(7)"></div></div>
-          <div class="gallery-item"><div class="gallery-image-wrap"><img src="file_00000000c60072439aee95ed8f84caaf.png" alt="Miot norweski zdjęcie 9" onclick="openSlider(8)"></div></div>
+          <div class="gallery-item"><img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Miot norweski zdjęcie 1" onclick="openLightbox(this.src)"></div>
+          <div class="gallery-item"><img src="file_000000001aa47243b5ef692c7926902d.png" alt="Miot norweski zdjęcie 2" onclick="openLightbox(this.src)"></div>
+          <div class="gallery-item"><img src="file_000000006f947243b32fb0f9a979bc82.png" alt="Miot norweski zdjęcie 3" onclick="openLightbox(this.src)"></div>
+          <div class="gallery-item"><img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Miot norweski zdjęcie 4" onclick="openLightbox(this.src)"></div>
+          <div class="gallery-item"><img src="file_0000000090b8720bb77f08f165cf4553.png" alt="Miot norweski zdjęcie 5" onclick="openLightbox(this.src)"></div>
+          <div class="gallery-item"><img src="file_000000009d18720a9eee94a619faf953.png" alt="Miot norweski zdjęcie 6" onclick="openLightbox(this.src)"></div>
+          <div class="gallery-item"><img src="file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Miot norweski zdjęcie 7" onclick="openLightbox(this.src)"></div>
+          <div class="gallery-item"><img src="file_00000000bdb472438f85c836c30364e5.png" alt="Miot norweski zdjęcie 8" onclick="openLightbox(this.src)"></div>
+          <div class="gallery-item"><img src="file_00000000c60072439aee95ed8f84caaf.png" alt="Miot norweski zdjęcie 9" onclick="openLightbox(this.src)"></div>
         </div>
       </div>
     </section>
@@ -595,10 +502,16 @@
     <section class="section">
       <h2>Nasze wcześniejsze mioty</h2>
 
-      <div class="archive-box">
+      <div class="archive-card">
         <div class="archive-text">
-          Wcześniej w naszej hodowli przyszły na świat również ragdollki, które znalazły już swoje kochające, odpowiedzialne domy. To dla nas ogromna radość obserwować, jak nasze kocięta dorastają w nowych rodzinach i rozpoczynają swoje piękne życie u boku opiekunów.
+          <p>
+            Wcześniej w naszej hodowli przyszły na świat również ragdollki, które znalazły już swoje kochające, odpowiedzialne domy.
+          </p>
+          <p>
+            To dla nas ogromna radość obserwować, jak nasze kocięta dorastają w nowych rodzinach i rozpoczynają swoje piękne życie u boku opiekunów.
+          </p>
         </div>
+
         <div class="archive-note">
           Wszystkie ragdollki pojechały już do swoich nowych domków.
         </div>
@@ -607,20 +520,10 @@
 
   </div>
 
-  <div class="slider-overlay" id="sliderOverlay">
-    <div class="slider-topbar">
-      <div class="slider-counter" id="sliderCounter">1 / 9</div>
-      <button class="slider-close" type="button" onclick="closeSlider()">Zamknij</button>
-    </div>
-
-    <div class="slider-inner">
-      <button class="slider-btn slider-prev" type="button" onclick="prevSlide()">‹</button>
-
-      <div class="slider-image-wrap" id="sliderTouchArea">
-        <img id="sliderImage" class="slider-image" src="" alt="">
-      </div>
-
-      <button class="slider-btn slider-next" type="button" onclick="nextSlide()">›</button>
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" type="button" onclick="closeLightbox(event)">×</button>
+      <img id="lightbox-img" src="" alt="">
     </div>
   </div>
 
@@ -629,85 +532,17 @@
   </footer>
 
   <script>
-    const galleryImages = [
-      "file_00000000166072439b0458ff2eaa1e44.png",
-      "file_000000001aa47243b5ef692c7926902d.png",
-      "file_000000006f947243b32fb0f9a979bc82.png",
-      "file_00000000830c7246abb014fcfb6edff0.png",
-      "file_0000000090b8720bb77f08f165cf4553.png",
-      "file_000000009d18720a9eee94a619faf953.png",
-      "file_00000000b24c7246b1ed773e2b9cf89d.png",
-      "file_00000000bdb472438f85c836c30364e5.png",
-      "file_00000000c60072439aee95ed8f84caaf.png"
-    ];
-
-    let currentSlide = 0;
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    function updateSlider(){
-      const img = document.getElementById("sliderImage");
-      const counter = document.getElementById("sliderCounter");
-      img.src = galleryImages[currentSlide];
-      img.alt = "Miot norweski zdjęcie " + (currentSlide + 1);
-      counter.textContent = (currentSlide + 1) + " / " + galleryImages.length;
+    function openLightbox(src){
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('show');
     }
 
-    function openSlider(index){
-      currentSlide = index;
-      updateSlider();
-      document.getElementById("sliderOverlay").classList.add("show");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeSlider(){
-      document.getElementById("sliderOverlay").classList.remove("show");
-      document.body.style.overflow = "";
-    }
-
-    function prevSlide(){
-      currentSlide = (currentSlide - 1 + galleryImages.length) % galleryImages.length;
-      updateSlider();
-    }
-
-    function nextSlide(){
-      currentSlide = (currentSlide + 1) % galleryImages.length;
-      updateSlider();
-    }
-
-    document.addEventListener("keydown", function(e){
-      const isOpen = document.getElementById("sliderOverlay").classList.contains("show");
-      if(!isOpen) return;
-
-      if(e.key === "Escape") closeSlider();
-      if(e.key === "ArrowLeft") prevSlide();
-      if(e.key === "ArrowRight") nextSlide();
-    });
-
-    const touchArea = document.getElementById("sliderTouchArea");
-
-    touchArea.addEventListener("touchstart", function(e){
-      touchStartX = e.changedTouches[0].clientX;
-    }, {passive:true});
-
-    touchArea.addEventListener("touchend", function(e){
-      touchEndX = e.changedTouches[0].clientX;
-      const diff = touchEndX - touchStartX;
-
-      if(Math.abs(diff) < 35) return;
-
-      if(diff > 0){
-        prevSlide();
-      }else{
-        nextSlide();
+    function closeLightbox(event){
+      if(!event || event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')){
+        document.getElementById('lightbox').classList.remove('show');
+        document.getElementById('lightbox-img').src = '';
       }
-    }, {passive:true});
-
-    document.getElementById("sliderOverlay").addEventListener("click", function(e){
-      if(e.target.id === "sliderOverlay"){
-        closeSlider();
-      }
-    });
+    }
   </script>
 
 </body>
