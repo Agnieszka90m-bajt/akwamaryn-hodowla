@@ -6,22 +6,24 @@
 <title>Aktualny miot | Akwamaryn*PL</title>
 
 <style>
+*{box-sizing:border-box;margin:0;padding:0;}
+
 body{
 font-family:Georgia,serif;
-background:linear-gradient(180deg,#fffafc,#f8eef3);
-margin:0;
-color:#6b4d5c;
+background:linear-gradient(180deg,#fffafc 0%,#f8eef3 100%);
+color:#654f58;
 }
 
+/* MENU */
 .topbar{
-text-align:center;
-padding:20px;
-background:white;
+background:rgba(255,248,251,0.95);
 border-bottom:1px solid #ead6de;
+padding:18px;
+text-align:center;
 }
 
 .brand{
-font-size:28px;
+font-size:26px;
 color:#7a5665;
 margin-bottom:10px;
 }
@@ -30,10 +32,11 @@ margin-bottom:10px;
 display:flex;
 justify-content:center;
 flex-wrap:wrap;
-gap:15px;
+gap:14px;
 font-weight:600;
 }
 
+/* SEKCJA */
 .container{
 max-width:1100px;
 margin:auto;
@@ -51,54 +54,60 @@ box-shadow:0 10px 25px rgba(0,0,0,0.05);
 h1{
 text-align:center;
 color:#7a5665;
+margin-bottom:15px;
 }
 
 h2{
 text-align:center;
 color:#7a5665;
+margin-bottom:15px;
 }
 
 .text{
 text-align:center;
 line-height:1.8;
-font-size:17px;
-margin-top:15px;
+margin-bottom:15px;
 }
 
 .parents a{
 color:#7a5665;
+font-weight:700;
 text-decoration:underline;
-font-weight:600;
 }
 
+/* BADGE */
 .badges{
 display:flex;
-flex-wrap:wrap;
 justify-content:center;
+flex-wrap:wrap;
 gap:10px;
-margin-top:15px;
+margin:20px 0;
 }
 
 .badge{
 background:#fdeef4;
 padding:8px 14px;
-border-radius:20px;
+border-radius:999px;
 font-size:14px;
 }
 
+/* GALERIA */
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-margin-top:25px;
+gap:18px;
+margin-top:20px;
 }
 
 .gallery img{
 width:100%;
-border-radius:25px;
+height:260px;
+object-fit:cover;
+border-radius:20px;
 cursor:pointer;
 }
 
+/* LIGHTBOX */
 .lightbox{
 position:fixed;
 top:0;
@@ -116,6 +125,7 @@ max-width:90%;
 max-height:90%;
 border-radius:20px;
 }
+
 </style>
 </head>
 
@@ -135,6 +145,7 @@ border-radius:20px;
 
 <div class="container">
 
+<!-- NORWESKI MIOT -->
 <div class="section">
 
 <h1>Miot norweski leśny „M”</h1>
@@ -149,38 +160,51 @@ Data urodzenia: 27.03.2026
 </div>
 
 <div class="text">
-Kod EMS rodziców:<br>
 matka: NFO as 22<br>
 ojciec: NFO d 03 22
 </div>
 
 <div class="badges">
-<span class="badge">5 dziewczynek</span>
-<span class="badge">Miot na M</span>
-<span class="badge">Wszystkie dostępne</span>
-<span class="badge">Możliwość wyboru imienia</span>
+<div class="badge">5 dziewczynek</div>
+<div class="badge">Miot na „M”</div>
+<div class="badge">Wszystkie dostępne</div>
+<div class="badge">Możliwość wyboru imienia</div>
 </div>
 
 <div class="text">
+27 marca 2026 roku w naszej hodowli przyszedł na świat wyjątkowy miot kotów norweskich leśnych.<br><br>
+
 W miocie urodziło się 5 dziewczynek:<br>
 3 niebiesko-srebrne szylkretki (NFO gs 22)<br>
 2 czarno-srebrne szylkretki (NFO fs 22)<br><br>
 
-To niezwykle urocze, delikatne i pełne wdzięku maluszki. Wychowują się w domowej atmosferze, w stałym kontakcie z człowiekiem, dzięki czemu od najmłodszych dni są bardzo kontaktowe i ufne.
+To niezwykle urocze i delikatne maluszki wychowywane w domowej atmosferze, w stałym kontakcie z człowiekiem. Każde z nich ma swój wyjątkowy charakter i już teraz pokazuje swoją ciekawską, spokojną naturę.
 </div>
 
 <div class="gallery">
 
-<img src="Norweskie27.03.2026/file_00000000166072439b0458ff2eaa1e44.png" onclick="openImg(this.src)">
-<img src="Norweskie27.03.2026/file_000000001aa47243b5ef692c7926902d.png" onclick="openImg(this.src)">
-<img src="Norweskie27.03.2026/file_000000006f947243b32fb0f9a979bc82.png" onclick="openImg(this.src)">
-<img src="Norweskie27.03.2026/file_00000000830c7246abb014fcfb6edff0.png" onclick="openImg(this.src)">
-<img src="Norweskie27.03.2026/file_0000000090b8720bb77f08f165cf4553.png" onclick="openImg(this.src)">
-<img src="Norweskie27.03.2026/file_000000009d18720a9eee94a619faf953.png" onclick="openImg(this.src)">
-<img src="Norweskie27.03.2026/file_00000000b24c7246b1ed773e2b9cf89d.png" onclick="openImg(this.src)">
-<img src="Norweskie27.03.2026/file_00000000bdb472438f85c836c30364e5.png" onclick="openImg(this.src)">
-<img src="Norweskie27.03.2026/file_00000000c60072439aee95ed8f84caaf.png" onclick="openImg(this.src)">
+<img src="file_00000000166072439b0458ff2eaa1e44.png" onclick="openImg(this.src)">
+<img src="file_000000001aa47243b5ef692c7926902d.png" onclick="openImg(this.src)">
+<img src="file_000000006f947243b32fb0f9a979bc82.png" onclick="openImg(this.src)">
+<img src="file_00000000830c7246abb014fcfb6edff0.png" onclick="openImg(this.src)">
+<img src="file_0000000090b8720bb77f08f165cf4553.png" onclick="openImg(this.src)">
+<img src="file_000000009d18720a9eee94a619faf953.png" onclick="openImg(this.src)">
+<img src="file_00000000b24c7246b1ed773e2b9cf89d.png" onclick="openImg(this.src)">
+<img src="file_00000000bdb472438f85c836c30364e5.png" onclick="openImg(this.src)">
+<img src="file_00000000c60072439aee95ed8f84caaf.png" onclick="openImg(this.src)">
 
+</div>
+
+</div>
+
+<!-- ARCHIWUM -->
+<div class="section">
+
+<h2>Nasze wcześniejsze mioty</h2>
+
+<div class="text">
+Miot ragdolli<br><br>
+Wszystkie kocięta znalazły już swoje kochające domy.
 </div>
 
 </div>
@@ -196,7 +220,6 @@ function openImg(src){
 document.getElementById("lightbox").style.display="flex";
 document.getElementById("lightbox-img").src=src;
 }
-
 function closeImg(){
 document.getElementById("lightbox").style.display="none";
 }
