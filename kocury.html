@@ -28,6 +28,8 @@ text-decoration:none;
 color:inherit;
 }
 
+/* TOPBAR */
+
 .topbar{
 position:sticky;
 top:0;
@@ -63,6 +65,7 @@ gap:14px;
 font-weight:600;
 color:#7a5665;
 justify-content:flex-end;
+max-width:920px;
 }
 
 .nav-links a{
@@ -73,6 +76,8 @@ transition:opacity 0.25s ease;
 .nav-links a:hover{
 opacity:0.72;
 }
+
+/* CONTAINER */
 
 .container{
 max-width:1240px;
@@ -105,29 +110,7 @@ line-height:1.9;
 color:#6e5a63;
 }
 
-.back-wrap{
-display:none;
-justify-content:center;
-margin-bottom:22px;
-}
-
-.back-wrap.show{
-display:flex;
-}
-
-.back-button{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:10px 16px;
-border-radius:999px;
-background:linear-gradient(180deg,#fff4f8 0%,#fdeef4 100%);
-border:1px solid rgba(230,204,216,0.95);
-color:#7a5665;
-font-size:15px;
-font-weight:600;
-box-shadow:0 6px 14px rgba(176,139,154,0.08);
-}
+/* KOCURY */
 
 .cats-wrap{
 display:grid;
@@ -232,6 +215,8 @@ font-size:17px;
 color:#654f58;
 }
 
+/* LIGHTBOX */
+
 .lightbox{
 display:none;
 position:fixed;
@@ -257,12 +242,16 @@ border-radius:18px;
 box-shadow:0 24px 55px rgba(0,0,0,0.35);
 }
 
+/* STOPKA */
+
 footer{
 text-align:center;
 padding:30px;
 font-size:14px;
 color:#866873;
 }
+
+/* RESPONSYWNOŚĆ */
 
 @media(max-width:920px){
 .cat-card{
@@ -302,6 +291,7 @@ text-align:center;
 .nav-links{
 justify-content:center;
 gap:10px 12px;
+max-width:100%;
 }
 
 .nav-links a{
@@ -386,18 +376,15 @@ padding:8px 12px;
 <div class="container">
   <section class="section">
 
-    <div class="back-wrap" id="backToMiotWrap">
-      <a class="back-button" href="miot.html">← Wróć do aktualnego miotu</a>
-    </div>
-
     <h1>Moje kocury</h1>
 
     <div class="section-intro">
-      W tej sekcji prezentujemy nasze kocury hodowlane. Każdy z nich wyróżnia się wyjątkową urodą, doskonałym zdrowiem oraz spokojnym charakterem typowym dla rasy ragdoll.
+      W tej sekcji prezentujemy nasze kocury hodowlane. Każdy z nich wyróżnia się wyjątkową urodą, doskonałym zdrowiem oraz spokojnym charakterem typowym dla swojej rasy.
     </div>
 
     <div class="cats-wrap">
 
+      <!-- OREO -->
       <div class="cat-card">
         <div class="cat-photo">
           <div class="cat-photo-frame">
@@ -427,6 +414,7 @@ padding:8px 12px;
         </div>
       </div>
 
+      <!-- ARES -->
       <div class="cat-card">
         <div class="cat-photo">
           <div class="cat-photo-frame">
@@ -456,6 +444,7 @@ padding:8px 12px;
         </div>
       </div>
 
+      <!-- AMOR -->
       <div class="cat-card" id="amor">
         <div class="cat-photo">
           <div class="cat-photo-frame">
@@ -485,6 +474,37 @@ padding:8px 12px;
         </div>
       </div>
 
+      <!-- POSEJDON -->
+      <div class="cat-card" id="posejdon">
+        <div class="cat-photo">
+          <div class="cat-photo-frame">
+            <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Ice Land" onclick="openImage(this)">
+          </div>
+        </div>
+
+        <div class="cat-info">
+          <h2>Posejdon Ice Land</h2>
+
+          <div class="cat-meta">
+            <div><strong>Rasa:</strong> Norweski leśny</div>
+            <div><strong>Umaszczenie:</strong> red &amp; white bicolour tabby blotched</div>
+            <div><strong>Kod EMS:</strong> NFO d 03 22</div>
+            <div><strong>Status:</strong> kocur hodowlany</div>
+          </div>
+
+          <div class="badges">
+            <span class="badge">HCM N/N</span>
+            <span class="badge">PKD N/N</span>
+            <span class="badge">FIV/FELV N/N</span>
+            <span class="badge">GSD IV N/N</span>
+          </div>
+
+          <div class="cat-description">
+            Posejdon to wyjątkowy przedstawiciel rasy norweskiej leśnej o pięknym, wyrazistym umaszczeniu oraz mocnej, harmonijnej budowie. Jest kocurem o zrównoważonym charakterze, pewnym siebie, a jednocześnie bardzo kontaktowym i spokojnym. Został importowany z Holandii i reprezentuje doskonałą, starannie dobraną linię hodowlaną. Posiada wykonane badania genetyczne charakterystyczne dla rasy, w tym w kierunku GSD IV, co jest szczególnie istotne w odpowiedzialnej hodowli kotów norweskich.
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </section>
@@ -507,11 +527,6 @@ document.getElementById("lightbox-img").alt = img.alt || "";
 
 function closeImage(){
 document.getElementById("lightbox").classList.remove("show");
-}
-
-const params = new URLSearchParams(window.location.search);
-if(params.get("from") === "miot"){
-  document.getElementById("backToMiotWrap").classList.add("show");
 }
 </script>
 
