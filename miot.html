@@ -214,7 +214,7 @@ button{
   height:100%;
   max-height:620px;
   object-fit:cover;
-  border-radius:26px;
+  border-radius:28px;
 }
 
 /* INFO */
@@ -608,7 +608,7 @@ button{
   font-size:14px;
 }
 
-/* RESPONSIVE */
+/* TABLET */
 @media (min-width: 769px) and (max-width: 1024px){
   .hero-box{
     grid-template-columns:1.05fr 0.95fr;
@@ -629,6 +629,7 @@ button{
 
   .hero-side{
     padding:14px;
+    border-radius:30px;
   }
 
   .hero-side img{
@@ -636,9 +637,11 @@ button{
     height:auto;
     max-height:420px;
     object-fit:contain;
+    border-radius:26px;
   }
 }
 
+/* GENERAL SMALLER */
 @media(max-width:980px){
   .info-grid,
   .parent-card{
@@ -669,6 +672,7 @@ button{
   }
 }
 
+/* PHONE - WRACA POPRZEDNI UKŁAD */
 @media(max-width:768px){
   .topbar-inner{
     padding:14px 14px;
@@ -710,63 +714,46 @@ button{
   }
 
   .hero-box{
-    grid-template-columns:1.08fr 0.92fr;
-    gap:12px;
-    align-items:center;
+    grid-template-columns:1fr;
+    gap:14px;
   }
 
   .hero-main{
-    padding:16px 14px;
+    padding:20px 16px;
     border-radius:24px;
   }
 
   .hero-main h1{
-    font-size:26px;
+    font-size:34px;
+    text-align:center;
     line-height:1.08;
-    margin-bottom:12px;
   }
 
   .hero-main p{
-    font-size:14px;
-    line-height:1.65;
-    margin-bottom:14px;
+    font-size:16px;
+    line-height:1.8;
+    text-align:center;
   }
 
   .hero-badge{
-    margin-bottom:12px;
-    font-size:12px;
-    padding:8px 12px;
+    margin-inline:auto;
   }
 
   .hero-stats{
-    grid-template-columns:1fr;
-    gap:10px;
-  }
-
-  .hero-stat{
-    padding:10px;
-    border-radius:18px;
-  }
-
-  .hero-stat strong{
-    font-size:18px;
-  }
-
-  .hero-stat span{
-    font-size:12px;
+    grid-template-columns:1fr 1fr;
   }
 
   .hero-side{
     border-radius:24px;
-    padding:10px;
+    padding:12px;
   }
 
   .hero-side img{
     width:100%;
     height:auto;
-    max-height:260px;
-    object-fit:contain;
-    border-radius:20px;
+    max-height:300px;
+    object-fit:cover;
+    border-radius:22px;
   }
 
   .info-box{
