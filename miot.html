@@ -57,6 +57,10 @@
       max-width:100%;
     }
 
+    button{
+      font:inherit;
+    }
+
     .page-shell{
       position:relative;
       overflow:hidden;
@@ -161,7 +165,7 @@
       border-radius:42px;
       overflow:hidden;
       background:
-        linear-gradient(115deg, rgba(27,20,15,0.28), rgba(27,20,15,0.08)),
+        linear-gradient(115deg, rgba(27,20,15,0.18), rgba(27,20,15,0.05)),
         url("images/miot-m/hero.jpg") center center / cover no-repeat;
       box-shadow:var(--shadow);
     }
@@ -171,7 +175,7 @@
       position:absolute;
       inset:0;
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.00) 0%, rgba(35,25,18,0.08) 50%, rgba(35,25,18,0.24) 100%);
+        linear-gradient(180deg, rgba(255,255,255,0.00) 0%, rgba(35,25,18,0.06) 50%, rgba(35,25,18,0.14) 100%);
       pointer-events:none;
     }
 
@@ -186,13 +190,13 @@
 
     .glass-panel{
       width:min(780px, 100%);
-      padding:32px 34px;
-      border-radius:32px;
-      background:linear-gradient(135deg, rgba(255,255,255,0.40), rgba(255,255,255,0.16));
-      border:1px solid rgba(255,255,255,0.34);
-      box-shadow:0 18px 40px rgba(0,0,0,0.14);
-      backdrop-filter:blur(18px);
-      -webkit-backdrop-filter:blur(18px);
+      padding:34px;
+      border-radius:34px;
+      background:rgba(255,255,255,0.88);
+      border:1px solid rgba(255,255,255,0.92);
+      box-shadow:0 20px 60px rgba(0,0,0,0.08);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
     }
 
     .eyebrow{
@@ -200,9 +204,9 @@
       margin-bottom:16px;
       padding:9px 14px;
       border-radius:999px;
-      background:rgba(255,255,255,0.24);
-      border:1px solid rgba(255,255,255,0.28);
-      color:#fff;
+      background:rgba(255,255,255,0.85);
+      border:1px solid rgba(255,255,255,0.92);
+      color:var(--gold);
       letter-spacing:2.5px;
       text-transform:uppercase;
       font-size:12px;
@@ -212,13 +216,13 @@
       font-size:clamp(38px, 6vw, 76px);
       line-height:0.98;
       font-weight:500;
-      color:#fff;
+      color:var(--text);
       margin-bottom:16px;
-      text-shadow:0 8px 28px rgba(0,0,0,0.20);
+      text-shadow:none;
     }
 
     .hero p{
-      color:rgba(255,255,255,0.95);
+      color:var(--text-soft);
       font-size:18px;
       line-height:1.8;
       max-width:680px;
@@ -234,14 +238,15 @@
     .hero-stat{
       padding:16px 14px;
       border-radius:22px;
-      background:rgba(255,255,255,0.20);
-      border:1px solid rgba(255,255,255,0.24);
+      background:rgba(255,255,255,0.76);
+      border:1px solid rgba(255,255,255,0.92);
       text-align:center;
+      box-shadow:0 8px 20px rgba(0,0,0,0.04);
     }
 
     .hero-stat strong{
       display:block;
-      color:#fff;
+      color:var(--text);
       font-size:20px;
       font-weight:600;
       margin-bottom:6px;
@@ -249,7 +254,7 @@
 
     .hero-stat span{
       display:block;
-      color:rgba(255,255,255,0.92);
+      color:#7a6a60;
       font-size:13px;
       line-height:1.45;
     }
@@ -539,7 +544,8 @@
       display:block;
       user-select:none;
       -webkit-user-drag:none;
-      pointer-events:none;
+      pointer-events:auto;
+      cursor:zoom-in;
     }
 
     .miot-slide::after{
@@ -563,6 +569,7 @@
       backdrop-filter:blur(12px);
       -webkit-backdrop-filter:blur(12px);
       color:#fff;
+      pointer-events:none;
     }
 
     .miot-slide-content h3{
@@ -657,6 +664,108 @@
       height:18px;
     }
 
+    /* LIGHTBOX */
+    .lightbox{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background:rgba(24,17,12,0.92);
+      z-index:99999;
+      padding:30px;
+      touch-action:pan-y;
+    }
+
+    .lightbox.open{
+      display:flex;
+    }
+
+    .lightbox-inner{
+      position:relative;
+      width:min(100%, 1200px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .lightbox-image-wrap{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+
+    .lightbox img{
+      max-width:100%;
+      max-height:82vh;
+      width:auto;
+      height:auto;
+      border-radius:20px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.35);
+      user-select:none;
+      -webkit-user-drag:none;
+    }
+
+    .lightbox-close,
+    .lightbox-arrow{
+      position:absolute;
+      border:none;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      background:rgba(255,255,255,0.16);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      color:#fff;
+      transition:0.25s ease;
+    }
+
+    .lightbox-close:hover,
+    .lightbox-arrow:hover{
+      background:rgba(255,255,255,0.24);
+    }
+
+    .lightbox-close{
+      top:-10px;
+      right:-10px;
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      font-size:28px;
+      z-index:2;
+    }
+
+    .lightbox-arrow{
+      top:50%;
+      transform:translateY(-50%);
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      font-size:34px;
+      z-index:2;
+    }
+
+    .lightbox-prev{
+      left:-70px;
+    }
+
+    .lightbox-next{
+      right:-70px;
+    }
+
+    .lightbox-counter{
+      position:absolute;
+      left:50%;
+      bottom:-42px;
+      transform:translateX(-50%);
+      color:rgba(255,255,255,0.92);
+      font-size:15px;
+      letter-spacing:0.5px;
+    }
+
     @media (max-width: 1180px){
       .hero-box{
         min-height:660px;
@@ -673,6 +782,23 @@
 
       .miot-slide{
         flex:0 0 calc(50% - 11px);
+      }
+
+      .lightbox-prev{
+        left:10px;
+      }
+
+      .lightbox-next{
+        right:10px;
+      }
+
+      .lightbox-close{
+        top:10px;
+        right:10px;
+      }
+
+      .lightbox-counter{
+        bottom:10px;
       }
     }
 
@@ -741,6 +867,21 @@
         width:42px;
         height:42px;
         font-size:24px;
+      }
+
+      .lightbox{
+        padding:18px;
+      }
+
+      .lightbox-arrow{
+        width:42px;
+        height:42px;
+        font-size:24px;
+      }
+
+      .lightbox img{
+        max-height:74vh;
+        border-radius:16px;
       }
     }
 
@@ -824,6 +965,27 @@
       .miot-slide-content h3{
         font-size:18px;
       }
+
+      .lightbox-prev{
+        left:6px;
+      }
+
+      .lightbox-next{
+        right:6px;
+      }
+
+      .lightbox-close{
+        top:6px;
+        right:6px;
+        width:44px;
+        height:44px;
+        font-size:24px;
+      }
+
+      .lightbox-counter{
+        font-size:13px;
+        bottom:6px;
+      }
     }
   </style>
 </head>
@@ -837,8 +999,8 @@
 
           <nav class="nav-links">
             <a href="index.html">Strona główna</a>
-            <a href="kotki-hodowlane.html">Moje kotki</a>
-            <a href="kocury-hodowlane.html">Kocury hodowlane</a>
+            <a href="kotki.html">Moje kotki</a>
+            <a href="kocury.html">Kocury hodowlane</a>
             <a href="moje-kocieta.html">Moje kocięta</a>
             <a href="galeria.html">Galeria</a>
             <a href="rezerwacja.html">Rezerwacja</a>
@@ -952,7 +1114,7 @@
 
               <div class="parents-grid">
 
-                <a href="kotki-hodowlane.html#dalia" class="parent-card">
+                <a href="kotki.html#dalia" class="parent-card">
                   <div class="parent-image">
                     <img src="images/rodzice/dalia.jpg" alt="Dalia Akwamaryn*PL">
                   </div>
@@ -974,7 +1136,7 @@
                   </div>
                 </a>
 
-                <a href="kocury-hodowlane.html#posejdon" class="parent-card">
+                <a href="kocury.html#posejdon" class="parent-card">
                   <div class="parent-image">
                     <img src="images/rodzice/posejdon.jpg" alt="Posejdon Akwamaryn*PL">
                   </div>
@@ -1008,8 +1170,7 @@
                 <div>
                   <h2 class="section-title" style="margin-bottom:8px;">Galeria miotu „M”</h2>
                   <p>
-                    Przesuń palcem w lewo lub w prawo, aby zobaczyć kolejne zdjęcia. Galeria działa dotykowo na telefonie
-                    i ma również strzałki do przewijania.
+                    Przesuń palcem w lewo lub w prawo, aby zobaczyć kolejne zdjęcia. Kliknij zdjęcie, aby je powiększyć.
                   </p>
                 </div>
               </div>
@@ -1021,7 +1182,7 @@
                   <div class="miot-slider" id="miotSlider">
 
                     <article class="miot-slide">
-                      <img src="images/miot-m/maluch-1.jpg" alt="Dziewczynka 1 z miotu M Akwamaryn*PL">
+                      <img src="images/miot-m/maluch-1.jpg" alt="Dziewczynka 1 z miotu M Akwamaryn*PL" data-index="0">
                       <div class="miot-slide-content">
                         <h3>Dziewczynka 1</h3>
                         <p>Niebieska srebrna szylkretka</p>
@@ -1029,7 +1190,7 @@
                     </article>
 
                     <article class="miot-slide">
-                      <img src="images/miot-m/maluch-2.jpg" alt="Dziewczynka 2 z miotu M Akwamaryn*PL">
+                      <img src="images/miot-m/maluch-2.jpg" alt="Dziewczynka 2 z miotu M Akwamaryn*PL" data-index="1">
                       <div class="miot-slide-content">
                         <h3>Dziewczynka 2</h3>
                         <p>Niebieska srebrna szylkretka</p>
@@ -1037,7 +1198,7 @@
                     </article>
 
                     <article class="miot-slide">
-                      <img src="images/miot-m/maluch-3.jpg" alt="Dziewczynka 3 z miotu M Akwamaryn*PL">
+                      <img src="images/miot-m/maluch-3.jpg" alt="Dziewczynka 3 z miotu M Akwamaryn*PL" data-index="2">
                       <div class="miot-slide-content">
                         <h3>Dziewczynka 3</h3>
                         <p>Niebieska srebrna szylkretka</p>
@@ -1045,7 +1206,7 @@
                     </article>
 
                     <article class="miot-slide">
-                      <img src="images/miot-m/maluch-4.jpg" alt="Dziewczynka 4 z miotu M Akwamaryn*PL">
+                      <img src="images/miot-m/maluch-4.jpg" alt="Dziewczynka 4 z miotu M Akwamaryn*PL" data-index="3">
                       <div class="miot-slide-content">
                         <h3>Dziewczynka 4</h3>
                         <p>Czarna srebrna szylkretka</p>
@@ -1053,7 +1214,7 @@
                     </article>
 
                     <article class="miot-slide">
-                      <img src="images/miot-m/maluch-5.jpg" alt="Dziewczynka 5 z miotu M Akwamaryn*PL">
+                      <img src="images/miot-m/maluch-5.jpg" alt="Dziewczynka 5 z miotu M Akwamaryn*PL" data-index="4">
                       <div class="miot-slide-content">
                         <h3>Dziewczynka 5</h3>
                         <p>Czarna srebrna szylkretka</p>
@@ -1099,6 +1260,20 @@
     </main>
   </div>
 
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" type="button" aria-label="Zamknij" id="lightboxClose">✕</button>
+      <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Poprzednie zdjęcie" id="lightboxPrev">‹</button>
+
+      <div class="lightbox-image-wrap">
+        <img id="lightboxImg" src="" alt="">
+      </div>
+
+      <button class="lightbox-arrow lightbox-next" type="button" aria-label="Następne zdjęcie" id="lightboxNext">›</button>
+      <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+  </div>
+
   <script>
     function scrollMiot(direction){
       const slider = document.getElementById('miotSlider');
@@ -1114,6 +1289,95 @@
         behavior: 'smooth'
       });
     }
+
+    const galleryImages = Array.from(document.querySelectorAll('.miot-slide img'));
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+
+    let currentIndex = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function updateLightbox(){
+      const current = galleryImages[currentIndex];
+      if(!current) return;
+      lightboxImg.src = current.src;
+      lightboxImg.alt = current.alt || '';
+      lightboxCounter.textContent = (currentIndex + 1) + ' / ' + galleryImages.length;
+    }
+
+    function openLightbox(index){
+      currentIndex = index;
+      updateLightbox();
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(){
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function showNextImage(){
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      updateLightbox();
+    }
+
+    function showPrevImage(){
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      updateLightbox();
+    }
+
+    galleryImages.forEach((img, index) => {
+      img.addEventListener('click', () => openLightbox(index));
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxNext.addEventListener('click', showNextImage);
+    lightboxPrev.addEventListener('click', showPrevImage);
+
+    lightbox.addEventListener('click', (e) => {
+      if(e.target === lightbox){
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if(!lightbox.classList.contains('open')) return;
+
+      if(e.key === 'Escape'){
+        closeLightbox();
+      }
+      if(e.key === 'ArrowRight'){
+        showNextImage();
+      }
+      if(e.key === 'ArrowLeft'){
+        showPrevImage();
+      }
+    });
+
+    lightbox.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+
+    lightbox.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].clientX;
+      const diff = touchStartX - touchEndX;
+
+      if(Math.abs(diff) < 40) return;
+
+      if(diff > 0){
+        showNextImage();
+      } else {
+        showPrevImage();
+      }
+    }, { passive: true });
   </script>
 </body>
 </html>
