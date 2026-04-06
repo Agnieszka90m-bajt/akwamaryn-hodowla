@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Miot M | Akwamaryn*PL</title>
-  <meta name="description" content="Miot M – maluszki norweskie leśne w hodowli Akwamaryn*PL." />
+  <title>Kocury hodowlane | Akwamaryn*PL</title>
+  <meta name="description" content="Kocury hodowlane w hodowli Akwamaryn*PL." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,15 +13,12 @@
   <style>
     :root{
       --bg:#0b0b0c;
-      --bg-2:#121214;
-      --bg-3:#18181b;
       --gold:#d8b26e;
       --gold-soft:#f0ddae;
-      --gold-line:rgba(216,178,110,0.46);
-      --gold-strong:rgba(216,178,110,0.82);
+      --gold-line:rgba(216,178,110,0.55);
+      --gold-strong:#e2bf82;
       --text:#f4efe7;
       --text-soft:#c7bcb1;
-      --muted:#988c82;
       --shadow:0 20px 50px rgba(0,0,0,0.35);
       --shadow-strong:0 30px 70px rgba(0,0,0,0.62);
       --max:1320px;
@@ -41,8 +38,8 @@
       font-family:"Inter",sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at top center, rgba(216,178,110,0.08), transparent 20%),
-        radial-gradient(circle at bottom right, rgba(216,178,110,0.05), transparent 25%),
+        radial-gradient(circle at top center, rgba(216,178,110,0.10), transparent 20%),
+        radial-gradient(circle at bottom right, rgba(216,178,110,0.06), transparent 25%),
         linear-gradient(180deg, #070708 0%, #101114 45%, #17181b 100%);
       overflow-x:hidden;
     }
@@ -85,7 +82,7 @@
       height:360px;
       top:-120px;
       left:-100px;
-      background:rgba(216,178,110,0.40);
+      background:rgba(216,178,110,0.42);
     }
 
     .page-wrap::after{
@@ -93,17 +90,17 @@
       height:420px;
       right:-140px;
       bottom:-140px;
-      background:rgba(216,178,110,0.16);
+      background:rgba(216,178,110,0.18);
     }
 
     .topbar{
       position:sticky;
       top:0;
       z-index:5000;
-      background:rgba(6,6,7,0.92);
+      background:rgba(6,6,7,0.94);
       backdrop-filter:blur(16px);
       -webkit-backdrop-filter:blur(16px);
-      border-bottom:1px solid rgba(216,178,110,0.12);
+      border-bottom:1px solid rgba(216,178,110,0.14);
     }
 
     .topbar-inner{
@@ -119,18 +116,13 @@
 
     .brand{
       font-family:"Cormorant Garamond",serif;
-      color:var(--text);
+      color:var(--gold);
       white-space:nowrap;
       font-size:58px;
       line-height:0.95;
       font-weight:600;
       letter-spacing:0.2px;
-    }
-
-    .brand .brand-gold{
-      color:var(--gold);
-      font-style:italic;
-      margin-right:4px;
+      text-shadow:0 0 18px rgba(216,178,110,0.10);
     }
 
     .nav{
@@ -167,6 +159,7 @@
       position:relative;
       margin-left:14px;
       transition:0.25s ease;
+      overflow:hidden;
     }
 
     .nav-cta:hover{
@@ -182,6 +175,7 @@
       height:12px;
       border-color:var(--gold);
       opacity:0.9;
+      z-index:2;
     }
 
     .nav-cta::before{
@@ -219,33 +213,69 @@
 
     @keyframes goldSweep{
       0%{
-        left:-55%;
+        transform:translateX(-180%) rotate(16deg);
         opacity:0;
       }
-      12%{
+      18%{
         opacity:1;
       }
       100%{
-        left:135%;
+        transform:translateX(260%) rotate(16deg);
         opacity:0;
       }
     }
 
-    @keyframes framePulse{
+    @keyframes frameGlow{
       0%,100%{
-        box-shadow:0 0 0 rgba(216,178,110,0);
+        box-shadow:
+          0 0 0 rgba(216,178,110,0),
+          0 12px 30px rgba(0,0,0,0.30);
       }
       50%{
-        box-shadow:0 0 22px rgba(216,178,110,0.22);
+        box-shadow:
+          0 0 24px rgba(216,178,110,0.18),
+          0 16px 34px rgba(0,0,0,0.38);
       }
+    }
+
+    .animated-frame{
+      position:relative;
+      overflow:hidden;
+      animation:frameGlow 3.2s ease-in-out infinite;
+    }
+
+    .animated-frame::before{
+      content:"";
+      position:absolute;
+      top:-130%;
+      left:-45%;
+      width:34%;
+      height:380%;
+      background:linear-gradient(
+        90deg,
+        rgba(216,178,110,0) 0%,
+        rgba(216,178,110,0.14) 40%,
+        rgba(255,239,201,0.55) 50%,
+        rgba(216,178,110,0.14) 60%,
+        rgba(216,178,110,0) 100%
+      );
+      transform:translateX(-180%) rotate(16deg);
+      opacity:0;
+      pointer-events:none;
+      z-index:3;
+    }
+
+    .animated-frame:hover::before{
+      opacity:1;
+      animation:goldSweep 1.35s ease;
     }
 
     .hero{
       display:grid;
-      grid-template-columns:1.04fr 0.96fr;
+      grid-template-columns:1.02fr 0.98fr;
       gap:34px;
       align-items:center;
-      min-height:720px;
+      min-height:680px;
       margin-bottom:54px;
     }
 
@@ -321,12 +351,13 @@
       position:relative;
       letter-spacing:0.3px;
       transition:0.25s ease;
+      overflow:hidden;
     }
 
     .hero-btn:hover{
       color:var(--gold-soft);
       transform:translateY(-2px);
-      box-shadow:0 0 22px rgba(216,178,110,0.14);
+      box-shadow:0 0 22px rgba(216,178,110,0.16);
     }
 
     .hero-btn::before,
@@ -336,6 +367,7 @@
       width:12px;
       height:12px;
       border-color:var(--gold);
+      z-index:2;
     }
 
     .hero-btn::before{
@@ -358,12 +390,6 @@
       justify-content:center;
     }
 
-    .hero-image,
-    .parent-photo,
-    .gallery-item{
-      animation:framePulse 4s ease-in-out infinite;
-    }
-
     .hero-image{
       width:auto;
       max-width:100%;
@@ -373,68 +399,18 @@
       background:#0d0d10;
       box-shadow:var(--shadow);
       transition:0.4s ease;
-      position:relative;
-      overflow:hidden;
     }
 
-    .hero-image::before,
-    .parent-photo::before,
-    .gallery-item::before{
-      content:"";
-      position:absolute;
-      inset:-120% auto auto -40%;
-      width:38%;
-      height:320%;
-      background:linear-gradient(
-        90deg,
-        rgba(216,178,110,0) 0%,
-        rgba(216,178,110,0.14) 42%,
-        rgba(240,221,174,0.38) 50%,
-        rgba(216,178,110,0.14) 58%,
-        rgba(216,178,110,0) 100%
-      );
-      transform:rotate(14deg);
-      opacity:0;
-      pointer-events:none;
-    }
-
-    .hero-image::after,
-    .parent-photo::after,
-    .gallery-item::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      border:1px solid rgba(216,178,110,0.20);
-      opacity:0;
-      transition:0.35s ease;
-      pointer-events:none;
-    }
-
-    .hero-image:hover,
-    .parent-card:hover .parent-photo,
-    .gallery-item:hover{
+    .hero-image:hover{
       transform:translateY(-6px);
       box-shadow:var(--shadow-strong);
-      border-color:rgba(216,178,110,0.95);
-    }
-
-    .hero-image:hover::before,
-    .parent-card:hover .parent-photo::before,
-    .gallery-item:hover::before{
-      opacity:1;
-      animation:goldSweep 1.45s ease;
-    }
-
-    .hero-image:hover::after,
-    .parent-card:hover .parent-photo::after,
-    .gallery-item:hover::after{
-      opacity:1;
+      border-color:#f0d59a;
     }
 
     .hero-image img{
       display:block;
       width:100%;
-      height:620px;
+      height:600px;
       object-fit:cover;
       border-radius:0;
     }
@@ -495,7 +471,7 @@
       line-height:1.3;
     }
 
-    .info-layout{
+    .intro-layout{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:34px;
@@ -530,7 +506,7 @@
 
     .info-card:hover{
       transform:translateY(-4px);
-      border-color:rgba(216,178,110,0.38);
+      border-color:rgba(216,178,110,0.40);
       box-shadow:0 18px 34px rgba(0,0,0,0.22);
     }
 
@@ -551,12 +527,12 @@
       line-height:1.7;
     }
 
-    .parents-grid{
+    .cats-grid{
       display:grid;
       gap:28px;
     }
 
-    .parent-card{
+    .cat-card{
       display:grid;
       grid-template-columns:380px 1fr;
       gap:28px;
@@ -568,42 +544,34 @@
       transition:transform 0.4s ease, box-shadow 0.4s ease;
     }
 
-    .parent-card:hover{
+    .cat-card:hover{
       transform:translateY(-6px);
       box-shadow:0 24px 48px rgba(0,0,0,0.28);
       border-color:rgba(216,178,110,0.35);
     }
 
-    .parent-card.reverse{
-      grid-template-columns:1fr 380px;
-    }
-
-    .parent-card.reverse .parent-copy{
-      order:1;
-    }
-
-    .parent-card.reverse .parent-photo-wrap{
-      order:2;
-    }
-
-    .parent-photo-wrap{
+    .cat-photo-wrap{
       display:flex;
       align-items:center;
       justify-content:center;
     }
 
-    .parent-photo{
-      position:relative;
+    .cat-photo{
       display:inline-block;
       border:1px solid var(--gold-strong);
       padding:10px;
       background:#0f0f11;
       box-shadow:0 10px 30px rgba(0,0,0,0.42);
       transition:all 0.4s ease;
-      overflow:hidden;
     }
 
-    .parent-photo img{
+    .cat-card:hover .cat-photo{
+      transform:translateY(-6px) scale(1.015);
+      box-shadow:var(--shadow-strong);
+      border-color:#f0d59a;
+    }
+
+    .cat-photo img{
       display:block;
       width:auto;
       max-width:100%;
@@ -612,15 +580,16 @@
       object-fit:contain;
       background:#0f0f11;
       border-radius:0;
+      cursor:pointer;
     }
 
-    .parent-copy{
+    .cat-copy{
       display:flex;
       flex-direction:column;
       justify-content:center;
     }
 
-    .parent-label{
+    .cat-label{
       display:inline-block;
       width:max-content;
       margin-bottom:16px;
@@ -631,7 +600,7 @@
       text-transform:uppercase;
     }
 
-    .parent-copy h3{
+    .cat-copy h3{
       font-family:"Cormorant Garamond",serif;
       font-size:52px;
       line-height:1;
@@ -653,7 +622,7 @@
       color:var(--text);
     }
 
-    .parent-copy p{
+    .cat-copy p{
       color:var(--text-soft);
       font-size:16px;
       line-height:1.95;
@@ -686,74 +655,16 @@
       color:#fff3cf;
     }
 
-    .gallery-grid{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:20px;
-    }
-
-    .gallery-item{
-      position:relative;
-      overflow:hidden;
-      border:1px solid var(--gold-strong);
-      border-radius:0;
-      background:#101012;
-      box-shadow:0 14px 30px rgba(0,0,0,0.18);
-      padding:10px;
-      transition:0.35s ease;
-    }
-
-    .gallery-item img{
-      width:100%;
-      height:420px;
-      object-fit:cover;
-      cursor:pointer;
-      transition:transform 0.35s ease, filter 0.35s ease;
-      border-radius:0;
-    }
-
-    .gallery-item img:hover{
-      transform:scale(1.03);
-      filter:brightness(1.05);
-    }
-
-    .gallery-caption{
-      position:absolute;
-      left:24px;
-      right:24px;
-      bottom:24px;
-      padding:14px 16px;
-      border-radius:0;
-      background:rgba(10,10,11,0.76);
-      border:1px solid rgba(216,178,110,0.16);
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
-    }
-
-    .gallery-caption h4{
-      font-family:"Cormorant Garamond",serif;
-      font-size:28px;
-      line-height:1;
-      color:var(--text);
-      margin-bottom:6px;
-      font-weight:600;
-    }
-
-    .gallery-caption p{
-      color:var(--text-soft);
-      font-size:14px;
-      line-height:1.6;
-    }
-
     .lightbox{
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,0.92);
+      background:rgba(0,0,0,0.94);
       display:none;
       align-items:center;
       justify-content:center;
       z-index:9999;
       padding:20px;
+      touch-action:none;
     }
 
     .lightbox.show{
@@ -771,9 +682,10 @@
     .lightbox img{
       max-width:92%;
       max-height:92%;
-      border-radius:0;
-      box-shadow:0 24px 55px rgba(0,0,0,0.35);
       border:2px solid rgba(216,178,110,0.55);
+      box-shadow:0 24px 55px rgba(0,0,0,0.35);
+      user-select:none;
+      -webkit-user-drag:none;
     }
 
     .lightbox-close{
@@ -823,24 +735,17 @@
         margin:0 auto;
       }
 
-      .info-layout{
+      .intro-layout{
         grid-template-columns:1fr;
       }
     }
 
     @media (max-width:980px){
-      .parent-card,
-      .parent-card.reverse{
+      .cat-card{
         grid-template-columns:1fr;
       }
 
-      .parent-card.reverse .parent-copy,
-      .parent-card.reverse .parent-photo-wrap{
-        order:initial;
-      }
-
-      .gallery-grid,
-      .info-layout{
+      .intro-layout{
         grid-template-columns:1fr;
       }
     }
@@ -912,7 +817,6 @@
         height:auto;
         max-height:340px;
         object-fit:contain;
-        border-radius:0;
         margin:0 auto;
       }
 
@@ -928,29 +832,14 @@
         font-size:20px;
       }
 
-      .parent-photo img{
+      .cat-photo img{
         height:auto;
         max-height:420px;
         object-fit:contain;
-        border-radius:0;
       }
 
-      .parent-copy h3{
+      .cat-copy h3{
         font-size:36px;
-      }
-
-      .gallery-item img{
-        height:300px;
-      }
-
-      .gallery-caption{
-        left:18px;
-        right:18px;
-        bottom:18px;
-      }
-
-      .gallery-caption h4{
-        font-size:22px;
       }
 
       .lightbox-close{
@@ -967,7 +856,7 @@
 
     <header class="topbar fade-in">
       <div class="topbar-inner">
-        <div class="brand"><span class="brand-gold">Akwamaryn</span>*PL</div>
+        <div class="brand">Akwamaryn*PL</div>
 
         <nav class="nav">
           <a href="index.html">Start</a>
@@ -987,23 +876,23 @@
       <section class="hero fade-in">
         <div class="hero-copy">
           <div class="hero-line"></div>
-          <h1>Miot „M”</h1>
-          <div class="hero-accent">Maluszki norweskie leśne</div>
+          <h1>Kocury hodowlane</h1>
+          <div class="hero-accent">Elegancja, typ i wyjątkowe pochodzenie</div>
 
           <p>
-            27.03.2026 na świat przyszło pięć wyjątkowych dziewczynek. To starannie zaplanowany,
-            domowo wychowywany miot norweskich kotów leśnych, w którym piękne pochodzenie łączy się
-            z cudownym charakterem, elegancją i typem tak cenionym w rasie.
+            W tej zakładce prezentujemy nasze kocury hodowlane – wyjątkowych przedstawicieli swoich ras,
+            którzy współtworzą charakter hodowli Akwamaryn*PL. To piękno, linie, zdrowie i temperament
+            zamknięte w wyjątkowych osobowościach.
           </p>
 
-          <div class="hero-mini">✦ Wszystkie maluszki są dostępne ✦</div>
+          <div class="hero-mini">✦ Kocury hodowlane Akwamaryn*PL ✦</div>
 
-          <a href="#galeria" class="hero-btn">ZOBACZ GALERIĘ</a>
+          <a href="#kocury-lista" class="hero-btn">POZNAJ KOCURY</a>
         </div>
 
         <div class="hero-image-wrap">
-          <div class="hero-image">
-            <img src="file_0000000092607246a8e17fab58cb439d.png" alt="Maluszek z miotu M">
+          <div class="hero-image animated-frame">
+            <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL">
           </div>
         </div>
       </section>
@@ -1011,104 +900,159 @@
       <section class="section fade-in">
         <div class="section-header">
           <div class="frame-title">
-            <h2>Miot „M”</h2>
-            <p>Najważniejsze informacje o naszych maluszkach</p>
+            <h2>Nasze kocury</h2>
+            <p>Ragdoll i norweski leśny w eleganckim wydaniu</p>
           </div>
         </div>
 
-        <div class="info-layout">
+        <div class="intro-layout">
           <div class="text-block">
             <p>
-              To wyjątkowy miot norweskich kotów leśnych, łączący elegancką kolorystykę,
-              piękne pochodzenie i domowe wychowanie. Od pierwszych chwil maluszki mają
-              bliski kontakt z człowiekiem i dorastają w spokojnej, pełnej troski atmosferze.
+              Każdy z naszych kocurów wnosi do hodowli coś wyjątkowego – piękny typ, harmonijną budowę,
+              doskonałe pochodzenie oraz cudowny charakter. To starannie wybrane linie, które są dla nas
+              niezwykle ważne zarówno pod względem urody, jak i zdrowia.
             </p>
             <p>
-              Nasze dziewczynki od pierwszych dni zachwycają delikatnością, pięknym wyrazem
-              i cudownym potencjałem. Szukamy dla nich najlepszych, świadomych i kochających domów.
+              Prezentujemy tu naszych reprezentantów rasy ragdoll oraz norweskiej leśnej – kocury,
+              które są nie tylko piękne, ale też wyjątkowe w codziennym kontakcie i temperamencie.
             </p>
           </div>
 
           <div class="info-cards">
             <div class="info-card">
-              <strong>27.03.2026</strong>
-              <span>data urodzenia</span>
+              <strong>4</strong>
+              <span>kocury hodowlane</span>
             </div>
-
             <div class="info-card">
-              <strong>5</strong>
-              <span>dziewczynek</span>
+              <strong>Ragdoll</strong>
+              <span>elegancja, łagodność i piękne umaszczenia</span>
             </div>
-
             <div class="info-card">
-              <strong>Miot M</strong>
-              <span>norweskie leśne</span>
+              <strong>NFO</strong>
+              <span>mocny typ i wyjątkowa norweska linia</span>
             </div>
-
             <div class="info-card">
-              <strong>Dostępne</strong>
-              <span>możliwość wyboru imion</span>
-            </div>
-
-            <div class="info-card">
-              <strong>3 + 2</strong>
-              <span>3 niebieskie srebrzyste szylkretki oraz 2 czarne srebrzyste szylkretki</span>
-            </div>
-
-            <div class="info-card">
-              <strong>Domowy odchów</strong>
-              <span>stały kontakt z człowiekiem, czułość i bliskość od pierwszych dni</span>
+              <strong>Badania</strong>
+              <span>dbamy o zdrowie i świadomą hodowlę</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section fade-in">
+      <section class="section fade-in" id="kocury-lista">
         <div class="section-header">
           <div class="frame-title">
-            <h2>Rodzice miotu</h2>
-            <p>Piękne linie, mocny typ i starannie dobrane skojarzenie</p>
+            <h2>Kocury hodowlane</h2>
+            <p>Poznaj naszych wyjątkowych chłopców</p>
           </div>
         </div>
 
-        <div class="parents-grid">
+        <div class="cats-grid">
 
-          <a href="kotki.html#dalia" class="parent-card fade-in">
-            <div class="parent-photo-wrap">
-              <div class="parent-photo">
-                <img src="file_00000000a454724689df1045122b6b79.png" alt="Dalia Pałuckie Pupile*PL">
+          <article class="cat-card fade-in" id="oreo">
+            <div class="cat-photo-wrap">
+              <div class="cat-photo animated-frame">
+                <img src="file_000000009f0872438e4ae2b0c8ec575d.jpg" alt="Oreo Pałuckie Pupile*PL" onclick="openImage(this)">
               </div>
             </div>
 
-            <div class="parent-copy">
-              <div class="parent-label">Matka miotu</div>
-              <h3>Dalia Pałuckie Pupile*PL</h3>
+            <div class="cat-copy">
+              <div class="cat-label">Kocur hodowlany</div>
+              <h3>Oreo Pałuckie Pupile*PL</h3>
 
               <div class="meta">
-                <div><strong>Rasa:</strong> Norweska leśna</div>
-                <div><strong>Umaszczenie:</strong> niebiesko-srebrny bicolor</div>
-                <div><strong>Kod EMS:</strong> NFO as 03</div>
-                <div><strong>Status:</strong> kotka hodowlana</div>
-                <div><strong>Badania:</strong> HCM N/N, PKD N/N, FIV/FELV N/N</div>
+                <div><strong>Rasa:</strong> Ragdoll</div>
+                <div><strong>Umaszczenie:</strong> Seal mitted</div>
+                <div><strong>Kod EMS:</strong> RAG n 04</div>
+                <div><strong>Status:</strong> kocur hodowlany</div>
               </div>
 
               <p>
-                Dalia to piękna kotka norweska leśna o mocnej budowie, eleganckiej sylwetce i spokojnym temperamencie.
-                Zachwyca piękną kryzą, wyrazem i klasą, które doskonale przekazuje potomstwu.
+                Oreo to wyjątkowy przedstawiciel rasy ragdoll o spokojnym, zrównoważonym charakterze
+                i pięknej harmonijnej budowie. Wyróżnia się intensywnie niebieskimi oczami oraz klasycznym umaszczeniem.
               </p>
 
               <div class="badge-row">
-                <span class="badge">Matka miotu</span>
                 <span class="badge">HCM N/N</span>
                 <span class="badge">PKD N/N</span>
                 <span class="badge">FIV/FELV N/N</span>
               </div>
             </div>
-          </a>
+          </article>
 
-          <a href="kocury.html#posejdon" class="parent-card reverse fade-in">
-            <div class="parent-copy">
-              <div class="parent-label">Ojciec miotu</div>
+          <article class="cat-card fade-in" id="ares">
+            <div class="cat-photo-wrap">
+              <div class="cat-photo animated-frame">
+                <img src="file_0000000057687246842c044d7fb3e790.png" alt="Ares Chouchou Chat*PL" onclick="openImage(this)">
+              </div>
+            </div>
+
+            <div class="cat-copy">
+              <div class="cat-label">Kocur hodowlany</div>
+              <h3>Ares Chouchou Chat*PL</h3>
+
+              <div class="meta">
+                <div><strong>Rasa:</strong> Ragdoll</div>
+                <div><strong>Umaszczenie:</strong> Blue bicolor lynx</div>
+                <div><strong>Kod EMS:</strong> RAG a 03 21</div>
+                <div><strong>Status:</strong> kocur hodowlany</div>
+              </div>
+
+              <p>
+                Ares to elegancki kocur o wyjątkowym umaszczeniu oraz doskonałej budowie.
+                Charakteryzuje się spokojnym temperamentem, bardzo kontaktowym usposobieniem
+                i pięknym wyrazem typowym dla rasy ragdoll.
+              </p>
+
+              <div class="badge-row">
+                <span class="badge">HCM N/N</span>
+                <span class="badge">PKD N/N</span>
+                <span class="badge">FIV/FELV N/N</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="cat-card fade-in" id="amor">
+            <div class="cat-photo-wrap">
+              <div class="cat-photo animated-frame">
+                <img src="02D8D665-A28D-49BF-8F27-C4CD270B46E9.PNG" alt="Amor Błękitne Sny*PL" onclick="openImage(this)">
+              </div>
+            </div>
+
+            <div class="cat-copy">
+              <div class="cat-label">Kocur hodowlany</div>
+              <h3>Amor Błękitne Sny*PL</h3>
+
+              <div class="meta">
+                <div><strong>Rasa:</strong> Ragdoll</div>
+                <div><strong>Umaszczenie:</strong> Blue bicolor</div>
+                <div><strong>Kod EMS:</strong> RAG a 03</div>
+                <div><strong>Status:</strong> kocur hodowlany</div>
+              </div>
+
+              <p>
+                Amor to piękny i harmonijny kocur rasy ragdoll o wyjątkowo łagodnym charakterze.
+                Wyróżnia się spokojem, elegancją oraz bardzo dobrym kontaktem z człowiekiem,
+                co czyni go niezwykle szlachetnym reprezentantem rasy.
+              </p>
+
+              <div class="badge-row">
+                <span class="badge">HCM N/N</span>
+                <span class="badge">PKD N/N</span>
+                <span class="badge">FIV/FELV N/N</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="cat-card fade-in" id="posejdon">
+            <div class="cat-photo-wrap">
+              <div class="cat-photo animated-frame">
+                <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL" onclick="openImage(this)">
+              </div>
+            </div>
+
+            <div class="cat-copy">
+              <div class="cat-label">Kocur hodowlany</div>
               <h3>Posejdon Iceland*NL</h3>
 
               <div class="meta">
@@ -1116,132 +1060,22 @@
                 <div><strong>Umaszczenie:</strong> Red &amp; white bicolour tabby blotched</div>
                 <div><strong>Kod EMS:</strong> NFO d 03 22</div>
                 <div><strong>Status:</strong> kocur hodowlany</div>
-                <div><strong>Badania:</strong> HCM N/N, PKD N/N, FIV/FELV N/N, GSD IV N/N</div>
               </div>
 
               <p>
-                Posejdon to wyjątkowy przedstawiciel rasy norweskiej leśnej o efektownym wyglądzie, mocnej budowie
-                i pięknym umaszczeniu. Importowany z Holandii, reprezentuje doskonałą linię hodowlaną.
+                Posejdon to wyjątkowy przedstawiciel rasy norweskiej leśnej o efektownym wyglądzie,
+                mocnej budowie i pięknym umaszczeniu. Importowany z Holandii, reprezentuje doskonałą linię hodowlaną.
               </p>
 
               <div class="badge-row">
-                <span class="badge">Ojciec miotu</span>
                 <span class="badge">HCM N/N</span>
                 <span class="badge">PKD N/N</span>
                 <span class="badge">FIV/FELV N/N</span>
                 <span class="badge">GSD IV N/N</span>
               </div>
             </div>
-
-            <div class="parent-photo-wrap">
-              <div class="parent-photo">
-                <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL">
-              </div>
-            </div>
-          </a>
-
-        </div>
-      </section>
-
-      <section class="section fade-in" id="galeria">
-        <div class="section-header">
-          <div class="frame-title">
-            <h2>Galeria</h2>
-            <p>Zdjęcia naszych maluszków</p>
-          </div>
-        </div>
-
-        <div class="gallery-grid">
-          <article class="gallery-item fade-in">
-            <img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Zdjęcie 1" data-index="0" onclick="openImage(this)">
-            <div class="gallery-caption">
-              <h4>Zdjęcie 1</h4>
-              <p>Czarna srebrzysta szylkretka</p>
-            </div>
           </article>
 
-          <article class="gallery-item fade-in">
-            <img src="file_000000001aa47243b5ef692c7926902d.png" alt="Zdjęcie 2" data-index="1" onclick="openImage(this)">
-            <div class="gallery-caption">
-              <h4>Zdjęcie 2</h4>
-              <p>Czarna srebrzysta szylkretka</p>
-            </div>
-          </article>
-
-          <article class="gallery-item fade-in">
-            <img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Zdjęcie 3" data-index="2" onclick="openImage(this)">
-            <div class="gallery-caption">
-              <h4>Zdjęcie 3</h4>
-              <p>Czarna srebrzysta szylkretka</p>
-            </div>
-          </article>
-
-          <article class="gallery-item fade-in">
-            <img src="file_0000000092607246a8e17fab58cb439d.png" alt="Zdjęcie 4" data-index="3" onclick="openImage(this)">
-            <div class="gallery-caption">
-              <h4>Zdjęcie 4</h4>
-              <p>Czarna srebrzysta szylkretka</p>
-            </div>
-          </article>
-
-          <article class="gallery-item fade-in">
-            <img src="images/mioty/2026-03-27-norweskie/file_0000000090b8720bb77f08f165cf4553.png" alt="Zdjęcie 5" data-index="4" onclick="openImage(this)">
-            <div class="gallery-caption">
-              <h4>Zdjęcie 5</h4>
-              <p>Czarna srebrzysta szylkretka</p>
-            </div>
-          </article>
-
-          <article class="gallery-item fade-in">
-            <img src="images/mioty/2026-03-27-norweskie/file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Zdjęcie 6" data-index="5" onclick="openImage(this)">
-            <div class="gallery-caption">
-              <h4>Zdjęcie 6</h4>
-              <p>Niebieska srebrzysta szylkretka</p>
-            </div>
-          </article>
-
-          <article class="gallery-item fade-in">
-            <img src="images/mioty/2026-03-27-norweskie/file_00000000c60072439aee95ed8f84caaf.png" alt="Zdjęcie 7" data-index="6" onclick="openImage(this)">
-            <div class="gallery-caption">
-              <h4>Zdjęcie 7</h4>
-              <p>Niebieska srebrzysta szylkretka</p>
-            </div>
-          </article>
-
-          <article class="gallery-item fade-in">
-            <img src="images/mioty/2026-03-27-norweskie/file_000000006f947243b32fb0f9a979bc82.png" alt="Zdjęcie 8" data-index="7" onclick="openImage(this)">
-            <div class="gallery-caption">
-              <h4>Zdjęcie 8</h4>
-              <p>Niebieska srebrzysta szylkretka</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section fade-in">
-        <div class="section-header">
-          <div class="frame-title">
-            <h2>Kontakt</h2>
-            <p>Rezerwacja i szczegóły dotyczące maluszków</p>
-          </div>
-        </div>
-
-        <div class="contact-layout">
-          <div class="contact-text">
-            Jeśli interesuje Cię któryś z naszych maluszków, zapraszamy do kontaktu.
-            Chętnie opowiemy więcej o charakterze kociąt, planie odchowu oraz dalszych etapach rezerwacji.
-            Zależy nam na najlepszych, świadomych i kochających domach.
-          </div>
-
-          <div class="contact-box">
-            <h3>Skontaktuj się</h3>
-
-            <div class="contact-links">
-              <a class="contact-link" href="mailto:agnieszka90m@gmail.com">agnieszka90m@gmail.com</a>
-              <a class="contact-link" href="tel:+48572992736">+48 572 992 736</a>
-              <a class="contact-link" href="https://www.facebook.com/share/1DWyWWbtVH/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
-            </div>
-          </div>
         </div>
       </section>
 
