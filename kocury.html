@@ -383,12 +383,13 @@
       display:flex;
       align-items:center;
       justify-content:center;
+      width:100%;
     }
 
     .hero-image{
-      width:auto;
+      width:100%;
       max-width:100%;
-      display:inline-block;
+      display:block;
       border:1px solid var(--line-strong);
       padding:10px;
       background:#fff8fb;
@@ -408,6 +409,7 @@
       width:100%;
       height:600px;
       object-fit:cover;
+      object-position:center;
       border-radius:22px;
     }
 
@@ -789,19 +791,19 @@
       }
 
       .hero-image{
-        width:auto;
+        width:100%;
         max-width:100%;
-        display:inline-block;
+        display:block;
         padding:10px;
       }
 
       .hero-image img{
-        width:auto;
-        max-width:100%;
-        height:auto;
-        max-height:520px;
-        object-fit:contain;
-        margin:0 auto;
+        width:100%;
+        height:520px;
+        max-height:none;
+        object-fit:cover;
+        object-position:center;
+        margin:0;
       }
 
       .intro-layout{
@@ -810,10 +812,7 @@
     }
 
     @media (max-width:980px){
-      .cat-card{
-        grid-template-columns:1fr;
-      }
-
+      .cat-card,
       .intro-layout,
       .contact-layout{
         grid-template-columns:1fr;
@@ -852,8 +851,18 @@
       }
 
       .hero{
+        grid-template-columns:1fr;
         gap:20px;
         min-height:auto;
+      }
+
+      .hero-copy{
+        order:2;
+      }
+
+      .hero-image-wrap{
+        order:1;
+        width:100%;
       }
 
       .hero-copy h1{
@@ -876,19 +885,20 @@
       }
 
       .hero-image{
-        width:auto;
+        width:100%;
         max-width:100%;
-        display:inline-block;
+        display:block;
         padding:8px;
       }
 
       .hero-image img{
-        width:auto;
-        max-width:100%;
-        height:auto;
-        max-height:340px;
-        object-fit:contain;
-        margin:0 auto;
+        width:100%;
+        height:320px;
+        max-height:none;
+        object-fit:cover;
+        object-position:center;
+        margin:0;
+        border-radius:18px;
       }
 
       .frame-title{
