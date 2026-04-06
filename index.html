@@ -54,6 +54,13 @@
       max-width:100%;
     }
 
+    button{
+      font:inherit;
+      border:none;
+      background:none;
+      cursor:pointer;
+    }
+
     .page-wrap{
       position:relative;
       overflow:hidden;
@@ -70,95 +77,128 @@
     }
 
     .topbar-inner{
-      width:min(var(--max), calc(100% - 36px));
+      width:min(var(--max), calc(100% - 28px));
       margin:auto;
       min-height:88px;
-      display:flex;
+      display:grid;
+      grid-template-columns:56px 1fr 56px;
       align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
+      gap:12px;
     }
 
     .brand{
+      text-align:center;
       font-family:"Cormorant Garamond",serif;
       color:var(--text-strong);
-      white-space:nowrap;
       font-size:58px;
       line-height:0.95;
       font-weight:600;
       letter-spacing:0.2px;
+      white-space:nowrap;
     }
 
-    .nav{
+    .menu-toggle{
+      width:48px;
+      height:48px;
+      border-radius:16px;
+      background:#f1e5ea;
+      color:#7a5665;
       display:flex;
       align-items:center;
-      flex-wrap:wrap;
-      gap:18px;
-      color:var(--text);
-    }
-
-    .nav a{
-      font-family:"Cormorant Garamond",serif;
-      font-size:21px;
-      color:var(--text);
-      transition:0.25s ease;
-    }
-
-    .nav a:hover{
-      color:var(--text-strong);
-    }
-
-    .nav-cta{
-      min-width:152px;
-      min-height:42px;
-      padding:0 18px;
-      border:2px solid #d6b0be;
-      color:var(--text-strong);
-      display:inline-flex;
-      align-items:center;
       justify-content:center;
-      font-size:16px;
-      font-weight:600;
-      letter-spacing:0.5px;
-      position:relative;
-      margin-left:14px;
+      font-size:24px;
+      box-shadow:0 6px 14px rgba(171,135,149,0.10);
+      justify-self:start;
+    }
+
+    .menu-spacer{
+      width:48px;
+      height:48px;
+      justify-self:end;
+    }
+
+    .menu-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.28);
+      opacity:0;
+      visibility:hidden;
       transition:0.25s ease;
-      overflow:hidden;
-      background:#fff8fb;
-      border-radius:16px;
-      box-shadow:0 8px 18px rgba(171,135,149,0.08);
+      z-index:5998;
     }
 
-    .nav-cta:hover{
-      box-shadow:0 12px 22px rgba(171,135,149,0.14);
-      transform:translateY(-2px);
+    .menu-overlay.open{
+      opacity:1;
+      visibility:visible;
     }
 
-    .nav-cta::before,
-    .nav-cta::after{
-      content:"";
-      position:absolute;
-      width:14px;
-      height:14px;
-      border-color:#b78898;
-      z-index:2;
+    .side-menu{
+      position:fixed;
+      top:0;
+      left:-340px;
+      width:310px;
+      max-width:84vw;
+      height:100%;
+      background:#ffffff;
+      box-shadow:12px 0 30px rgba(0,0,0,0.18);
+      transition:left 0.28s ease;
+      z-index:5999;
+      overflow-y:auto;
+      padding-top:20px;
     }
 
-    .nav-cta::before{
-      top:-2px;
-      left:-2px;
-      border-top:3px solid #b78898;
-      border-left:3px solid #b78898;
-      border-radius:10px 0 0 0;
+    .side-menu.open{
+      left:0;
     }
 
-    .nav-cta::after{
-      right:-2px;
-      bottom:-2px;
-      border-right:3px solid #b78898;
-      border-bottom:3px solid #b78898;
-      border-radius:0 0 10px 0;
+    .side-menu-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 18px 16px;
+      border-bottom:1px solid #eee;
+    }
+
+    .side-menu-title{
+      font-family:"Cormorant Garamond",serif;
+      font-size:28px;
+      color:#7a5665;
+      font-weight:600;
+    }
+
+    .close-btn{
+      border:0;
+      background:transparent;
+      color:#7a5665;
+      font-size:34px;
+      line-height:1;
+      cursor:pointer;
+    }
+
+    .side-menu a{
+      display:block;
+      padding:18px 22px;
+      border-bottom:1px solid #eee;
+      font-size:18px;
+      color:#7a5665;
+      font-weight:600;
+      font-family:"Cormorant Garamond",serif;
+    }
+
+    .facebook-side{
+      position:fixed;
+      right:0;
+      top:50%;
+      transform:translateY(-50%);
+      background:#4267B2;
+      color:white;
+      padding:14px 10px;
+      border-radius:14px 0 0 14px;
+      writing-mode:vertical-rl;
+      text-orientation:mixed;
+      font-weight:700;
+      z-index:4500;
+      box-shadow:0 10px 24px rgba(0,0,0,0.18);
     }
 
     .container{
@@ -241,15 +281,63 @@
 
     .hero{
       display:grid;
-      grid-template-columns:1.02fr 0.98fr;
-      gap:34px;
+      grid-template-columns:1fr;
+      gap:28px;
       align-items:center;
-      min-height:680px;
       margin-bottom:54px;
     }
 
+    .hero-image-wrap{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+    }
+
+    .hero-image{
+      width:100%;
+      max-width:100%;
+      display:block;
+      border:1px solid var(--line-strong);
+      padding:10px;
+      background:linear-gradient(180deg,#fffdfd 0%, #f9eff4 100%);
+      box-shadow:var(--shadow);
+      transition:0.4s ease;
+      border-radius:34px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-image::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(to top, rgba(248,238,243,0.42) 0%, rgba(248,238,243,0.04) 22%, rgba(248,238,243,0) 42%),
+        linear-gradient(to bottom, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.02) 18%, rgba(255,255,255,0) 36%);
+      pointer-events:none;
+      border-radius:28px;
+    }
+
+    .hero-image:hover{
+      transform:translateY(-6px);
+      box-shadow:var(--shadow-hover);
+      border-color:#d6b0be;
+    }
+
+    .hero-image img{
+      display:block;
+      width:100%;
+      height:auto;
+      max-height:none;
+      object-fit:contain;
+      object-position:center;
+      border-radius:24px;
+      background:#fff8fb;
+    }
+
     .hero-copy{
-      padding:18px 0;
+      padding:8px 0 0;
     }
 
     .hero-line{
@@ -305,7 +393,7 @@
     }
 
     .hero-copy p{
-      max-width:670px;
+      max-width:760px;
       font-size:17px;
       line-height:2;
       color:var(--text);
@@ -370,40 +458,6 @@
       border-right:3px solid #b78898;
       border-bottom:3px solid #b78898;
       border-radius:0 0 10px 0;
-    }
-
-    .hero-image-wrap{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      width:100%;
-    }
-
-    .hero-image{
-      width:100%;
-      max-width:100%;
-      display:block;
-      border:1px solid var(--line-strong);
-      padding:10px;
-      background:#fff8fb;
-      box-shadow:var(--shadow);
-      transition:0.4s ease;
-      border-radius:30px;
-    }
-
-    .hero-image:hover{
-      transform:translateY(-6px);
-      box-shadow:var(--shadow-hover);
-      border-color:#d6b0be;
-    }
-
-    .hero-image img{
-      display:block;
-      width:100%;
-      height:600px;
-      object-fit:cover;
-      object-position:center;
-      border-radius:22px;
     }
 
     .section{
@@ -542,10 +596,12 @@
 
     .story-photo img{
       width:100%;
-      height:560px;
-      object-fit:cover;
+      height:auto;
+      max-height:none;
+      object-fit:contain;
       object-position:center;
       border-radius:22px;
+      background:#fff8fb;
     }
 
     .logos-box{
@@ -659,39 +715,8 @@
     }
 
     @media (min-width:769px) and (max-width:1100px){
-      .hero,
+      .intro-layout,
       .story-layout{
-        grid-template-columns:1fr;
-        min-height:auto;
-      }
-
-      .hero-copy{
-        order:2;
-        padding-top:0;
-      }
-
-      .hero-image-wrap{
-        order:1;
-        justify-content:center;
-      }
-
-      .hero-image{
-        width:100%;
-        max-width:100%;
-        display:block;
-        padding:10px;
-      }
-
-      .hero-image img{
-        width:100%;
-        height:520px;
-        max-height:none;
-        object-fit:cover;
-        object-position:center;
-        margin:0;
-      }
-
-      .intro-layout{
         grid-template-columns:1fr;
       }
     }
@@ -708,27 +733,14 @@
     @media (max-width:768px){
       .topbar-inner{
         width:min(var(--max), calc(100% - 20px));
-        justify-content:center;
-        padding:14px 0;
+        grid-template-columns:48px 1fr 48px;
+        min-height:78px;
       }
 
       .brand{
         width:100%;
         text-align:center;
-        font-size:44px;
-      }
-
-      .nav{
-        justify-content:center;
-        gap:12px;
-      }
-
-      .nav a{
-        font-size:18px;
-      }
-
-      .nav-cta{
-        margin-left:0;
+        font-size:34px;
       }
 
       .container{
@@ -737,18 +749,7 @@
       }
 
       .hero{
-        grid-template-columns:1fr;
         gap:20px;
-        min-height:auto;
-      }
-
-      .hero-copy{
-        order:2;
-      }
-
-      .hero-image-wrap{
-        order:1;
-        width:100%;
       }
 
       .hero-copy h1{
@@ -776,14 +777,15 @@
         max-width:100%;
         display:block;
         padding:8px;
+        border-radius:24px;
       }
 
       .hero-image img,
       .story-photo img{
         width:100%;
-        height:320px;
+        height:auto;
         max-height:none;
-        object-fit:cover;
+        object-fit:contain;
         object-position:center;
         margin:0;
         border-radius:18px;
@@ -800,32 +802,54 @@
       .section-header p{
         font-size:20px;
       }
+
+      .facebook-side{
+        font-size:14px;
+        padding:12px 8px;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <button type="button" class="menu-toggle" onclick="openMenu()">☰</button>
+      <div class="brand">Akwamaryn*PL</div>
+      <div class="menu-spacer"></div>
+    </div>
+  </div>
+
+  <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+
+  <div class="side-menu" id="menu">
+    <div class="side-menu-header">
+      <div class="side-menu-title">Akwamaryn*PL</div>
+      <button type="button" class="close-btn" onclick="closeMenu()">×</button>
+    </div>
+
+    <a href="index.html" onclick="closeMenu()">Strona główna</a>
+    <a href="kotki.html" onclick="closeMenu()">Moje kotki</a>
+    <a href="kocury.html" onclick="closeMenu()">Kocury hodowlane</a>
+    <a href="kocieta.html" onclick="closeMenu()">Moje kocięta</a>
+    <a href="miot.html" onclick="closeMenu()">Aktualny miot</a>
+    <a href="galeria.html" onclick="closeMenu()">Galeria</a>
+    <a href="rezerwacja.html" onclick="closeMenu()">Rezerwacja</a>
+    <a href="kontakt.html" onclick="closeMenu()">Kontakt</a>
+  </div>
+
+  <a class="facebook-side" href="https://www.facebook.com/share/1DWyWWbtVH/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
+
   <div class="page-wrap">
-
-    <header class="topbar fade-in">
-      <div class="topbar-inner">
-        <div class="brand">Akwamaryn*PL</div>
-
-        <nav class="nav">
-          <a href="index.html">Start</a>
-          <a href="kotki.html">Kotki hodowlane</a>
-          <a href="kocury.html">Kocury hodowlane</a>
-          <a href="kocieta.html">Moje kocięta</a>
-          <a href="miot.html">Aktualny miot</a>
-          <a href="galeria.html">Galeria</a>
-          <a href="kontakt.html">Kontakt</a>
-          <a href="rezerwacja.html" class="nav-cta">REZERWACJA</a>
-        </nav>
-      </div>
-    </header>
 
     <main class="container">
 
       <section class="hero fade-in">
+        <div class="hero-image-wrap hero-image-top">
+          <div class="hero-image animated-frame">
+            <img src="file_00000000a9f4720ab60032632f8d464e.png" alt="Akwamaryn*PL">
+          </div>
+        </div>
+
         <div class="hero-copy">
           <div class="hero-line"><span></span></div>
           <h1>Akwamaryn*PL</h1>
@@ -839,12 +863,6 @@
           <div class="hero-mini">✦ Ragdoll i norweskie leśne w wyjątkowym wydaniu ✦</div>
 
           <a href="#o-nas" class="hero-btn">POZNAJ NAS</a>
-        </div>
-
-        <div class="hero-image-wrap">
-          <div class="hero-image animated-frame">
-            <img src="file_00000000a9f4720ab60032632f8d464e.png" alt="Akwamaryn*PL">
-          </div>
         </div>
       </section>
 
@@ -999,6 +1017,16 @@
   </div>
 
   <script>
+    function openMenu(){
+      document.getElementById("menu").classList.add("open");
+      document.getElementById("menuOverlay").classList.add("open");
+    }
+
+    function closeMenu(){
+      document.getElementById("menu").classList.remove("open");
+      document.getElementById("menuOverlay").classList.remove("open");
+    }
+
     const observer = new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{
         if(entry.isIntersecting){
