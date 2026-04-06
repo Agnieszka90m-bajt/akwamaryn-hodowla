@@ -6,24 +6,7 @@
   <title>Miot M | Akwamaryn*PL</title>
   <meta name="description" content="Miot M – maluszki norweskie leśne w hodowli Akwamaryn*PL." />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <style>
-    :root{
-      --bg:#0b0b0c;
-      --gold:#d8b26e;
-      --gold-soft:#f0ddae;
-      --gold-line:rgba(216,178,110,0.55);
-      --gold-strong:#e2bf82;
-      --text:#f4efe7;
-      --text-soft:#c7bcb1;
-      --shadow:0 20px 50px rgba(0,0,0,0.35);
-      --shadow-strong:0 30px 70px rgba(0,0,0,0.62);
-      --max:1320px;
-    }
-
     *{
       box-sizing:border-box;
       margin:0;
@@ -35,18 +18,15 @@
     }
 
     body{
-      font-family:"Inter",sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at top center, rgba(216,178,110,0.10), transparent 20%),
-        radial-gradient(circle at bottom right, rgba(216,178,110,0.06), transparent 25%),
-        linear-gradient(180deg, #070708 0%, #101114 45%, #17181b 100%);
+      font-family:Georgia,"Times New Roman",serif;
+      background:linear-gradient(180deg,#fffafc 0%,#f8eef3 100%);
+      color:#654f58;
       overflow-x:hidden;
     }
 
     a{
-      color:inherit;
       text-decoration:none;
+      color:inherit;
     }
 
     img{
@@ -61,431 +41,351 @@
       cursor:pointer;
     }
 
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:5000;
+      background:rgba(255,248,251,0.95);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(218,189,200,0.2);
+    }
+
+    .topbar-inner{
+      max-width:1280px;
+      margin:0 auto;
+      padding:16px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+
+    .brand{
+      font-size:26px;
+      color:#7a5665;
+      font-weight:600;
+      white-space:nowrap;
+    }
+
+    .nav-links{
+      display:none !important;
+    }
+
+    .menu-toggle{
+      display:block !important;
+      border:0;
+      background:#f1e5ea;
+      color:#7a5665;
+      border-radius:16px;
+      padding:12px 16px;
+      font-size:24px;
+      line-height:1;
+      cursor:pointer;
+      position:relative;
+      z-index:6001;
+      box-shadow:0 6px 14px rgba(171,135,149,0.10);
+    }
+
+    .menu-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.28);
+      opacity:0;
+      visibility:hidden;
+      transition:0.25s ease;
+      z-index:5998;
+    }
+
+    .menu-overlay.open{
+      opacity:1;
+      visibility:visible;
+    }
+
+    .side-menu{
+      position:fixed;
+      top:0;
+      left:-340px;
+      width:310px;
+      max-width:84vw;
+      height:100%;
+      background:#ffffff;
+      box-shadow:12px 0 30px rgba(0,0,0,0.18);
+      transition:left 0.28s ease;
+      z-index:5999;
+      overflow-y:auto;
+      padding-top:20px;
+    }
+
+    .side-menu.open{
+      left:0;
+    }
+
+    .side-menu-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 18px 16px;
+      border-bottom:1px solid #eee;
+    }
+
+    .side-menu-title{
+      font-size:24px;
+      color:#7a5665;
+      font-weight:600;
+    }
+
+    .close-btn{
+      border:0;
+      background:transparent;
+      color:#7a5665;
+      font-size:34px;
+      line-height:1;
+      cursor:pointer;
+    }
+
+    .side-menu a{
+      display:block;
+      padding:18px 22px;
+      border-bottom:1px solid #eee;
+      font-size:18px;
+      color:#7a5665;
+      font-weight:600;
+    }
+
+    .facebook-side{
+      position:fixed;
+      right:0;
+      top:50%;
+      transform:translateY(-50%);
+      background:#4267B2;
+      color:white;
+      padding:14px 10px;
+      border-radius:14px 0 0 14px;
+      writing-mode:vertical-rl;
+      text-orientation:mixed;
+      font-weight:700;
+      z-index:4500;
+      box-shadow:0 10px 24px rgba(0,0,0,0.18);
+    }
+
     .page-wrap{
       position:relative;
       overflow:hidden;
     }
 
-    .page-wrap::before,
-    .page-wrap::after{
-      content:"";
-      position:fixed;
-      border-radius:50%;
-      filter:blur(120px);
-      pointer-events:none;
-      z-index:0;
-      opacity:0.22;
-    }
-
-    .page-wrap::before{
-      width:360px;
-      height:360px;
-      top:-120px;
-      left:-100px;
-      background:rgba(216,178,110,0.42);
-    }
-
-    .page-wrap::after{
-      width:420px;
-      height:420px;
-      right:-140px;
-      bottom:-140px;
-      background:rgba(216,178,110,0.18);
-    }
-
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:5000;
-      background:rgba(6,6,7,0.94);
-      backdrop-filter:blur(16px);
-      -webkit-backdrop-filter:blur(16px);
-      border-bottom:1px solid rgba(216,178,110,0.14);
-    }
-
-    .topbar-inner{
-      width:min(var(--max), calc(100% - 36px));
-      margin:auto;
-      min-height:88px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
-    }
-
-    .brand{
-      font-family:"Cormorant Garamond",serif;
-      color:var(--gold);
-      white-space:nowrap;
-      font-size:58px;
-      line-height:0.95;
-      font-weight:600;
-      letter-spacing:0.2px;
-      text-shadow:0 0 18px rgba(216,178,110,0.10);
-    }
-
-    .nav{
-      display:flex;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:18px;
-      color:var(--text);
-    }
-
-    .nav a{
-      font-family:"Cormorant Garamond",serif;
-      font-size:21px;
-      color:var(--text);
-      transition:0.25s ease;
-    }
-
-    .nav a:hover{
-      color:var(--gold);
-    }
-
-    .nav-cta{
-      min-width:152px;
-      min-height:42px;
-      padding:0 18px;
-      border:2px solid var(--gold-line);
-      color:var(--text);
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      font-size:16px;
-      font-weight:600;
-      letter-spacing:0.5px;
-      position:relative;
-      margin-left:14px;
-      transition:0.25s ease;
-      overflow:hidden;
-    }
-
-    .nav-cta:hover{
-      color:var(--gold-soft);
-      box-shadow:0 0 24px rgba(216,178,110,0.16);
-    }
-
-    .nav-cta::before,
-    .nav-cta::after{
-      content:"";
-      position:absolute;
-      width:12px;
-      height:12px;
-      border-color:var(--gold);
-      opacity:0.9;
-      z-index:2;
-    }
-
-    .nav-cta::before{
-      top:-2px;
-      left:-2px;
-      border-top:2px solid var(--gold);
-      border-left:2px solid var(--gold);
-    }
-
-    .nav-cta::after{
-      right:-2px;
-      bottom:-2px;
-      border-right:2px solid var(--gold);
-      border-bottom:2px solid var(--gold);
-    }
-
-    .container{
-      width:min(var(--max), calc(100% - 36px));
-      margin:auto;
-      padding:34px 0 80px;
-      position:relative;
-      z-index:1;
-    }
-
-    .fade-in{
-      opacity:0;
-      transform:translateY(42px);
-      transition:opacity 0.85s ease, transform 0.85s ease;
-    }
-
-    .fade-in.show{
-      opacity:1;
-      transform:translateY(0);
-    }
-
-    @keyframes goldSweep{
-      0%{
-        transform:translateX(-180%) rotate(16deg);
-        opacity:0;
-      }
-      18%{
-        opacity:1;
-      }
-      100%{
-        transform:translateX(260%) rotate(16deg);
-        opacity:0;
-      }
-    }
-
-    @keyframes frameGlow{
-      0%,100%{
-        box-shadow:
-          0 0 0 rgba(216,178,110,0),
-          0 12px 30px rgba(0,0,0,0.30);
-      }
-      50%{
-        box-shadow:
-          0 0 24px rgba(216,178,110,0.18),
-          0 16px 34px rgba(0,0,0,0.38);
-      }
-    }
-
-    .animated-frame{
-      position:relative;
-      overflow:hidden;
-      animation:frameGlow 3.2s ease-in-out infinite;
-    }
-
-    .animated-frame::before{
-      content:"";
-      position:absolute;
-      top:-130%;
-      left:-45%;
-      width:34%;
-      height:380%;
-      background:linear-gradient(
-        90deg,
-        rgba(216,178,110,0) 0%,
-        rgba(216,178,110,0.14) 40%,
-        rgba(255,239,201,0.55) 50%,
-        rgba(216,178,110,0.14) 60%,
-        rgba(216,178,110,0) 100%
-      );
-      transform:translateX(-180%) rotate(16deg);
-      opacity:0;
-      pointer-events:none;
-      z-index:3;
-    }
-
-    .animated-frame:hover::before{
-      opacity:1;
-      animation:goldSweep 1.35s ease;
-    }
-
     .hero{
+      padding:28px 18px 56px;
+    }
+
+    .hero-shell{
+      max-width:1280px;
+      margin:0 auto;
       display:grid;
       grid-template-columns:1.04fr 0.96fr;
-      gap:34px;
+      gap:30px;
       align-items:center;
-      min-height:720px;
-      margin-bottom:54px;
     }
 
     .hero-copy{
-      padding:18px 0;
+      order:1;
+    }
+
+    .hero-image-wrap{
+      order:2;
+      position:relative;
+      width:100%;
+      min-height:520px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      border-radius:34px;
+      background:linear-gradient(180deg,#f7edf2 0%,#f4e8ee 100%);
+      box-shadow:0 18px 40px rgba(173,139,152,0.10);
+      border:1px solid #f0dfe6;
+      padding:10px;
+    }
+
+    .hero-image{
+      width:100%;
+      height:100%;
+      min-height:500px;
+      object-fit:cover;
+      object-position:center center;
+      border-radius:26px;
     }
 
     .hero-line{
-      width:210px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:22px;
+    }
+
+    .hero-line::before{
+      content:"";
+      width:130px;
       height:3px;
-      background:linear-gradient(90deg, var(--gold), rgba(216,178,110,0.2));
-      margin-bottom:24px;
-      position:relative;
+      background:linear-gradient(90deg,#e4c8d2 0%, #b78898 50%, #e4c8d2 100%);
+      border-radius:999px;
     }
 
     .hero-line::after{
       content:"";
-      position:absolute;
-      right:-34px;
-      top:50%;
-      width:26px;
-      height:1px;
-      background:var(--gold);
-      transform:translateY(-50%);
+      width:22px;
+      height:2px;
+      background:#b78898;
+      border-radius:999px;
     }
 
-    .hero-copy h1{
-      font-family:"Cormorant Garamond",serif;
-      font-size:82px;
-      line-height:0.94;
+    .hero-line span{
+      display:block;
+      width:130px;
+      height:3px;
+      background:linear-gradient(90deg,#e4c8d2 0%, #b78898 50%, #e4c8d2 100%);
+      border-radius:999px;
+    }
+
+    .hero-box{
+      background:rgba(255,255,255,0.78);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border-radius:34px;
+      padding:28px 30px;
+      box-shadow:0 16px 36px rgba(166,132,145,0.12);
+      animation:fadeUp 1.1s ease both;
+    }
+
+    .hero-title{
+      font-size:60px;
+      letter-spacing:2px;
+      line-height:1.02;
+      color:#7a5665;
       font-weight:600;
-      color:var(--text);
+      animation:softGlow 4s ease-in-out infinite;
+      margin-bottom:10px;
+    }
+
+    .hero-sub{
+      font-size:26px;
+      line-height:1.3;
+      color:#8b6977;
       margin-bottom:18px;
     }
 
-    .hero-accent{
-      font-family:"Cormorant Garamond",serif;
-      font-size:28px;
-      line-height:1.2;
-      color:var(--gold);
-      font-style:italic;
-      margin-bottom:26px;
-    }
-
-    .hero-copy p{
-      max-width:670px;
-      font-size:17px;
-      line-height:2;
-      color:var(--text-soft);
-      margin-bottom:26px;
+    .hero-text{
+      font-size:19px;
+      line-height:1.8;
+      color:#6f5862;
+      margin-bottom:18px;
     }
 
     .hero-mini{
-      color:var(--gold);
-      font-family:"Cormorant Garamond",serif;
-      font-size:28px;
-      line-height:1.2;
+      font-size:24px;
+      line-height:1.4;
+      color:#8a6474;
+      margin-bottom:22px;
       font-style:italic;
-      margin-bottom:28px;
     }
 
     .hero-btn{
-      min-width:150px;
-      min-height:42px;
-      padding:0 18px;
-      border:2px solid var(--gold-line);
-      color:var(--text);
       display:inline-flex;
       align-items:center;
       justify-content:center;
+      min-height:46px;
+      padding:0 22px;
+      background:#f1e5ea;
+      color:#7a5665;
+      border-radius:18px;
       font-size:16px;
-      font-weight:600;
+      font-weight:700;
+      box-shadow:0 8px 18px rgba(171,135,149,0.12);
       position:relative;
-      letter-spacing:0.3px;
-      transition:0.25s ease;
-      overflow:hidden;
-    }
-
-    .hero-btn:hover{
-      color:var(--gold-soft);
-      transform:translateY(-2px);
-      box-shadow:0 0 22px rgba(216,178,110,0.16);
     }
 
     .hero-btn::before,
     .hero-btn::after{
       content:"";
       position:absolute;
-      width:12px;
-      height:12px;
-      border-color:var(--gold);
-      z-index:2;
+      width:16px;
+      height:16px;
+      border-color:#b78898;
     }
 
     .hero-btn::before{
       top:-2px;
       left:-2px;
-      border-top:2px solid var(--gold);
-      border-left:2px solid var(--gold);
+      border-top:3px solid #b78898;
+      border-left:3px solid #b78898;
+      border-radius:10px 0 0 0;
     }
 
     .hero-btn::after{
       right:-2px;
       bottom:-2px;
-      border-right:2px solid var(--gold);
-      border-bottom:2px solid var(--gold);
+      border-right:3px solid #b78898;
+      border-bottom:3px solid #b78898;
+      border-radius:0 0 10px 0;
     }
 
-    .hero-image-wrap{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .hero-image{
-      width:auto;
-      max-width:100%;
-      display:inline-block;
-      border:1px solid var(--gold-strong);
-      padding:10px;
-      background:#0d0d10;
-      box-shadow:var(--shadow);
-      transition:0.4s ease;
-    }
-
-    .hero-image:hover{
-      transform:translateY(-6px);
-      box-shadow:var(--shadow-strong);
-      border-color:#f0d59a;
-    }
-
-    .hero-image img{
-      display:block;
-      width:100%;
-      height:620px;
-      object-fit:cover;
-      border-radius:0;
+    .container{
+      max-width:1200px;
+      margin:auto;
+      padding:0 20px 40px;
     }
 
     .section{
-      margin-bottom:54px;
+      background:rgba(255,255,255,0.88);
+      padding:40px;
+      border-radius:30px;
+      margin-bottom:30px;
+      box-shadow:0 14px 34px rgba(0,0,0,0.05);
+      opacity:0;
+      transform:translateY(36px);
+      transition:opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .section.visible{
+      opacity:1;
+      transform:translateY(0);
     }
 
     .section-header{
       text-align:center;
-      margin-bottom:34px;
-      position:relative;
+      margin-bottom:24px;
     }
 
-    .frame-title{
-      display:inline-block;
-      position:relative;
-      padding:28px 34px;
-    }
-
-    .frame-title::before,
-    .frame-title::after{
-      content:"";
-      position:absolute;
-      width:108px;
-      height:64px;
-      border-color:var(--gold-line);
-    }
-
-    .frame-title::before{
-      top:0;
-      left:0;
-      border-top:2px solid var(--gold);
-      border-left:2px solid var(--gold);
-    }
-
-    .frame-title::after{
-      right:0;
-      bottom:0;
-      border-right:2px solid var(--gold);
-      border-bottom:2px solid var(--gold);
-    }
-
-    .section-header h2{
-      font-family:"Cormorant Garamond",serif;
-      font-size:64px;
-      font-weight:600;
-      line-height:1;
-      color:var(--text);
+    .section h2{
+      text-align:center;
       margin-bottom:10px;
+      font-size:34px;
+      color:#7a5665;
     }
 
-    .section-header p{
-      color:var(--gold);
-      font-family:"Cormorant Garamond",serif;
-      font-size:24px;
+    .section-sub{
+      max-width:900px;
+      margin:auto;
+      text-align:center;
+      font-size:20px;
+      line-height:1.7;
+      color:#866873;
       font-style:italic;
-      line-height:1.3;
     }
 
     .info-layout{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:34px;
+      gap:26px;
       align-items:start;
     }
 
-    .text-block{
-      color:var(--text-soft);
-      font-size:17px;
-      line-height:2;
-    }
-
     .text-block p{
-      margin-bottom:18px;
+      font-size:19px;
+      line-height:1.8;
+      text-align:left;
+      color:#654f58;
+      margin-bottom:16px;
     }
 
     .info-cards{
@@ -495,63 +395,57 @@
     }
 
     .info-card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      border:1px solid rgba(216,178,110,0.18);
-      border-radius:22px;
-      padding:22px 20px;
-      min-height:132px;
-      box-shadow:0 10px 26px rgba(0,0,0,0.14);
-      transition:0.35s ease;
+      background:#fff8fb;
+      border:1px solid #f0dfe6;
+      border-radius:24px;
+      padding:24px;
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      text-align:center;
     }
 
     .info-card:hover{
-      transform:translateY(-4px);
-      border-color:rgba(216,178,110,0.40);
-      box-shadow:0 18px 34px rgba(0,0,0,0.22);
+      transform:translateY(-6px);
+      box-shadow:0 16px 30px rgba(171,135,149,0.14);
     }
 
     .info-card strong{
       display:block;
-      font-family:"Cormorant Garamond",serif;
-      font-size:34px;
-      line-height:1;
-      color:var(--text);
-      margin-bottom:10px;
-      font-weight:600;
+      font-size:30px;
+      color:#7a5665;
+      margin-bottom:8px;
     }
 
     .info-card span{
       display:block;
-      color:var(--text-soft);
-      font-size:15px;
-      line-height:1.7;
+      font-size:17px;
+      line-height:1.6;
+      color:#6f5862;
     }
 
     .parents-grid{
       display:grid;
-      gap:28px;
+      gap:24px;
     }
 
     .parent-card{
       display:grid;
-      grid-template-columns:380px 1fr;
-      gap:28px;
-      padding:26px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      border:1px solid rgba(216,178,110,0.18);
-      border-radius:30px;
-      box-shadow:0 14px 32px rgba(0,0,0,0.16);
-      transition:transform 0.4s ease, box-shadow 0.4s ease;
+      grid-template-columns:360px 1fr;
+      gap:26px;
+      align-items:center;
+      background:#fff8fb;
+      border:1px solid #f0dfe6;
+      border-radius:28px;
+      padding:24px;
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .parent-card:hover{
       transform:translateY(-6px);
-      box-shadow:0 24px 48px rgba(0,0,0,0.28);
-      border-color:rgba(216,178,110,0.35);
+      box-shadow:0 16px 30px rgba(171,135,149,0.14);
     }
 
     .parent-card.reverse{
-      grid-template-columns:1fr 380px;
+      grid-template-columns:1fr 360px;
     }
 
     .parent-card.reverse .parent-copy{
@@ -564,80 +458,60 @@
 
     .parent-photo-wrap{
       display:flex;
-      align-items:center;
       justify-content:center;
+      align-items:center;
     }
 
     .parent-photo{
-      display:inline-block;
-      border:1px solid var(--gold-strong);
-      padding:10px;
-      background:#0f0f11;
-      box-shadow:0 10px 30px rgba(0,0,0,0.42);
-      transition:all 0.4s ease;
-    }
-
-    .parent-card:hover .parent-photo{
-      transform:translateY(-6px) scale(1.015);
-      box-shadow:var(--shadow-strong);
-      border-color:#f0d59a;
+      width:100%;
+      overflow:hidden;
+      border-radius:22px;
+      box-shadow:0 10px 24px rgba(171,135,149,0.12);
+      background:#f7edf2;
     }
 
     .parent-photo img{
-      display:block;
-      width:auto;
-      max-width:100%;
-      height:auto;
-      max-height:430px;
-      object-fit:contain;
-      background:#0f0f11;
-      border-radius:0;
-    }
-
-    .parent-copy{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
+      width:100%;
+      height:420px;
+      object-fit:cover;
+      object-position:center;
     }
 
     .parent-label{
       display:inline-block;
-      width:max-content;
-      margin-bottom:16px;
-      color:var(--gold);
-      font-size:13px;
+      margin-bottom:14px;
+      background:#f1e5ea;
+      color:#7a5665;
+      border-radius:999px;
+      padding:8px 14px;
+      font-size:14px;
       font-weight:700;
-      letter-spacing:1px;
-      text-transform:uppercase;
     }
 
     .parent-copy h3{
-      font-family:"Cormorant Garamond",serif;
-      font-size:52px;
-      line-height:1;
-      color:var(--text);
+      font-size:38px;
+      color:#7a5665;
       margin-bottom:14px;
-      font-weight:600;
     }
 
     .meta{
       display:grid;
-      gap:7px;
-      margin-bottom:18px;
-      color:var(--text-soft);
-      font-size:16px;
-      line-height:1.8;
+      gap:6px;
+      margin-bottom:16px;
+      font-size:17px;
+      line-height:1.7;
+      color:#6f5862;
     }
 
     .meta strong{
-      color:var(--text);
+      color:#7a5665;
     }
 
     .parent-copy p{
-      color:var(--text-soft);
-      font-size:16px;
-      line-height:1.95;
-      margin-bottom:18px;
+      font-size:18px;
+      line-height:1.8;
+      color:#654f58;
+      margin-bottom:16px;
     }
 
     .badge-row{
@@ -647,121 +521,95 @@
     }
 
     .badge{
-      min-height:38px;
-      padding:0 14px;
-      border:1px solid rgba(216,178,110,0.26);
-      color:var(--gold-soft);
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
+      background:#f1e5ea;
+      color:#7a5665;
       border-radius:999px;
-      font-size:13px;
+      padding:8px 14px;
+      font-size:14px;
       font-weight:700;
-      background:rgba(216,178,110,0.06);
-      transition:0.25s ease;
-    }
-
-    .badge:hover{
-      border-color:rgba(216,178,110,0.45);
-      color:#fff3cf;
     }
 
     .gallery-grid{
       display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:20px;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
     }
 
     .gallery-item{
       position:relative;
       overflow:hidden;
-      border:1px solid var(--gold-strong);
-      background:#101012;
-      box-shadow:0 14px 30px rgba(0,0,0,0.18);
-      padding:10px;
-      transition:0.35s ease;
-    }
-
-    .gallery-item:hover{
-      transform:translateY(-4px);
-      box-shadow:var(--shadow-strong);
-      border-color:#f0d59a;
+      border-radius:24px;
+      background:#fff8fb;
+      border:1px solid #f0dfe6;
+      box-shadow:0 10px 24px rgba(171,135,149,0.10);
     }
 
     .gallery-item img{
       width:100%;
-      height:420px;
+      height:360px;
       object-fit:cover;
       cursor:pointer;
-      transition:transform 0.35s ease, filter 0.35s ease;
-    }
-
-    .gallery-item img:hover{
-      transform:scale(1.03);
-      filter:brightness(1.05);
     }
 
     .gallery-caption{
       position:absolute;
-      left:24px;
-      right:24px;
-      bottom:24px;
-      padding:14px 16px;
-      background:rgba(10,10,11,0.76);
-      border:1px solid rgba(216,178,110,0.16);
+      left:16px;
+      right:16px;
+      bottom:16px;
+      background:rgba(255,255,255,0.82);
       backdrop-filter:blur(8px);
       -webkit-backdrop-filter:blur(8px);
+      border-radius:18px;
+      padding:12px 14px;
+      box-shadow:0 8px 18px rgba(171,135,149,0.10);
     }
 
     .gallery-caption h4{
-      font-family:"Cormorant Garamond",serif;
-      font-size:28px;
-      line-height:1;
-      color:var(--text);
-      margin-bottom:6px;
-      font-weight:600;
+      font-size:22px;
+      color:#7a5665;
+      margin-bottom:4px;
     }
 
     .gallery-caption p{
-      color:var(--text-soft);
-      font-size:14px;
-      line-height:1.6;
+      font-size:15px;
+      color:#6f5862;
+      line-height:1.5;
     }
 
     .contact-layout{
       display:grid;
       grid-template-columns:1.1fr 0.9fr;
-      gap:28px;
+      gap:24px;
       align-items:stretch;
     }
 
     .contact-text{
-      color:var(--text-soft);
-      font-size:17px;
-      line-height:2;
+      font-size:19px;
+      line-height:1.8;
+      color:#654f58;
+      text-align:left;
     }
 
     .contact-box{
-      padding:28px;
-      border:1px solid rgba(216,178,110,0.18);
-      border-radius:28px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      box-shadow:0 14px 32px rgba(0,0,0,0.16);
-      transition:0.35s ease;
-    }
-
-    .contact-box:hover{
-      transform:translateY(-4px);
-      box-shadow:0 22px 40px rgba(0,0,0,0.24);
+      text-align:center;
+      background:#fff8fb;
+      border:1px solid #f0dfe6;
+      border-radius:24px;
+      padding:26px;
+      box-shadow:0 10px 24px rgba(171,135,149,0.10);
     }
 
     .contact-box h3{
-      font-family:"Cormorant Garamond",serif;
-      font-size:44px;
-      line-height:1;
-      color:var(--text);
+      font-size:30px;
+      color:#7a5665;
+      margin-bottom:10px;
+    }
+
+    .contact-note{
+      font-size:18px;
+      line-height:1.6;
+      color:#866873;
       margin-bottom:18px;
-      font-weight:600;
     }
 
     .contact-links{
@@ -771,29 +619,23 @@
 
     .contact-link{
       min-height:52px;
-      padding:0 18px;
-      border:1px solid rgba(216,178,110,0.24);
-      color:var(--text);
+      background:#f1e5ea;
+      color:#7a5665;
+      border-radius:18px;
       display:flex;
       align-items:center;
       justify-content:center;
-      border-radius:999px;
-      font-size:15px;
-      font-weight:600;
-      background:rgba(216,178,110,0.05);
-      transition:0.25s ease;
-    }
-
-    .contact-link:hover{
-      transform:translateY(-2px);
-      border-color:rgba(216,178,110,0.45);
-      color:var(--gold-soft);
+      padding:0 18px;
+      font-size:16px;
+      font-weight:700;
+      text-align:center;
+      box-shadow:0 8px 18px rgba(171,135,149,0.08);
     }
 
     .lightbox{
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,0.94);
+      background:rgba(0,0,0,0.82);
       display:none;
       align-items:center;
       justify-content:center;
@@ -817,10 +659,8 @@
     .lightbox img{
       max-width:92%;
       max-height:92%;
+      border-radius:24px;
       box-shadow:0 24px 55px rgba(0,0,0,0.35);
-      border:2px solid rgba(216,178,110,0.55);
-      user-select:none;
-      -webkit-user-drag:none;
     }
 
     .lightbox-close{
@@ -856,45 +696,73 @@
     .lightbox-prev{ left:0; }
     .lightbox-next{ right:0; }
 
-    @media (min-width:769px) and (max-width:1100px){
+    footer{
+      text-align:center;
+      padding:30px;
+      font-size:14px;
+      color:#866873;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(34px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes softGlow{
+      0%{text-shadow:0 0 0 rgba(255,255,255,0);}
+      50%{text-shadow:0 0 14px rgba(255,255,255,0.35);}
+      100%{text-shadow:0 0 0 rgba(255,255,255,0);}
+    }
+
+    @media(max-width:900px){
       .hero{
+        padding:22px 14px 48px;
+      }
+
+      .hero-shell{
         grid-template-columns:1fr;
-        min-height:auto;
       }
 
       .hero-copy{
         order:2;
-        padding-top:0;
       }
 
       .hero-image-wrap{
         order:1;
-        justify-content:center;
+        min-height:390px;
+        border-radius:28px;
       }
 
       .hero-image{
-        width:auto;
-        max-width:100%;
-        display:inline-block;
-        padding:10px;
+        min-height:390px;
+        border-radius:22px;
       }
 
-      .hero-image img{
-        width:auto;
-        max-width:100%;
-        height:auto;
-        max-height:520px;
-        object-fit:contain;
-        margin:0 auto;
+      .hero-box{
+        padding:22px 24px;
+        border-radius:28px;
+      }
+
+      .hero-title{
+        font-size:38px;
+        letter-spacing:2px;
+      }
+
+      .hero-sub{
+        font-size:20px;
       }
 
       .info-layout,
       .contact-layout{
         grid-template-columns:1fr;
       }
-    }
 
-    @media (max-width:980px){
       .parent-card,
       .parent-card.reverse{
         grid-template-columns:1fr;
@@ -904,95 +772,93 @@
       .parent-card.reverse .parent-photo-wrap{
         order:initial;
       }
-
-      .gallery-grid,
-      .info-layout,
-      .contact-layout{
-        grid-template-columns:1fr;
-      }
     }
 
-    @media (max-width:768px){
-      .topbar-inner{
-        width:min(var(--max), calc(100% - 20px));
-        justify-content:center;
-        padding:14px 0;
-      }
-
+    @media(max-width:768px){
       .brand{
-        width:100%;
-        text-align:center;
-        font-size:44px;
+        font-size:20px;
       }
 
-      .nav{
-        justify-content:center;
-        gap:12px;
-      }
-
-      .nav a{
-        font-size:18px;
-      }
-
-      .nav-cta{
-        margin-left:0;
-      }
-
-      .container{
-        width:min(var(--max), calc(100% - 20px));
-        padding:20px 0 48px;
-      }
-
-      .hero{
-        gap:20px;
-        min-height:auto;
-      }
-
-      .hero-copy h1{
-        font-size:44px;
-      }
-
-      .hero-accent,
-      .hero-mini{
+      .menu-toggle{
+        padding:10px 14px;
         font-size:22px;
       }
 
-      .hero-copy p,
-      .text-block,
-      .contact-text{
-        font-size:16px;
+      .hero{
+        padding:18px 10px 46px;
       }
 
-      .info-cards{
-        grid-template-columns:1fr;
+      .hero-image-wrap{
+        min-height:auto;
+        border-radius:22px;
       }
 
       .hero-image{
-        width:auto;
-        max-width:100%;
-        display:inline-block;
-        padding:8px;
-      }
-
-      .hero-image img{
-        width:auto;
-        max-width:100%;
+        min-height:auto;
         height:auto;
-        max-height:340px;
-        object-fit:contain;
-        margin:0 auto;
+        object-fit:cover;
+        object-position:center center;
+        border-radius:18px;
       }
 
-      .frame-title{
-        padding:22px 18px;
+      .hero-box{
+        padding:18px 18px;
+        border-radius:24px;
       }
 
-      .section-header h2{
-        font-size:44px;
+      .hero-title{
+        font-size:28px;
+        letter-spacing:1px;
       }
 
-      .section-header p{
-        font-size:20px;
+      .hero-sub{
+        font-size:16px;
+      }
+
+      .hero-text{
+        font-size:17px;
+      }
+
+      .hero-mini{
+        font-size:19px;
+      }
+
+      .hero-line::before{
+        width:90px;
+      }
+
+      .hero-line::after{
+        width:16px;
+      }
+
+      .hero-line span{
+        width:90px;
+      }
+
+      .section{
+        padding:28px 18px;
+      }
+
+      .section h2{
+        font-size:28px;
+      }
+
+      .section-sub{
+        font-size:17px;
+      }
+
+      .text-block p,
+      .contact-text{
+        font-size:17px;
+      }
+
+      .info-cards,
+      .gallery-grid{
+        grid-template-columns:1fr;
+      }
+
+      .parent-copy h3{
+        font-size:30px;
       }
 
       .parent-photo img{
@@ -1001,22 +867,13 @@
         object-fit:contain;
       }
 
-      .parent-copy h3{
-        font-size:36px;
-      }
-
       .gallery-item img{
         height:300px;
       }
 
-      .gallery-caption{
-        left:18px;
-        right:18px;
-        bottom:18px;
-      }
-
-      .gallery-caption h4{
-        font-size:22px;
+      .facebook-side{
+        font-size:14px;
+        padding:12px 8px;
       }
 
       .lightbox-arrow{
@@ -1029,391 +886,412 @@
         width:42px;
         height:42px;
         font-size:24px;
-        top:-6px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page-wrap">
 
-    <header class="topbar fade-in">
-      <div class="topbar-inner">
-        <div class="brand">Akwamaryn*PL</div>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">Akwamaryn*PL</div>
+    <button type="button" class="menu-toggle" onclick="openMenu()">☰</button>
+  </div>
+</div>
 
-        <nav class="nav">
-          <a href="index.html">Start</a>
-          <a href="kotki.html">Kotki hodowlane</a>
-          <a href="kocury.html">Kocury hodowlane</a>
-          <a href="kocieta.html">Moje kocięta</a>
-          <a href="miot.html">Aktualny miot</a>
-          <a href="galeria.html">Galeria</a>
-          <a href="kontakt.html">Kontakt</a>
-          <a href="rezerwacja.html" class="nav-cta">REZERWACJA</a>
-        </nav>
-      </div>
-    </header>
+<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
 
-    <main class="container">
+<div class="side-menu" id="menu">
+  <div class="side-menu-header">
+    <div class="side-menu-title">Akwamaryn*PL</div>
+    <button type="button" class="close-btn" onclick="closeMenu()">×</button>
+  </div>
 
-      <section class="hero fade-in">
-        <div class="hero-copy">
-          <div class="hero-line"></div>
-          <h1>Miot „M”</h1>
-          <div class="hero-accent">Maluszki norweskie leśne</div>
+  <a href="index.html" onclick="closeMenu()">Strona główna</a>
+  <a href="kotki.html" onclick="closeMenu()">Moje kotki</a>
+  <a href="kocury.html" onclick="closeMenu()">Kocury hodowlane</a>
+  <a href="kocieta.html" onclick="closeMenu()">Moje kocięta</a>
+  <a href="miot.html" onclick="closeMenu()">Aktualny miot</a>
+  <a href="galeria.html" onclick="closeMenu()">Galeria</a>
+  <a href="rezerwacja.html" onclick="closeMenu()">Rezerwacja</a>
+  <a href="kontakt.html" onclick="closeMenu()">Kontakt</a>
+</div>
 
-          <p>
+<a class="facebook-side" href="https://www.facebook.com/share/1DWyWWbtVH/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
+
+<div class="page-wrap">
+
+  <section class="hero">
+    <div class="hero-shell">
+      <div class="hero-copy">
+        <div class="hero-box">
+          <div class="hero-line"><span></span></div>
+          <div class="hero-title">Miot „M”</div>
+          <div class="hero-sub">maluszki norweskie leśne</div>
+
+          <div class="hero-text">
             27.03.2026 na świat przyszło pięć wyjątkowych dziewczynek. To starannie zaplanowany,
             domowo wychowywany miot norweskich kotów leśnych, w którym piękne pochodzenie łączy się
             z cudownym charakterem, elegancją i typem tak cenionym w rasie.
-          </p>
+          </div>
 
           <div class="hero-mini">✦ Wszystkie maluszki są dostępne ✦</div>
 
-          <a href="#galeria" class="hero-btn">ZOBACZ GALERIĘ</a>
+          <a href="#galeria" class="hero-btn">Zobacz galerię</a>
         </div>
+      </div>
 
-        <div class="hero-image-wrap">
-          <div class="hero-image animated-frame">
-            <img src="file_0000000092607246a8e17fab58cb439d.png" alt="Maluszek z miotu M">
-          </div>
-        </div>
-      </section>
-
-      <section class="section fade-in">
-        <div class="section-header">
-          <div class="frame-title">
-            <h2>Miot „M”</h2>
-            <p>Najważniejsze informacje o naszych maluszkach</p>
-          </div>
-        </div>
-
-        <div class="info-layout">
-          <div class="text-block">
-            <p>
-              To wyjątkowy miot norweskich kotów leśnych, łączący elegancką kolorystykę,
-              piękne pochodzenie i domowe wychowanie. Od pierwszych chwil maluszki mają
-              bliski kontakt z człowiekiem i dorastają w spokojnej, pełnej troski atmosferze.
-            </p>
-            <p>
-              Nasze dziewczynki od pierwszych dni zachwycają delikatnością, pięknym wyrazem
-              i cudownym potencjałem. Szukamy dla nich najlepszych, świadomych i kochających domów.
-            </p>
-          </div>
-
-          <div class="info-cards">
-            <div class="info-card">
-              <strong>27.03.2026</strong>
-              <span>data urodzenia</span>
-            </div>
-
-            <div class="info-card">
-              <strong>5</strong>
-              <span>dziewczynek</span>
-            </div>
-
-            <div class="info-card">
-              <strong>Miot M</strong>
-              <span>norweskie leśne</span>
-            </div>
-
-            <div class="info-card">
-              <strong>Dostępne</strong>
-              <span>możliwość wyboru imion</span>
-            </div>
-
-            <div class="info-card">
-              <strong>3 + 2</strong>
-              <span>3 niebieskie srebrzyste szylkretki oraz 2 czarne srebrzyste szylkretki</span>
-            </div>
-
-            <div class="info-card">
-              <strong>Domowy odchów</strong>
-              <span>stały kontakt z człowiekiem, czułość i bliskość od pierwszych dni</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section fade-in">
-        <div class="section-header">
-          <div class="frame-title">
-            <h2>Rodzice miotu</h2>
-            <p>Piękne linie, mocny typ i starannie dobrane skojarzenie</p>
-          </div>
-        </div>
-
-        <div class="parents-grid">
-
-          <a href="kotki.html#dalia" class="parent-card fade-in">
-            <div class="parent-photo-wrap">
-              <div class="parent-photo animated-frame">
-                <img src="file_00000000a454724689df1045122b6b79.png" alt="Dalia Pałuckie Pupile*PL">
-              </div>
-            </div>
-
-            <div class="parent-copy">
-              <div class="parent-label">Matka miotu</div>
-              <h3>Dalia Pałuckie Pupile*PL</h3>
-
-              <div class="meta">
-                <div><strong>Rasa:</strong> Norweska leśna</div>
-                <div><strong>Umaszczenie:</strong> niebiesko-srebrny bicolor</div>
-                <div><strong>Kod EMS:</strong> NFO as 03</div>
-                <div><strong>Status:</strong> kotka hodowlana</div>
-                <div><strong>Badania:</strong> HCM N/N, PKD N/N, FIV/FELV N/N</div>
-              </div>
-
-              <p>
-                Dalia to piękna kotka norweska leśna o mocnej budowie, eleganckiej sylwetce i spokojnym temperamencie.
-                Zachwyca piękną kryzą, wyrazem i klasą, które doskonale przekazuje potomstwu.
-              </p>
-
-              <div class="badge-row">
-                <span class="badge">Matka miotu</span>
-                <span class="badge">HCM N/N</span>
-                <span class="badge">PKD N/N</span>
-                <span class="badge">FIV/FELV N/N</span>
-              </div>
-            </div>
-          </a>
-
-          <a href="kocury.html#posejdon" class="parent-card reverse fade-in">
-            <div class="parent-copy">
-              <div class="parent-label">Ojciec miotu</div>
-              <h3>Posejdon Iceland*NL</h3>
-
-              <div class="meta">
-                <div><strong>Rasa:</strong> Norweski leśny</div>
-                <div><strong>Umaszczenie:</strong> Red &amp; white bicolour tabby blotched</div>
-                <div><strong>Kod EMS:</strong> NFO d 03 22</div>
-                <div><strong>Status:</strong> kocur hodowlany</div>
-                <div><strong>Badania:</strong> HCM N/N, PKD N/N, FIV/FELV N/N, GSD IV N/N</div>
-              </div>
-
-              <p>
-                Posejdon to wyjątkowy przedstawiciel rasy norweskiej leśnej o efektownym wyglądzie, mocnej budowie
-                i pięknym umaszczeniu. Importowany z Holandii, reprezentuje doskonałą linię hodowlaną.
-              </p>
-
-              <div class="badge-row">
-                <span class="badge">Ojciec miotu</span>
-                <span class="badge">HCM N/N</span>
-                <span class="badge">PKD N/N</span>
-                <span class="badge">FIV/FELV N/N</span>
-                <span class="badge">GSD IV N/N</span>
-              </div>
-            </div>
-
-            <div class="parent-photo-wrap">
-              <div class="parent-photo animated-frame">
-                <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL">
-              </div>
-            </div>
-          </a>
-
-        </div>
-      </section>
-
-      <section class="section fade-in" id="galeria">
-        <div class="section-header">
-          <div class="frame-title">
-            <h2>Galeria</h2>
-            <p>Zdjęcia naszych maluszków</p>
-          </div>
-        </div>
-
-        <div class="gallery-grid">
-          <article class="gallery-item fade-in animated-frame">
-            <img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Zdjęcie 1" onclick="openLightbox(0)">
-            <div class="gallery-caption">
-              <h4>Zdjęcie 1</h4>
-              <p>Czarna srebrzysta szylkretka</p>
-            </div>
-          </article>
-
-          <article class="gallery-item fade-in animated-frame">
-            <img src="file_000000001aa47243b5ef692c7926902d.png" alt="Zdjęcie 2" onclick="openLightbox(1)">
-            <div class="gallery-caption">
-              <h4>Zdjęcie 2</h4>
-              <p>Czarna srebrzysta szylkretka</p>
-            </div>
-          </article>
-
-          <article class="gallery-item fade-in animated-frame">
-            <img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Zdjęcie 3" onclick="openLightbox(2)">
-            <div class="gallery-caption">
-              <h4>Zdjęcie 3</h4>
-              <p>Czarna srebrzysta szylkretka</p>
-            </div>
-          </article>
-
-          <article class="gallery-item fade-in animated-frame">
-            <img src="file_0000000092607246a8e17fab58cb439d.png" alt="Zdjęcie 4" onclick="openLightbox(3)">
-            <div class="gallery-caption">
-              <h4>Zdjęcie 4</h4>
-              <p>Czarna srebrzysta szylkretka</p>
-            </div>
-          </article>
-
-          <article class="gallery-item fade-in animated-frame">
-            <img src="images/mioty/2026-03-27-norweskie/file_0000000090b8720bb77f08f165cf4553.png" alt="Zdjęcie 5" onclick="openLightbox(4)">
-            <div class="gallery-caption">
-              <h4>Zdjęcie 5</h4>
-              <p>Czarna srebrzysta szylkretka</p>
-            </div>
-          </article>
-
-          <article class="gallery-item fade-in animated-frame">
-            <img src="images/mioty/2026-03-27-norweskie/file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Zdjęcie 6" onclick="openLightbox(5)">
-            <div class="gallery-caption">
-              <h4>Zdjęcie 6</h4>
-              <p>Niebieska srebrzysta szylkretka</p>
-            </div>
-          </article>
-
-          <article class="gallery-item fade-in animated-frame">
-            <img src="images/mioty/2026-03-27-norweskie/file_00000000c60072439aee95ed8f84caaf.png" alt="Zdjęcie 7" onclick="openLightbox(6)">
-            <div class="gallery-caption">
-              <h4>Zdjęcie 7</h4>
-              <p>Niebieska srebrzysta szylkretka</p>
-            </div>
-          </article>
-
-          <article class="gallery-item fade-in animated-frame">
-            <img src="images/mioty/2026-03-27-norweskie/file_000000006f947243b32fb0f9a979bc82.png" alt="Zdjęcie 8" onclick="openLightbox(7)">
-            <div class="gallery-caption">
-              <h4>Zdjęcie 8</h4>
-              <p>Niebieska srebrzysta szylkretka</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section fade-in">
-        <div class="section-header">
-          <div class="frame-title">
-            <h2>Kontakt</h2>
-            <p>Rezerwacja i szczegóły dotyczące maluszków</p>
-          </div>
-        </div>
-
-        <div class="contact-layout">
-          <div class="contact-text">
-            Jeśli interesuje Cię któryś z naszych maluszków, zapraszamy do kontaktu.
-            Chętnie opowiemy więcej o charakterze kociąt, planie odchowu oraz dalszych etapach rezerwacji.
-            Zależy nam na najlepszych, świadomych i kochających domach.
-          </div>
-
-          <div class="contact-box">
-            <h3>Skontaktuj się</h3>
-            <div class="contact-links">
-              <a class="contact-link" href="mailto:agnieszka90m@gmail.com">agnieszka90m@gmail.com</a>
-              <a class="contact-link" href="tel:+48572992736">+48 572 992 736</a>
-              <a class="contact-link" href="https://www.facebook.com/share/1DWyWWbtVH/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <div class="lightbox" id="lightbox">
-      <div class="lightbox-inner">
-        <button class="lightbox-close" type="button" aria-label="Zamknij" id="lightboxClose">✕</button>
-        <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Poprzednie zdjęcie" id="lightboxPrev">‹</button>
-        <img id="lightboxImg" alt="">
-        <button class="lightbox-arrow lightbox-next" type="button" aria-label="Następne zdjęcie" id="lightboxNext">›</button>
+      <div class="hero-image-wrap">
+        <img class="hero-image" src="file_0000000092607246a8e17fab58cb439d.png" alt="Maluszek z miotu M">
       </div>
     </div>
+  </section>
+
+  <div class="container">
+
+    <section class="section reveal">
+      <div class="section-header">
+        <h2>Miot „M”</h2>
+        <div class="section-sub">Najważniejsze informacje o naszych maluszkach</div>
+      </div>
+
+      <div class="info-layout">
+        <div class="text-block">
+          <p>
+            To wyjątkowy miot norweskich kotów leśnych, łączący elegancką kolorystykę,
+            piękne pochodzenie i domowe wychowanie. Od pierwszych chwil maluszki mają
+            bliski kontakt z człowiekiem i dorastają w spokojnej, pełnej troski atmosferze.
+          </p>
+          <p>
+            Nasze dziewczynki od pierwszych dni zachwycają delikatnością, pięknym wyrazem
+            i cudownym potencjałem. Szukamy dla nich najlepszych, świadomych i kochających domów.
+          </p>
+        </div>
+
+        <div class="info-cards">
+          <div class="info-card">
+            <strong>27.03.2026</strong>
+            <span>data urodzenia</span>
+          </div>
+
+          <div class="info-card">
+            <strong>5</strong>
+            <span>dziewczynek</span>
+          </div>
+
+          <div class="info-card">
+            <strong>Miot M</strong>
+            <span>norweskie leśne</span>
+          </div>
+
+          <div class="info-card">
+            <strong>Dostępne</strong>
+            <span>możliwość wyboru imion</span>
+          </div>
+
+          <div class="info-card">
+            <strong>3 + 2</strong>
+            <span>3 niebieskie srebrzyste szylkretki oraz 2 czarne srebrzyste szylkretki</span>
+          </div>
+
+          <div class="info-card">
+            <strong>Domowy odchów</strong>
+            <span>stały kontakt z człowiekiem, czułość i bliskość od pierwszych dni</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-header">
+        <h2>Rodzice miotu</h2>
+        <div class="section-sub">Piękne linie, mocny typ i starannie dobrane skojarzenie</div>
+      </div>
+
+      <div class="parents-grid">
+
+        <a href="kotki.html#dalia" class="parent-card">
+          <div class="parent-photo-wrap">
+            <div class="parent-photo">
+              <img src="file_00000000a454724689df1045122b6b79.png" alt="Dalia Pałuckie Pupile*PL">
+            </div>
+          </div>
+
+          <div class="parent-copy">
+            <div class="parent-label">Matka miotu</div>
+            <h3>Dalia Pałuckie Pupile*PL</h3>
+
+            <div class="meta">
+              <div><strong>Rasa:</strong> Norweska leśna</div>
+              <div><strong>Umaszczenie:</strong> niebiesko-srebrny bicolor</div>
+              <div><strong>Kod EMS:</strong> NFO as 03</div>
+              <div><strong>Status:</strong> kotka hodowlana</div>
+              <div><strong>Badania:</strong> HCM N/N, PKD N/N, FIV/FELV N/N</div>
+            </div>
+
+            <p>
+              Dalia to piękna kotka norweska leśna o mocnej budowie, eleganckiej sylwetce i spokojnym temperamencie.
+              Zachwyca piękną kryzą, wyrazem i klasą, które doskonale przekazuje potomstwu.
+            </p>
+
+            <div class="badge-row">
+              <span class="badge">Matka miotu</span>
+              <span class="badge">HCM N/N</span>
+              <span class="badge">PKD N/N</span>
+              <span class="badge">FIV/FELV N/N</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="kocury.html#posejdon" class="parent-card reverse">
+          <div class="parent-copy">
+            <div class="parent-label">Ojciec miotu</div>
+            <h3>Posejdon Iceland*NL</h3>
+
+            <div class="meta">
+              <div><strong>Rasa:</strong> Norweski leśny</div>
+              <div><strong>Umaszczenie:</strong> Red &amp; white bicolour tabby blotched</div>
+              <div><strong>Kod EMS:</strong> NFO d 03 22</div>
+              <div><strong>Status:</strong> kocur hodowlany</div>
+              <div><strong>Badania:</strong> HCM N/N, PKD N/N, FIV/FELV N/N, GSD IV N/N</div>
+            </div>
+
+            <p>
+              Posejdon to wyjątkowy przedstawiciel rasy norweskiej leśnej o efektownym wyglądzie, mocnej budowie
+              i pięknym umaszczeniu. Importowany z Holandii, reprezentuje doskonałą linię hodowlaną.
+            </p>
+
+            <div class="badge-row">
+              <span class="badge">Ojciec miotu</span>
+              <span class="badge">HCM N/N</span>
+              <span class="badge">PKD N/N</span>
+              <span class="badge">FIV/FELV N/N</span>
+              <span class="badge">GSD IV N/N</span>
+            </div>
+          </div>
+
+          <div class="parent-photo-wrap">
+            <div class="parent-photo">
+              <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL">
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="section reveal" id="galeria">
+      <div class="section-header">
+        <h2>Galeria</h2>
+        <div class="section-sub">Zdjęcia naszych maluszków</div>
+      </div>
+
+      <div class="gallery-grid">
+        <article class="gallery-item">
+          <img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Zdjęcie 1" onclick="openLightbox(0)">
+          <div class="gallery-caption">
+            <h4>Zdjęcie 1</h4>
+            <p>Czarna srebrzysta szylkretka</p>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <img src="file_000000001aa47243b5ef692c7926902d.png" alt="Zdjęcie 2" onclick="openLightbox(1)">
+          <div class="gallery-caption">
+            <h4>Zdjęcie 2</h4>
+            <p>Czarna srebrzysta szylkretka</p>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Zdjęcie 3" onclick="openLightbox(2)">
+          <div class="gallery-caption">
+            <h4>Zdjęcie 3</h4>
+            <p>Czarna srebrzysta szylkretka</p>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <img src="file_0000000092607246a8e17fab58cb439d.png" alt="Zdjęcie 4" onclick="openLightbox(3)">
+          <div class="gallery-caption">
+            <h4>Zdjęcie 4</h4>
+            <p>Czarna srebrzysta szylkretka</p>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <img src="images/mioty/2026-03-27-norweskie/file_0000000090b8720bb77f08f165cf4553.png" alt="Zdjęcie 5" onclick="openLightbox(4)">
+          <div class="gallery-caption">
+            <h4>Zdjęcie 5</h4>
+            <p>Czarna srebrzysta szylkretka</p>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <img src="images/mioty/2026-03-27-norweskie/file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Zdjęcie 6" onclick="openLightbox(5)">
+          <div class="gallery-caption">
+            <h4>Zdjęcie 6</h4>
+            <p>Niebieska srebrzysta szylkretka</p>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <img src="images/mioty/2026-03-27-norweskie/file_00000000c60072439aee95ed8f84caaf.png" alt="Zdjęcie 7" onclick="openLightbox(6)">
+          <div class="gallery-caption">
+            <h4>Zdjęcie 7</h4>
+            <p>Niebieska srebrzysta szylkretka</p>
+          </div>
+        </article>
+
+        <article class="gallery-item">
+          <img src="images/mioty/2026-03-27-norweskie/file_000000006f947243b32fb0f9a979bc82.png" alt="Zdjęcie 8" onclick="openLightbox(7)">
+          <div class="gallery-caption">
+            <h4>Zdjęcie 8</h4>
+            <p>Niebieska srebrzysta szylkretka</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-header">
+        <h2>Kontakt</h2>
+        <div class="section-sub">Rezerwacja i szczegóły dotyczące maluszków</div>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-text">
+          Jeśli interesuje Cię któryś z naszych maluszków, zapraszamy do kontaktu.
+          Chętnie opowiemy więcej o charakterze kociąt, planie odchowu oraz dalszych etapach rezerwacji.
+          Zależy nam na najlepszych, świadomych i kochających domach.
+        </div>
+
+        <div class="contact-box">
+          <h3>Skontaktuj się</h3>
+          <div class="contact-note">Kliknij w mail, numer telefonu lub Facebook</div>
+
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:agnieszka90m@gmail.com">✉️ agnieszka90m@gmail.com</a>
+            <a class="contact-link" href="tel:+48572992736">📞 +48 572 992 736</a>
+            <a class="contact-link" href="https://www.facebook.com/share/1DWyWWbtVH/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook Akwamaryn*PL</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </div>
 
-  <script>
-    const galleryImages = [
-      "file_00000000166072439b0458ff2eaa1e44.png",
-      "file_000000001aa47243b5ef692c7926902d.png",
-      "file_00000000830c7246abb014fcfb6edff0.png",
-      "file_0000000092607246a8e17fab58cb439d.png",
-      "images/mioty/2026-03-27-norweskie/file_0000000090b8720bb77f08f165cf4553.png",
-      "images/mioty/2026-03-27-norweskie/file_00000000b24c7246b1ed773e2b9cf89d.png",
-      "images/mioty/2026-03-27-norweskie/file_00000000c60072439aee95ed8f84caaf.png",
-      "images/mioty/2026-03-27-norweskie/file_000000006f947243b32fb0f9a979bc82.png"
-    ];
+  <footer>
+    © 2026 Akwamaryn*PL
+  </footer>
 
-    let currentIndex = 0;
-    let startX = 0;
-    let endX = 0;
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" type="button" aria-label="Zamknij" id="lightboxClose">✕</button>
+      <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Poprzednie zdjęcie" id="lightboxPrev">‹</button>
+      <img id="lightboxImg" alt="">
+      <button class="lightbox-arrow lightbox-next" type="button" aria-label="Następne zdjęcie" id="lightboxNext">›</button>
+    </div>
+  </div>
 
-    function openLightbox(index){
-      currentIndex = index;
-      document.getElementById("lightbox").classList.add("show");
-      document.getElementById("lightboxImg").src = galleryImages[currentIndex];
-      document.body.style.overflow = "hidden";
-    }
+</div>
 
-    function closeLightbox(){
-      document.getElementById("lightbox").classList.remove("show");
-      document.body.style.overflow = "";
-    }
+<script>
+  function openMenu(){
+    document.getElementById("menu").classList.add("open");
+    document.getElementById("menuOverlay").classList.add("open");
+  }
 
-    function nextImage(){
-      currentIndex = (currentIndex + 1) % galleryImages.length;
-      document.getElementById("lightboxImg").src = galleryImages[currentIndex];
-    }
+  function closeMenu(){
+    document.getElementById("menu").classList.remove("open");
+    document.getElementById("menuOverlay").classList.remove("open");
+  }
 
-    function prevImage(){
-      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-      document.getElementById("lightboxImg").src = galleryImages[currentIndex];
-    }
-
-    document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
-    document.getElementById("lightboxNext").addEventListener("click", nextImage);
-    document.getElementById("lightboxPrev").addEventListener("click", prevImage);
-
-    const lightbox = document.getElementById("lightbox");
-
-    lightbox.addEventListener("click", (e)=>{
-      if(e.target.id === "lightbox"){
-        closeLightbox();
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("visible");
       }
     });
+  },{threshold:0.18});
 
-    document.addEventListener("keydown", (e)=>{
-      if(!lightbox.classList.contains("show")) return;
-      if(e.key === "Escape") closeLightbox();
-      if(e.key === "ArrowRight") nextImage();
-      if(e.key === "ArrowLeft") prevImage();
-    });
+  document.querySelectorAll(".reveal").forEach(el=>{
+    observer.observe(el);
+  });
 
-    lightbox.addEventListener("touchstart", (e)=>{
-      startX = e.changedTouches[0].clientX;
-    }, { passive:true });
+  const galleryImages = [
+    "file_00000000166072439b0458ff2eaa1e44.png",
+    "file_000000001aa47243b5ef692c7926902d.png",
+    "file_00000000830c7246abb014fcfb6edff0.png",
+    "file_0000000092607246a8e17fab58cb439d.png",
+    "images/mioty/2026-03-27-norweskie/file_0000000090b8720bb77f08f165cf4553.png",
+    "images/mioty/2026-03-27-norweskie/file_00000000b24c7246b1ed773e2b9cf89d.png",
+    "images/mioty/2026-03-27-norweskie/file_00000000c60072439aee95ed8f84caaf.png",
+    "images/mioty/2026-03-27-norweskie/file_000000006f947243b32fb0f9a979bc82.png"
+  ];
 
-    lightbox.addEventListener("touchend", (e)=>{
-      endX = e.changedTouches[0].clientX;
-      const diff = startX - endX;
+  let currentIndex = 0;
+  let startX = 0;
+  let endX = 0;
 
-      if(Math.abs(diff) < 40) return;
+  function openLightbox(index){
+    currentIndex = index;
+    document.getElementById("lightbox").classList.add("show");
+    document.getElementById("lightboxImg").src = galleryImages[currentIndex];
+    document.body.style.overflow = "hidden";
+  }
 
-      if(diff > 0){
-        nextImage();
-      } else {
-        prevImage();
-      }
-    }, { passive:true });
+  function closeLightbox(){
+    document.getElementById("lightbox").classList.remove("show");
+    document.body.style.overflow = "";
+  }
 
-    const observer = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add("show");
-        }
-      });
-    }, { threshold:0.18 });
+  function nextImage(){
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    document.getElementById("lightboxImg").src = galleryImages[currentIndex];
+  }
 
-    document.querySelectorAll(".fade-in").forEach(el=>{
-      observer.observe(el);
-    });
-  </script>
+  function prevImage(){
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    document.getElementById("lightboxImg").src = galleryImages[currentIndex];
+  }
+
+  document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
+  document.getElementById("lightboxNext").addEventListener("click", nextImage);
+  document.getElementById("lightboxPrev").addEventListener("click", prevImage);
+
+  const lightbox = document.getElementById("lightbox");
+
+  lightbox.addEventListener("click", (e)=>{
+    if(e.target.id === "lightbox"){
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (e)=>{
+    if(!lightbox.classList.contains("show")) return;
+    if(e.key === "Escape") closeLightbox();
+    if(e.key === "ArrowRight") nextImage();
+    if(e.key === "ArrowLeft") prevImage();
+  });
+
+  lightbox.addEventListener("touchstart", (e)=>{
+    startX = e.changedTouches[0].clientX;
+  }, { passive:true });
+
+  lightbox.addEventListener("touchend", (e)=>{
+    endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+
+    if(Math.abs(diff) < 40) return;
+
+    if(diff > 0){
+      nextImage();
+    } else {
+      prevImage();
+    }
+  }, { passive:true });
+</script>
+
 </body>
 </html>
