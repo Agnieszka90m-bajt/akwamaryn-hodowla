@@ -67,6 +67,8 @@
       overflow:hidden;
     }
 
+    /* TOPBAR */
+
     .topbar{
       position:sticky;
       top:0;
@@ -117,6 +119,8 @@
       height:48px;
       justify-self:end;
     }
+
+    /* MENU */
 
     .menu-overlay{
       position:fixed;
@@ -186,6 +190,8 @@
       font-family:"Cormorant Garamond",serif;
     }
 
+    /* FACEBOOK */
+
     .facebook-side{
       position:fixed;
       right:0;
@@ -201,6 +207,8 @@
       z-index:4500;
       box-shadow:0 10px 24px rgba(0,0,0,0.18);
     }
+
+    /* CONTAINER */
 
     .container{
       width:min(var(--max), calc(100% - 36px));
@@ -280,6 +288,8 @@
       animation:softSweep 1.35s ease;
     }
 
+    /* HERO */
+
     .hero{
       display:grid;
       grid-template-columns:1fr;
@@ -293,58 +303,61 @@
       align-items:center;
       justify-content:center;
       width:100%;
+      position:relative;
     }
 
     .hero-image{
       width:100%;
       max-width:100%;
       display:block;
-      padding:0;
-      background:transparent;
-      box-shadow:none;
-      transition:0.4s ease;
-      border-radius:34px;
       position:relative;
       overflow:hidden;
       border:none;
+      background:transparent;
+      box-shadow:none;
+      padding:0;
+      border-radius:38px;
+      isolation:isolate;
     }
 
     .hero-image::before{
       content:"";
       position:absolute;
-      inset:-2px;
-      z-index:2;
+      inset:-1px;
+      z-index:3;
       pointer-events:none;
-      border-radius:34px;
+      border-radius:38px;
       background:
-        linear-gradient(to top, rgba(248,238,243,0.92) 0%, rgba(248,238,243,0.38) 14%, rgba(248,238,243,0) 32%),
-        linear-gradient(to bottom, rgba(248,238,243,0.78) 0%, rgba(248,238,243,0.18) 14%, rgba(248,238,243,0) 30%),
-        linear-gradient(to left, rgba(248,238,243,0.75) 0%, rgba(248,238,243,0.16) 10%, rgba(248,238,243,0) 22%),
-        linear-gradient(to right, rgba(248,238,243,0.75) 0%, rgba(248,238,243,0.16) 10%, rgba(248,238,243,0) 22%);
+        linear-gradient(to top, #f8eef3 0%, rgba(248,238,243,0.96) 6%, rgba(248,238,243,0.58) 14%, rgba(248,238,243,0.18) 24%, rgba(248,238,243,0) 38%),
+        linear-gradient(to bottom, #fdf7fa 0%, rgba(253,247,250,0.92) 7%, rgba(253,247,250,0.46) 15%, rgba(253,247,250,0.14) 24%, rgba(253,247,250,0) 36%),
+        linear-gradient(to left, #fbf3f7 0%, rgba(251,243,247,0.94) 6%, rgba(251,243,247,0.48) 13%, rgba(251,243,247,0.10) 21%, rgba(251,243,247,0) 33%),
+        linear-gradient(to right, #fbf3f7 0%, rgba(251,243,247,0.94) 6%, rgba(251,243,247,0.48) 13%, rgba(251,243,247,0.10) 21%, rgba(251,243,247,0) 33%);
+      filter:blur(2px);
     }
 
     .hero-image::after{
       content:"";
       position:absolute;
-      inset:0;
-      z-index:3;
+      inset:-10%;
+      z-index:2;
       pointer-events:none;
-      border-radius:34px;
       background:
-        radial-gradient(circle at top center, rgba(255,255,255,0.34) 0%, rgba(255,255,255,0.12) 24%, rgba(255,255,255,0) 52%);
-      mix-blend-mode:screen;
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,0.52) 0%, rgba(255,255,255,0.20) 18%, rgba(255,255,255,0) 42%),
+        radial-gradient(circle at 50% 100%, rgba(248,238,243,0.55) 0%, rgba(248,238,243,0.14) 18%, rgba(248,238,243,0) 40%);
+      filter:blur(18px);
     }
 
     .hero-image img{
       display:block;
       width:100%;
       height:auto;
-      max-height:none;
       object-fit:contain;
       object-position:center;
-      border-radius:34px;
-      background:#fff8fb;
-      filter:saturate(1.02) brightness(1.01);
+      border-radius:38px;
+      background:transparent;
+      position:relative;
+      z-index:1;
+      filter:saturate(1.02) brightness(1.02);
     }
 
     .hero-copy{
@@ -471,6 +484,8 @@
       border-radius:0 0 10px 0;
     }
 
+    /* SECTIONS */
+
     .section{
       margin-bottom:54px;
     }
@@ -503,7 +518,6 @@
       pointer-events:none;
     }
 
-    /* zewnętrzne dłuższe */
     .frame-title::before{
       top:0;
       left:0;
@@ -522,7 +536,6 @@
       border-bottom:2px solid var(--line-dark);
     }
 
-    /* wewnętrzne krótsze */
     .frame-title .corner-in::before{
       top:10px;
       left:10px;
@@ -819,9 +832,13 @@
         border-radius:24px;
       }
 
-      .hero-image::before,
-      .hero-image::after{
+      .hero-image::before{
         border-radius:24px;
+        filter:blur(1.5px);
+      }
+
+      .hero-image::after{
+        filter:blur(12px);
       }
 
       .hero-image img,
@@ -875,6 +892,7 @@
   </style>
 </head>
 <body>
+
   <div class="topbar">
     <div class="topbar-inner">
       <button type="button" class="menu-toggle" onclick="openMenu()">☰</button>
@@ -904,11 +922,10 @@
   <a class="facebook-side" href="https://www.facebook.com/share/1DWyWWbtVH/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
 
   <div class="page-wrap">
-
     <main class="container">
 
       <section class="hero fade-in">
-        <div class="hero-image-wrap hero-image-top">
+        <div class="hero-image-wrap">
           <div class="hero-image animated-frame">
             <img src="file_00000000a9f4720ab60032632f8d464e.png" alt="Akwamaryn*PL">
           </div>
@@ -1081,7 +1098,6 @@
     <footer>
       © 2026 Akwamaryn*PL
     </footer>
-
   </div>
 
   <script>
