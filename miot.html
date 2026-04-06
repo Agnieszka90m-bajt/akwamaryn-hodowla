@@ -8,26 +8,25 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#f8f4ee;
-      --bg-soft:#fcfaf6;
-      --bg-deep:#efe4d3;
-      --panel:#fffdf9;
-      --panel-soft:rgba(255,253,249,0.82);
-      --text:#2f241d;
-      --text-soft:#6a5a4d;
-      --gold:#c7a261;
-      --gold-deep:#9a7440;
-      --gold-soft:#eadab9;
-      --line:rgba(160,123,71,0.18);
-      --shadow:0 18px 45px rgba(78,57,34,0.08);
-      --shadow-strong:0 28px 60px rgba(78,57,34,0.14);
-      --radius-xl:38px;
-      --radius-lg:28px;
-      --radius-md:22px;
+      --bg:#0c0c0d;
+      --bg-2:#141416;
+      --panel:#111113;
+      --panel-2:#17171a;
+      --panel-3:#1b1b1f;
+      --gold:#d8b26e;
+      --gold-soft:#f0ddae;
+      --gold-line:rgba(216,178,110,0.45);
+      --text:#f4efe7;
+      --text-soft:#c6bbb0;
+      --muted:#9b8f84;
+      --shadow:0 20px 50px rgba(0,0,0,0.35);
+      --radius-xl:34px;
+      --radius-lg:26px;
+      --radius-md:20px;
       --max:1320px;
     }
 
@@ -42,12 +41,11 @@
     }
 
     body{
-      font-family:"Montserrat",sans-serif;
+      font-family:"Inter",sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.96), rgba(255,255,255,0) 18%),
-        radial-gradient(circle at bottom right, rgba(255,255,255,0.8), rgba(255,255,255,0) 24%),
-        linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 54%, var(--bg-deep) 100%);
+        radial-gradient(circle at top center, rgba(216,178,110,0.08), transparent 20%),
+        linear-gradient(180deg, #080809 0%, #111113 42%, #17181b 100%);
       overflow-x:hidden;
     }
 
@@ -68,414 +66,396 @@
       cursor:pointer;
     }
 
-    .page-wrap{
-      position:relative;
-      overflow:hidden;
-    }
-
-    .page-wrap::before,
-    .page-wrap::after{
-      content:"";
-      position:fixed;
-      border-radius:50%;
-      filter:blur(110px);
-      pointer-events:none;
-      z-index:0;
-      opacity:0.38;
-    }
-
-    .page-wrap::before{
-      width:360px;
-      height:360px;
-      top:-110px;
-      left:-100px;
-      background:rgba(234,218,185,0.85);
-    }
-
-    .page-wrap::after{
-      width:420px;
-      height:420px;
-      right:-140px;
-      bottom:-150px;
-      background:rgba(255,255,255,0.95);
-    }
-
     .topbar{
       position:sticky;
       top:0;
       z-index:5000;
-      background:rgba(250,246,239,0.84);
-      backdrop-filter:blur(18px);
-      -webkit-backdrop-filter:blur(18px);
-      border-bottom:1px solid rgba(199,162,97,0.16);
-      box-shadow:0 8px 22px rgba(68,48,28,0.05);
+      background:rgba(7,7,8,0.88);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(216,178,110,0.12);
     }
 
     .topbar-inner{
-      width:min(var(--max), calc(100% - 32px));
+      width:min(var(--max), calc(100% - 36px));
       margin:auto;
-      padding:16px 0;
+      min-height:88px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:16px;
+      gap:18px;
       flex-wrap:wrap;
     }
 
     .brand{
-      font-family:"Cinzel",serif;
-      font-size:31px;
+      font-family:"Cormorant Garamond",serif;
       color:var(--text);
-      letter-spacing:0.6px;
-      font-weight:700;
+      line-height:0.9;
+      position:relative;
       white-space:nowrap;
+    }
+
+    .brand small{
+      display:block;
+      font-size:24px;
+      color:var(--gold);
+      font-style:italic;
+      margin-left:70px;
+      margin-bottom:-2px;
+    }
+
+    .brand strong{
+      display:block;
+      font-size:58px;
+      font-weight:600;
+      letter-spacing:0.3px;
     }
 
     .nav{
       display:flex;
+      align-items:center;
       flex-wrap:wrap;
-      gap:10px;
-      justify-content:flex-end;
+      gap:18px;
+      color:var(--text);
     }
 
     .nav a{
-      padding:10px 16px;
-      border-radius:999px;
-      background:rgba(255,255,255,0.56);
-      border:1px solid rgba(199,162,97,0.18);
+      font-family:"Cormorant Garamond",serif;
+      font-size:21px;
       color:var(--text);
-      font-size:14px;
-      font-weight:600;
-      box-shadow:0 8px 18px rgba(68,48,28,0.04);
       transition:0.25s ease;
     }
 
     .nav a:hover{
-      transform:translateY(-2px);
-      box-shadow:0 12px 20px rgba(68,48,28,0.08);
-      border-color:rgba(199,162,97,0.35);
+      color:var(--gold);
     }
 
-    .container{
-      width:min(var(--max), calc(100% - 32px));
-      margin:auto;
-      position:relative;
-      z-index:1;
-      padding:28px 0 80px;
-    }
-
-    .hero-editorial{
-      display:grid;
-      grid-template-columns:1.08fr 0.92fr;
-      gap:24px;
-      margin-bottom:28px;
-      align-items:stretch;
-    }
-
-    .hero-copy{
-      padding:42px 38px;
-      border-radius:var(--radius-xl);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.90) 0%, rgba(255,251,244,0.82) 100%);
-      border:1px solid rgba(199,162,97,0.16);
-      box-shadow:var(--shadow);
-      position:relative;
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      min-height:680px;
-    }
-
-    .hero-copy::before{
-      content:"";
-      position:absolute;
-      width:220px;
-      height:220px;
-      border-radius:50%;
-      top:-70px;
-      right:-70px;
-      background:radial-gradient(circle, rgba(199,162,97,0.24), rgba(199,162,97,0) 68%);
-      pointer-events:none;
-    }
-
-    .eyebrow{
+    .nav-cta{
+      min-width:152px;
+      min-height:42px;
+      padding:0 18px;
+      border:2px solid var(--gold-line);
+      color:var(--text);
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      width:max-content;
-      min-height:42px;
-      padding:0 16px;
-      border-radius:999px;
-      background:linear-gradient(180deg, #f9efde 0%, #f0ddba 100%);
-      color:var(--gold-deep);
-      border:1px solid rgba(199,162,97,0.28);
-      box-shadow:0 8px 18px rgba(68,48,28,0.08);
-      font-size:13px;
-      font-weight:700;
-      letter-spacing:1px;
-      text-transform:uppercase;
+      font-size:16px;
+      font-weight:600;
+      letter-spacing:0.5px;
+      position:relative;
+      margin-left:14px;
+    }
+
+    .nav-cta::before,
+    .nav-cta::after{
+      content:"";
+      position:absolute;
+      width:12px;
+      height:12px;
+      border-color:var(--gold);
+      opacity:0.9;
+    }
+
+    .nav-cta::before{
+      top:-2px;
+      left:-2px;
+      border-top:2px solid var(--gold);
+      border-left:2px solid var(--gold);
+    }
+
+    .nav-cta::after{
+      right:-2px;
+      bottom:-2px;
+      border-right:2px solid var(--gold);
+      border-bottom:2px solid var(--gold);
+    }
+
+    .container{
+      width:min(var(--max), calc(100% - 36px));
+      margin:auto;
+      padding:34px 0 80px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.04fr 0.96fr;
+      gap:34px;
+      align-items:center;
+      min-height:720px;
+      margin-bottom:54px;
+    }
+
+    .hero-copy{
+      padding:18px 0 18px 0;
+    }
+
+    .hero-line{
+      width:210px;
+      height:3px;
+      background:linear-gradient(90deg, var(--gold), rgba(216,178,110,0.2));
       margin-bottom:24px;
+      position:relative;
+    }
+
+    .hero-line::after{
+      content:"";
+      position:absolute;
+      right:-34px;
+      top:50%;
+      width:26px;
+      height:1px;
+      background:var(--gold);
+      transform:translateY(-50%);
     }
 
     .hero-copy h1{
-      font-family:"Cinzel",serif;
-      font-size:74px;
+      font-family:"Cormorant Garamond",serif;
+      font-size:82px;
       line-height:0.94;
-      letter-spacing:0.4px;
+      font-weight:600;
       color:var(--text);
       margin-bottom:18px;
-      font-weight:700;
-      max-width:760px;
+    }
+
+    .hero-accent{
+      font-family:"Cormorant Garamond",serif;
+      font-size:28px;
+      line-height:1.2;
+      color:var(--gold);
+      font-style:italic;
+      margin-bottom:26px;
     }
 
     .hero-copy p{
-      font-size:18px;
-      line-height:1.95;
+      max-width:670px;
+      font-size:17px;
+      line-height:2;
       color:var(--text-soft);
-      max-width:700px;
       margin-bottom:26px;
     }
 
-    .hero-divider{
-      width:110px;
-      height:2px;
-      background:linear-gradient(90deg, var(--gold), transparent);
-      margin-bottom:26px;
-      border-radius:999px;
+    .hero-mini{
+      color:var(--muted);
+      font-size:16px;
+      margin-bottom:28px;
     }
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:14px;
-      max-width:720px;
-    }
-
-    .hero-stat{
-      padding:18px 16px;
-      border-radius:24px;
-      background:rgba(255,255,255,0.62);
-      border:1px solid rgba(199,162,97,0.16);
-      box-shadow:0 10px 18px rgba(68,48,28,0.04);
-      backdrop-filter:blur(10px);
-      -webkit-backdrop-filter:blur(10px);
-    }
-
-    .hero-stat strong{
-      display:block;
-      font-family:"Cinzel",serif;
-      font-size:24px;
+    .hero-btn{
+      min-width:140px;
+      min-height:42px;
+      padding:0 18px;
+      border:2px solid var(--gold-line);
       color:var(--text);
-      margin-bottom:8px;
-      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:16px;
+      font-weight:600;
+      position:relative;
+      letter-spacing:0.3px;
     }
 
-    .hero-stat span{
-      display:block;
-      color:var(--text-soft);
-      font-size:14px;
-      line-height:1.6;
-      font-weight:500;
+    .hero-btn::before,
+    .hero-btn::after{
+      content:"";
+      position:absolute;
+      width:12px;
+      height:12px;
+      border-color:var(--gold);
     }
 
-    .hero-image-panel{
-      border-radius:var(--radius-xl);
-      overflow:hidden;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,250,242,0.82) 100%);
-      border:1px solid rgba(199,162,97,0.16);
-      box-shadow:var(--shadow-strong);
-      padding:18px;
+    .hero-btn::before{
+      top:-2px;
+      left:-2px;
+      border-top:2px solid var(--gold);
+      border-left:2px solid var(--gold);
+    }
+
+    .hero-btn::after{
+      right:-2px;
+      bottom:-2px;
+      border-right:2px solid var(--gold);
+      border-bottom:2px solid var(--gold);
+    }
+
+    .hero-image-wrap{
       display:flex;
       align-items:center;
       justify-content:center;
-      min-height:680px;
     }
 
-    .hero-image-panel img{
+    .hero-image{
       width:100%;
-      height:100%;
-      max-height:640px;
+      max-width:560px;
+      border:2px solid rgba(216,178,110,0.7);
+      padding:0;
+      background:#0f0f11;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-image img{
+      width:100%;
+      height:620px;
       object-fit:cover;
-      border-radius:34px;
-      box-shadow:
-        0 16px 32px rgba(68,48,28,0.12),
-        0 0 0 1px rgba(255,255,255,0.8),
-        0 0 0 2px rgba(199,162,97,0.16);
+      border-radius:26px;
     }
 
-    .floating-summary{
-      margin-bottom:28px;
-      display:grid;
-      grid-template-columns:0.9fr 1.1fr;
-      gap:22px;
+    .section{
+      margin-bottom:54px;
     }
 
-    .summary-panel,
-    .summary-text{
-      border-radius:34px;
-      background:rgba(255,253,249,0.78);
-      border:1px solid rgba(199,162,97,0.14);
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px);
-    }
-
-    .summary-panel{
-      padding:28px;
+    .section-header{
+      text-align:center;
+      margin-bottom:34px;
       position:relative;
-      overflow:hidden;
     }
 
-    .summary-panel::after{
+    .frame-title{
+      display:inline-block;
+      position:relative;
+      padding:28px 34px;
+    }
+
+    .frame-title::before,
+    .frame-title::after{
       content:"";
       position:absolute;
-      inset:auto -30px -30px auto;
-      width:180px;
-      height:180px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(199,162,97,0.18), rgba(199,162,97,0) 70%);
-      pointer-events:none;
+      width:108px;
+      height:64px;
+      border-color:var(--gold-line);
     }
 
-    .summary-panel h2,
-    .summary-text h2,
-    .section-heading{
-      font-family:"Cinzel",serif;
-      font-size:38px;
-      line-height:1.06;
+    .frame-title::before{
+      top:0;
+      left:0;
+      border-top:2px solid var(--gold);
+      border-left:2px solid var(--gold);
+    }
+
+    .frame-title::after{
+      right:0;
+      bottom:0;
+      border-right:2px solid var(--gold);
+      border-bottom:2px solid var(--gold);
+    }
+
+    .section-header h2{
+      font-family:"Cormorant Garamond",serif;
+      font-size:64px;
+      font-weight:600;
+      line-height:1;
       color:var(--text);
-      margin-bottom:16px;
-      font-weight:700;
+      margin-bottom:10px;
     }
 
-    .summary-list{
+    .section-header p{
+      color:var(--gold);
+      font-family:"Cormorant Garamond",serif;
+      font-size:24px;
+      font-style:italic;
+      line-height:1.3;
+    }
+
+    .info-layout{
       display:grid;
-      gap:12px;
+      grid-template-columns:1fr 1fr;
+      gap:34px;
+      align-items:start;
     }
 
-    .summary-item{
-      padding:12px 0;
-      border-bottom:1px solid var(--line);
-      color:var(--text-soft);
-      font-size:16px;
-      line-height:1.8;
-    }
-
-    .summary-item:last-child{
-      border-bottom:none;
-      padding-bottom:0;
-    }
-
-    .summary-item strong{
-      color:var(--text);
-    }
-
-    .summary-text{
-      padding:30px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-
-    .summary-text p{
-      font-size:17px;
-      line-height:1.95;
-      color:var(--text-soft);
-    }
-
-    .section-block{
-      margin-bottom:28px;
-      border-radius:var(--radius-xl);
-      background:rgba(255,253,249,0.78);
-      border:1px solid rgba(199,162,97,0.14);
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px);
-      overflow:hidden;
-      position:relative;
-    }
-
-    .section-block::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(125deg, rgba(255,255,255,0.20), rgba(255,255,255,0) 34%),
-        radial-gradient(circle at top right, rgba(234,218,185,0.12), rgba(255,255,255,0) 24%);
-      pointer-events:none;
-    }
-
-    .section-block-inner{
-      position:relative;
-      z-index:1;
-      padding:34px;
-    }
-
-    .section-heading{
-      text-align:center;
-      margin-bottom:14px;
-      font-size:54px;
-    }
-
-    .section-sub{
-      max-width:900px;
-      margin:0 auto 28px;
-      text-align:center;
+    .text-block{
       color:var(--text-soft);
       font-size:17px;
-      line-height:1.9;
+      line-height:2;
     }
 
-    .parent-editorial{
-      display:grid;
-      gap:24px;
+    .text-block p{
+      margin-bottom:18px;
     }
 
-    .parent-row{
+    .info-cards{
       display:grid;
-      grid-template-columns:0.95fr 1.05fr;
-      gap:24px;
-      align-items:stretch;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .info-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border:1px solid rgba(216,178,110,0.18);
+      border-radius:22px;
+      padding:22px 20px;
+      min-height:132px;
+      box-shadow:0 10px 26px rgba(0,0,0,0.14);
+    }
+
+    .info-card strong{
+      display:block;
+      font-family:"Cormorant Garamond",serif;
+      font-size:34px;
+      line-height:1;
+      color:var(--text);
+      margin-bottom:10px;
+      font-weight:600;
+    }
+
+    .info-card span{
+      display:block;
+      color:var(--text-soft);
+      font-size:15px;
+      line-height:1.7;
+    }
+
+    .parents-grid{
+      display:grid;
+      gap:28px;
+    }
+
+    .parent-card{
+      display:grid;
+      grid-template-columns:380px 1fr;
+      gap:28px;
+      padding:26px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border:1px solid rgba(216,178,110,0.18);
       border-radius:30px;
-      overflow:hidden;
-      background:linear-gradient(180deg, rgba(255,255,255,0.86) 0%, rgba(255,251,245,0.74) 100%);
-      border:1px solid rgba(199,162,97,0.14);
-      box-shadow:var(--shadow);
-      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow:0 14px 32px rgba(0,0,0,0.16);
+      transition:0.3s ease;
     }
 
-    .parent-row:hover{
+    .parent-card:hover{
       transform:translateY(-4px);
-      box-shadow:var(--shadow-strong);
+      box-shadow:0 22px 42px rgba(0,0,0,0.22);
     }
 
-    .parent-row.reverse{
-      grid-template-columns:1.05fr 0.95fr;
+    .parent-card.reverse{
+      grid-template-columns:1fr 380px;
+    }
+
+    .parent-card.reverse .parent-copy{
+      order:1;
+    }
+
+    .parent-card.reverse .parent-photo{
+      order:2;
     }
 
     .parent-photo{
-      padding:18px;
+      border:1px solid rgba(216,178,110,0.32);
+      padding:14px;
+      background:#101012;
       display:flex;
       align-items:center;
       justify-content:center;
-      background:linear-gradient(180deg,#fffefb 0%, #f4eadc 100%);
     }
 
     .parent-photo img{
       width:100%;
-      height:100%;
-      max-height:460px;
+      height:430px;
       object-fit:cover;
-      border-radius:28px;
-      box-shadow:
-        0 12px 24px rgba(68,48,28,0.10),
-        0 0 0 1px rgba(199,162,97,0.12);
+      border-radius:24px;
     }
 
-    .parent-content{
-      padding:32px 30px;
+    .parent-copy{
       display:flex;
       flex-direction:column;
       justify-content:center;
@@ -484,46 +464,41 @@
     .parent-label{
       display:inline-block;
       width:max-content;
-      padding:9px 14px;
-      border-radius:999px;
       margin-bottom:16px;
-      background:linear-gradient(180deg,#f9efde 0%, #f0ddba 100%);
-      color:var(--gold-deep);
-      border:1px solid rgba(199,162,97,0.22);
+      color:var(--gold);
       font-size:13px;
       font-weight:700;
-      letter-spacing:0.6px;
+      letter-spacing:1px;
       text-transform:uppercase;
-      box-shadow:0 8px 14px rgba(68,48,28,0.06);
     }
 
-    .parent-content h3{
-      font-family:"Cinzel",serif;
-      font-size:42px;
-      line-height:1.06;
+    .parent-copy h3{
+      font-family:"Cormorant Garamond",serif;
+      font-size:52px;
+      line-height:1;
       color:var(--text);
-      margin-bottom:16px;
-      font-weight:700;
+      margin-bottom:14px;
+      font-weight:600;
     }
 
-    .parent-meta{
+    .meta{
       display:grid;
-      gap:8px;
+      gap:7px;
       margin-bottom:18px;
       color:var(--text-soft);
       font-size:16px;
-      line-height:1.85;
+      line-height:1.8;
     }
 
-    .parent-meta strong{
+    .meta strong{
       color:var(--text);
     }
 
-    .parent-content p{
+    .parent-copy p{
       color:var(--text-soft);
       font-size:16px;
       line-height:1.95;
-      margin-bottom:20px;
+      margin-bottom:18px;
     }
 
     .badge-row{
@@ -533,182 +508,135 @@
     }
 
     .badge{
+      min-height:38px;
+      padding:0 14px;
+      border:1px solid rgba(216,178,110,0.26);
+      color:var(--gold-soft);
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:38px;
-      padding:0 14px;
       border-radius:999px;
       font-size:13px;
       font-weight:700;
-      background:linear-gradient(180deg,#f9efde 0%, #f0ddba 100%);
-      color:var(--gold-deep);
-      border:1px solid rgba(199,162,97,0.22);
-      box-shadow:0 8px 14px rgba(68,48,28,0.05);
+      background:rgba(216,178,110,0.06);
     }
 
-    .gallery-stage{
+    .gallery-grid{
       display:grid;
-      grid-template-columns:0.92fr 1.08fr;
-      gap:24px;
-      align-items:start;
+      grid-template-columns:repeat(2, 1fr);
+      gap:20px;
     }
 
-    .gallery-copy{
-      border-radius:30px;
-      padding:28px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(255,251,245,0.76) 100%);
-      border:1px solid rgba(199,162,97,0.14);
-      box-shadow:var(--shadow);
-      position:sticky;
-      top:96px;
-    }
-
-    .gallery-copy h3{
-      font-family:"Cinzel",serif;
-      font-size:42px;
-      line-height:1.06;
-      color:var(--text);
-      margin-bottom:16px;
-      font-weight:700;
-    }
-
-    .gallery-copy p{
-      color:var(--text-soft);
-      font-size:16px;
-      line-height:1.95;
-      margin-bottom:18px;
-    }
-
-    .gallery-copy .mini-note{
-      color:var(--gold-deep);
-      font-size:14px;
-      font-weight:700;
-      letter-spacing:0.4px;
-      text-transform:uppercase;
-    }
-
-    .gallery-column{
-      display:grid;
-      gap:18px;
-    }
-
-    .gallery-card{
+    .gallery-item{
       position:relative;
-      border-radius:30px;
       overflow:hidden;
-      background:#fff;
-      border:1px solid rgba(199,162,97,0.14);
-      box-shadow:var(--shadow);
-      min-height:430px;
+      border:1px solid rgba(216,178,110,0.22);
+      border-radius:28px;
+      background:#101012;
+      box-shadow:0 14px 30px rgba(0,0,0,0.18);
     }
 
-    .gallery-card img{
+    .gallery-item img{
       width:100%;
-      height:430px;
+      height:420px;
       object-fit:cover;
       cursor:pointer;
       transition:transform 0.35s ease, filter 0.35s ease;
     }
 
-    .gallery-card img:hover{
+    .gallery-item img:hover{
       transform:scale(1.03);
-      filter:brightness(1.03);
+      filter:brightness(1.05);
     }
 
-    .gallery-overlay{
+    .gallery-caption{
       position:absolute;
-      left:16px;
-      right:16px;
-      bottom:16px;
-      padding:16px 18px;
-      border-radius:22px;
-      background:linear-gradient(180deg, rgba(47,36,29,0.78), rgba(47,36,29,0.90));
-      color:#fff;
+      left:14px;
+      right:14px;
+      bottom:14px;
+      padding:14px 16px;
+      border-radius:18px;
+      background:rgba(10,10,11,0.76);
+      border:1px solid rgba(216,178,110,0.16);
       backdrop-filter:blur(8px);
       -webkit-backdrop-filter:blur(8px);
-      box-shadow:0 8px 20px rgba(0,0,0,0.18);
-      pointer-events:none;
     }
 
-    .gallery-overlay h4{
-      font-family:"Cinzel",serif;
-      font-size:22px;
-      line-height:1.1;
+    .gallery-caption h4{
+      font-family:"Cormorant Garamond",serif;
+      font-size:28px;
+      line-height:1;
+      color:var(--text);
       margin-bottom:6px;
-      font-weight:700;
+      font-weight:600;
     }
 
-    .gallery-overlay p{
+    .gallery-caption p{
+      color:var(--text-soft);
       font-size:14px;
-      line-height:1.55;
-      opacity:0.96;
+      line-height:1.6;
     }
 
-    .contact-final{
+    .contact-layout{
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:22px;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:28px;
       align-items:stretch;
     }
 
-    .contact-panel,
-    .contact-links-panel{
-      border-radius:30px;
-      padding:30px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(255,251,245,0.76) 100%);
-      border:1px solid rgba(199,162,97,0.14);
-      box-shadow:var(--shadow);
-    }
-
-    .contact-panel h3,
-    .contact-links-panel h3{
-      font-family:"Cinzel",serif;
-      font-size:38px;
-      line-height:1.08;
-      color:var(--text);
-      margin-bottom:16px;
-      font-weight:700;
-    }
-
-    .contact-panel p{
+    .contact-text{
       color:var(--text-soft);
-      font-size:16px;
-      line-height:1.95;
+      font-size:17px;
+      line-height:2;
     }
 
-    .contact-links-wrap{
+    .contact-box{
+      padding:28px;
+      border:1px solid rgba(216,178,110,0.18);
+      border-radius:28px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      box-shadow:0 14px 32px rgba(0,0,0,0.16);
+    }
+
+    .contact-box h3{
+      font-family:"Cormorant Garamond",serif;
+      font-size:44px;
+      line-height:1;
+      color:var(--text);
+      margin-bottom:18px;
+      font-weight:600;
+    }
+
+    .contact-links{
       display:grid;
       gap:12px;
     }
 
-    .contact-link,
-    .facebook-btn{
-      min-height:54px;
+    .contact-link{
+      min-height:52px;
+      padding:0 18px;
+      border:1px solid rgba(216,178,110,0.24);
+      color:var(--text);
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:0 20px;
       border-radius:999px;
-      background:linear-gradient(180deg,#f9efde 0%, #f0ddba 100%);
-      border:1px solid rgba(199,162,97,0.22);
-      color:var(--gold-deep);
-      font-weight:700;
       font-size:15px;
-      box-shadow:0 10px 16px rgba(68,48,28,0.06);
+      font-weight:600;
+      background:rgba(216,178,110,0.05);
       transition:0.25s ease;
     }
 
-    .contact-link:hover,
-    .facebook-btn:hover{
+    .contact-link:hover{
       transform:translateY(-2px);
-      box-shadow:0 14px 22px rgba(68,48,28,0.10);
+      border-color:rgba(216,178,110,0.45);
+      color:var(--gold-soft);
     }
 
     .lightbox{
       position:fixed;
       inset:0;
-      background:rgba(18,13,10,0.92);
+      background:rgba(0,0,0,0.92);
       display:none;
       align-items:center;
       justify-content:center;
@@ -732,9 +660,7 @@
       max-width:92%;
       max-height:92%;
       border-radius:24px;
-      box-shadow:
-        0 24px 55px rgba(0,0,0,0.35),
-        0 0 0 2px rgba(199,162,97,0.22);
+      box-shadow:0 24px 55px rgba(0,0,0,0.35);
     }
 
     .lightbox-close{
@@ -767,13 +693,8 @@
       -webkit-backdrop-filter:blur(8px);
     }
 
-    .lightbox-prev{
-      left:0;
-    }
-
-    .lightbox-next{
-      right:0;
-    }
+    .lightbox-prev{ left:0; }
+    .lightbox-next{ right:0; }
 
     .lightbox-counter{
       position:absolute;
@@ -784,192 +705,153 @@
       font-size:14px;
     }
 
-    @media (min-width: 769px) and (max-width: 1100px){
-      .hero-editorial{
-        grid-template-columns:1.03fr 0.97fr;
+    @media (min-width:769px) and (max-width:1100px){
+      .hero{
+        grid-template-columns:1fr;
+        min-height:auto;
       }
 
       .hero-copy{
-        min-height:620px;
+        order:2;
+        padding-top:0;
       }
 
-      .hero-copy h1{
-        font-size:58px;
+      .hero-image-wrap{
+        order:1;
       }
 
-      .hero-image-panel{
-        min-height:620px;
+      .hero-image{
+        max-width:720px;
       }
 
-      .hero-image-panel img{
-        width:100%;
+      .hero-image img{
         height:auto;
         max-height:520px;
         object-fit:contain;
-        border-radius:30px;
+        border-radius:28px;
       }
 
-      .floating-summary,
-      .gallery-stage,
-      .contact-final{
+      .info-layout,
+      .contact-layout{
         grid-template-columns:1fr;
-      }
-
-      .gallery-copy{
-        position:static;
       }
     }
 
-    @media (max-width: 980px){
-      .parent-row,
-      .parent-row.reverse{
+    @media (max-width:980px){
+      .parent-card,
+      .parent-card.reverse{
         grid-template-columns:1fr;
       }
 
-      .parent-content h3,
-      .contact-panel h3,
-      .contact-links-panel h3,
-      .summary-panel h2,
-      .summary-text h2{
-        text-align:center;
+      .parent-card.reverse .parent-copy,
+      .parent-card.reverse .parent-photo{
+        order:initial;
       }
 
-      .parent-meta,
-      .parent-content p,
-      .summary-text p{
-        text-align:center;
-      }
-
-      .badge-row{
-        justify-content:center;
+      .gallery-grid,
+      .info-layout,
+      .contact-layout{
+        grid-template-columns:1fr;
       }
     }
 
-    @media (max-width: 768px){
+    @media (max-width:768px){
       .topbar-inner{
         width:min(var(--max), calc(100% - 20px));
         justify-content:center;
+        padding:14px 0;
       }
 
       .brand{
         width:100%;
         text-align:center;
-        font-size:26px;
+      }
+
+      .brand small{
+        margin-left:0;
+      }
+
+      .brand strong{
+        font-size:44px;
       }
 
       .nav{
         justify-content:center;
+        gap:12px;
+      }
+
+      .nav a{
+        font-size:18px;
+      }
+
+      .nav-cta{
+        margin-left:0;
       }
 
       .container{
         width:min(var(--max), calc(100% - 20px));
-        padding:18px 0 46px;
+        padding:20px 0 48px;
       }
 
-      .hero-editorial{
-        grid-template-columns:1fr;
-        gap:14px;
-      }
-
-      .hero-copy{
-        padding:24px 18px;
-        border-radius:26px;
+      .hero{
+        gap:20px;
         min-height:auto;
-      }
-
-      .eyebrow{
-        margin-inline:auto;
       }
 
       .hero-copy h1{
-        font-size:40px;
-        text-align:center;
+        font-size:44px;
       }
 
-      .hero-copy p{
+      .hero-accent{
+        font-size:22px;
+      }
+
+      .hero-copy p,
+      .text-block,
+      .contact-text{
         font-size:16px;
-        text-align:center;
-        max-width:100%;
       }
 
-      .hero-divider{
-        margin-inline:auto;
-      }
-
-      .hero-grid{
-        grid-template-columns:1fr 1fr;
-      }
-
-      .hero-image-panel{
-        min-height:auto;
-        padding:12px;
-        border-radius:26px;
-      }
-
-      .hero-image-panel img{
-        width:100%;
-        height:auto;
-        max-height:340px;
-        object-fit:contain;
-        border-radius:26px;
-      }
-
-      .floating-summary,
-      .info-grid,
-      .gallery-stage,
-      .contact-final{
+      .hero-grid,
+      .info-cards{
         grid-template-columns:1fr;
       }
 
-      .section-block-inner,
-      .section-inner{
-        padding:22px 16px;
+      .hero-image img{
+        height:auto;
+        max-height:340px;
+        object-fit:contain;
+        border-radius:22px;
       }
 
-      .section-heading,
-      .section-title{
-        font-size:38px;
+      .frame-title{
+        padding:22px 18px;
       }
 
-      .summary-panel,
-      .summary-text,
-      .card,
-      .contact-panel,
-      .contact-links-panel{
-        border-radius:24px;
+      .section-header h2{
+        font-size:44px;
       }
 
-      .summary-panel h2,
-      .summary-text h2,
-      .gallery-copy h3{
-        font-size:30px;
-        text-align:center;
+      .section-header p{
+        font-size:20px;
       }
 
-      .summary-text p,
-      .gallery-copy p{
-        font-size:16px;
-        text-align:center;
+      .parent-photo img{
+        height:320px;
+        border-radius:20px;
       }
 
-      .gallery-card{
-        min-height:auto;
-        border-radius:24px;
+      .parent-copy h3,
+      .contact-box h3{
+        font-size:36px;
       }
 
-      .gallery-card img{
+      .gallery-item img{
         height:300px;
       }
 
-      .gallery-overlay{
-        left:10px;
-        right:10px;
-        bottom:10px;
-        border-radius:18px;
-      }
-
-      .gallery-overlay h4{
-        font-size:18px;
+      .gallery-caption h4{
+        font-size:22px;
       }
 
       .lightbox-arrow{
@@ -992,263 +874,274 @@
 
     <header class="topbar">
       <div class="topbar-inner">
-        <div class="brand">Akwamaryn*PL</div>
+        <div class="brand">
+          <small>Akwamaryn</small>
+          <strong>*PL</strong>
+        </div>
 
         <nav class="nav">
-          <a href="index.html">Strona główna</a>
+          <a href="index.html">Start</a>
           <a href="kotki.html">Kotki hodowlane</a>
           <a href="kocury.html">Kocury hodowlane</a>
           <a href="kocieta.html">Moje kocięta</a>
           <a href="miot.html">Aktualny miot</a>
           <a href="galeria.html">Galeria</a>
-          <a href="rezerwacja.html">Rezerwacja</a>
           <a href="kontakt.html">Kontakt</a>
+          <a href="rezerwacja.html" class="nav-cta">REZERWACJA</a>
         </nav>
       </div>
     </header>
 
     <main class="container">
 
-      <section class="hero-editorial">
+      <section class="hero">
         <div class="hero-copy">
-          <span class="eyebrow">Akwamaryn*PL • miot M</span>
-          <h1>Miot „M”<br>maluszki norweskie leśne</h1>
-          <div class="hero-divider"></div>
+          <div class="hero-line"></div>
+          <h1>Miot „M”</h1>
+          <div class="hero-accent">Maluszki norweskie leśne</div>
+
           <p>
             27.03.2026 na świat przyszło pięć wyjątkowych dziewczynek. To starannie zaplanowany,
-            domowo odchowywany miot, w którym piękne pochodzenie łączy się z cudownym charakterem,
-            elegancją i typem tak cenionym u norweskich kotów leśnych.
+            domowo wychowywany miot norweskich kotów leśnych, w którym piękne pochodzenie łączy się
+            z cudownym charakterem, elegancją i typem tak cenionym w rasie.
           </p>
 
-          <div class="hero-grid">
-            <div class="hero-stat">
+          <div class="hero-mini">✦ Wszystkie maluszki są dostępne ✦</div>
+
+          <a href="#galeria" class="hero-btn">ZOBACZ GALERIĘ</a>
+        </div>
+
+        <div class="hero-image-wrap">
+          <div class="hero-image">
+            <img src="file_0000000092607246a8e17fab58cb439d.png" alt="Maluszek z miotu M">
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div class="frame-title">
+            <h2>Miot „M”</h2>
+            <p>Najważniejsze informacje o naszych maluszkach</p>
+          </div>
+        </div>
+
+        <div class="info-layout">
+          <div class="text-block">
+            <p>
+              To wyjątkowy miot norweskich kotów leśnych, łączący elegancką kolorystykę,
+              piękne pochodzenie i domowe wychowanie. Od pierwszych chwil maluszki mają
+              bliski kontakt z człowiekiem i dorastają w spokojnej, pełnej troski atmosferze.
+            </p>
+            <p>
+              Nasze dziewczynki od pierwszych dni zachwycają delikatnością, pięknym wyrazem
+              i cudownym potencjałem. Szukamy dla nich najlepszych, świadomych i kochających domów.
+            </p>
+          </div>
+
+          <div class="info-cards">
+            <div class="info-card">
               <strong>27.03.2026</strong>
               <span>data urodzenia</span>
             </div>
-            <div class="hero-stat">
+
+            <div class="info-card">
               <strong>5</strong>
               <span>dziewczynek</span>
             </div>
-            <div class="hero-stat">
+
+            <div class="info-card">
               <strong>Miot M</strong>
               <span>norweskie leśne</span>
             </div>
-            <div class="hero-stat">
+
+            <div class="info-card">
               <strong>Dostępne</strong>
               <span>możliwość wyboru imion</span>
             </div>
-          </div>
-        </div>
 
-        <div class="hero-image-panel">
-          <img src="file_0000000092607246a8e17fab58cb439d.png" alt="Zdjęcie główne malucha z miotu M">
-        </div>
-      </section>
-
-      <section class="floating-summary">
-        <div class="summary-panel">
-          <h2>Najważniejsze informacje</h2>
-
-          <div class="summary-list">
-            <div class="summary-item"><strong>Rasa:</strong> norweski kot leśny</div>
-            <div class="summary-item"><strong>Oznaczenie:</strong> miot „M”</div>
-            <div class="summary-item"><strong>Liczba kociąt:</strong> 5 kotek</div>
-            <div class="summary-item"><strong>Umaszczenie:</strong> 3 niebieskie srebrzyste szylkretki oraz 2 czarne srebrzyste szylkretki</div>
-            <div class="summary-item"><strong>Dostępność:</strong> wszystkie maluszki są dostępne</div>
-            <div class="summary-item"><strong>Imiona:</strong> przyszli opiekunowie mogą wybrać imię dla swojego kociaka</div>
-          </div>
-        </div>
-
-        <div class="summary-text">
-          <h2>Nasze małe norweskie leśne</h2>
-          <p>
-            Maluszki od pierwszych chwil zachwycają delikatnością, pięknym wyrazem i cudownym potencjałem.
-            Wychowują się w spokojnej, domowej atmosferze, dzięki czemu od najmłodszych dni uczą się bliskości,
-            zaufania i czułości. Szukamy dla nich najlepszych, świadomych i kochających domów, w których będą
-            prawdziwymi członkami rodziny.
-          </p>
-        </div>
-      </section>
-
-      <section class="section-block">
-        <div class="section-block-inner">
-          <h2 class="section-heading">Rodzice miotu</h2>
-          <p class="section-sub">
-            Starannie dobrane skojarzenie, piękne linie, mocny typ i harmonijne połączenie urody oraz charakteru.
-          </p>
-
-          <div class="parent-editorial">
-
-            <a href="kotki.html#dalia" class="parent-row">
-              <div class="parent-photo">
-                <img src="file_00000000a454724689df1045122b6b79.png" alt="Dalia Pałuckie Pupile*PL">
-              </div>
-
-              <div class="parent-content">
-                <span class="parent-label">Matka miotu</span>
-                <h3>Dalia Pałuckie Pupile*PL</h3>
-
-                <div class="parent-meta">
-                  <div><strong>Rasa:</strong> Norweska leśna</div>
-                  <div><strong>Umaszczenie:</strong> niebiesko-srebrny bicolor</div>
-                  <div><strong>Kod EMS:</strong> NFO as 03</div>
-                  <div><strong>Status:</strong> kotka hodowlana</div>
-                </div>
-
-                <p>
-                  Dalia to piękna kotka norweska leśna o mocnej budowie, eleganckiej sylwetce i spokojnym temperamencie.
-                  Zachwyca piękną kryzą, wyrazem i klasą, które doskonale przekazuje potomstwu.
-                </p>
-
-                <div class="badge-row">
-                  <span class="badge">Matka miotu</span>
-                  <span class="badge">Kotka hodowlana</span>
-                </div>
-              </div>
-            </a>
-
-            <a href="kocury.html#posejdon" class="parent-row reverse">
-              <div class="parent-content">
-                <span class="parent-label">Ojciec miotu</span>
-                <h3>Posejdon Iceland*NL</h3>
-
-                <div class="parent-meta">
-                  <div><strong>Rasa:</strong> Norweski leśny</div>
-                  <div><strong>Umaszczenie:</strong> Red &amp; white bicolour tabby blotched</div>
-                  <div><strong>Kod EMS:</strong> NFO d 03 22</div>
-                  <div><strong>Status:</strong> kocur hodowlany</div>
-                </div>
-
-                <p>
-                  Posejdon to wyjątkowy przedstawiciel rasy norweskiej leśnej o efektownym wyglądzie, mocnej budowie
-                  i pięknym umaszczeniu. Importowany z Holandii, reprezentuje doskonałą linię hodowlaną.
-                </p>
-
-                <div class="badge-row">
-                  <span class="badge">Ojciec miotu</span>
-                  <span class="badge">HCM N/N</span>
-                  <span class="badge">PKD N/N</span>
-                  <span class="badge">FIV/FELV N/N</span>
-                  <span class="badge">GSD IV N/N</span>
-                </div>
-              </div>
-
-              <div class="parent-photo">
-                <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL">
-              </div>
-            </a>
-
-          </div>
-        </div>
-      </section>
-
-      <section class="section-block">
-        <div class="section-block-inner">
-          <div class="gallery-stage">
-            <div class="gallery-copy">
-              <h3>Galeria miotu „M”</h3>
-              <p>
-                Poniżej znajdziesz zdjęcia naszych maluszków. Możesz przewijać galerię i otworzyć każde zdjęcie
-                w powiększeniu, aby lepiej przyjrzeć się umaszczeniu i urokowi dziewczynek.
-              </p>
-              <p>
-                Każde zdjęcie pokazuje inny moment i inne ujęcie, dzięki czemu łatwiej zobaczyć charakter
-                oraz piękny typ maluszków.
-              </p>
-              <div class="mini-note">kliknij zdjęcie, aby je powiększyć</div>
+            <div class="info-card">
+              <strong>3 + 2</strong>
+              <span>3 niebieskie srebrzyste szylkretki oraz 2 czarne srebrzyste szylkretki</span>
             </div>
 
-            <div class="gallery-column">
-
-              <article class="gallery-card">
-                <img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Zdjęcie 1" data-index="0">
-                <div class="gallery-overlay">
-                  <h4>Zdjęcie 1</h4>
-                  <p>Czarna srebrzysta szylkretka</p>
-                </div>
-              </article>
-
-              <article class="gallery-card">
-                <img src="file_000000001aa47243b5ef692c7926902d.png" alt="Zdjęcie 2" data-index="1">
-                <div class="gallery-overlay">
-                  <h4>Zdjęcie 2</h4>
-                  <p>Czarna srebrzysta szylkretka</p>
-                </div>
-              </article>
-
-              <article class="gallery-card">
-                <img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Zdjęcie 3" data-index="2">
-                <div class="gallery-overlay">
-                  <h4>Zdjęcie 3</h4>
-                  <p>Czarna srebrzysta szylkretka</p>
-                </div>
-              </article>
-
-              <article class="gallery-card">
-                <img src="file_0000000092607246a8e17fab58cb439d.png" alt="Zdjęcie 4" data-index="3">
-                <div class="gallery-overlay">
-                  <h4>Zdjęcie 4</h4>
-                  <p>Czarna srebrzysta szylkretka</p>
-                </div>
-              </article>
-
-              <article class="gallery-card">
-                <img src="images/mioty/2026-03-27-norweskie/file_0000000090b8720bb77f08f165cf4553.png" alt="Zdjęcie 5" data-index="4">
-                <div class="gallery-overlay">
-                  <h4>Zdjęcie 5</h4>
-                  <p>Czarna srebrzysta szylkretka</p>
-                </div>
-              </article>
-
-              <article class="gallery-card">
-                <img src="images/mioty/2026-03-27-norweskie/file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Zdjęcie 6" data-index="5">
-                <div class="gallery-overlay">
-                  <h4>Zdjęcie 6</h4>
-                  <p>Niebieska srebrzysta szylkretka</p>
-                </div>
-              </article>
-
-              <article class="gallery-card">
-                <img src="images/mioty/2026-03-27-norweskie/file_00000000c60072439aee95ed8f84caaf.png" alt="Zdjęcie 7" data-index="6">
-                <div class="gallery-overlay">
-                  <h4>Zdjęcie 7</h4>
-                  <p>Niebieska srebrzysta szylkretka</p>
-                </div>
-              </article>
-
-              <article class="gallery-card">
-                <img src="images/mioty/2026-03-27-norweskie/file_000000006f947243b32fb0f9a979bc82.png" alt="Zdjęcie 8" data-index="7">
-                <div class="gallery-overlay">
-                  <h4>Zdjęcie 8</h4>
-                  <p>Niebieska srebrzysta szylkretka</p>
-                </div>
-              </article>
-
+            <div class="info-card">
+              <strong>Domowy odchów</strong>
+              <span>stały kontakt z człowiekiem, czułość i bliskość od pierwszych dni</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section-block">
-        <div class="section-block-inner">
-          <div class="contact-final">
-            <div class="contact-panel">
-              <h3>Rezerwacja maluszków</h3>
-              <p>
-                Jeśli interesuje Cię któryś z naszych maluszków, zapraszamy do kontaktu.
-                Chętnie opowiemy więcej o charakterze kociąt, planie odchowu oraz dalszych etapach rezerwacji.
-                Zależy nam na najlepszych, świadomych i kochających domach.
-              </p>
+      <section class="section">
+        <div class="section-header">
+          <div class="frame-title">
+            <h2>Rodzice miotu</h2>
+            <p>Piękne linie, mocny typ i starannie dobrane skojarzenie</p>
+          </div>
+        </div>
+
+        <div class="parents-grid">
+
+          <a href="kotki.html#dalia" class="parent-card">
+            <div class="parent-photo">
+              <img src="file_00000000a454724689df1045122b6b79.png" alt="Dalia Pałuckie Pupile*PL">
             </div>
 
-            <div class="contact-links-panel">
-              <h3>Skontaktuj się z nami</h3>
+            <div class="parent-copy">
+              <div class="parent-label">Matka miotu</div>
+              <h3>Dalia Pałuckie Pupile*PL</h3>
 
-              <div class="contact-links-wrap">
-                <a class="contact-link" href="mailto:agnieszka90m@gmail.com">agnieszka90m@gmail.com</a>
-                <a class="contact-link" href="tel:+48572992736">+48 572 992 736</a>
-                <a class="facebook-btn" href="https://www.facebook.com/share/1DWyWWbtVH/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Przejdź do Facebooka</a>
+              <div class="meta">
+                <div><strong>Rasa:</strong> Norweska leśna</div>
+                <div><strong>Umaszczenie:</strong> niebiesko-srebrny bicolor</div>
+                <div><strong>Kod EMS:</strong> NFO as 03</div>
+                <div><strong>Status:</strong> kotka hodowlana</div>
               </div>
+
+              <p>
+                Dalia to piękna kotka norweska leśna o mocnej budowie, eleganckiej sylwetce i spokojnym temperamencie.
+                Zachwyca piękną kryzą, wyrazem i klasą, które doskonale przekazuje potomstwu.
+              </p>
+
+              <div class="badge-row">
+                <span class="badge">Matka miotu</span>
+                <span class="badge">Kotka hodowlana</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="kocury.html#posejdon" class="parent-card reverse">
+            <div class="parent-copy">
+              <div class="parent-label">Ojciec miotu</div>
+              <h3>Posejdon Iceland*NL</h3>
+
+              <div class="meta">
+                <div><strong>Rasa:</strong> Norweski leśny</div>
+                <div><strong>Umaszczenie:</strong> Red &amp; white bicolour tabby blotched</div>
+                <div><strong>Kod EMS:</strong> NFO d 03 22</div>
+                <div><strong>Status:</strong> kocur hodowlany</div>
+              </div>
+
+              <p>
+                Posejdon to wyjątkowy przedstawiciel rasy norweskiej leśnej o efektownym wyglądzie, mocnej budowie
+                i pięknym umaszczeniu. Importowany z Holandii, reprezentuje doskonałą linię hodowlaną.
+              </p>
+
+              <div class="badge-row">
+                <span class="badge">Ojciec miotu</span>
+                <span class="badge">HCM N/N</span>
+                <span class="badge">PKD N/N</span>
+                <span class="badge">FIV/FELV N/N</span>
+                <span class="badge">GSD IV N/N</span>
+              </div>
+            </div>
+
+            <div class="parent-photo">
+              <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL">
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <section class="section" id="galeria">
+        <div class="section-header">
+          <div class="frame-title">
+            <h2>Galeria</h2>
+            <p>Zdjęcia naszych maluszków</p>
+          </div>
+        </div>
+
+        <div class="gallery-grid">
+          <article class="gallery-item">
+            <img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Zdjęcie 1" data-index="0">
+            <div class="gallery-caption">
+              <h4>Zdjęcie 1</h4>
+              <p>Czarna srebrzysta szylkretka</p>
+            </div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="file_000000001aa47243b5ef692c7926902d.png" alt="Zdjęcie 2" data-index="1">
+            <div class="gallery-caption">
+              <h4>Zdjęcie 2</h4>
+              <p>Czarna srebrzysta szylkretka</p>
+            </div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Zdjęcie 3" data-index="2">
+            <div class="gallery-caption">
+              <h4>Zdjęcie 3</h4>
+              <p>Czarna srebrzysta szylkretka</p>
+            </div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="file_0000000092607246a8e17fab58cb439d.png" alt="Zdjęcie 4" data-index="3">
+            <div class="gallery-caption">
+              <h4>Zdjęcie 4</h4>
+              <p>Czarna srebrzysta szylkretka</p>
+            </div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/mioty/2026-03-27-norweskie/file_0000000090b8720bb77f08f165cf4553.png" alt="Zdjęcie 5" data-index="4">
+            <div class="gallery-caption">
+              <h4>Zdjęcie 5</h4>
+              <p>Czarna srebrzysta szylkretka</p>
+            </div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/mioty/2026-03-27-norweskie/file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Zdjęcie 6" data-index="5">
+            <div class="gallery-caption">
+              <h4>Zdjęcie 6</h4>
+              <p>Niebieska srebrzysta szylkretka</p>
+            </div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/mioty/2026-03-27-norweskie/file_00000000c60072439aee95ed8f84caaf.png" alt="Zdjęcie 7" data-index="6">
+            <div class="gallery-caption">
+              <h4>Zdjęcie 7</h4>
+              <p>Niebieska srebrzysta szylkretka</p>
+            </div>
+          </article>
+
+          <article class="gallery-item">
+            <img src="images/mioty/2026-03-27-norweskie/file_000000006f947243b32fb0f9a979bc82.png" alt="Zdjęcie 8" data-index="7">
+            <div class="gallery-caption">
+              <h4>Zdjęcie 8</h4>
+              <p>Niebieska srebrzysta szylkretka</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div class="frame-title">
+            <h2>Kontakt</h2>
+            <p>Rezerwacja i szczegóły dotyczące maluszków</p>
+          </div>
+        </div>
+
+        <div class="contact-layout">
+          <div class="contact-text">
+            Jeśli interesuje Cię któryś z naszych maluszków, zapraszamy do kontaktu.
+            Chętnie opowiemy więcej o charakterze kociąt, planie odchowu oraz dalszych etapach rezerwacji.
+            Zależy nam na najlepszych, świadomych i kochających domach.
+          </div>
+
+          <div class="contact-box">
+            <h3>Skontaktuj się</h3>
+
+            <div class="contact-links">
+              <a class="contact-link" href="mailto:agnieszka90m@gmail.com">agnieszka90m@gmail.com</a>
+              <a class="contact-link" href="tel:+48572992736">+48 572 992 736</a>
+              <a class="contact-link" href="https://www.facebook.com/share/1DWyWWbtVH/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
             </div>
           </div>
         </div>
@@ -1269,7 +1162,7 @@
   </div>
 
   <script>
-    const galleryImages = Array.from(document.querySelectorAll('.gallery-card img'));
+    const galleryImages = Array.from(document.querySelectorAll('.gallery-item img'));
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxClose = document.getElementById('lightboxClose');
