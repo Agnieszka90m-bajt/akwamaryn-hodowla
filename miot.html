@@ -222,6 +222,20 @@
       transform:translateY(0);
     }
 
+    @keyframes goldSweep{
+      0%{
+        left:-42%;
+        opacity:0;
+      }
+      15%{
+        opacity:1;
+      }
+      100%{
+        left:120%;
+        opacity:0;
+      }
+    }
+
     .hero{
       display:grid;
       grid-template-columns:1.04fr 0.96fr;
@@ -281,8 +295,11 @@
     }
 
     .hero-mini{
-      color:var(--muted);
-      font-size:16px;
+      color:var(--gold);
+      font-family:"Cormorant Garamond",serif;
+      font-size:28px;
+      line-height:1.2;
+      font-style:italic;
       margin-bottom:28px;
     }
 
@@ -337,22 +354,50 @@
     }
 
     .hero-image{
-      width:100%;
-      max-width:560px;
-      border:1px solid rgba(216,178,110,0.55);
+      width:auto;
+      max-width:100%;
+      display:inline-block;
+      border:1px solid rgba(216,178,110,0.7);
       padding:10px;
       background:#0d0d10;
       box-shadow:var(--shadow);
       transition:0.4s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-image::before{
+      content:"";
+      position:absolute;
+      inset:-120% auto auto -40%;
+      width:38%;
+      height:320%;
+      background:linear-gradient(
+        90deg,
+        rgba(216,178,110,0) 0%,
+        rgba(216,178,110,0.10) 45%,
+        rgba(240,221,174,0.24) 50%,
+        rgba(216,178,110,0.10) 55%,
+        rgba(216,178,110,0) 100%
+      );
+      transform:rotate(14deg);
+      opacity:0;
+      pointer-events:none;
     }
 
     .hero-image:hover{
       transform:translateY(-6px);
       box-shadow:var(--shadow-strong);
-      border-color:rgba(216,178,110,0.75);
+      border-color:rgba(216,178,110,0.85);
+    }
+
+    .hero-image:hover::before{
+      opacity:1;
+      animation:goldSweep 1.6s ease;
     }
 
     .hero-image img{
+      display:block;
       width:100%;
       height:620px;
       object-fit:cover;
@@ -520,6 +565,26 @@
       background:#0f0f11;
       box-shadow:0 10px 30px rgba(0,0,0,0.42);
       transition:all 0.4s ease;
+      overflow:hidden;
+    }
+
+    .parent-photo::before{
+      content:"";
+      position:absolute;
+      inset:-120% auto auto -40%;
+      width:38%;
+      height:320%;
+      background:linear-gradient(
+        90deg,
+        rgba(216,178,110,0) 0%,
+        rgba(216,178,110,0.10) 45%,
+        rgba(240,221,174,0.24) 50%,
+        rgba(216,178,110,0.10) 55%,
+        rgba(216,178,110,0) 100%
+      );
+      transform:rotate(14deg);
+      opacity:0;
+      pointer-events:none;
     }
 
     .parent-photo::after{
@@ -536,6 +601,11 @@
       transform:translateY(-6px) scale(1.015);
       box-shadow:0 24px 52px rgba(0,0,0,0.55);
       border-color:rgba(216,178,110,0.75);
+    }
+
+    .parent-card:hover .parent-photo::before{
+      opacity:1;
+      animation:goldSweep 1.6s ease;
     }
 
     .parent-card:hover .parent-photo::after{
@@ -838,17 +908,23 @@
 
       .hero-image-wrap{
         order:1;
+        justify-content:center;
       }
 
       .hero-image{
-        max-width:720px;
+        width:auto;
+        max-width:100%;
+        display:inline-block;
+        padding:10px;
       }
 
       .hero-image img{
+        width:auto;
+        max-width:100%;
         height:auto;
         max-height:520px;
         object-fit:contain;
-        border-radius:0;
+        margin:0 auto;
       }
 
       .info-layout,
@@ -922,7 +998,8 @@
         font-size:44px;
       }
 
-      .hero-accent{
+      .hero-accent,
+      .hero-mini{
         font-size:22px;
       }
 
@@ -938,14 +1015,20 @@
       }
 
       .hero-image{
+        width:auto;
+        max-width:100%;
+        display:inline-block;
         padding:8px;
       }
 
       .hero-image img{
+        width:auto;
+        max-width:100%;
         height:auto;
         max-height:340px;
         object-fit:contain;
         border-radius:0;
+        margin:0 auto;
       }
 
       .frame-title{
@@ -1131,6 +1214,7 @@
                 <div><strong>Umaszczenie:</strong> niebiesko-srebrny bicolor</div>
                 <div><strong>Kod EMS:</strong> NFO as 03</div>
                 <div><strong>Status:</strong> kotka hodowlana</div>
+                <div><strong>Badania:</strong> HCM N/N, PKD N/N, FIV/FELV N/N</div>
               </div>
 
               <p>
@@ -1140,7 +1224,9 @@
 
               <div class="badge-row">
                 <span class="badge">Matka miotu</span>
-                <span class="badge">Kotka hodowlana</span>
+                <span class="badge">HCM N/N</span>
+                <span class="badge">PKD N/N</span>
+                <span class="badge">FIV/FELV N/N</span>
               </div>
             </div>
           </a>
@@ -1155,6 +1241,7 @@
                 <div><strong>Umaszczenie:</strong> Red &amp; white bicolour tabby blotched</div>
                 <div><strong>Kod EMS:</strong> NFO d 03 22</div>
                 <div><strong>Status:</strong> kocur hodowlany</div>
+                <div><strong>Badania:</strong> HCM N/N, PKD N/N, FIV/FELV N/N, GSD IV N/N</div>
               </div>
 
               <p>
