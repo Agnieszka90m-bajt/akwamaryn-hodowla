@@ -1,140 +1,570 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aktualny miot | Akwamaryn*PL</title>
+<title>Kocury hodowlane | Akwamaryn*PL</title>
 
 <style>
-
-/* ===== TWOJE STYLE (BEZ ZMIAN) ===== */
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:Georgia,serif;background:#f6efe9;color:#2f2723;overflow-x:hidden;}
-img{max-width:100%;display:block;}
-a{text-decoration:none;color:inherit}
-
-/* ===== POPRAWKA KLIKNIĘCIA ===== */
-.miot-slide img{
-  pointer-events:auto; /* ← KLUCZOWA ZMIANA */
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
-/* ===== LIGHTBOX ===== */
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Georgia,"Times New Roman",serif;
+background:
+linear-gradient(180deg,#fffafc 0%,#f7edf3 52%,#f3e6ee 100%);
+color:#5e3a4c;
+overflow-x:hidden;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+img{
+display:block;
+max-width:100%;
+}
+
+.topbar{
+position:sticky;
+top:0;
+z-index:5000;
+background:rgba(255,248,251,0.95);
+backdrop-filter:blur(10px);
+-webkit-backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(226,204,215,0.45);
+box-shadow:0 8px 20px rgba(94,58,76,0.05);
+}
+
+.topbar-inner{
+max-width:1280px;
+margin:auto;
+padding:16px 20px;
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+}
+
+.brand{
+font-size:28px;
+font-weight:600;
+color:#5e3a4c;
+white-space:nowrap;
+letter-spacing:0.3px;
+}
+
+.nav-links{
+display:flex;
+flex-wrap:wrap;
+gap:14px;
+font-weight:600;
+color:#6d4758;
+justify-content:flex-end;
+}
+
+.nav-links a{
+font-size:15px;
+transition:0.25s ease;
+padding:2px 0;
+}
+
+.nav-links a:hover{
+opacity:0.72;
+transform:translateY(-1px);
+}
+
+.container{
+max-width:1240px;
+margin:auto;
+padding:38px 20px 70px;
+}
+
+.section{
+background:rgba(255,255,255,0.86);
+border:1px solid rgba(239,220,229,0.82);
+border-radius:38px;
+padding:40px 24px;
+box-shadow:0 20px 40px rgba(155,117,137,0.10);
+}
+
+.section h1{
+text-align:center;
+font-size:54px;
+margin-bottom:18px;
+color:#5e3a4c;
+line-height:1.05;
+font-weight:600;
+}
+
+.section-intro{
+max-width:930px;
+margin:0 auto 34px;
+text-align:center;
+font-size:19px;
+line-height:1.9;
+color:#745767;
+}
+
+.cats-wrap{
+display:grid;
+gap:32px;
+}
+
+.cat-card{
+display:grid;
+grid-template-columns:360px 1fr;
+gap:30px;
+background:linear-gradient(180deg,#fffefe 0%,#fff7fb 100%);
+border-radius:34px;
+padding:24px;
+box-shadow:0 16px 36px rgba(94,58,76,0.08);
+border:1px solid rgba(240,223,230,0.95);
+transition:transform 0.35s ease, box-shadow 0.35s ease, opacity 0.8s ease;
+opacity:0;
+transform:translateY(26px);
+}
+
+.cat-card.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+.cat-card:hover{
+transform:translateY(-6px);
+box-shadow:0 24px 46px rgba(94,58,76,0.14);
+}
+
+.cat-photo{
+width:100%;
+}
+
+.cat-photo-frame{
+width:100%;
+min-height:420px;
+background:linear-gradient(180deg,#fffdfd 0%,#f8eef4 100%);
+border-radius:30px;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:16px;
+box-shadow:inset 0 0 0 1px rgba(244,226,234,0.70), 0 12px 28px rgba(94,58,76,0.08);
+overflow:hidden;
+}
+
+.cat-photo-frame img{
+max-width:100%;
+max-height:100%;
+width:auto;
+height:auto;
+display:block;
+border-radius:24px;
+cursor:pointer;
+transition:transform 0.35s ease, filter 0.35s ease;
+}
+
+.cat-photo-frame img:hover{
+transform:scale(1.03);
+filter:brightness(1.02);
+}
+
+.cat-info h2{
+font-size:34px;
+margin-bottom:16px;
+color:#5e3a4c;
+line-height:1.15;
+font-weight:600;
+}
+
+.cat-meta{
+display:grid;
+gap:7px;
+margin-bottom:18px;
+font-size:17px;
+line-height:1.7;
+color:#6c5560;
+}
+
+.cat-meta strong{
+color:#5e3a4c;
+font-weight:700;
+}
+
+.badges{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:18px;
+}
+
+.badge{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:9px 14px;
+border-radius:999px;
+background:linear-gradient(180deg,#fff2f7 0%,#f8e6ee 100%);
+border:1px solid rgba(228,198,212,0.98);
+color:#5e3a4c;
+font-size:14px;
+font-weight:600;
+box-shadow:0 6px 14px rgba(161,116,136,0.08);
+}
+
+.badge.status{
+background:linear-gradient(180deg,#f9eef4 0%,#f2e2ea 100%);
+}
+
+.badge.health-ok{
+background:linear-gradient(180deg,#fff4f8 0%,#f8e8f0 100%);
+}
+
+.cat-description{
+font-size:17px;
+line-height:1.88;
+color:#654f58;
+}
+
 .lightbox{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.9);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.88);
+align-items:center;
+justify-content:center;
+z-index:7000;
+padding:20px;
+}
+
+.lightbox.show{
+display:flex;
 }
 
 .lightbox img{
-  max-width:90%;
-  max-height:80%;
-  border-radius:16px;
+max-width:92%;
+max-height:92%;
+border-radius:18px;
+box-shadow:0 24px 55px rgba(0,0,0,0.35);
 }
 
-.close{
-  position:absolute;
-  top:20px;
-  right:20px;
-  font-size:32px;
-  color:white;
-  cursor:pointer;
+footer{
+text-align:center;
+padding:30px;
+color:#866873;
+font-size:14px;
 }
 
+@media(max-width:920px){
+.cat-card{
+grid-template-columns:1fr;
+}
+
+.cat-info h2{
+font-size:28px;
+text-align:center;
+}
+
+.cat-meta{
+text-align:center;
+}
+
+.badges{
+justify-content:center;
+}
+
+.cat-description{
+text-align:center;
+}
+}
+
+@media(max-width:768px){
+.topbar-inner{
+padding:14px 14px;
+justify-content:center;
+}
+
+.brand{
+font-size:20px;
+width:100%;
+text-align:center;
+}
+
+.nav-links{
+justify-content:center;
+gap:10px 12px;
+}
+
+.nav-links a{
+font-size:13px;
+}
+
+.container{
+padding:24px 12px 46px;
+}
+
+.section{
+padding:26px 14px;
+border-radius:26px;
+}
+
+.section h1{
+font-size:34px;
+}
+
+.section-intro{
+font-size:17px;
+line-height:1.8;
+margin-bottom:24px;
+}
+
+.cat-card{
+padding:16px;
+gap:18px;
+border-radius:24px;
+}
+
+.cat-photo-frame{
+min-height:300px;
+padding:12px;
+border-radius:24px;
+}
+
+.cat-photo-frame img{
+border-radius:20px;
+}
+
+.cat-info h2{
+font-size:24px;
+}
+
+.cat-meta{
+font-size:16px;
+}
+
+.cat-description{
+font-size:16px;
+line-height:1.8;
+}
+
+.badge{
+font-size:13px;
+padding:8px 12px;
+}
+}
 </style>
 </head>
 
 <body>
 
-<!-- ===== TWOJA STRONA (BEZ ZMIAN UKŁADU) ===== -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">Akwamaryn*PL</div>
 
-<!-- RODZICE (NAPRAWIONE LINKI) -->
-<a href="kotki.html#dalia">Dalia</a>
-<a href="kocury.html#posejdon">Posejdon</a>
-
-<!-- GALERIA -->
-<div class="miot-slider">
-
-  <div class="miot-slide">
-    <img src="images/miot-m/maluch-1.jpg">
+    <div class="nav-links">
+      <a href="index.html">Strona główna</a>
+      <a href="kotki.html">Kotki hodowlane</a>
+      <a href="kocury.html">Kocury hodowlane</a>
+      <a href="kocieta.html">Moje kocięta</a>
+      <a href="miot.html">Aktualny miot</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="rezerwacja.html">Rezerwacja</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
   </div>
-
-  <div class="miot-slide">
-    <img src="images/miot-m/maluch-2.jpg">
-  </div>
-
-  <div class="miot-slide">
-    <img src="images/miot-m/maluch-3.jpg">
-  </div>
-
-  <div class="miot-slide">
-    <img src="images/miot-m/maluch-4.jpg">
-  </div>
-
-  <div class="miot-slide">
-    <img src="images/miot-m/maluch-5.jpg">
-  </div>
-
 </div>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <span class="close" onclick="closeLightbox()">✕</span>
-  <img id="lightbox-img">
+<div class="container">
+  <section class="section">
+
+    <h1>Kocury hodowlane</h1>
+
+    <div class="section-intro">
+      W tej zakładce prezentujemy nasze kocury hodowlane, ich urodę, charakter oraz najważniejsze informacje.
+      To wyjątkowi przedstawiciele swoich ras, którzy współtworzą hodowlę Akwamaryn*PL i nadają jej niepowtarzalny charakter.
+    </div>
+
+    <div class="cats-wrap">
+
+      <!-- OREO -->
+      <div class="cat-card reveal-card" id="oreo">
+        <div class="cat-photo">
+          <div class="cat-photo-frame">
+            <img src="file_000000009f0872438e4ae2b0c8ec575d.jpg" alt="Oreo Pałuckie Pupile*PL" onclick="openImage(this)">
+          </div>
+        </div>
+
+        <div class="cat-info">
+          <h2>Oreo Pałuckie Pupile*PL</h2>
+
+          <div class="cat-meta">
+            <div><strong>Rasa:</strong> Ragdoll</div>
+            <div><strong>Umaszczenie:</strong> Seal mitted</div>
+            <div><strong>Kod EMS:</strong> RAG n 04</div>
+            <div><strong>Status:</strong> kocur hodowlany</div>
+          </div>
+
+          <div class="badges">
+            <span class="badge status">Kocur hodowlany</span>
+            <span class="badge health-ok">HCM N/N</span>
+            <span class="badge health-ok">PKD N/N</span>
+            <span class="badge health-ok">FIV/FELV N/N</span>
+          </div>
+
+          <div class="cat-description">
+            Oreo to wyjątkowy przedstawiciel rasy ragdoll o spokojnym, zrównoważonym charakterze i pięknej,
+            harmonijnej budowie. Wyróżnia się intensywnie niebieskimi oczami oraz klasycznym umaszczeniem,
+            które podkreśla jego elegancki i szlachetny wygląd.
+          </div>
+        </div>
+      </div>
+
+      <!-- ARES -->
+      <div class="cat-card reveal-card" id="ares">
+        <div class="cat-photo">
+          <div class="cat-photo-frame">
+            <img src="file_0000000057687246842c044d7fb3e790.png" alt="Ares Chouchou Chat*PL" onclick="openImage(this)">
+          </div>
+        </div>
+
+        <div class="cat-info">
+          <h2>Ares Chouchou Chat*PL</h2>
+
+          <div class="cat-meta">
+            <div><strong>Rasa:</strong> Ragdoll</div>
+            <div><strong>Umaszczenie:</strong> Blue bicolor lynx</div>
+            <div><strong>Kod EMS:</strong> RAG a 03 21</div>
+            <div><strong>Status:</strong> kocur hodowlany</div>
+          </div>
+
+          <div class="badges">
+            <span class="badge status">Kocur hodowlany</span>
+            <span class="badge health-ok">HCM N/N</span>
+            <span class="badge health-ok">PKD N/N</span>
+            <span class="badge health-ok">FIV/FELV N/N</span>
+          </div>
+
+          <div class="cat-description">
+            Ares to elegancki kocur o wyjątkowym umaszczeniu oraz doskonałej budowie. Charakteryzuje się spokojnym
+            temperamentem, bardzo kontaktowym usposobieniem i pięknym wyrazem typowym dla rasy ragdoll.
+          </div>
+        </div>
+      </div>
+
+      <!-- AMOR -->
+      <div class="cat-card reveal-card" id="amor">
+        <div class="cat-photo">
+          <div class="cat-photo-frame">
+            <img src="02D8D665-A28D-49BF-8F27-C4CD270B46E9.PNG" alt="Amor Błękitne Sny*PL" onclick="openImage(this)">
+          </div>
+        </div>
+
+        <div class="cat-info">
+          <h2>Amor Błękitne Sny*PL</h2>
+
+          <div class="cat-meta">
+            <div><strong>Rasa:</strong> Ragdoll</div>
+            <div><strong>Umaszczenie:</strong> Blue bicolor</div>
+            <div><strong>Kod EMS:</strong> RAG a 03</div>
+            <div><strong>Status:</strong> kocur hodowlany</div>
+          </div>
+
+          <div class="badges">
+            <span class="badge status">Kocur hodowlany</span>
+            <span class="badge health-ok">HCM N/N</span>
+            <span class="badge health-ok">PKD N/N</span>
+            <span class="badge health-ok">FIV/FELV N/N</span>
+          </div>
+
+          <div class="cat-description">
+            Amor to piękny i harmonijny kocur rasy ragdoll o wyjątkowo łagodnym charakterze. Wyróżnia się spokojem,
+            elegancją oraz bardzo dobrym kontaktem z człowiekiem, co czyni go niezwykle szlachetnym reprezentantem rasy.
+          </div>
+        </div>
+      </div>
+
+      <!-- POSEJDON -->
+      <div class="cat-card reveal-card" id="posejdon">
+        <div class="cat-photo">
+          <div class="cat-photo-frame">
+            <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL" onclick="openImage(this)">
+          </div>
+        </div>
+
+        <div class="cat-info">
+          <h2>Posejdon Iceland*NL</h2>
+
+          <div class="cat-meta">
+            <div><strong>Rasa:</strong> Norweski leśny</div>
+            <div><strong>Umaszczenie:</strong> Red &amp; white bicolour tabby blotched</div>
+            <div><strong>Kod EMS:</strong> NFO d 03 22</div>
+            <div><strong>Status:</strong> kocur hodowlany</div>
+          </div>
+
+          <div class="badges">
+            <span class="badge status">Kocur hodowlany</span>
+            <span class="badge health-ok">HCM N/N</span>
+            <span class="badge health-ok">PKD N/N</span>
+            <span class="badge health-ok">FIV/FELV N/N</span>
+            <span class="badge health-ok">GSD IV N/N</span>
+          </div>
+
+          <div class="cat-description">
+            Posejdon to wyjątkowy przedstawiciel rasy norweskiej leśnej o pięknym umaszczeniu, mocnej budowie
+            i bardzo efektownym wyglądzie. Importowany z Holandii, reprezentuje doskonałą linię hodowlaną
+            i wnosi do hodowli szlachetność, siłę oraz elegancję.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
 </div>
+
+<div class="lightbox" id="lightbox" onclick="closeImage()">
+  <img id="lightbox-img" alt="">
+</div>
+
+<footer>
+© 2026 Akwamaryn*PL
+</footer>
 
 <script>
-
-/* ===== LIGHTBOX ===== */
-const images = document.querySelectorAll('.miot-slide img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-
-let currentIndex = 0;
-
-images.forEach((img,index)=>{
-  img.addEventListener('click',()=>{
-    currentIndex=index;
-    showImage();
-    lightbox.style.display="flex";
-  });
-});
-
-function showImage(){
-  lightboxImg.src = images[currentIndex].src;
+function openImage(img){
+document.getElementById("lightbox").classList.add("show");
+document.getElementById("lightbox-img").src = img.src;
+document.getElementById("lightbox-img").alt = img.alt || "";
 }
 
-function closeLightbox(){
-  lightbox.style.display="none";
+function closeImage(){
+document.getElementById("lightbox").classList.remove("show");
 }
 
-/* ===== SWIPE ===== */
-let startX=0;
-
-lightbox.addEventListener('touchstart',e=>{
-  startX=e.touches[0].clientX;
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+}
 });
+},{threshold:0.14});
 
-lightbox.addEventListener('touchend',e=>{
-  let endX=e.changedTouches[0].clientX;
-
-  if(startX-endX>50){
-    currentIndex=(currentIndex+1)%images.length;
-    showImage();
-  }
-
-  if(endX-startX>50){
-    currentIndex=(currentIndex-1+images.length)%images.length;
-    showImage();
-  }
+document.querySelectorAll(".reveal-card").forEach(card=>{
+observer.observe(card);
 });
-
 </script>
 
 </body>
