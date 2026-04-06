@@ -12,15 +12,18 @@
 
   <style>
     :root{
-      --bg:#0b0b0c;
-      --gold:#d8b26e;
-      --gold-soft:#f0ddae;
-      --gold-line:rgba(216,178,110,0.55);
-      --gold-strong:#e2bf82;
-      --text:#f4efe7;
-      --text-soft:#c7bcb1;
-      --shadow:0 20px 50px rgba(0,0,0,0.35);
-      --shadow-strong:0 30px 70px rgba(0,0,0,0.62);
+      --bg-1:#fffafc;
+      --bg-2:#f8eef3;
+      --panel:#fff8fb;
+      --panel-2:rgba(255,255,255,0.88);
+      --line:#f0dfe6;
+      --line-strong:#e4c8d2;
+      --text:#654f58;
+      --text-strong:#7a5665;
+      --text-soft:#866873;
+      --badge:#f1e5ea;
+      --shadow:0 14px 34px rgba(0,0,0,0.05);
+      --shadow-hover:0 16px 30px rgba(171,135,149,0.14);
       --max:1320px;
     }
 
@@ -37,10 +40,7 @@
     body{
       font-family:"Inter",sans-serif;
       color:var(--text);
-      background:
-        radial-gradient(circle at top center, rgba(216,178,110,0.10), transparent 20%),
-        radial-gradient(circle at bottom right, rgba(216,178,110,0.06), transparent 25%),
-        linear-gradient(180deg, #070708 0%, #101114 45%, #17181b 100%);
+      background:linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 100%);
       overflow-x:hidden;
     }
 
@@ -66,41 +66,14 @@
       overflow:hidden;
     }
 
-    .page-wrap::before,
-    .page-wrap::after{
-      content:"";
-      position:fixed;
-      border-radius:50%;
-      filter:blur(120px);
-      pointer-events:none;
-      z-index:0;
-      opacity:0.22;
-    }
-
-    .page-wrap::before{
-      width:360px;
-      height:360px;
-      top:-120px;
-      left:-100px;
-      background:rgba(216,178,110,0.42);
-    }
-
-    .page-wrap::after{
-      width:420px;
-      height:420px;
-      right:-140px;
-      bottom:-140px;
-      background:rgba(216,178,110,0.18);
-    }
-
     .topbar{
       position:sticky;
       top:0;
       z-index:5000;
-      background:rgba(6,6,7,0.94);
-      backdrop-filter:blur(16px);
-      -webkit-backdrop-filter:blur(16px);
-      border-bottom:1px solid rgba(216,178,110,0.14);
+      background:rgba(255,248,251,0.95);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(218,189,200,0.2);
     }
 
     .topbar-inner{
@@ -116,13 +89,12 @@
 
     .brand{
       font-family:"Cormorant Garamond",serif;
-      color:var(--gold);
+      color:var(--text-strong);
       white-space:nowrap;
       font-size:58px;
       line-height:0.95;
       font-weight:600;
       letter-spacing:0.2px;
-      text-shadow:0 0 18px rgba(216,178,110,0.10);
     }
 
     .nav{
@@ -141,15 +113,15 @@
     }
 
     .nav a:hover{
-      color:var(--gold);
+      color:var(--text-strong);
     }
 
     .nav-cta{
       min-width:152px;
       min-height:42px;
       padding:0 18px;
-      border:2px solid var(--gold-line);
-      color:var(--text);
+      border:2px solid #d6b0be;
+      color:var(--text-strong);
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -160,36 +132,40 @@
       margin-left:14px;
       transition:0.25s ease;
       overflow:hidden;
+      background:#fff8fb;
+      border-radius:16px;
+      box-shadow:0 8px 18px rgba(171,135,149,0.08);
     }
 
     .nav-cta:hover{
-      color:var(--gold-soft);
-      box-shadow:0 0 24px rgba(216,178,110,0.16);
+      box-shadow:0 12px 22px rgba(171,135,149,0.14);
+      transform:translateY(-2px);
     }
 
     .nav-cta::before,
     .nav-cta::after{
       content:"";
       position:absolute;
-      width:12px;
-      height:12px;
-      border-color:var(--gold);
-      opacity:0.9;
+      width:14px;
+      height:14px;
+      border-color:#b78898;
       z-index:2;
     }
 
     .nav-cta::before{
       top:-2px;
       left:-2px;
-      border-top:2px solid var(--gold);
-      border-left:2px solid var(--gold);
+      border-top:3px solid #b78898;
+      border-left:3px solid #b78898;
+      border-radius:10px 0 0 0;
     }
 
     .nav-cta::after{
       right:-2px;
       bottom:-2px;
-      border-right:2px solid var(--gold);
-      border-bottom:2px solid var(--gold);
+      border-right:3px solid #b78898;
+      border-bottom:3px solid #b78898;
+      border-radius:0 0 10px 0;
     }
 
     .container{
@@ -211,7 +187,7 @@
       transform:translateY(0);
     }
 
-    @keyframes goldSweep{
+    @keyframes softSweep{
       0%{
         transform:translateX(-180%) rotate(16deg);
         opacity:0;
@@ -228,13 +204,13 @@
     @keyframes frameGlow{
       0%,100%{
         box-shadow:
-          0 0 0 rgba(216,178,110,0),
-          0 12px 30px rgba(0,0,0,0.30);
+          0 0 0 rgba(183,136,152,0),
+          0 12px 30px rgba(171,135,149,0.10);
       }
       50%{
         box-shadow:
-          0 0 24px rgba(216,178,110,0.18),
-          0 16px 34px rgba(0,0,0,0.38);
+          0 0 18px rgba(183,136,152,0.10),
+          0 16px 34px rgba(171,135,149,0.16);
       }
     }
 
@@ -253,11 +229,11 @@
       height:380%;
       background:linear-gradient(
         90deg,
-        rgba(216,178,110,0) 0%,
-        rgba(216,178,110,0.14) 40%,
-        rgba(255,239,201,0.55) 50%,
-        rgba(216,178,110,0.14) 60%,
-        rgba(216,178,110,0) 100%
+        rgba(183,136,152,0) 0%,
+        rgba(183,136,152,0.10) 40%,
+        rgba(255,255,255,0.55) 50%,
+        rgba(183,136,152,0.10) 60%,
+        rgba(183,136,152,0) 100%
       );
       transform:translateX(-180%) rotate(16deg);
       opacity:0;
@@ -267,7 +243,7 @@
 
     .animated-frame:hover::before{
       opacity:1;
-      animation:goldSweep 1.35s ease;
+      animation:softSweep 1.35s ease;
     }
 
     .hero{
@@ -284,22 +260,37 @@
     }
 
     .hero-line{
-      width:210px;
-      height:3px;
-      background:linear-gradient(90deg, var(--gold), rgba(216,178,110,0.2));
+      display:flex;
+      align-items:center;
+      gap:12px;
       margin-bottom:24px;
-      position:relative;
+    }
+
+    .hero-line::before{
+      content:"";
+      width:150px;
+      height:3px;
+      background:linear-gradient(90deg,#e4c8d2 0%, #b78898 50%, #e4c8d2 100%);
+      border-radius:999px;
+      flex-shrink:0;
     }
 
     .hero-line::after{
       content:"";
-      position:absolute;
-      right:-34px;
-      top:50%;
       width:26px;
-      height:1px;
-      background:var(--gold);
-      transform:translateY(-50%);
+      height:2px;
+      background:#b78898;
+      border-radius:999px;
+      flex-shrink:0;
+    }
+
+    .hero-line span{
+      display:block;
+      width:150px;
+      height:3px;
+      background:linear-gradient(90deg,#e4c8d2 0%, #b78898 50%, #e4c8d2 100%);
+      border-radius:999px;
+      flex-shrink:0;
     }
 
     .hero-copy h1{
@@ -307,7 +298,7 @@
       font-size:82px;
       line-height:0.94;
       font-weight:600;
-      color:var(--text);
+      color:var(--text-strong);
       margin-bottom:18px;
     }
 
@@ -315,7 +306,7 @@
       font-family:"Cormorant Garamond",serif;
       font-size:28px;
       line-height:1.2;
-      color:var(--gold);
+      color:var(--text-soft);
       font-style:italic;
       margin-bottom:26px;
     }
@@ -324,12 +315,12 @@
       max-width:670px;
       font-size:17px;
       line-height:2;
-      color:var(--text-soft);
+      color:var(--text);
       margin-bottom:26px;
     }
 
     .hero-mini{
-      color:var(--gold);
+      color:var(--text-soft);
       font-family:"Cormorant Garamond",serif;
       font-size:28px;
       line-height:1.2;
@@ -341,8 +332,8 @@
       min-width:150px;
       min-height:42px;
       padding:0 18px;
-      border:2px solid var(--gold-line);
-      color:var(--text);
+      border:2px solid #d6b0be;
+      color:var(--text-strong);
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -352,36 +343,40 @@
       letter-spacing:0.3px;
       transition:0.25s ease;
       overflow:hidden;
+      border-radius:16px;
+      background:#fff8fb;
+      box-shadow:0 8px 18px rgba(171,135,149,0.08);
     }
 
     .hero-btn:hover{
-      color:var(--gold-soft);
       transform:translateY(-2px);
-      box-shadow:0 0 22px rgba(216,178,110,0.16);
+      box-shadow:0 12px 22px rgba(171,135,149,0.14);
     }
 
     .hero-btn::before,
     .hero-btn::after{
       content:"";
       position:absolute;
-      width:12px;
-      height:12px;
-      border-color:var(--gold);
+      width:14px;
+      height:14px;
+      border-color:#b78898;
       z-index:2;
     }
 
     .hero-btn::before{
       top:-2px;
       left:-2px;
-      border-top:2px solid var(--gold);
-      border-left:2px solid var(--gold);
+      border-top:3px solid #b78898;
+      border-left:3px solid #b78898;
+      border-radius:10px 0 0 0;
     }
 
     .hero-btn::after{
       right:-2px;
       bottom:-2px;
-      border-right:2px solid var(--gold);
-      border-bottom:2px solid var(--gold);
+      border-right:3px solid #b78898;
+      border-bottom:3px solid #b78898;
+      border-radius:0 0 10px 0;
     }
 
     .hero-image-wrap{
@@ -394,17 +389,18 @@
       width:auto;
       max-width:100%;
       display:inline-block;
-      border:1px solid var(--gold-strong);
+      border:1px solid var(--line-strong);
       padding:10px;
-      background:#0d0d10;
+      background:#fff8fb;
       box-shadow:var(--shadow);
       transition:0.4s ease;
+      border-radius:30px;
     }
 
     .hero-image:hover{
       transform:translateY(-6px);
-      box-shadow:var(--shadow-strong);
-      border-color:#f0d59a;
+      box-shadow:var(--shadow-hover);
+      border-color:#d6b0be;
     }
 
     .hero-image img{
@@ -412,11 +408,18 @@
       width:100%;
       height:600px;
       object-fit:cover;
-      border-radius:0;
+      border-radius:22px;
     }
 
     .section{
       margin-bottom:54px;
+    }
+
+    .section-wrap{
+      background:var(--panel-2);
+      padding:40px;
+      border-radius:30px;
+      box-shadow:var(--shadow);
     }
 
     .section-header{
@@ -437,21 +440,21 @@
       position:absolute;
       width:108px;
       height:64px;
-      border-color:var(--gold-line);
+      border-color:#d6b0be;
     }
 
     .frame-title::before{
       top:0;
       left:0;
-      border-top:2px solid var(--gold);
-      border-left:2px solid var(--gold);
+      border-top:2px solid #b78898;
+      border-left:2px solid #b78898;
     }
 
     .frame-title::after{
       right:0;
       bottom:0;
-      border-right:2px solid var(--gold);
-      border-bottom:2px solid var(--gold);
+      border-right:2px solid #b78898;
+      border-bottom:2px solid #b78898;
     }
 
     .section-header h2{
@@ -459,12 +462,12 @@
       font-size:64px;
       font-weight:600;
       line-height:1;
-      color:var(--text);
+      color:var(--text-strong);
       margin-bottom:10px;
     }
 
     .section-header p{
-      color:var(--gold);
+      color:var(--text-soft);
       font-family:"Cormorant Garamond",serif;
       font-size:24px;
       font-style:italic;
@@ -479,7 +482,7 @@
     }
 
     .text-block{
-      color:var(--text-soft);
+      color:var(--text);
       font-size:17px;
       line-height:2;
     }
@@ -495,19 +498,19 @@
     }
 
     .info-card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      border:1px solid rgba(216,178,110,0.18);
+      background:var(--panel);
+      border:1px solid var(--line);
       border-radius:22px;
       padding:22px 20px;
       min-height:132px;
-      box-shadow:0 10px 26px rgba(0,0,0,0.14);
+      box-shadow:0 10px 26px rgba(171,135,149,0.08);
       transition:0.35s ease;
     }
 
     .info-card:hover{
       transform:translateY(-4px);
-      border-color:rgba(216,178,110,0.40);
-      box-shadow:0 18px 34px rgba(0,0,0,0.22);
+      border-color:#d6b0be;
+      box-shadow:var(--shadow-hover);
     }
 
     .info-card strong{
@@ -515,14 +518,14 @@
       font-family:"Cormorant Garamond",serif;
       font-size:34px;
       line-height:1;
-      color:var(--text);
+      color:var(--text-strong);
       margin-bottom:10px;
       font-weight:600;
     }
 
     .info-card span{
       display:block;
-      color:var(--text-soft);
+      color:var(--text);
       font-size:15px;
       line-height:1.7;
     }
@@ -537,17 +540,17 @@
       grid-template-columns:380px 1fr;
       gap:28px;
       padding:26px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      border:1px solid rgba(216,178,110,0.18);
+      background:var(--panel);
+      border:1px solid var(--line);
       border-radius:30px;
-      box-shadow:0 14px 32px rgba(0,0,0,0.16);
+      box-shadow:0 14px 32px rgba(171,135,149,0.08);
       transition:transform 0.4s ease, box-shadow 0.4s ease;
     }
 
     .cat-card:hover{
       transform:translateY(-6px);
-      box-shadow:0 24px 48px rgba(0,0,0,0.28);
-      border-color:rgba(216,178,110,0.35);
+      box-shadow:var(--shadow-hover);
+      border-color:#d6b0be;
     }
 
     .cat-photo-wrap{
@@ -558,17 +561,18 @@
 
     .cat-photo{
       display:inline-block;
-      border:1px solid var(--gold-strong);
+      border:1px solid var(--line-strong);
       padding:10px;
-      background:#0f0f11;
-      box-shadow:0 10px 30px rgba(0,0,0,0.42);
+      background:#fff8fb;
+      box-shadow:0 10px 30px rgba(171,135,149,0.10);
       transition:all 0.4s ease;
+      border-radius:30px;
     }
 
     .cat-card:hover .cat-photo{
       transform:translateY(-6px) scale(1.015);
-      box-shadow:var(--shadow-strong);
-      border-color:#f0d59a;
+      box-shadow:var(--shadow-hover);
+      border-color:#d6b0be;
     }
 
     .cat-photo img{
@@ -578,8 +582,8 @@
       height:auto;
       max-height:430px;
       object-fit:contain;
-      background:#0f0f11;
-      border-radius:0;
+      background:#fff8fb;
+      border-radius:22px;
       cursor:pointer;
     }
 
@@ -593,18 +597,21 @@
       display:inline-block;
       width:max-content;
       margin-bottom:16px;
-      color:var(--gold);
+      color:var(--text-soft);
       font-size:13px;
       font-weight:700;
       letter-spacing:1px;
       text-transform:uppercase;
+      background:var(--badge);
+      padding:8px 14px;
+      border-radius:999px;
     }
 
     .cat-copy h3{
       font-family:"Cormorant Garamond",serif;
       font-size:52px;
       line-height:1;
-      color:var(--text);
+      color:var(--text-strong);
       margin-bottom:14px;
       font-weight:600;
     }
@@ -613,17 +620,17 @@
       display:grid;
       gap:7px;
       margin-bottom:18px;
-      color:var(--text-soft);
+      color:var(--text);
       font-size:16px;
       line-height:1.8;
     }
 
     .meta strong{
-      color:var(--text);
+      color:var(--text-strong);
     }
 
     .cat-copy p{
-      color:var(--text-soft);
+      color:var(--text);
       font-size:16px;
       line-height:1.95;
       margin-bottom:18px;
@@ -638,27 +645,87 @@
     .badge{
       min-height:38px;
       padding:0 14px;
-      border:1px solid rgba(216,178,110,0.26);
-      color:var(--gold-soft);
+      border:1px solid #e4c8d2;
+      color:var(--text-strong);
       display:inline-flex;
       align-items:center;
       justify-content:center;
       border-radius:999px;
       font-size:13px;
       font-weight:700;
-      background:rgba(216,178,110,0.06);
+      background:var(--badge);
       transition:0.25s ease;
     }
 
     .badge:hover{
-      border-color:rgba(216,178,110,0.45);
-      color:#fff3cf;
+      border-color:#d6b0be;
+      background:#efe0e7;
+    }
+
+    .contact-layout{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:24px;
+      align-items:stretch;
+    }
+
+    .contact-text{
+      font-size:19px;
+      line-height:1.8;
+      color:var(--text);
+      text-align:left;
+    }
+
+    .contact-box{
+      text-align:center;
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:26px;
+      box-shadow:0 10px 24px rgba(171,135,149,0.08);
+    }
+
+    .contact-box h3{
+      font-size:30px;
+      color:var(--text-strong);
+      margin-bottom:10px;
+      font-family:"Cormorant Garamond",serif;
+    }
+
+    .contact-note{
+      font-size:18px;
+      line-height:1.6;
+      color:var(--text-soft);
+      margin-bottom:18px;
+      font-style:italic;
+      font-family:"Cormorant Garamond",serif;
+    }
+
+    .contact-links{
+      display:grid;
+      gap:12px;
+    }
+
+    .contact-link{
+      min-height:52px;
+      background:var(--badge);
+      color:var(--text-strong);
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 18px;
+      font-size:16px;
+      font-weight:700;
+      text-align:center;
+      box-shadow:0 8px 18px rgba(171,135,149,0.08);
+      border:1px solid #ead8e0;
     }
 
     .lightbox{
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,0.94);
+      background:rgba(0,0,0,0.82);
       display:none;
       align-items:center;
       justify-content:center;
@@ -682,10 +749,12 @@
     .lightbox img{
       max-width:92%;
       max-height:92%;
-      border:2px solid rgba(216,178,110,0.55);
+      border:2px solid #d6b0be;
       box-shadow:0 24px 55px rgba(0,0,0,0.35);
       user-select:none;
       -webkit-user-drag:none;
+      border-radius:22px;
+      background:#fff8fb;
     }
 
     .lightbox-close{
@@ -695,7 +764,7 @@
       width:48px;
       height:48px;
       border-radius:50%;
-      background:rgba(255,255,255,0.18);
+      background:rgba(255,255,255,0.22);
       color:#fff;
       font-size:28px;
       cursor:pointer;
@@ -745,7 +814,8 @@
         grid-template-columns:1fr;
       }
 
-      .intro-layout{
+      .intro-layout,
+      .contact-layout{
         grid-template-columns:1fr;
       }
     }
@@ -796,7 +866,8 @@
       }
 
       .hero-copy p,
-      .text-block{
+      .text-block,
+      .contact-text{
         font-size:16px;
       }
 
@@ -875,7 +946,7 @@
 
       <section class="hero fade-in">
         <div class="hero-copy">
-          <div class="hero-line"></div>
+          <div class="hero-line"><span></span></div>
           <h1>Kocury hodowlane</h1>
           <div class="hero-accent">Elegancja, typ i wyjątkowe pochodzenie</div>
 
@@ -898,184 +969,218 @@
       </section>
 
       <section class="section fade-in">
-        <div class="section-header">
-          <div class="frame-title">
-            <h2>Nasze kocury</h2>
-            <p>Ragdoll i norweski leśny w eleganckim wydaniu</p>
-          </div>
-        </div>
-
-        <div class="intro-layout">
-          <div class="text-block">
-            <p>
-              Każdy z naszych kocurów wnosi do hodowli coś wyjątkowego – piękny typ, harmonijną budowę,
-              doskonałe pochodzenie oraz cudowny charakter. To starannie wybrane linie, które są dla nas
-              niezwykle ważne zarówno pod względem urody, jak i zdrowia.
-            </p>
-            <p>
-              Prezentujemy tu naszych reprezentantów rasy ragdoll oraz norweskiej leśnej – kocury,
-              które są nie tylko piękne, ale też wyjątkowe w codziennym kontakcie i temperamencie.
-            </p>
+        <div class="section-wrap">
+          <div class="section-header">
+            <div class="frame-title">
+              <h2>Nasze kocury</h2>
+              <p>Ragdoll i norweski leśny w eleganckim wydaniu</p>
+            </div>
           </div>
 
-          <div class="info-cards">
-            <div class="info-card">
-              <strong>4</strong>
-              <span>kocury hodowlane</span>
+          <div class="intro-layout">
+            <div class="text-block">
+              <p>
+                Każdy z naszych kocurów wnosi do hodowli coś wyjątkowego – piękny typ, harmonijną budowę,
+                doskonałe pochodzenie oraz cudowny charakter. To starannie wybrane linie, które są dla nas
+                niezwykle ważne zarówno pod względem urody, jak i zdrowia.
+              </p>
+              <p>
+                Prezentujemy tu naszych reprezentantów rasy ragdoll oraz norweskiej leśnej – kocury,
+                które są nie tylko piękne, ale też wyjątkowe w codziennym kontakcie i temperamencie.
+              </p>
             </div>
-            <div class="info-card">
-              <strong>Ragdoll</strong>
-              <span>elegancja, łagodność i piękne umaszczenia</span>
-            </div>
-            <div class="info-card">
-              <strong>NFO</strong>
-              <span>mocny typ i wyjątkowa norweska linia</span>
-            </div>
-            <div class="info-card">
-              <strong>Badania</strong>
-              <span>dbamy o zdrowie i świadomą hodowlę</span>
+
+            <div class="info-cards">
+              <div class="info-card">
+                <strong>4</strong>
+                <span>kocury hodowlane</span>
+              </div>
+              <div class="info-card">
+                <strong>Ragdoll</strong>
+                <span>elegancja, łagodność i piękne umaszczenia</span>
+              </div>
+              <div class="info-card">
+                <strong>NFO</strong>
+                <span>mocny typ i wyjątkowa norweska linia</span>
+              </div>
+              <div class="info-card">
+                <strong>Badania</strong>
+                <span>dbamy o zdrowie i świadomą hodowlę</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <section class="section fade-in" id="kocury-lista">
-        <div class="section-header">
-          <div class="frame-title">
-            <h2>Kocury hodowlane</h2>
-            <p>Poznaj naszych wyjątkowych chłopców</p>
+        <div class="section-wrap">
+          <div class="section-header">
+            <div class="frame-title">
+              <h2>Kocury hodowlane</h2>
+              <p>Poznaj naszych wyjątkowych chłopców</p>
+            </div>
+          </div>
+
+          <div class="cats-grid">
+
+            <article class="cat-card fade-in" id="oreo">
+              <div class="cat-photo-wrap">
+                <div class="cat-photo animated-frame">
+                  <img src="file_000000009f0872438e4ae2b0c8ec575d.jpg" alt="Oreo Pałuckie Pupile*PL" onclick="openImage(this)">
+                </div>
+              </div>
+
+              <div class="cat-copy">
+                <div class="cat-label">Kocur hodowlany</div>
+                <h3>Oreo Pałuckie Pupile*PL</h3>
+
+                <div class="meta">
+                  <div><strong>Rasa:</strong> Ragdoll</div>
+                  <div><strong>Umaszczenie:</strong> Seal mitted</div>
+                  <div><strong>Kod EMS:</strong> RAG n 04</div>
+                  <div><strong>Status:</strong> kocur hodowlany</div>
+                </div>
+
+                <p>
+                  Oreo to wyjątkowy przedstawiciel rasy ragdoll o spokojnym, zrównoważonym charakterze
+                  i pięknej harmonijnej budowie. Wyróżnia się intensywnie niebieskimi oczami oraz klasycznym umaszczeniem.
+                </p>
+
+                <div class="badge-row">
+                  <span class="badge">HCM N/N</span>
+                  <span class="badge">PKD N/N</span>
+                  <span class="badge">FIV/FELV N/N</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="cat-card fade-in" id="ares">
+              <div class="cat-photo-wrap">
+                <div class="cat-photo animated-frame">
+                  <img src="file_0000000057687246842c044d7fb3e790.png" alt="Ares Chouchou Chat*PL" onclick="openImage(this)">
+                </div>
+              </div>
+
+              <div class="cat-copy">
+                <div class="cat-label">Kocur hodowlany</div>
+                <h3>Ares Chouchou Chat*PL</h3>
+
+                <div class="meta">
+                  <div><strong>Rasa:</strong> Ragdoll</div>
+                  <div><strong>Umaszczenie:</strong> Blue bicolor lynx</div>
+                  <div><strong>Kod EMS:</strong> RAG a 03 21</div>
+                  <div><strong>Status:</strong> kocur hodowlany</div>
+                </div>
+
+                <p>
+                  Ares to elegancki kocur o wyjątkowym umaszczeniu oraz doskonałej budowie.
+                  Charakteryzuje się spokojnym temperamentem, bardzo kontaktowym usposobieniem
+                  i pięknym wyrazem typowym dla rasy ragdoll.
+                </p>
+
+                <div class="badge-row">
+                  <span class="badge">HCM N/N</span>
+                  <span class="badge">PKD N/N</span>
+                  <span class="badge">FIV/FELV N/N</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="cat-card fade-in" id="amor">
+              <div class="cat-photo-wrap">
+                <div class="cat-photo animated-frame">
+                  <img src="02D8D665-A28D-49BF-8F27-C4CD270B46E9.PNG" alt="Amor Błękitne Sny*PL" onclick="openImage(this)">
+                </div>
+              </div>
+
+              <div class="cat-copy">
+                <div class="cat-label">Kocur hodowlany</div>
+                <h3>Amor Błękitne Sny*PL</h3>
+
+                <div class="meta">
+                  <div><strong>Rasa:</strong> Ragdoll</div>
+                  <div><strong>Umaszczenie:</strong> Blue bicolor</div>
+                  <div><strong>Kod EMS:</strong> RAG a 03</div>
+                  <div><strong>Status:</strong> kocur hodowlany</div>
+                </div>
+
+                <p>
+                  Amor to piękny i harmonijny kocur rasy ragdoll o wyjątkowo łagodnym charakterze.
+                  Wyróżnia się spokojem, elegancją oraz bardzo dobrym kontaktem z człowiekiem,
+                  co czyni go niezwykle szlachetnym reprezentantem rasy.
+                </p>
+
+                <div class="badge-row">
+                  <span class="badge">HCM N/N</span>
+                  <span class="badge">PKD N/N</span>
+                  <span class="badge">FIV/FELV N/N</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="cat-card fade-in" id="posejdon">
+              <div class="cat-photo-wrap">
+                <div class="cat-photo animated-frame">
+                  <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL" onclick="openImage(this)">
+                </div>
+              </div>
+
+              <div class="cat-copy">
+                <div class="cat-label">Kocur hodowlany</div>
+                <h3>Posejdon Iceland*NL</h3>
+
+                <div class="meta">
+                  <div><strong>Rasa:</strong> Norweski leśny</div>
+                  <div><strong>Umaszczenie:</strong> Red &amp; white bicolour tabby blotched</div>
+                  <div><strong>Kod EMS:</strong> NFO d 03 22</div>
+                  <div><strong>Status:</strong> kocur hodowlany</div>
+                </div>
+
+                <p>
+                  Posejdon to wyjątkowy przedstawiciel rasy norweskiej leśnej o efektownym wyglądzie,
+                  mocnej budowie i pięknym umaszczeniu. Importowany z Holandii, reprezentuje doskonałą linię hodowlaną.
+                </p>
+
+                <div class="badge-row">
+                  <span class="badge">HCM N/N</span>
+                  <span class="badge">PKD N/N</span>
+                  <span class="badge">FIV/FELV N/N</span>
+                  <span class="badge">GSD IV N/N</span>
+                </div>
+              </div>
+            </article>
+
           </div>
         </div>
+      </section>
 
-        <div class="cats-grid">
+      <section class="section fade-in">
+        <div class="section-wrap">
+          <div class="section-header">
+            <div class="frame-title">
+              <h2>Kontakt</h2>
+              <p>Zapytania dotyczące kocurów hodowlanych</p>
+            </div>
+          </div>
 
-          <article class="cat-card fade-in" id="oreo">
-            <div class="cat-photo-wrap">
-              <div class="cat-photo animated-frame">
-                <img src="file_000000009f0872438e4ae2b0c8ec575d.jpg" alt="Oreo Pałuckie Pupile*PL" onclick="openImage(this)">
-              </div>
+          <div class="contact-layout">
+            <div class="contact-text">
+              Jeśli chcesz dowiedzieć się więcej o naszych kocurach hodowlanych, ich pochodzeniu,
+              badaniach lub planach hodowlanych, zapraszamy do kontaktu. Chętnie odpowiemy na pytania
+              i opowiemy więcej o naszych wyjątkowych chłopcach.
             </div>
 
-            <div class="cat-copy">
-              <div class="cat-label">Kocur hodowlany</div>
-              <h3>Oreo Pałuckie Pupile*PL</h3>
+            <div class="contact-box">
+              <h3>Skontaktuj się</h3>
+              <div class="contact-note">Kliknij w mail, numer telefonu lub Facebook</div>
 
-              <div class="meta">
-                <div><strong>Rasa:</strong> Ragdoll</div>
-                <div><strong>Umaszczenie:</strong> Seal mitted</div>
-                <div><strong>Kod EMS:</strong> RAG n 04</div>
-                <div><strong>Status:</strong> kocur hodowlany</div>
-              </div>
-
-              <p>
-                Oreo to wyjątkowy przedstawiciel rasy ragdoll o spokojnym, zrównoważonym charakterze
-                i pięknej harmonijnej budowie. Wyróżnia się intensywnie niebieskimi oczami oraz klasycznym umaszczeniem.
-              </p>
-
-              <div class="badge-row">
-                <span class="badge">HCM N/N</span>
-                <span class="badge">PKD N/N</span>
-                <span class="badge">FIV/FELV N/N</span>
+              <div class="contact-links">
+                <a class="contact-link" href="mailto:agnieszka90m@gmail.com">✉️ agnieszka90m@gmail.com</a>
+                <a class="contact-link" href="tel:+48572992736">📞 +48 572 992 736</a>
+                <a class="contact-link" href="https://www.facebook.com/share/1DWyWWbtVH/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook Akwamaryn*PL</a>
               </div>
             </div>
-          </article>
-
-          <article class="cat-card fade-in" id="ares">
-            <div class="cat-photo-wrap">
-              <div class="cat-photo animated-frame">
-                <img src="file_0000000057687246842c044d7fb3e790.png" alt="Ares Chouchou Chat*PL" onclick="openImage(this)">
-              </div>
-            </div>
-
-            <div class="cat-copy">
-              <div class="cat-label">Kocur hodowlany</div>
-              <h3>Ares Chouchou Chat*PL</h3>
-
-              <div class="meta">
-                <div><strong>Rasa:</strong> Ragdoll</div>
-                <div><strong>Umaszczenie:</strong> Blue bicolor lynx</div>
-                <div><strong>Kod EMS:</strong> RAG a 03 21</div>
-                <div><strong>Status:</strong> kocur hodowlany</div>
-              </div>
-
-              <p>
-                Ares to elegancki kocur o wyjątkowym umaszczeniu oraz doskonałej budowie.
-                Charakteryzuje się spokojnym temperamentem, bardzo kontaktowym usposobieniem
-                i pięknym wyrazem typowym dla rasy ragdoll.
-              </p>
-
-              <div class="badge-row">
-                <span class="badge">HCM N/N</span>
-                <span class="badge">PKD N/N</span>
-                <span class="badge">FIV/FELV N/N</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="cat-card fade-in" id="amor">
-            <div class="cat-photo-wrap">
-              <div class="cat-photo animated-frame">
-                <img src="02D8D665-A28D-49BF-8F27-C4CD270B46E9.PNG" alt="Amor Błękitne Sny*PL" onclick="openImage(this)">
-              </div>
-            </div>
-
-            <div class="cat-copy">
-              <div class="cat-label">Kocur hodowlany</div>
-              <h3>Amor Błękitne Sny*PL</h3>
-
-              <div class="meta">
-                <div><strong>Rasa:</strong> Ragdoll</div>
-                <div><strong>Umaszczenie:</strong> Blue bicolor</div>
-                <div><strong>Kod EMS:</strong> RAG a 03</div>
-                <div><strong>Status:</strong> kocur hodowlany</div>
-              </div>
-
-              <p>
-                Amor to piękny i harmonijny kocur rasy ragdoll o wyjątkowo łagodnym charakterze.
-                Wyróżnia się spokojem, elegancją oraz bardzo dobrym kontaktem z człowiekiem,
-                co czyni go niezwykle szlachetnym reprezentantem rasy.
-              </p>
-
-              <div class="badge-row">
-                <span class="badge">HCM N/N</span>
-                <span class="badge">PKD N/N</span>
-                <span class="badge">FIV/FELV N/N</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="cat-card fade-in" id="posejdon">
-            <div class="cat-photo-wrap">
-              <div class="cat-photo animated-frame">
-                <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL" onclick="openImage(this)">
-              </div>
-            </div>
-
-            <div class="cat-copy">
-              <div class="cat-label">Kocur hodowlany</div>
-              <h3>Posejdon Iceland*NL</h3>
-
-              <div class="meta">
-                <div><strong>Rasa:</strong> Norweski leśny</div>
-                <div><strong>Umaszczenie:</strong> Red &amp; white bicolour tabby blotched</div>
-                <div><strong>Kod EMS:</strong> NFO d 03 22</div>
-                <div><strong>Status:</strong> kocur hodowlany</div>
-              </div>
-
-              <p>
-                Posejdon to wyjątkowy przedstawiciel rasy norweskiej leśnej o efektownym wyglądzie,
-                mocnej budowie i pięknym umaszczeniu. Importowany z Holandii, reprezentuje doskonałą linię hodowlaną.
-              </p>
-
-              <div class="badge-row">
-                <span class="badge">HCM N/N</span>
-                <span class="badge">PKD N/N</span>
-                <span class="badge">FIV/FELV N/N</span>
-                <span class="badge">GSD IV N/N</span>
-              </div>
-            </div>
-          </article>
-
+          </div>
         </div>
       </section>
 
