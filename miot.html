@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kocury hodowlane | Akwamaryn*PL</title>
-  <meta name="description" content="Kocury hodowlane w hodowli Akwamaryn*PL." />
+  <title>Aktualny miot | Akwamaryn*PL</title>
+  <meta name="description" content="Aktualny miot norweskich kotów leśnych w hodowli Akwamaryn*PL." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -530,12 +530,12 @@
       line-height:1.7;
     }
 
-    .cats-grid{
+    .parents-grid{
       display:grid;
       gap:28px;
     }
 
-    .cat-card{
+    .parent-card{
       display:grid;
       grid-template-columns:380px 1fr;
       gap:28px;
@@ -547,19 +547,31 @@
       transition:transform 0.4s ease, box-shadow 0.4s ease;
     }
 
-    .cat-card:hover{
+    .parent-card:hover{
       transform:translateY(-6px);
       box-shadow:var(--shadow-hover);
       border-color:#d6b0be;
     }
 
-    .cat-photo-wrap{
+    .parent-card.reverse{
+      grid-template-columns:1fr 380px;
+    }
+
+    .parent-card.reverse .parent-copy{
+      order:1;
+    }
+
+    .parent-card.reverse .parent-photo-wrap{
+      order:2;
+    }
+
+    .parent-photo-wrap{
       display:flex;
       align-items:center;
       justify-content:center;
     }
 
-    .cat-photo{
+    .parent-photo{
       display:inline-block;
       border:1px solid var(--line-strong);
       padding:10px;
@@ -569,13 +581,13 @@
       border-radius:30px;
     }
 
-    .cat-card:hover .cat-photo{
+    .parent-card:hover .parent-photo{
       transform:translateY(-6px) scale(1.015);
       box-shadow:var(--shadow-hover);
       border-color:#d6b0be;
     }
 
-    .cat-photo img{
+    .parent-photo img{
       display:block;
       width:auto;
       max-width:100%;
@@ -584,16 +596,15 @@
       object-fit:contain;
       background:#fff8fb;
       border-radius:22px;
-      cursor:pointer;
     }
 
-    .cat-copy{
+    .parent-copy{
       display:flex;
       flex-direction:column;
       justify-content:center;
     }
 
-    .cat-label{
+    .parent-label{
       display:inline-block;
       width:max-content;
       margin-bottom:16px;
@@ -607,7 +618,7 @@
       border-radius:999px;
     }
 
-    .cat-copy h3{
+    .parent-copy h3{
       font-family:"Cormorant Garamond",serif;
       font-size:52px;
       line-height:1;
@@ -629,7 +640,7 @@
       color:var(--text-strong);
     }
 
-    .cat-copy p{
+    .parent-copy p{
       color:var(--text);
       font-size:16px;
       line-height:1.95;
@@ -660,6 +671,71 @@
     .badge:hover{
       border-color:#d6b0be;
       background:#efe0e7;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:20px;
+    }
+
+    .gallery-item{
+      position:relative;
+      overflow:hidden;
+      border:1px solid var(--line-strong);
+      background:#fff8fb;
+      box-shadow:0 14px 30px rgba(171,135,149,0.08);
+      padding:10px;
+      border-radius:26px;
+      transition:0.35s ease;
+    }
+
+    .gallery-item:hover{
+      transform:translateY(-4px);
+      box-shadow:var(--shadow-hover);
+      border-color:#d6b0be;
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:420px;
+      object-fit:cover;
+      cursor:pointer;
+      transition:transform 0.35s ease, filter 0.35s ease;
+      border-radius:18px;
+    }
+
+    .gallery-item img:hover{
+      transform:scale(1.03);
+      filter:brightness(1.02);
+    }
+
+    .gallery-caption{
+      position:absolute;
+      left:24px;
+      right:24px;
+      bottom:24px;
+      padding:14px 16px;
+      background:rgba(255,255,255,0.84);
+      border:1px solid rgba(214,176,190,0.40);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      border-radius:18px;
+    }
+
+    .gallery-caption h4{
+      font-family:"Cormorant Garamond",serif;
+      font-size:28px;
+      line-height:1;
+      color:var(--text-strong);
+      margin-bottom:6px;
+      font-weight:600;
+    }
+
+    .gallery-caption p{
+      color:var(--text);
+      font-size:14px;
+      line-height:1.6;
     }
 
     .contact-layout{
@@ -810,12 +886,19 @@
     }
 
     @media (max-width:980px){
-      .cat-card{
+      .parent-card,
+      .parent-card.reverse{
         grid-template-columns:1fr;
       }
 
+      .parent-card.reverse .parent-copy,
+      .parent-card.reverse .parent-photo-wrap{
+        order:initial;
+      }
+
       .intro-layout,
-      .contact-layout{
+      .contact-layout,
+      .gallery-grid{
         grid-template-columns:1fr;
       }
     }
@@ -871,7 +954,8 @@
         font-size:16px;
       }
 
-      .info-cards{
+      .info-cards,
+      .gallery-grid{
         grid-template-columns:1fr;
       }
 
@@ -903,14 +987,28 @@
         font-size:20px;
       }
 
-      .cat-photo img{
+      .parent-photo img{
         height:auto;
         max-height:420px;
         object-fit:contain;
       }
 
-      .cat-copy h3{
+      .parent-copy h3{
         font-size:36px;
+      }
+
+      .gallery-item img{
+        height:300px;
+      }
+
+      .gallery-caption{
+        left:18px;
+        right:18px;
+        bottom:18px;
+      }
+
+      .gallery-caption h4{
+        font-size:22px;
       }
 
       .lightbox-close{
@@ -947,23 +1045,23 @@
       <section class="hero fade-in">
         <div class="hero-copy">
           <div class="hero-line"><span></span></div>
-          <h1>Kocury hodowlane</h1>
-          <div class="hero-accent">Elegancja, typ i wyjątkowe pochodzenie</div>
+          <h1>Aktualny miot</h1>
+          <div class="hero-accent">Miot „M” – maluszki norweskie leśne</div>
 
           <p>
-            W tej zakładce prezentujemy nasze kocury hodowlane – wyjątkowych przedstawicieli swoich ras,
-            którzy współtworzą charakter hodowli Akwamaryn*PL. To piękno, linie, zdrowie i temperament
-            zamknięte w wyjątkowych osobowościach.
+            27.03.2026 na świat przyszło pięć wyjątkowych dziewczynek. To starannie zaplanowany,
+            domowo wychowywany miot norweskich kotów leśnych, w którym piękne pochodzenie łączy się
+            z cudownym charakterem, elegancją i typem tak cenionym w rasie.
           </p>
 
-          <div class="hero-mini">✦ Kocury hodowlane Akwamaryn*PL ✦</div>
+          <div class="hero-mini">✦ Wszystkie maluszki są dostępne ✦</div>
 
-          <a href="#kocury-lista" class="hero-btn">POZNAJ KOCURY</a>
+          <a href="#miot-galeria" class="hero-btn">ZOBACZ GALERIĘ</a>
         </div>
 
         <div class="hero-image-wrap">
           <div class="hero-image animated-frame">
-            <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL">
+            <img src="file_0000000092607246a8e17fab58cb439d.png" alt="Maluszek z miotu M">
           </div>
         </div>
       </section>
@@ -972,78 +1070,86 @@
         <div class="section-wrap">
           <div class="section-header">
             <div class="frame-title">
-              <h2>Nasze kocury</h2>
-              <p>Ragdoll i norweski leśny w eleganckim wydaniu</p>
+              <h2>Miot „M”</h2>
+              <p>Najważniejsze informacje o naszych maluszkach</p>
             </div>
           </div>
 
           <div class="intro-layout">
             <div class="text-block">
               <p>
-                Każdy z naszych kocurów wnosi do hodowli coś wyjątkowego – piękny typ, harmonijną budowę,
-                doskonałe pochodzenie oraz cudowny charakter. To starannie wybrane linie, które są dla nas
-                niezwykle ważne zarówno pod względem urody, jak i zdrowia.
+                To wyjątkowy miot norweskich kotów leśnych, łączący elegancką kolorystykę,
+                piękne pochodzenie i domowe wychowanie. Od pierwszych chwil maluszki mają
+                bliski kontakt z człowiekiem i dorastają w spokojnej, pełnej troski atmosferze.
               </p>
               <p>
-                Prezentujemy tu naszych reprezentantów rasy ragdoll oraz norweskiej leśnej – kocury,
-                które są nie tylko piękne, ale też wyjątkowe w codziennym kontakcie i temperamencie.
+                Nasze dziewczynki od pierwszych dni zachwycają delikatnością, pięknym wyrazem
+                i cudownym potencjałem. Szukamy dla nich najlepszych, świadomych i kochających domów.
               </p>
             </div>
 
             <div class="info-cards">
               <div class="info-card">
-                <strong>4</strong>
-                <span>kocury hodowlane</span>
+                <strong>27.03.2026</strong>
+                <span>data urodzenia</span>
               </div>
               <div class="info-card">
-                <strong>Ragdoll</strong>
-                <span>elegancja, łagodność i piękne umaszczenia</span>
+                <strong>5</strong>
+                <span>dziewczynek</span>
               </div>
               <div class="info-card">
-                <strong>NFO</strong>
-                <span>mocny typ i wyjątkowa norweska linia</span>
+                <strong>Miot M</strong>
+                <span>norweskie leśne</span>
               </div>
               <div class="info-card">
-                <strong>Badania</strong>
-                <span>dbamy o zdrowie i świadomą hodowlę</span>
+                <strong>Dostępne</strong>
+                <span>możliwość wyboru imion</span>
+              </div>
+              <div class="info-card">
+                <strong>3 + 2</strong>
+                <span>3 niebieskie srebrzyste szylkretki oraz 2 czarne srebrzyste szylkretki</span>
+              </div>
+              <div class="info-card">
+                <strong>Z nami</strong>
+                <span>kocięta wychowują się z nami od pierwszych dni życia</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section fade-in" id="kocury-lista">
+      <section class="section fade-in">
         <div class="section-wrap">
           <div class="section-header">
             <div class="frame-title">
-              <h2>Kocury hodowlane</h2>
-              <p>Poznaj naszych wyjątkowych chłopców</p>
+              <h2>Rodzice miotu</h2>
+              <p>Piękne linie, mocny typ i starannie dobrane skojarzenie</p>
             </div>
           </div>
 
-          <div class="cats-grid">
+          <div class="parents-grid">
 
-            <article class="cat-card fade-in" id="oreo">
-              <div class="cat-photo-wrap">
-                <div class="cat-photo animated-frame">
-                  <img src="file_000000009f0872438e4ae2b0c8ec575d.jpg" alt="Oreo Pałuckie Pupile*PL" onclick="openImage(this)">
+            <article class="parent-card fade-in">
+              <div class="parent-photo-wrap">
+                <div class="parent-photo animated-frame">
+                  <img src="file_00000000a454724689df1045122b6b79.png" alt="Dalia Pałuckie Pupile*PL" onclick="openImage(this)">
                 </div>
               </div>
 
-              <div class="cat-copy">
-                <div class="cat-label">Kocur hodowlany</div>
-                <h3>Oreo Pałuckie Pupile*PL</h3>
+              <div class="parent-copy">
+                <div class="parent-label">Matka miotu</div>
+                <h3>Dalia Pałuckie Pupile*PL</h3>
 
                 <div class="meta">
-                  <div><strong>Rasa:</strong> Ragdoll</div>
-                  <div><strong>Umaszczenie:</strong> Seal mitted</div>
-                  <div><strong>Kod EMS:</strong> RAG n 04</div>
-                  <div><strong>Status:</strong> kocur hodowlany</div>
+                  <div><strong>Rasa:</strong> Norweska leśna</div>
+                  <div><strong>Umaszczenie:</strong> niebiesko-srebrny bicolor</div>
+                  <div><strong>Kod EMS:</strong> NFO as 03</div>
+                  <div><strong>Status:</strong> kotka hodowlana</div>
                 </div>
 
                 <p>
-                  Oreo to wyjątkowy przedstawiciel rasy ragdoll o spokojnym, zrównoważonym charakterze
-                  i pięknej harmonijnej budowie. Wyróżnia się intensywnie niebieskimi oczami oraz klasycznym umaszczeniem.
+                  Dalia to piękna kotka norweska leśna o mocnej budowie, eleganckiej sylwetce i spokojnym temperamencie.
+                  Zachwyca piękną kryzą, wyrazem i klasą, które doskonale przekazuje potomstwu.
                 </p>
 
                 <div class="badge-row">
@@ -1054,79 +1160,9 @@
               </div>
             </article>
 
-            <article class="cat-card fade-in" id="ares">
-              <div class="cat-photo-wrap">
-                <div class="cat-photo animated-frame">
-                  <img src="file_0000000057687246842c044d7fb3e790.png" alt="Ares Chouchou Chat*PL" onclick="openImage(this)">
-                </div>
-              </div>
-
-              <div class="cat-copy">
-                <div class="cat-label">Kocur hodowlany</div>
-                <h3>Ares Chouchou Chat*PL</h3>
-
-                <div class="meta">
-                  <div><strong>Rasa:</strong> Ragdoll</div>
-                  <div><strong>Umaszczenie:</strong> Blue bicolor lynx</div>
-                  <div><strong>Kod EMS:</strong> RAG a 03 21</div>
-                  <div><strong>Status:</strong> kocur hodowlany</div>
-                </div>
-
-                <p>
-                  Ares to elegancki kocur o wyjątkowym umaszczeniu oraz doskonałej budowie.
-                  Charakteryzuje się spokojnym temperamentem, bardzo kontaktowym usposobieniem
-                  i pięknym wyrazem typowym dla rasy ragdoll.
-                </p>
-
-                <div class="badge-row">
-                  <span class="badge">HCM N/N</span>
-                  <span class="badge">PKD N/N</span>
-                  <span class="badge">FIV/FELV N/N</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="cat-card fade-in" id="amor">
-              <div class="cat-photo-wrap">
-                <div class="cat-photo animated-frame">
-                  <img src="02D8D665-A28D-49BF-8F27-C4CD270B46E9.PNG" alt="Amor Błękitne Sny*PL" onclick="openImage(this)">
-                </div>
-              </div>
-
-              <div class="cat-copy">
-                <div class="cat-label">Kocur hodowlany</div>
-                <h3>Amor Błękitne Sny*PL</h3>
-
-                <div class="meta">
-                  <div><strong>Rasa:</strong> Ragdoll</div>
-                  <div><strong>Umaszczenie:</strong> Blue bicolor</div>
-                  <div><strong>Kod EMS:</strong> RAG a 03</div>
-                  <div><strong>Status:</strong> kocur hodowlany</div>
-                </div>
-
-                <p>
-                  Amor to piękny i harmonijny kocur rasy ragdoll o wyjątkowo łagodnym charakterze.
-                  Wyróżnia się spokojem, elegancją oraz bardzo dobrym kontaktem z człowiekiem,
-                  co czyni go niezwykle szlachetnym reprezentantem rasy.
-                </p>
-
-                <div class="badge-row">
-                  <span class="badge">HCM N/N</span>
-                  <span class="badge">PKD N/N</span>
-                  <span class="badge">FIV/FELV N/N</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="cat-card fade-in" id="posejdon">
-              <div class="cat-photo-wrap">
-                <div class="cat-photo animated-frame">
-                  <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL" onclick="openImage(this)">
-                </div>
-              </div>
-
-              <div class="cat-copy">
-                <div class="cat-label">Kocur hodowlany</div>
+            <article class="parent-card reverse fade-in">
+              <div class="parent-copy">
+                <div class="parent-label">Ojciec miotu</div>
                 <h3>Posejdon Iceland*NL</h3>
 
                 <div class="meta">
@@ -1148,8 +1184,91 @@
                   <span class="badge">GSD IV N/N</span>
                 </div>
               </div>
+
+              <div class="parent-photo-wrap">
+                <div class="parent-photo animated-frame">
+                  <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL" onclick="openImage(this)">
+                </div>
+              </div>
             </article>
 
+          </div>
+        </div>
+      </section>
+
+      <section class="section fade-in" id="miot-galeria">
+        <div class="section-wrap">
+          <div class="section-header">
+            <div class="frame-title">
+              <h2>Galeria</h2>
+              <p>Zdjęcia naszych maluszków</p>
+            </div>
+          </div>
+
+          <div class="gallery-grid">
+            <article class="gallery-item fade-in animated-frame">
+              <img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Zdjęcie 1" onclick="openImage(this)">
+              <div class="gallery-caption">
+                <h4>Zdjęcie 1</h4>
+                <p>Czarna srebrzysta szylkretka</p>
+              </div>
+            </article>
+
+            <article class="gallery-item fade-in animated-frame">
+              <img src="file_000000001aa47243b5ef692c7926902d.png" alt="Zdjęcie 2" onclick="openImage(this)">
+              <div class="gallery-caption">
+                <h4>Zdjęcie 2</h4>
+                <p>Czarna srebrzysta szylkretka</p>
+              </div>
+            </article>
+
+            <article class="gallery-item fade-in animated-frame">
+              <img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Zdjęcie 3" onclick="openImage(this)">
+              <div class="gallery-caption">
+                <h4>Zdjęcie 3</h4>
+                <p>Czarna srebrzysta szylkretka</p>
+              </div>
+            </article>
+
+            <article class="gallery-item fade-in animated-frame">
+              <img src="file_0000000092607246a8e17fab58cb439d.png" alt="Zdjęcie 4" onclick="openImage(this)">
+              <div class="gallery-caption">
+                <h4>Zdjęcie 4</h4>
+                <p>Czarna srebrzysta szylkretka</p>
+              </div>
+            </article>
+
+            <article class="gallery-item fade-in animated-frame">
+              <img src="images/mioty/2026-03-27-norweskie/file_0000000090b8720bb77f08f165cf4553.png" alt="Zdjęcie 5" onclick="openImage(this)">
+              <div class="gallery-caption">
+                <h4>Zdjęcie 5</h4>
+                <p>Czarna srebrzysta szylkretka</p>
+              </div>
+            </article>
+
+            <article class="gallery-item fade-in animated-frame">
+              <img src="images/mioty/2026-03-27-norweskie/file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Zdjęcie 6" onclick="openImage(this)">
+              <div class="gallery-caption">
+                <h4>Zdjęcie 6</h4>
+                <p>Niebieska srebrzysta szylkretka</p>
+              </div>
+            </article>
+
+            <article class="gallery-item fade-in animated-frame">
+              <img src="images/mioty/2026-03-27-norweskie/file_00000000c60072439aee95ed8f84caaf.png" alt="Zdjęcie 7" onclick="openImage(this)">
+              <div class="gallery-caption">
+                <h4>Zdjęcie 7</h4>
+                <p>Niebieska srebrzysta szylkretka</p>
+              </div>
+            </article>
+
+            <article class="gallery-item fade-in animated-frame">
+              <img src="images/mioty/2026-03-27-norweskie/file_000000006f947243b32fb0f9a979bc82.png" alt="Zdjęcie 8" onclick="openImage(this)">
+              <div class="gallery-caption">
+                <h4>Zdjęcie 8</h4>
+                <p>Niebieska srebrzysta szylkretka</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -1159,15 +1278,15 @@
           <div class="section-header">
             <div class="frame-title">
               <h2>Kontakt</h2>
-              <p>Zapytania dotyczące kocurów hodowlanych</p>
+              <p>Rezerwacja i szczegóły dotyczące maluszków</p>
             </div>
           </div>
 
           <div class="contact-layout">
             <div class="contact-text">
-              Jeśli chcesz dowiedzieć się więcej o naszych kocurach hodowlanych, ich pochodzeniu,
-              badaniach lub planach hodowlanych, zapraszamy do kontaktu. Chętnie odpowiemy na pytania
-              i opowiemy więcej o naszych wyjątkowych chłopcach.
+              Jeśli interesuje Cię któryś z naszych maluszków, zapraszamy do kontaktu.
+              Chętnie opowiemy więcej o charakterze kociąt, planie odchowu oraz dalszych etapach rezerwacji.
+              Zależy nam na najlepszych, świadomych i kochających domach.
             </div>
 
             <div class="contact-box">
