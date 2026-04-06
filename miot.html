@@ -12,19 +12,22 @@
 
   <style>
     :root{
-      --bg:#0c0c0d;
-      --bg-2:#141416;
-      --panel:#111113;
-      --panel-2:#17171a;
+      --bg:#0b0b0c;
+      --bg-2:#121214;
+      --bg-3:#18181b;
+      --panel:#0f1012;
+      --panel-2:#141519;
       --gold:#d8b26e;
       --gold-soft:#f0ddae;
-      --gold-line:rgba(216,178,110,0.45);
+      --gold-line:rgba(216,178,110,0.42);
       --text:#f4efe7;
-      --text-soft:#c6bbb0;
-      --muted:#9b8f84;
+      --text-soft:#c7bcb1;
+      --muted:#988c82;
       --shadow:0 20px 50px rgba(0,0,0,0.35);
+      --shadow-strong:0 28px 65px rgba(0,0,0,0.55);
       --radius-xl:34px;
       --radius-lg:26px;
+      --radius-md:18px;
       --max:1320px;
     }
 
@@ -43,7 +46,8 @@
       color:var(--text);
       background:
         radial-gradient(circle at top center, rgba(216,178,110,0.08), transparent 20%),
-        linear-gradient(180deg, #080809 0%, #111113 42%, #17181b 100%);
+        radial-gradient(circle at bottom right, rgba(216,178,110,0.05), transparent 25%),
+        linear-gradient(180deg, #070708 0%, #101114 45%, #17181b 100%);
       overflow-x:hidden;
     }
 
@@ -69,11 +73,38 @@
       overflow:hidden;
     }
 
+    .page-wrap::before,
+    .page-wrap::after{
+      content:"";
+      position:fixed;
+      border-radius:50%;
+      filter:blur(120px);
+      pointer-events:none;
+      z-index:0;
+      opacity:0.22;
+    }
+
+    .page-wrap::before{
+      width:360px;
+      height:360px;
+      top:-120px;
+      left:-100px;
+      background:rgba(216,178,110,0.40);
+    }
+
+    .page-wrap::after{
+      width:420px;
+      height:420px;
+      right:-140px;
+      bottom:-140px;
+      background:rgba(216,178,110,0.16);
+    }
+
     .topbar{
       position:sticky;
       top:0;
       z-index:5000;
-      background:rgba(7,7,8,0.88);
+      background:rgba(6,6,7,0.92);
       backdrop-filter:blur(16px);
       -webkit-backdrop-filter:blur(16px);
       border-bottom:1px solid rgba(216,178,110,0.12);
@@ -94,7 +125,6 @@
       font-family:"Cormorant Garamond",serif;
       color:var(--text);
       line-height:0.9;
-      position:relative;
       white-space:nowrap;
     }
 
@@ -177,6 +207,19 @@
       width:min(var(--max), calc(100% - 36px));
       margin:auto;
       padding:34px 0 80px;
+      position:relative;
+      z-index:1;
+    }
+
+    .fade-in{
+      opacity:0;
+      transform:translateY(42px);
+      transition:opacity 0.85s ease, transform 0.85s ease;
+    }
+
+    .fade-in.show{
+      opacity:1;
+      transform:translateY(0);
     }
 
     .hero{
@@ -244,7 +287,7 @@
     }
 
     .hero-btn{
-      min-width:140px;
+      min-width:150px;
       min-height:42px;
       padding:0 18px;
       border:2px solid var(--gold-line);
@@ -256,6 +299,12 @@
       font-weight:600;
       position:relative;
       letter-spacing:0.3px;
+      transition:0.25s ease;
+    }
+
+    .hero-btn:hover{
+      color:var(--gold-soft);
+      transform:translateY(-2px);
     }
 
     .hero-btn::before,
@@ -290,10 +339,17 @@
     .hero-image{
       width:100%;
       max-width:560px;
-      border:2px solid rgba(216,178,110,0.7);
-      padding:12px;
-      background:#0f0f11;
+      border:1px solid rgba(216,178,110,0.55);
+      padding:10px;
+      background:#0d0d10;
       box-shadow:var(--shadow);
+      transition:0.4s ease;
+    }
+
+    .hero-image:hover{
+      transform:translateY(-6px);
+      box-shadow:var(--shadow-strong);
+      border-color:rgba(216,178,110,0.75);
     }
 
     .hero-image img{
@@ -389,6 +445,13 @@
       padding:22px 20px;
       min-height:132px;
       box-shadow:0 10px 26px rgba(0,0,0,0.14);
+      transition:0.35s ease;
+    }
+
+    .info-card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(216,178,110,0.38);
+      box-shadow:0 18px 34px rgba(0,0,0,0.22);
     }
 
     .info-card strong{
@@ -422,12 +485,13 @@
       border:1px solid rgba(216,178,110,0.18);
       border-radius:30px;
       box-shadow:0 14px 32px rgba(0,0,0,0.16);
-      transition:0.3s ease;
+      transition:transform 0.4s ease, box-shadow 0.4s ease;
     }
 
     .parent-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 22px 42px rgba(0,0,0,0.22);
+      transform:translateY(-6px);
+      box-shadow:0 24px 48px rgba(0,0,0,0.28);
+      border-color:rgba(216,178,110,0.35);
     }
 
     .parent-card.reverse{
@@ -438,23 +502,52 @@
       order:1;
     }
 
-    .parent-card.reverse .parent-photo{
+    .parent-card.reverse .parent-photo-wrap{
       order:2;
     }
 
-    .parent-photo{
-      border:1px solid rgba(216,178,110,0.32);
-      padding:14px;
-      background:#101012;
+    .parent-photo-wrap{
       display:flex;
       align-items:center;
       justify-content:center;
-      overflow:hidden;
+    }
+
+    .parent-photo{
+      position:relative;
+      display:inline-block;
+      border:1px solid rgba(216,178,110,0.52);
+      padding:10px;
+      background:#0f0f11;
+      box-shadow:0 10px 30px rgba(0,0,0,0.42);
+      transition:all 0.4s ease;
+    }
+
+    .parent-photo::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      border:1px solid rgba(216,178,110,0.22);
+      opacity:0;
+      transition:0.4s ease;
+      pointer-events:none;
+    }
+
+    .parent-card:hover .parent-photo{
+      transform:translateY(-6px) scale(1.015);
+      box-shadow:0 24px 52px rgba(0,0,0,0.55);
+      border-color:rgba(216,178,110,0.75);
+    }
+
+    .parent-card:hover .parent-photo::after{
+      opacity:1;
     }
 
     .parent-photo img{
-      width:100%;
-      height:430px;
+      display:block;
+      width:auto;
+      max-width:100%;
+      height:auto;
+      max-height:430px;
       object-fit:contain;
       background:#0f0f11;
       border-radius:0;
@@ -524,6 +617,12 @@
       font-size:13px;
       font-weight:700;
       background:rgba(216,178,110,0.06);
+      transition:0.25s ease;
+    }
+
+    .badge:hover{
+      border-color:rgba(216,178,110,0.45);
+      color:#fff3cf;
     }
 
     .gallery-grid{
@@ -540,6 +639,13 @@
       background:#101012;
       box-shadow:0 14px 30px rgba(0,0,0,0.18);
       padding:10px;
+      transition:0.35s ease;
+    }
+
+    .gallery-item:hover{
+      transform:translateY(-4px);
+      box-shadow:0 22px 42px rgba(0,0,0,0.28);
+      border-color:rgba(216,178,110,0.38);
     }
 
     .gallery-item img{
@@ -603,6 +709,12 @@
       border-radius:28px;
       background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
       box-shadow:0 14px 32px rgba(0,0,0,0.16);
+      transition:0.35s ease;
+    }
+
+    .contact-box:hover{
+      transform:translateY(-4px);
+      box-shadow:0 22px 40px rgba(0,0,0,0.24);
     }
 
     .contact-box h3{
@@ -752,7 +864,7 @@
       }
 
       .parent-card.reverse .parent-copy,
-      .parent-card.reverse .parent-photo{
+      .parent-card.reverse .parent-photo-wrap{
         order:initial;
       }
 
@@ -892,7 +1004,7 @@
 <body>
   <div class="page-wrap">
 
-    <header class="topbar">
+    <header class="topbar fade-in">
       <div class="topbar-inner">
         <div class="brand">
           <small>Akwamaryn</small>
@@ -914,7 +1026,7 @@
 
     <main class="container">
 
-      <section class="hero">
+      <section class="hero fade-in">
         <div class="hero-copy">
           <div class="hero-line"></div>
           <h1>Miot „M”</h1>
@@ -938,7 +1050,7 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section fade-in">
         <div class="section-header">
           <div class="frame-title">
             <h2>Miot „M”</h2>
@@ -993,7 +1105,7 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section fade-in">
         <div class="section-header">
           <div class="frame-title">
             <h2>Rodzice miotu</h2>
@@ -1003,9 +1115,11 @@
 
         <div class="parents-grid">
 
-          <a href="kotki.html#dalia" class="parent-card">
-            <div class="parent-photo">
-              <img src="file_00000000a454724689df1045122b6b79.png" alt="Dalia Pałuckie Pupile*PL">
+          <a href="kotki.html#dalia" class="parent-card fade-in">
+            <div class="parent-photo-wrap">
+              <div class="parent-photo">
+                <img src="file_00000000a454724689df1045122b6b79.png" alt="Dalia Pałuckie Pupile*PL">
+              </div>
             </div>
 
             <div class="parent-copy">
@@ -1031,7 +1145,7 @@
             </div>
           </a>
 
-          <a href="kocury.html#posejdon" class="parent-card reverse">
+          <a href="kocury.html#posejdon" class="parent-card reverse fade-in">
             <div class="parent-copy">
               <div class="parent-label">Ojciec miotu</div>
               <h3>Posejdon Iceland*NL</h3>
@@ -1057,15 +1171,17 @@
               </div>
             </div>
 
-            <div class="parent-photo">
-              <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL">
+            <div class="parent-photo-wrap">
+              <div class="parent-photo">
+                <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL">
+              </div>
             </div>
           </a>
 
         </div>
       </section>
 
-      <section class="section" id="galeria">
+      <section class="section fade-in" id="galeria">
         <div class="section-header">
           <div class="frame-title">
             <h2>Galeria</h2>
@@ -1074,7 +1190,7 @@
         </div>
 
         <div class="gallery-grid">
-          <article class="gallery-item">
+          <article class="gallery-item fade-in">
             <img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Zdjęcie 1" data-index="0">
             <div class="gallery-caption">
               <h4>Zdjęcie 1</h4>
@@ -1082,7 +1198,7 @@
             </div>
           </article>
 
-          <article class="gallery-item">
+          <article class="gallery-item fade-in">
             <img src="file_000000001aa47243b5ef692c7926902d.png" alt="Zdjęcie 2" data-index="1">
             <div class="gallery-caption">
               <h4>Zdjęcie 2</h4>
@@ -1090,7 +1206,7 @@
             </div>
           </article>
 
-          <article class="gallery-item">
+          <article class="gallery-item fade-in">
             <img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Zdjęcie 3" data-index="2">
             <div class="gallery-caption">
               <h4>Zdjęcie 3</h4>
@@ -1098,7 +1214,7 @@
             </div>
           </article>
 
-          <article class="gallery-item">
+          <article class="gallery-item fade-in">
             <img src="file_0000000092607246a8e17fab58cb439d.png" alt="Zdjęcie 4" data-index="3">
             <div class="gallery-caption">
               <h4>Zdjęcie 4</h4>
@@ -1106,7 +1222,7 @@
             </div>
           </article>
 
-          <article class="gallery-item">
+          <article class="gallery-item fade-in">
             <img src="images/mioty/2026-03-27-norweskie/file_0000000090b8720bb77f08f165cf4553.png" alt="Zdjęcie 5" data-index="4">
             <div class="gallery-caption">
               <h4>Zdjęcie 5</h4>
@@ -1114,7 +1230,7 @@
             </div>
           </article>
 
-          <article class="gallery-item">
+          <article class="gallery-item fade-in">
             <img src="images/mioty/2026-03-27-norweskie/file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Zdjęcie 6" data-index="5">
             <div class="gallery-caption">
               <h4>Zdjęcie 6</h4>
@@ -1122,7 +1238,7 @@
             </div>
           </article>
 
-          <article class="gallery-item">
+          <article class="gallery-item fade-in">
             <img src="images/mioty/2026-03-27-norweskie/file_00000000c60072439aee95ed8f84caaf.png" alt="Zdjęcie 7" data-index="6">
             <div class="gallery-caption">
               <h4>Zdjęcie 7</h4>
@@ -1130,7 +1246,7 @@
             </div>
           </article>
 
-          <article class="gallery-item">
+          <article class="gallery-item fade-in">
             <img src="images/mioty/2026-03-27-norweskie/file_000000006f947243b32fb0f9a979bc82.png" alt="Zdjęcie 8" data-index="7">
             <div class="gallery-caption">
               <h4>Zdjęcie 8</h4>
@@ -1140,7 +1256,7 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section fade-in">
         <div class="section-header">
           <div class="frame-title">
             <h2>Kontakt</h2>
@@ -1261,6 +1377,18 @@
         prevImage();
       }
     }, { passive:true });
+
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold:0.18 });
+
+    document.querySelectorAll('.fade-in').forEach(el=>{
+      observer.observe(el);
+    });
   </script>
 </body>
 </html>
