@@ -694,6 +694,31 @@
       border:1px solid #ead8e0;
     }
 
+    .facebook-side{
+      position:fixed;
+      right:0;
+      top:50%;
+      transform:translateY(-50%);
+      background:#4267B2;
+      color:#fff;
+      padding:18px 12px;
+      border-radius:16px 0 0 16px;
+      font-weight:700;
+      font-size:16px;
+      line-height:1;
+      box-shadow:0 10px 24px rgba(0,0,0,0.18);
+      z-index:6000;
+      writing-mode:vertical-rl;
+      text-orientation:mixed;
+      letter-spacing:0.5px;
+      transition:transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .facebook-side:hover{
+      transform:translateY(-50%) translateX(-4px);
+      box-shadow:0 14px 28px rgba(0,0,0,0.24);
+    }
+
     footer{
       text-align:center;
       padding:30px;
@@ -862,11 +887,18 @@
       .section-header p{
         font-size:20px;
       }
+
+      .facebook-side{
+        font-size:14px;
+        padding:14px 10px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="page-wrap">
+
+    <a class="facebook-side" href="https://www.facebook.com/share/1DWyWWbtVH/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
 
     <header class="topbar fade-in">
       <div class="topbar-inner">
@@ -995,43 +1027,6 @@
                 wzruszenia, piękne chwile i ogromna odpowiedzialność. To miejsce, w którym każda linia,
                 każde skojarzenie i każde kocię ma znaczenie.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section fade-in">
-        <div class="section-wrap">
-          <div class="section-header">
-            <div class="frame-title">
-              <span class="corner-in"></span>
-              <h2>Nasze wychowanki</h2>
-              <p>Kocięta, które zaczęły swoją historię właśnie tutaj</p>
-            </div>
-          </div>
-
-          <div class="story-layout">
-            <div class="story-photo animated-frame">
-              <img src="1775571158965.jpg" alt="Nasze wychowanki Akwamaryn*PL">
-            </div>
-
-            <div class="text-block">
-              <p>
-                To miejsce jest dla nas wyjątkowe. To właśnie tutaj zaczyna się historia naszych kociąt –
-                od pierwszych dni życia, pierwszego mruczenia i pierwszego kontaktu z człowiekiem,
-                aż po moment, w którym trafiają do swoich nowych, kochających domów.
-              </p>
-              <p>
-                Każde kocię urodzone w hodowli Akwamaryn*PL jest wychowywane w domowej atmosferze,
-                w bliskości człowieka, z ogromną troską i zaangażowaniem. Dzięki temu wyrastają
-                na koty zrównoważone, ufne i niezwykle związane z ludźmi.
-              </p>
-              <p>
-                Nasze wychowanki to nie tylko koty – to część naszej historii, emocji i serca,
-                które zostaje z nami na zawsze, nawet kiedy zaczynają nowe życie w swoich rodzinach.
-              </p>
-
-              <a href="nasze-wychowanki.html" class="hero-btn">ZOBACZ WYCHOWANKI</a>
             </div>
           </div>
         </div>
