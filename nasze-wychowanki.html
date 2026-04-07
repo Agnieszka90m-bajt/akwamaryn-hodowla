@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nasze wychowanki | Akwamaryn*PL</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--bg-1:#fffafc;
+--bg-2:#f8eef3;
+--panel:#fff8fb;
+--panel-2:rgba(255,255,255,0.88);
+--line:#f0dfe6;
+--line-strong:#e4c8d2;
+--line-dark:#b78898;
+--text:#654f58;
+--text-strong:#7a5665;
+--text-soft:#866873;
+--shadow:0 14px 34px rgba(0,0,0,0.05);
+--shadow-hover:0 16px 30px rgba(171,135,149,0.14);
+--max:1320px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+font-family:"Inter",sans-serif;
+background:linear-gradient(180deg,var(--bg-1),var(--bg-2));
+color:var(--text);
+}
+
+.container{
+width:min(var(--max), calc(100% - 36px));
+margin:auto;
+padding:40px 0 80px;
+}
+
+/* HERO IMAGE (NIEUCIĘTE + PRZEJŚCIE) */
+.hero-image-top{
+width:100%;
+height:420px;
+overflow:hidden;
+position:relative;
+}
+
+.hero-image-top img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* ROZMYCIE */
+.hero-image-top::after{
+content:"";
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+height:180px;
+background:linear-gradient(to bottom, rgba(255,250,252,0) 0%, #fffafc 100%);
+}
+
+/* SEKCJA */
+.section{
+margin-top:-60px;
+background:var(--panel-2);
+padding:40px;
+border-radius:30px;
+box-shadow:var(--shadow);
+}
+
+/* RAMKA PODWÓJNA */
+.frame-title{
+display:inline-block;
+position:relative;
+padding:34px 46px;
+margin-bottom:30px;
+}
+
+.frame-title::before,
+.frame-title::after,
+.frame-title .corner-in::before,
+.frame-title .corner-in::after{
+content:"";
+position:absolute;
+}
+
+.frame-title::before{
+top:0;left:0;
+width:120px;height:78px;
+border-top:2px solid var(--line-dark);
+border-left:2px solid var(--line-dark);
+}
+
+.frame-title::after{
+right:0;bottom:0;
+width:120px;height:78px;
+border-right:2px solid var(--line-dark);
+border-bottom:2px solid var(--line-dark);
+}
+
+.frame-title .corner-in::before{
+top:10px;left:10px;
+width:76px;height:48px;
+border-top:2px solid rgba(183,136,152,0.5);
+border-left:2px solid rgba(183,136,152,0.5);
+}
+
+.frame-title .corner-in::after{
+right:10px;bottom:10px;
+width:76px;height:48px;
+border-right:2px solid rgba(183,136,152,0.5);
+border-bottom:2px solid rgba(183,136,152,0.5);
+}
+
+h1{
+font-family:"Cormorant Garamond",serif;
+font-size:64px;
+color:var(--text-strong);
+text-align:center;
+margin-bottom:10px;
+}
+
+.subtitle{
+text-align:center;
+font-style:italic;
+font-family:"Cormorant Garamond",serif;
+font-size:22px;
+color:var(--text-soft);
+margin-bottom:30px;
+}
+
+.text-block{
+max-width:1000px;
+margin:auto;
+font-size:17px;
+line-height:2;
+text-align:center;
+}
+
+/* GALERIA */
+.gallery{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px;
+margin-top:40px;
+}
+
+.card{
+background:#fff8fb;
+padding:10px;
+border-radius:26px;
+box-shadow:var(--shadow);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:var(--shadow-hover);
+}
+
+.card img{
+width:100%;
+height:320px;
+object-fit:cover;
+border-radius:18px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+.gallery{
+grid-template-columns:1fr;
+}
+.hero-image-top{
+height:300px;
+}
+h1{
+font-size:42px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ZDJĘCIE NA GÓRZE -->
+<div class="hero-image-top">
+<img src="1775571158965.jpg">
+</div>
+
+<div class="container">
+
+<section class="section">
+
+<div style="text-align:center;">
+<div class="frame-title">
+<span class="corner-in"></span>
+<h1>Nasze wychowanki</h1>
+<div class="subtitle">Miłość, która zaczyna się tutaj i trwa na zawsze</div>
+</div>
+</div>
+
+<div class="text-block">
+<p>
+To miejsce jest dla nas wyjątkowe. To właśnie tutaj znajdują się kocięta,
+które przyszły na świat w hodowli Akwamaryn*PL, dorastały przy nas,
+uczyły się życia krok po kroku i wypełniały nasz dom ciepłem, radością i spokojem.
+</p>
+
+<p>
+Każde z nich było częścią naszej codzienności – od pierwszych chwil,
+pierwszego otwarcia oczu, pierwszego mruczenia i pierwszych nieporadnych kroków.
+To tutaj zaczynała się ich historia, wśród troski, bliskości i miłości,
+która dla nas nie jest dodatkiem – tylko fundamentem hodowli.
+</p>
+
+<p>
+W tej zakładce znajdziecie kocięta urodzone w naszej hodowli,
+wychowane wspólnie z nami oraz zdjęcia z ich nowych domów.
+To dla nas najpiękniejszy moment – widzieć jak nasze maluchy dorastają,
+odnajdują swoje miejsce i stają się częścią nowych rodzin.
+</p>
+
+<p>
+Choć opuszczają nasz dom, nigdy nie przestają być „nasze”.
+Każde z nich zostawia po sobie ślad – wspomnienie,
+emocje i historię, która na zawsze pozostaje częścią Akwamaryn*PL.
+</p>
+</div>
+
+<!-- GALERIA -->
+<div class="gallery">
+
+<div class="card">
+<img src="1775571158965.jpg">
+</div>
+
+<div class="card">
+<img src="1775571158965.jpg">
+</div>
+
+<div class="card">
+<img src="1775571158965.jpg">
+</div>
+
+</div>
+
+</section>
+</div>
+
+</body>
+</html>
