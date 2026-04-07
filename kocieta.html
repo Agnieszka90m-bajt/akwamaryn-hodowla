@@ -4,79 +4,246 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Moje kocięta | Akwamaryn*PL</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
+:root{
+  --bg1:#fffafc;
+  --bg2:#f8eef3;
+  --text:#654f58;
+  --strong:#7a5665;
+  --soft:#866873;
+  --line:#e4c8d2;
+  --panel:#fff8fb;
+  --shadow:0 16px 36px rgba(171,135,149,0.12);
+}
+
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:Georgia,"Times New Roman",serif;background:linear-gradient(180deg,#fffafc 0%,#f8eef3 100%);color:#654f58;overflow-x:hidden;}
+body{
+  font-family:"Inter",sans-serif;
+  background:linear-gradient(180deg,var(--bg1),var(--bg2));
+  color:var(--text);
+}
+
 a{text-decoration:none;color:inherit;}
-.topbar{position:sticky;top:0;z-index:3000;background:rgba(255,248,251,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(218,189,200,0.2);}
-.topbar-inner{max-width:1200px;margin:auto;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
-.brand{font-size:24px;font-weight:600;color:#7a5665;white-space:nowrap;}
-.nav-links{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;font-size:16px;color:#7a5665;}
-.nav-links a{font-weight:600;}
-.container{max-width:1200px;margin:auto;padding:40px 20px;}
-.section{background:white;padding:40px;border-radius:30px;margin-bottom:30px;box-shadow:0 14px 34px rgba(0,0,0,0.05);}
-.section h1,.section h2{text-align:center;margin-bottom:20px;font-size:34px;color:#7a5665;}
-.section p{max-width:920px;margin:auto;text-align:center;font-size:19px;line-height:1.8;}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:26px;}
-.card{background:#fff8fb;border:1px solid #f0dfe6;border-radius:24px;padding:24px;text-align:center;}
-.card h3{font-size:24px;margin-bottom:12px;color:#7a5665;}
-.card p{font-size:17px;line-height:1.7;}
-footer{text-align:center;padding:30px;font-size:14px;color:#866873;}
+
+.topbar{
+  position:sticky;top:0;z-index:5000;
+  background:rgba(255,248,251,0.95);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(218,189,200,0.2);
+}
+
+.topbar-inner{
+  max-width:1280px;margin:auto;
+  padding:16px 20px;
+  display:flex;justify-content:space-between;
+}
+
+.brand{
+  font-family:"Cormorant Garamond";
+  font-size:44px;
+  color:var(--strong);
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  height:420px;
+  overflow:hidden;
+}
+
+.hero img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,rgba(255,255,255,0) 60%,#f8eef3 100%);
+}
+
+/* CONTENT */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+.section{
+  background:rgba(255,255,255,0.85);
+  padding:40px;
+  border-radius:30px;
+  box-shadow:var(--shadow);
+}
+
+/* TITLE FRAME */
+.frame{
+  text-align:center;
+  margin-bottom:30px;
+  position:relative;
+}
+
+.frame h1{
+  font-family:"Cormorant Garamond";
+  font-size:54px;
+  color:var(--strong);
+}
+
+.frame::before,
+.frame::after{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:60px;
+  border:2px solid #b78898;
+}
+
+.frame::before{
+  top:0;left:0;
+}
+.frame::after{
+  bottom:0;right:0;
+}
+
+/* DOUBLE LINES */
+.line{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin:20px 0;
+}
+
+.line span{
+  height:2px;
+  border-radius:999px;
+}
+
+.line .long{width:120px;background:#b78898;}
+.line .short{width:40px;background:#d8b8c4;}
+
+/* TEXT */
+.desc{
+  text-align:center;
+  font-size:18px;
+  line-height:2;
+  max-width:900px;
+  margin:auto;
+  color:var(--soft);
+}
+
+/* GRID */
+.grid{
+  margin-top:40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+
+.card{
+  background:var(--panel);
+  border-radius:26px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+}
+
+.card img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+}
+
+.card p{
+  padding:16px;
+  text-align:center;
+  font-size:16px;
+}
+
+/* MOBILE */
 @media(max-width:768px){
-.section{padding:28px 18px;}
-.section h1,.section h2{font-size:28px;}
-.section p{font-size:17px;}
-.nav-links{gap:12px;font-size:14px;}
-.brand{font-size:20px;}
-.card h3{font-size:22px;}
+.hero{height:260px;}
+.frame h1{font-size:34px;}
 }
 </style>
 </head>
+
 <body>
 
 <div class="topbar">
   <div class="topbar-inner">
-    <div class="brand"><a href="index.html">Akwamaryn*PL</a></div>
-    <div class="nav-links">
-      <a href="index.html">Strona główna</a>
-      <a href="kotki.html">Moje kotki</a>
-      <a href="kocury.html">Kocury hodowlane</a>
-      <a href="kocieta.html">Moje kocięta</a>
-      <a href="miot.html">Aktualny miot</a>
-      <a href="galeria.html">Galeria</a>
-      <a href="rezerwacja.html">Rezerwacja</a>
-      <a href="kontakt.html">Kontakt</a>
-    </div>
+    <div class="brand">Akwamaryn*PL</div>
   </div>
 </div>
 
-<div class="container">
-  <section class="section">
-    <h1>Moje kocięta</h1>
-    <p>
-      W tej zakładce możesz przedstawić swoje kocięta, ich zdjęcia, podstawowe informacje, umaszczenie, płeć oraz dostępność. To idealne miejsce, aby pokazać maluchy nowym opiekunom.
-    </p>
-  </section>
+<!-- HERO -->
+<section class="hero">
+  <img src="file_00000000a9f4720ab60032632f8d464e.png">
+</section>
 
-  <section class="section">
-    <h2>Kocięta z hodowli</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Imię kocięcia</h3>
-        <p>Tu możesz wpisać informacje o kocięciu: płeć, umaszczenie, status i kilka słów opisu.</p>
-      </div>
-      <div class="card">
-        <h3>Imię kocięcia</h3>
-        <p>To miejsce jest gotowe na kolejne kocię lub opis następnego malucha.</p>
-      </div>
-      <div class="card">
-        <h3>Imię kocięcia</h3>
-        <p>Kolejne pole do uzupełnienia, gdy pojawią się nowe informacje lub zdjęcia.</p>
-      </div>
+<div class="container">
+  <div class="section">
+
+    <div class="frame">
+      <h1>Moje kocięta</h1>
     </div>
-  </section>
+
+    <div class="line">
+      <span class="long"></span>
+      <span class="short"></span>
+      <span class="long"></span>
+    </div>
+
+    <div class="desc">
+      To właśnie tutaj zaczyna się najpiękniejsza historia naszej hodowli.  
+      Każde kocię, które przyszło na świat w Akwamaryn*PL, to nie tylko nowe życie –  
+      to emocje, miłość, sleepless noce i chwile, których nie da się zapomnieć.
+
+      <br><br>
+
+      Od pierwszego oddechu są częścią naszej rodziny. Dorastają przy nas, uczą się świata,
+      zasypiają wtulone w człowieka i budują swoje pierwsze więzi.
+
+      <br><br>
+
+      W tej zakładce znajdziesz zarówno nasze maluchy, które dopiero zaczynają swoją drogę,
+      jak i te, które już są w nowych, kochających domach.
+
+      <br><br>
+
+      Każdy z nich zostawia po sobie coś wyjątkowego.  
+      I każdy z nich na zawsze pozostaje częścią Akwamaryn.
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <img src="file_0000000094747246a63ed013e526d3c4.png">
+        <p>Maluch z naszej hodowli</p>
+      </div>
+
+      <div class="card">
+        <img src="file_0000000050b8724399c9df40c51226df.png">
+        <p>Nowy dom – szczęśliwe życie</p>
+      </div>
+
+      <div class="card">
+        <img src="file_000000009f0872438e4ae2b0c8ec575d.jpg">
+        <p>Pierwsze chwile razem</p>
+      </div>
+
+    </div>
+
+  </div>
 </div>
 
-<footer>© 2026 Akwamaryn*PL</footer>
 </body>
 </html>
