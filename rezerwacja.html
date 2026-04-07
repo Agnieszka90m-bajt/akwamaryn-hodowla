@@ -1,285 +1,915 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rezerwacja | Akwamaryn*PL</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rezerwacja | Akwamaryn*PL</title>
+  <meta name="description" content="Rezerwacja kocięcia w hodowli Akwamaryn*PL." />
 
-<style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
+  <style>
+    :root{
+      --bg-1:#fffafc;
+      --bg-2:#f8eef3;
+      --panel:#fff8fb;
+      --panel-2:rgba(255,255,255,0.88);
+      --line:#f0dfe6;
+      --line-strong:#e4c8d2;
+      --line-dark:#b78898;
+      --text:#654f58;
+      --text-strong:#7a5665;
+      --text-soft:#866873;
+      --badge:#f1e5ea;
+      --shadow:0 14px 34px rgba(0,0,0,0.05);
+      --shadow-hover:0 16px 30px rgba(171,135,149,0.14);
+      --max:1320px;
+    }
 
-body{
-font-family:Georgia,"Times New Roman",serif;
-background:#fff7fb;
-color:#6b4d5c;
-}
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
 
-a{
-text-decoration:none;
-color:inherit;
-}
+    html{
+      scroll-behavior:smooth;
+    }
 
-.topbar{
-background:#fff;
-border-bottom:1px solid #ead6de;
-padding:18px 10px;
-text-align:center;
-}
+    body{
+      font-family:"Inter",sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 100%);
+      overflow-x:hidden;
+    }
 
-.brand{
-font-size:28px;
-font-weight:600;
-color:#7a5665;
-margin-bottom:8px;
-}
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
 
-.nav-links{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:18px;
-font-weight:600;
-}
+    img{
+      display:block;
+      max-width:100%;
+    }
 
-.nav-links a{
-font-size:15px;
-}
+    button{
+      font:inherit;
+      border:none;
+      background:none;
+      cursor:pointer;
+    }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:40px 20px;
-}
+    .page-wrap{
+      position:relative;
+      overflow:hidden;
+    }
 
-.section{
-background:white;
-border-radius:30px;
-padding:40px;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
-margin-bottom:40px;
-}
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:5000;
+      background:rgba(255,248,251,0.95);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(218,189,200,0.2);
+    }
 
-.section h1{
-text-align:center;
-font-size:46px;
-margin-bottom:20px;
-color:#7a5665;
-}
+    .topbar-inner{
+      width:min(var(--max), calc(100% - 36px));
+      margin:auto;
+      min-height:88px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
 
-.section h2{
-text-align:center;
-font-size:32px;
-margin-bottom:30px;
-color:#7a5665;
-}
+    .brand{
+      font-family:"Cormorant Garamond",serif;
+      color:var(--text-strong);
+      white-space:nowrap;
+      font-size:58px;
+      line-height:0.95;
+      font-weight:600;
+      letter-spacing:0.2px;
+    }
 
-.intro{
-text-align:center;
-font-size:18px;
-line-height:1.8;
-max-width:800px;
-margin:auto;
-margin-bottom:30px;
-}
+    .nav{
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:18px;
+      color:var(--text);
+    }
 
-.bank-box{
-background:#fff4f8;
-border-radius:20px;
-padding:20px;
-text-align:center;
-margin-top:20px;
-}
+    .nav a{
+      font-family:"Cormorant Garamond",serif;
+      font-size:21px;
+      color:var(--text);
+      transition:0.25s ease;
+    }
 
-.bank-box h3{
-margin-bottom:10px;
-font-size:24px;
-}
+    .nav a:hover{
+      color:var(--text-strong);
+    }
 
-.facebook-btn{
-display:inline-block;
-background:#1877F2;
-color:white;
-padding:14px 26px;
-border-radius:25px;
-margin-top:25px;
-font-weight:600;
-}
+    .nav-cta{
+      min-width:152px;
+      min-height:42px;
+      padding:0 18px;
+      border:2px solid #d6b0be;
+      color:var(--text-strong);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:16px;
+      font-weight:600;
+      letter-spacing:0.5px;
+      position:relative;
+      margin-left:14px;
+      transition:0.25s ease;
+      overflow:hidden;
+      background:#fff8fb;
+      border-radius:16px;
+      box-shadow:0 8px 18px rgba(171,135,149,0.08);
+    }
 
-.steps{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
-margin-top:30px;
-}
+    .nav-cta:hover{
+      box-shadow:0 12px 22px rgba(171,135,149,0.14);
+      transform:translateY(-2px);
+    }
 
-.step{
-background:#fff;
-border-radius:25px;
-padding:25px;
-text-align:center;
-box-shadow:0 8px 20px rgba(0,0,0,0.05);
-}
+    .nav-cta::before,
+    .nav-cta::after{
+      content:"";
+      position:absolute;
+      width:14px;
+      height:14px;
+      border-color:#b78898;
+      z-index:2;
+    }
 
-.step-number{
-width:45px;
-height:45px;
-background:#fdeef4;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-margin:auto;
-font-weight:bold;
-margin-bottom:12px;
-}
+    .nav-cta::before{
+      top:-2px;
+      left:-2px;
+      border-top:3px solid #b78898;
+      border-left:3px solid #b78898;
+      border-radius:10px 0 0 0;
+    }
 
-.step h3{
-margin-bottom:10px;
-}
+    .nav-cta::after{
+      right:-2px;
+      bottom:-2px;
+      border-right:3px solid #b78898;
+      border-bottom:3px solid #b78898;
+      border-radius:0 0 10px 0;
+    }
 
-footer{
-text-align:center;
-padding:30px;
-font-size:14px;
-color:#866873;
-}
+    .container{
+      width:min(var(--max), calc(100% - 36px));
+      margin:auto;
+      padding:34px 0 80px;
+      position:relative;
+      z-index:1;
+    }
 
-@media(max-width:900px){
+    .fade-in{
+      opacity:0;
+      transform:translateY(42px);
+      transition:opacity 0.85s ease, transform 0.85s ease;
+    }
 
-.steps{
-grid-template-columns:repeat(2,1fr);
-}
+    .fade-in.show{
+      opacity:1;
+      transform:translateY(0);
+    }
 
-}
+    @keyframes softSweep{
+      0%{
+        transform:translateX(-180%) rotate(16deg);
+        opacity:0;
+      }
+      18%{
+        opacity:1;
+      }
+      100%{
+        transform:translateX(260%) rotate(16deg);
+        opacity:0;
+      }
+    }
 
-@media(max-width:600px){
+    @keyframes frameGlow{
+      0%,100%{
+        box-shadow:
+          0 0 0 rgba(183,136,152,0),
+          0 12px 30px rgba(171,135,149,0.10);
+      }
+      50%{
+        box-shadow:
+          0 0 18px rgba(183,136,152,0.10),
+          0 16px 34px rgba(171,135,149,0.16);
+      }
+    }
 
-.steps{
-grid-template-columns:1fr;
-}
+    .animated-frame{
+      position:relative;
+      overflow:hidden;
+      animation:frameGlow 3.2s ease-in-out infinite;
+    }
 
-.section{
-padding:25px;
-}
+    .animated-frame::before{
+      content:"";
+      position:absolute;
+      top:-130%;
+      left:-45%;
+      width:34%;
+      height:380%;
+      background:linear-gradient(
+        90deg,
+        rgba(183,136,152,0) 0%,
+        rgba(183,136,152,0.10) 40%,
+        rgba(255,255,255,0.55) 50%,
+        rgba(183,136,152,0.10) 60%,
+        rgba(183,136,152,0) 100%
+      );
+      transform:translateX(-180%) rotate(16deg);
+      opacity:0;
+      pointer-events:none;
+      z-index:3;
+    }
 
-.section h1{
-font-size:34px;
-}
+    .animated-frame:hover::before{
+      opacity:1;
+      animation:softSweep 1.35s ease;
+    }
 
-}
+    .hero{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:28px;
+      align-items:center;
+      margin-bottom:54px;
+    }
 
-</style>
+    .hero-image-wrap{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+    }
+
+    .hero-image{
+      width:100%;
+      max-width:100%;
+      display:block;
+      border:1px solid var(--line-strong);
+      padding:10px;
+      background:#fff8fb;
+      box-shadow:var(--shadow);
+      transition:0.4s ease;
+      border-radius:30px;
+    }
+
+    .hero-image:hover{
+      transform:translateY(-6px);
+      box-shadow:var(--shadow-hover);
+      border-color:#d6b0be;
+    }
+
+    .hero-image img{
+      display:block;
+      width:100%;
+      height:auto;
+      max-height:none;
+      object-fit:contain;
+      object-position:center;
+      border-radius:22px;
+      background:#fff8fb;
+    }
+
+    .hero-copy{
+      padding:8px 0 0;
+    }
+
+    .hero-line{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:24px;
+    }
+
+    .hero-line::before{
+      content:"";
+      width:150px;
+      height:3px;
+      background:linear-gradient(90deg,#e4c8d2 0%, #b78898 50%, #e4c8d2 100%);
+      border-radius:999px;
+      flex-shrink:0;
+    }
+
+    .hero-line::after{
+      content:"";
+      width:26px;
+      height:2px;
+      background:#b78898;
+      border-radius:999px;
+      flex-shrink:0;
+    }
+
+    .hero-line span{
+      display:block;
+      width:150px;
+      height:3px;
+      background:linear-gradient(90deg,#e4c8d2 0%, #b78898 50%, #e4c8d2 100%);
+      border-radius:999px;
+      flex-shrink:0;
+    }
+
+    .hero-copy h1{
+      font-family:"Cormorant Garamond",serif;
+      font-size:82px;
+      line-height:0.94;
+      font-weight:600;
+      color:var(--text-strong);
+      margin-bottom:18px;
+    }
+
+    .hero-accent{
+      font-family:"Cormorant Garamond",serif;
+      font-size:28px;
+      line-height:1.2;
+      color:var(--text-soft);
+      font-style:italic;
+      margin-bottom:26px;
+    }
+
+    .hero-copy p{
+      max-width:860px;
+      font-size:17px;
+      line-height:2;
+      color:var(--text);
+      margin-bottom:0;
+    }
+
+    .section{
+      margin-bottom:54px;
+    }
+
+    .section-wrap{
+      background:var(--panel-2);
+      padding:40px;
+      border-radius:30px;
+      box-shadow:var(--shadow);
+    }
+
+    .section-header{
+      text-align:center;
+      margin-bottom:34px;
+      position:relative;
+    }
+
+    .frame-title{
+      display:inline-block;
+      position:relative;
+      padding:34px 46px;
+    }
+
+    .frame-title::before,
+    .frame-title::after,
+    .frame-title .corner-in::before,
+    .frame-title .corner-in::after{
+      content:"";
+      position:absolute;
+      pointer-events:none;
+    }
+
+    .frame-title::before{
+      top:0;
+      left:0;
+      width:120px;
+      height:78px;
+      border-top:2px solid var(--line-dark);
+      border-left:2px solid var(--line-dark);
+    }
+
+    .frame-title::after{
+      right:0;
+      bottom:0;
+      width:120px;
+      height:78px;
+      border-right:2px solid var(--line-dark);
+      border-bottom:2px solid var(--line-dark);
+    }
+
+    .frame-title .corner-in::before{
+      top:10px;
+      left:10px;
+      width:76px;
+      height:48px;
+      border-top:2px solid rgba(183,136,152,0.55);
+      border-left:2px solid rgba(183,136,152,0.55);
+    }
+
+    .frame-title .corner-in::after{
+      right:10px;
+      bottom:10px;
+      width:76px;
+      height:48px;
+      border-right:2px solid rgba(183,136,152,0.55);
+      border-bottom:2px solid rgba(183,136,152,0.55);
+    }
+
+    .section-header h2{
+      font-family:"Cormorant Garamond",serif;
+      font-size:64px;
+      font-weight:600;
+      line-height:1;
+      color:var(--text-strong);
+      margin-bottom:10px;
+      position:relative;
+      z-index:2;
+    }
+
+    .section-header p{
+      color:var(--text-soft);
+      font-family:"Cormorant Garamond",serif;
+      font-size:24px;
+      font-style:italic;
+      line-height:1.3;
+      position:relative;
+      z-index:2;
+    }
+
+    .intro-layout{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .text-block{
+      color:var(--text);
+      font-size:17px;
+      line-height:2;
+    }
+
+    .text-block p{
+      margin-bottom:18px;
+    }
+
+    .bank-card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:26px;
+      box-shadow:0 10px 24px rgba(171,135,149,0.08);
+    }
+
+    .bank-card h3{
+      font-family:"Cormorant Garamond",serif;
+      font-size:40px;
+      line-height:1;
+      color:var(--text-strong);
+      margin-bottom:14px;
+    }
+
+    .bank-card p{
+      font-size:17px;
+      line-height:1.9;
+      color:var(--text);
+      margin-bottom:12px;
+    }
+
+    .bank-card strong{
+      color:var(--text-strong);
+    }
+
+    .cta-wrap{
+      text-align:center;
+      margin-top:28px;
+    }
+
+    .facebook-btn{
+      min-height:52px;
+      padding:0 24px;
+      border:2px solid #d6b0be;
+      color:var(--text-strong);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:16px;
+      font-weight:700;
+      letter-spacing:0.3px;
+      transition:0.25s ease;
+      overflow:hidden;
+      border-radius:18px;
+      background:#fff8fb;
+      box-shadow:0 8px 18px rgba(171,135,149,0.08);
+      position:relative;
+    }
+
+    .facebook-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 12px 22px rgba(171,135,149,0.14);
+    }
+
+    .facebook-btn::before,
+    .facebook-btn::after{
+      content:"";
+      position:absolute;
+      width:14px;
+      height:14px;
+      border-color:#b78898;
+      z-index:2;
+    }
+
+    .facebook-btn::before{
+      top:-2px;
+      left:-2px;
+      border-top:3px solid #b78898;
+      border-left:3px solid #b78898;
+      border-radius:10px 0 0 0;
+    }
+
+    .facebook-btn::after{
+      right:-2px;
+      bottom:-2px;
+      border-right:3px solid #b78898;
+      border-bottom:3px solid #b78898;
+      border-radius:0 0 10px 0;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:20px;
+    }
+
+    .step{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:26px 22px;
+      text-align:center;
+      box-shadow:0 10px 24px rgba(171,135,149,0.08);
+      transition:0.3s ease;
+    }
+
+    .step:hover{
+      transform:translateY(-4px);
+      box-shadow:var(--shadow-hover);
+      border-color:#d6b0be;
+    }
+
+    .step-number{
+      width:52px;
+      height:52px;
+      margin:0 auto 14px;
+      border-radius:50%;
+      background:var(--badge);
+      border:1px solid #ead8e0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:18px;
+      font-weight:700;
+      color:var(--text-strong);
+      box-shadow:0 8px 18px rgba(171,135,149,0.08);
+    }
+
+    .step h3{
+      font-family:"Cormorant Garamond",serif;
+      font-size:34px;
+      line-height:1;
+      color:var(--text-strong);
+      margin-bottom:12px;
+    }
+
+    .step p{
+      font-size:15px;
+      line-height:1.85;
+      color:var(--text);
+    }
+
+    .bottom-note{
+      margin-top:28px;
+      text-align:center;
+      font-size:17px;
+      line-height:1.9;
+      color:var(--text);
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      color:var(--text-soft);
+      font-size:14px;
+    }
+
+    @media (min-width:769px) and (max-width:1100px){
+      .intro-layout{
+        grid-template-columns:1fr;
+      }
+
+      .steps{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
+    @media (max-width:980px){
+      .intro-layout{
+        grid-template-columns:1fr;
+      }
+
+      .steps{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
+    @media (max-width:768px){
+      .topbar-inner{
+        width:min(var(--max), calc(100% - 20px));
+        justify-content:center;
+        padding:14px 0;
+      }
+
+      .brand{
+        width:100%;
+        text-align:center;
+        font-size:44px;
+      }
+
+      .nav{
+        justify-content:center;
+        gap:12px;
+      }
+
+      .nav a{
+        font-size:18px;
+      }
+
+      .nav-cta{
+        margin-left:0;
+      }
+
+      .container{
+        width:min(var(--max), calc(100% - 20px));
+        padding:20px 0 48px;
+      }
+
+      .hero{
+        gap:20px;
+      }
+
+      .hero-copy h1{
+        font-size:44px;
+      }
+
+      .hero-accent{
+        font-size:22px;
+      }
+
+      .hero-copy p,
+      .text-block,
+      .bottom-note{
+        font-size:16px;
+      }
+
+      .hero-image{
+        width:100%;
+        max-width:100%;
+        display:block;
+        padding:8px;
+      }
+
+      .hero-image img{
+        width:100%;
+        height:auto;
+        max-height:none;
+        object-fit:contain;
+        object-position:center;
+        margin:0;
+        border-radius:18px;
+      }
+
+      .frame-title{
+        padding:24px 22px;
+      }
+
+      .frame-title::before{
+        width:92px;
+        height:64px;
+      }
+
+      .frame-title::after{
+        width:92px;
+        height:64px;
+      }
+
+      .frame-title .corner-in::before{
+        width:56px;
+        height:36px;
+      }
+
+      .frame-title .corner-in::after{
+        width:56px;
+        height:36px;
+      }
+
+      .section-header h2{
+        font-size:44px;
+      }
+
+      .section-header p{
+        font-size:20px;
+      }
+
+      .bank-card h3{
+        font-size:34px;
+      }
+
+      .steps{
+        grid-template-columns:1fr;
+      }
+
+      .step h3{
+        font-size:30px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page-wrap">
 
-<div class="topbar">
-<div class="brand">Akwamaryn*PL</div>
+    <header class="topbar fade-in">
+      <div class="topbar-inner">
+        <div class="brand">Akwamaryn*PL</div>
 
-<div class="nav-links">
-<a href="index.html">Strona główna</a>
-<a href="kotki.html">Moje kotki</a>
-<a href="kocury.html">Kocury hodowlane</a>
-<a href="kocieta.html">Moje kocięta</a>
-<a href="miot.html">Aktualny miot</a>
-<a href="galeria.html">Galeria</a>
-<a href="rezerwacja.html">Rezerwacja</a>
-<a href="kontakt.html">Kontakt</a>
-</div>
-</div>
+        <nav class="nav">
+          <a href="index.html">Start</a>
+          <a href="kotki.html">Kotki hodowlane</a>
+          <a href="kocury.html">Kocury hodowlane</a>
+          <a href="nasze-wychowanki.html">Nasze wychowanki</a>
+          <a href="miot.html">Aktualny miot</a>
+          <a href="kontakt.html">Kontakt</a>
+          <a href="rezerwacja.html" class="nav-cta">REZERWACJA</a>
+        </nav>
+      </div>
+    </header>
 
-<div class="container">
+    <main class="container">
 
-<section class="section">
+      <section class="hero fade-in">
+        <div class="hero-image-wrap">
+          <div class="hero-image animated-frame">
+            <img src="file_00000000a9f4720ab60032632f8d464e.png" alt="Akwamaryn*PL rezerwacja">
+          </div>
+        </div>
 
-<h1>Rezerwacja kocięcia</h1>
+        <div class="hero-copy">
+          <div class="hero-line"><span></span></div>
+          <h1>Rezerwacja</h1>
+          <div class="hero-accent">Bezpieczny i przemyślany początek wspólnej drogi z naszym kocięciem</div>
 
-<div class="intro">
-Bardzo zależy nam na tym, aby każdy z naszych maluszków trafił do kochającego i odpowiedzialnego domu.  
-Dlatego zawsze chętnie rozmawiamy z przyszłymi opiekunami i odpowiadamy na wszystkie pytania dotyczące naszych kociąt.
-</div>
+          <p>
+            Bardzo zależy nam na tym, aby każdy z naszych maluszków trafiał do kochającego, odpowiedzialnego
+            i świadomego domu. Dlatego proces rezerwacji opiera się u nas na wcześniejszym kontakcie,
+            spokojnej rozmowie i wzajemnym poznaniu. Chcemy mieć pewność, że nasze kocięta trafiają tam,
+            gdzie będą otoczone troską, czułością i prawdziwą miłością.
+          </p>
+        </div>
+      </section>
 
-<div class="intro">
-Rezerwacja odbywa się po wcześniejszym kontakcie telefonicznym lub poprzez wiadomość na naszym fanpage na Facebooku.  
-W celu potwierdzenia rezerwacji podpisywana jest umowa rezerwacyjna oraz wpłacany jest zadatek w wysokości <b>500 zł</b>.
-</div>
+      <section class="section fade-in">
+        <div class="section-wrap">
+          <div class="section-header">
+            <div class="frame-title">
+              <span class="corner-in"></span>
+              <h2>Rezerwacja kocięcia</h2>
+              <p>Najważniejsze informacje w jednym miejscu</p>
+            </div>
+          </div>
 
-<div class="bank-box">
+          <div class="intro-layout">
+            <div class="text-block">
+              <p>
+                Rezerwacja odbywa się po wcześniejszym kontakcie telefonicznym lub poprzez wiadomość
+                na naszym fanpage na Facebooku. Zawsze chętnie odpowiadamy na pytania dotyczące miotu,
+                charakteru kociąt oraz warunków odbioru.
+              </p>
+              <p>
+                W celu potwierdzenia rezerwacji podpisywana jest umowa rezerwacyjna oraz wpłacany jest
+                zadatek w wysokości <strong>500 zł</strong>. Dzięki temu obie strony mają jasność co do
+                dalszych ustaleń, a maluszek może bezpiecznie oczekiwać na swój nowy dom.
+              </p>
+              <p>
+                W czasie dorastania kociąt pozostajemy w kontakcie z przyszłymi opiekunami, dzielimy się
+                zdjęciami, informacjami o rozwoju i wspólnie czekamy na dzień odbioru.
+              </p>
+            </div>
 
-<h3>Dane do rezerwacji</h3>
+            <div class="bank-card">
+              <h3>Dane do rezerwacji</h3>
+              <p><strong>Zadatek:</strong> 500 zł</p>
+              <p><strong>Numer konta:</strong><br>21 2910 0006 0000 0000 0456 1814</p>
+              <p><strong>BLIK:</strong> 572 992 736</p>
 
-<p><b>Zadatek:</b> 500 zł</p>
+              <div class="cta-wrap">
+                <a
+                  class="facebook-btn"
+                  href="https://www.facebook.com/share/1NDiWJEyeZ/?mibextid=wwXIfr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Napisz do nas na Facebooku
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<p><b>Numer konta:</b><br>
-21 2910 0006 0000 0000 0456 1814</p>
+      <section class="section fade-in">
+        <div class="section-wrap">
+          <div class="section-header">
+            <div class="frame-title">
+              <span class="corner-in"></span>
+              <h2>Jak wygląda rezerwacja</h2>
+              <p>Cały proces krok po kroku</p>
+            </div>
+          </div>
 
-<p><b>BLIK:</b> 572 992 736</p>
+          <div class="steps">
 
-</div>
+            <div class="step fade-in">
+              <div class="step-number">1</div>
+              <h3>Kontakt</h3>
+              <p>
+                Skontaktuj się z nami telefonicznie lub przez Facebooka, aby zapytać o dostępność kociąt
+                i poznać szczegóły aktualnego miotu.
+              </p>
+            </div>
 
-<div style="text-align:center">
-<a class="facebook-btn"
-href="https://www.facebook.com/share/1NDiWJEyeZ/?mibextid=wwXIfr"
-target="_blank">
-Napisz do nas na Facebooku
-</a>
-</div>
+            <div class="step fade-in">
+              <div class="step-number">2</div>
+              <h3>Rezerwacja</h3>
+              <p>
+                Po ustaleniu wszystkich szczegółów podpisywana jest umowa rezerwacyjna oraz wpłacany
+                zadatek w wysokości 500 zł.
+              </p>
+            </div>
 
-</section>
+            <div class="step fade-in">
+              <div class="step-number">3</div>
+              <h3>Oczekiwanie</h3>
+              <p>
+                W czasie dorastania kociąt utrzymujemy kontakt z przyszłymi opiekunami i regularnie
+                przekazujemy zdjęcia oraz informacje o rozwoju maluszka.
+              </p>
+            </div>
 
+            <div class="step fade-in">
+              <div class="step-number">4</div>
+              <h3>Odbiór</h3>
+              <p>
+                Kocię opuszcza naszą hodowlę odpowiednio odchowane, odrobaczone, zaszczepione,
+                zachipowane oraz z rodowodem, książeczką zdrowia i wyprawką.
+              </p>
+            </div>
 
-<section class="section">
+          </div>
 
-<h2>Jak wygląda rezerwacja kocięcia</h2>
+          <div class="bottom-note">
+            Zależy nam, aby cały proces przebiegał spokojnie, jasno i z pełnym zaufaniem — tak,
+            aby zarówno kocię, jak i jego nowa rodzina miały najlepszy możliwy start.
+          </div>
+        </div>
+      </section>
 
-<div class="steps">
+    </main>
 
-<div class="step">
-<div class="step-number">1</div>
-<h3>Kontakt</h3>
-<p>
-Skontaktuj się z nami telefonicznie lub przez Facebooka, aby zapytać o dostępność kociąt i poznać szczegóły miotu.
-</p>
-</div>
+    <footer>
+      © 2026 Akwamaryn*PL
+    </footer>
 
-<div class="step">
-<div class="step-number">2</div>
-<h3>Rezerwacja</h3>
-<p>
-Po ustaleniu szczegółów podpisywana jest umowa rezerwacyjna oraz wpłacany zadatek w wysokości 500 zł, który potwierdza rezerwację kocięcia.
-</p>
-</div>
+  </div>
 
-<div class="step">
-<div class="step-number">3</div>
-<h3>Oczekiwanie</h3>
-<p>
-W czasie dorastania kociąt utrzymujemy kontakt z przyszłymi opiekunami i często dzielimy się zdjęciami oraz informacjami o rozwoju maluszków.
-</p>
-</div>
+  <script>
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold:0.18 });
 
-<div class="step">
-<div class="step-number">4</div>
-<h3>Odbiór kocięcia</h3>
-<p>
-Kocięta opuszczają naszą hodowlę odpowiednio odchowane, kilkukrotnie odrobaczone, zaszczepione, zachipowane oraz z rodowodem WCF, książeczką zdrowia i wyprawką na pierwsze dni w nowym domu.
-</p>
-</div>
-
-</div>
-
-</section>
-
-</div>
-
-<footer>
-© 2026 Akwamaryn*PL
-</footer>
-
+    document.querySelectorAll(".fade-in").forEach(el=>{
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
