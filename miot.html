@@ -383,12 +383,13 @@
       display:flex;
       align-items:center;
       justify-content:center;
+      width:100%;
     }
 
     .hero-image{
-      width:auto;
+      width:100%;
       max-width:100%;
-      display:inline-block;
+      display:block;
       border:1px solid var(--line-strong);
       padding:10px;
       background:#fff8fb;
@@ -406,8 +407,9 @@
     .hero-image img{
       display:block;
       width:100%;
-      height:600px;
+      height:720px;
       object-fit:cover;
+      object-position:center;
       border-radius:22px;
     }
 
@@ -673,6 +675,15 @@
       background:#efe0e7;
     }
 
+    .gallery-note{
+      max-width:980px;
+      margin:0 auto 28px;
+      text-align:center;
+      font-size:17px;
+      line-height:1.9;
+      color:var(--text);
+    }
+
     .gallery-grid{
       display:grid;
       grid-template-columns:repeat(2, 1fr);
@@ -891,18 +902,18 @@
       }
 
       .hero-image{
-        width:auto;
+        width:100%;
         max-width:100%;
-        display:inline-block;
+        display:block;
         padding:10px;
       }
 
       .hero-image img{
-        width:auto;
-        max-width:100%;
-        height:auto;
-        max-height:520px;
-        object-fit:contain;
+        width:100%;
+        height:520px;
+        max-height:none;
+        object-fit:cover;
+        object-position:center;
         margin:0 auto;
       }
 
@@ -987,7 +998,8 @@
 
       .hero-copy p,
       .text-block,
-      .contact-text{
+      .contact-text,
+      .gallery-note{
         font-size:16px;
       }
 
@@ -997,19 +1009,19 @@
       }
 
       .hero-image{
-        width:auto;
+        width:100%;
         max-width:100%;
-        display:inline-block;
+        display:block;
         padding:8px;
       }
 
       .hero-image img{
-        width:auto;
-        max-width:100%;
-        height:auto;
-        max-height:340px;
-        object-fit:contain;
-        margin:0 auto;
+        width:100%;
+        height:420px;
+        max-height:none;
+        object-fit:cover;
+        object-position:center;
+        margin:0;
       }
 
       .frame-title{
@@ -1245,6 +1257,12 @@
               <h2>Galeria</h2>
               <p>Zdjęcia naszych maluszków</p>
             </div>
+          </div>
+
+          <div class="gallery-note">
+            Galeria będzie regularnie uzupełniana, abyście mogli razem z nami obserwować,
+            jak nasze maluszki rosną, zmieniają się i z każdym dniem pokazują coraz więcej
+            swojego wyjątkowego charakteru. To piękny etap, którym bardzo chętnie się z Wami dzielimy.
           </div>
 
           <div class="gallery-grid">
