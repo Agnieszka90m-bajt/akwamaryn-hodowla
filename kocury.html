@@ -11,1297 +11,193 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg-1:#fffafc;
-      --bg-2:#f8eef3;
-      --panel:#fff8fb;
-      --panel-2:rgba(255,255,255,0.88);
-      --line:#f0dfe6;
-      --line-strong:#e4c8d2;
-      --line-dark:#b78898;
-      --text:#654f58;
-      --text-strong:#7a5665;
-      --text-soft:#866873;
-      --badge:#f1e5ea;
-      --shadow:0 14px 34px rgba(0,0,0,0.05);
-      --shadow-hover:0 16px 30px rgba(171,135,149,0.14);
-      --max:1320px;
-      --hero-radius:34px;
-    }
-
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      font-family:"Inter",sans-serif;
-      color:var(--text);
-      background:linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 100%);
-      overflow-x:hidden;
-    }
-
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-    img{
-      display:block;
-      max-width:100%;
-    }
-
-    button{
-      font:inherit;
-      border:none;
-      background:none;
-      cursor:pointer;
-    }
-
-    .page-wrap{
-      position:relative;
-      overflow:hidden;
-    }
-
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:5000;
-      background:rgba(255,248,251,0.95);
-      backdrop-filter:blur(10px);
-      -webkit-backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(218,189,200,0.2);
-    }
-
-    .topbar-inner{
-      width:min(var(--max), calc(100% - 36px));
-      margin:auto;
-      min-height:88px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
-    }
-
-    .brand{
-      font-family:"Cormorant Garamond",serif;
-      color:var(--text-strong);
-      white-space:nowrap;
-      font-size:58px;
-      line-height:0.95;
-      font-weight:600;
-      letter-spacing:0.2px;
-    }
-
-    .nav{
-      display:flex;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:18px;
-      color:var(--text);
-    }
-
-    .nav a{
-      font-family:"Cormorant Garamond",serif;
-      font-size:21px;
-      color:var(--text);
-      transition:0.25s ease;
-    }
-
-    .nav a:hover{
-      color:var(--text-strong);
-    }
-
-    .nav-cta{
-      min-width:152px;
-      min-height:42px;
-      padding:0 18px;
-      border:2px solid #d6b0be;
-      color:var(--text-strong);
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      font-size:16px;
-      font-weight:600;
-      letter-spacing:0.5px;
-      position:relative;
-      margin-left:14px;
-      transition:0.25s ease;
-      overflow:hidden;
-      background:#fff8fb;
-      border-radius:16px;
-      box-shadow:0 8px 18px rgba(171,135,149,0.08);
-    }
-
-    .nav-cta:hover{
-      box-shadow:0 12px 22px rgba(171,135,149,0.14);
-      transform:translateY(-2px);
-    }
-
-    .nav-cta::before,
-    .nav-cta::after{
-      content:"";
-      position:absolute;
-      width:14px;
-      height:14px;
-      border-color:#b78898;
-      z-index:2;
-    }
-
-    .nav-cta::before{
-      top:-2px;
-      left:-2px;
-      border-top:3px solid #b78898;
-      border-left:3px solid #b78898;
-      border-radius:10px 0 0 0;
-    }
-
-    .nav-cta::after{
-      right:-2px;
-      bottom:-2px;
-      border-right:3px solid #b78898;
-      border-bottom:3px solid #b78898;
-      border-radius:0 0 10px 0;
-    }
-
-    .container{
-      width:min(var(--max), calc(100% - 36px));
-      margin:auto;
-      padding:34px 0 80px;
-      position:relative;
-      z-index:1;
-    }
-
-    .fade-in{
-      opacity:0;
-      transform:translateY(42px);
-      transition:opacity 0.85s ease, transform 0.85s ease;
-    }
-
-    .fade-in.show{
-      opacity:1;
-      transform:translateY(0);
-    }
-
-    @keyframes softSweep{
-      0%{
-        transform:translateX(-180%) rotate(16deg);
-        opacity:0;
-      }
-      18%{
-        opacity:1;
-      }
-      100%{
-        transform:translateX(260%) rotate(16deg);
-        opacity:0;
-      }
-    }
-
-    @keyframes frameGlow{
-      0%,100%{
-        box-shadow:
-          0 0 0 rgba(183,136,152,0),
-          0 12px 30px rgba(171,135,149,0.10);
-      }
-      50%{
-        box-shadow:
-          0 0 18px rgba(183,136,152,0.10),
-          0 16px 34px rgba(171,135,149,0.16);
-      }
-    }
-
-    .animated-frame{
-      position:relative;
-      overflow:hidden;
-      animation:frameGlow 3.2s ease-in-out infinite;
-    }
-
-    .animated-frame::before{
-      content:"";
-      position:absolute;
-      top:-130%;
-      left:-45%;
-      width:34%;
-      height:380%;
-      background:linear-gradient(
-        90deg,
-        rgba(183,136,152,0) 0%,
-        rgba(183,136,152,0.10) 40%,
-        rgba(255,255,255,0.55) 50%,
-        rgba(183,136,152,0.10) 60%,
-        rgba(183,136,152,0) 100%
-      );
-      transform:translateX(-180%) rotate(16deg);
-      opacity:0;
-      pointer-events:none;
-      z-index:3;
-    }
-
-    .animated-frame:hover::before{
-      opacity:1;
-      animation:softSweep 1.35s ease;
-    }
-
-    .hero{
-      display:grid;
-      grid-template-columns:1.02fr 0.98fr;
-      gap:34px;
-      align-items:center;
-      min-height:680px;
-      margin-bottom:54px;
-    }
-
-    .hero-copy{
-      padding:18px 0;
-    }
-
-    .hero-line{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-bottom:24px;
-    }
-
-    .hero-line::before{
-      content:"";
-      width:150px;
-      height:3px;
-      background:linear-gradient(90deg,#e4c8d2 0%, #b78898 50%, #e4c8d2 100%);
-      border-radius:999px;
-      flex-shrink:0;
-    }
-
-    .hero-line::after{
-      content:"";
-      width:26px;
-      height:2px;
-      background:#b78898;
-      border-radius:999px;
-      flex-shrink:0;
-    }
-
-    .hero-line span{
-      display:block;
-      width:150px;
-      height:3px;
-      background:linear-gradient(90deg,#e4c8d2 0%, #b78898 50%, #e4c8d2 100%);
-      border-radius:999px;
-      flex-shrink:0;
-    }
-
-    .hero-copy h1{
-      font-family:"Cormorant Garamond",serif;
-      font-size:82px;
-      line-height:0.94;
-      font-weight:600;
-      color:var(--text-strong);
-      margin-bottom:18px;
-    }
-
-    .hero-accent{
-      font-family:"Cormorant Garamond",serif;
-      font-size:28px;
-      line-height:1.2;
-      color:var(--text-soft);
-      font-style:italic;
-      margin-bottom:26px;
-    }
-
-    .hero-copy p{
-      max-width:670px;
-      font-size:17px;
-      line-height:2;
-      color:var(--text);
-      margin-bottom:26px;
-    }
-
-    .hero-mini{
-      color:var(--text-soft);
-      font-family:"Cormorant Garamond",serif;
-      font-size:28px;
-      line-height:1.2;
-      font-style:italic;
-      margin-bottom:28px;
-    }
-
-    .hero-btn{
-      min-width:150px;
-      min-height:42px;
-      padding:0 18px;
-      border:2px solid #d6b0be;
-      color:var(--text-strong);
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      font-size:16px;
-      font-weight:600;
-      position:relative;
-      letter-spacing:0.3px;
-      transition:0.25s ease;
-      overflow:hidden;
-      border-radius:16px;
-      background:#fff8fb;
-      box-shadow:0 8px 18px rgba(171,135,149,0.08);
-    }
-
-    .hero-btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 12px 22px rgba(171,135,149,0.14);
-    }
-
-    .hero-btn::before,
-    .hero-btn::after{
-      content:"";
-      position:absolute;
-      width:14px;
-      height:14px;
-      border-color:#b78898;
-      z-index:2;
-    }
-
-    .hero-btn::before{
-      top:-2px;
-      left:-2px;
-      border-top:3px solid #b78898;
-      border-left:3px solid #b78898;
-      border-radius:10px 0 0 0;
-    }
-
-    .hero-btn::after{
-      right:-2px;
-      bottom:-2px;
-      border-right:3px solid #b78898;
-      border-bottom:3px solid #b78898;
-      border-radius:0 0 10px 0;
-    }
-
-    .hero-image-wrap{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      width:100%;
-    }
-
-    .hero-image{
-      width:100%;
-      max-width:100%;
-      display:block;
-      border:1px solid var(--line-strong);
-      padding:10px;
-      background:#fff8fb;
-      box-shadow:var(--shadow);
-      transition:0.4s ease;
-      border-radius:30px;
-    }
-
-    .hero-image:hover{
-      transform:translateY(-6px);
-      box-shadow:var(--shadow-hover);
-      border-color:#d6b0be;
-    }
-
-    .hero-image img{
-      display:block;
-      width:100%;
-      height:auto;
-      max-height:none;
-      object-fit:contain;
-      object-position:center;
-      border-radius:22px;
-      background:#fff8fb;
-    }
-
-    .section{
-      margin-bottom:54px;
-    }
-
-    .section-wrap{
-      background:var(--panel-2);
-      padding:40px;
-      border-radius:30px;
-      box-shadow:var(--shadow);
-    }
-
-    .section-header{
-      text-align:center;
-      margin-bottom:34px;
-      position:relative;
-    }
-
-    .frame-title{
-      display:inline-block;
-      position:relative;
-      padding:34px 46px;
-    }
-
-    .frame-title::before,
-    .frame-title::after,
-    .frame-title .corner-in::before,
-    .frame-title .corner-in::after{
-      content:"";
-      position:absolute;
-      pointer-events:none;
-    }
-
-    .frame-title::before{
-      top:0;
-      left:0;
-      width:120px;
-      height:78px;
-      border-top:2px solid var(--line-dark);
-      border-left:2px solid var(--line-dark);
-    }
-
-    .frame-title::after{
-      right:0;
-      bottom:0;
-      width:120px;
-      height:78px;
-      border-right:2px solid var(--line-dark);
-      border-bottom:2px solid var(--line-dark);
-    }
-
-    .frame-title .corner-in::before{
-      top:10px;
-      left:10px;
-      width:76px;
-      height:48px;
-      border-top:2px solid rgba(183,136,152,0.55);
-      border-left:2px solid rgba(183,136,152,0.55);
-    }
-
-    .frame-title .corner-in::after{
-      right:10px;
-      bottom:10px;
-      width:76px;
-      height:48px;
-      border-right:2px solid rgba(183,136,152,0.55);
-      border-bottom:2px solid rgba(183,136,152,0.55);
-    }
-
-    .section-header h2{
-      font-family:"Cormorant Garamond",serif;
-      font-size:64px;
-      font-weight:600;
-      line-height:1;
-      color:var(--text-strong);
-      margin-bottom:10px;
-      position:relative;
-      z-index:2;
-    }
-
-    .section-header p{
-      color:var(--text-soft);
-      font-family:"Cormorant Garamond",serif;
-      font-size:24px;
-      font-style:italic;
-      line-height:1.3;
-      position:relative;
-      z-index:2;
-    }
-
-    .intro-layout{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:34px;
-      align-items:start;
-    }
-
-    .text-block{
-      color:var(--text);
-      font-size:17px;
-      line-height:2;
-    }
-
-    .text-block p{
-      margin-bottom:18px;
-    }
-
-    .info-cards{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-
-    .info-card{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:22px 20px;
-      min-height:132px;
-      box-shadow:0 10px 26px rgba(171,135,149,0.08);
-      transition:0.35s ease;
-    }
-
-    .info-card:hover{
-      transform:translateY(-4px);
-      border-color:#d6b0be;
-      box-shadow:var(--shadow-hover);
-    }
-
-    .info-card strong{
-      display:block;
-      font-family:"Cormorant Garamond",serif;
-      font-size:34px;
-      line-height:1;
-      color:var(--text-strong);
-      margin-bottom:10px;
-      font-weight:600;
-    }
-
-    .info-card span{
-      display:block;
-      color:var(--text);
-      font-size:15px;
-      line-height:1.7;
-    }
-
-    .cats-grid{
-      display:grid;
-      gap:28px;
-    }
-
-    .cat-card{
-      display:grid;
-      grid-template-columns:380px 1fr;
-      gap:28px;
-      padding:26px;
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:30px;
-      box-shadow:0 14px 32px rgba(171,135,149,0.08);
-      transition:transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    .cat-card:hover{
-      transform:translateY(-6px);
-      box-shadow:var(--shadow-hover);
-      border-color:#d6b0be;
-    }
-
-    .cat-photo-wrap{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .cat-photo{
-      display:inline-block;
-      border:1px solid var(--line-strong);
-      padding:10px;
-      background:#fff8fb;
-      box-shadow:0 10px 30px rgba(171,135,149,0.10);
-      transition:all 0.4s ease;
-      border-radius:30px;
-    }
-
-    .cat-card:hover .cat-photo{
-      transform:translateY(-6px) scale(1.015);
-      box-shadow:var(--shadow-hover);
-      border-color:#d6b0be;
-    }
-
-    .cat-photo img{
-      display:block;
-      width:auto;
-      max-width:100%;
-      height:auto;
-      max-height:430px;
-      object-fit:contain;
-      background:#fff8fb;
-      border-radius:22px;
-      cursor:pointer;
-    }
-
-    .cat-copy{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-
-    .cat-label{
-      display:inline-block;
-      width:max-content;
-      margin-bottom:16px;
-      color:var(--text-soft);
-      font-size:13px;
-      font-weight:700;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      background:var(--badge);
-      padding:8px 14px;
-      border-radius:999px;
-    }
-
-    .cat-copy h3{
-      font-family:"Cormorant Garamond",serif;
-      font-size:52px;
-      line-height:1;
-      color:var(--text-strong);
-      margin-bottom:14px;
-      font-weight:600;
-    }
-
-    .meta{
-      display:grid;
-      gap:7px;
-      margin-bottom:18px;
-      color:var(--text);
-      font-size:16px;
-      line-height:1.8;
-    }
-
-    .meta strong{
-      color:var(--text-strong);
-    }
-
-    .cat-copy p{
-      color:var(--text);
-      font-size:16px;
-      line-height:1.95;
-      margin-bottom:18px;
-    }
-
-    .badge-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .badge{
-      min-height:38px;
-      padding:0 14px;
-      border:1px solid #e4c8d2;
-      color:var(--text-strong);
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:700;
-      background:var(--badge);
-      transition:0.25s ease;
-    }
-
-    .badge:hover{
-      border-color:#d6b0be;
-      background:#efe0e7;
-    }
-
-    .contact-layout{
-      display:grid;
-      grid-template-columns:1.1fr 0.9fr;
-      gap:24px;
-      align-items:stretch;
-    }
-
-    .contact-text{
-      font-size:19px;
-      line-height:1.8;
-      color:var(--text);
-      text-align:left;
-    }
-
-    .contact-box{
-      text-align:center;
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:26px;
-      box-shadow:0 10px 24px rgba(171,135,149,0.08);
-    }
-
-    .contact-box h3{
-      font-size:30px;
-      color:var(--text-strong);
-      margin-bottom:10px;
-      font-family:"Cormorant Garamond",serif;
-    }
-
-    .contact-note{
-      font-size:18px;
-      line-height:1.6;
-      color:var(--text-soft);
-      margin-bottom:18px;
-      font-style:italic;
-      font-family:"Cormorant Garamond",serif;
-    }
-
-    .contact-links{
-      display:grid;
-      gap:12px;
-    }
-
-    .contact-link{
-      min-height:52px;
-      background:var(--badge);
-      color:var(--text-strong);
-      border-radius:18px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:0 18px;
-      font-size:16px;
-      font-weight:700;
-      text-align:center;
-      box-shadow:0 8px 18px rgba(171,135,149,0.08);
-      border:1px solid #ead8e0;
-    }
-
-    .lightbox{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.82);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-      padding:20px;
-      touch-action:none;
-    }
-
-    .lightbox.show{
-      display:flex;
-    }
-
-    .lightbox-inner{
-      position:relative;
-      width:min(100%, 1100px);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .lightbox img{
-      max-width:92%;
-      max-height:92%;
-      border:2px solid #d6b0be;
-      box-shadow:0 24px 55px rgba(0,0,0,0.35);
-      user-select:none;
-      -webkit-user-drag:none;
-      border-radius:22px;
-      background:#fff8fb;
-    }
-
-    .lightbox-close{
-      position:absolute;
-      top:-10px;
-      right:0;
-      width:48px;
-      height:48px;
-      border-radius:50%;
-      background:rgba(255,255,255,0.22);
-      color:#fff;
-      font-size:28px;
-      cursor:pointer;
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
-    }
-
-    @media (min-width:769px) and (max-width:1100px){
-      .hero{
-        grid-template-columns:1fr;
-        min-height:auto;
-      }
-
-      .hero-copy{
-        order:2;
-        padding-top:0;
-      }
-
-      .hero-image-wrap{
-        order:1;
-        justify-content:center;
-      }
-
-      .hero-image{
-        width:100%;
-        max-width:100%;
-        display:block;
-        padding:10px;
-      }
-
-      .hero-image img{
-        width:100%;
-        height:auto;
-        max-height:none;
-        object-fit:contain;
-        object-position:center;
-        margin:0;
-      }
-
-      .intro-layout{
-        grid-template-columns:1fr;
-      }
-    }
-
-    @media (max-width:980px){
-      .cat-card,
-      .contact-layout,
-      .intro-layout{
-        grid-template-columns:1fr;
-      }
-    }
-
-    @media (max-width:768px){
-      .topbar-inner{
-        width:min(var(--max), calc(100% - 20px));
-        justify-content:center;
-        padding:14px 0;
-      }
-
-      .brand{
-        width:100%;
-        text-align:center;
-        font-size:44px;
-      }
-
-      .nav{
-        justify-content:center;
-        gap:12px;
-      }
-
-      .nav a{
-        font-size:18px;
-      }
-
-      .nav-cta{
-        margin-left:0;
-      }
-
-      .container{
-        width:min(var(--max), calc(100% - 20px));
-        padding:20px 0 48px;
-      }
-
-      .hero{
-        grid-template-columns:1fr;
-        gap:20px;
-        min-height:auto;
-      }
-
-      .hero-copy{
-        order:2;
-      }
-
-      .hero-image-wrap{
-        order:1;
-        width:100%;
-        justify-content:center;
-      }
-
-      .hero-copy h1{
-        font-size:44px;
-      }
-
-      .hero-accent,
-      .hero-mini{
-        font-size:22px;
-      }
-
-      .hero-copy p,
-      .text-block,
-      .contact-text{
-        font-size:16px;
-      }
-
-      .info-cards{
-        grid-template-columns:1fr;
-      }
-
-      .hero-image{
-        width:100%;
-        max-width:100%;
-        display:block;
-        padding:8px;
-      }
-
-      .hero-image img{
-        width:100%;
-        height:auto;
-        max-height:none;
-        object-fit:contain;
-        object-position:center;
-        margin:0;
-        border-radius:18px;
-      }
-
-      .frame-title{
-        padding:24px 22px;
-      }
-
-      .frame-title::before{
-        width:92px;
-        height:64px;
-      }
-
-      .frame-title::after{
-        width:92px;
-        height:64px;
-      }
-
-      .frame-title .corner-in::before{
-        width:56px;
-        height:36px;
-      }
-
-      .frame-title .corner-in::after{
-        width:56px;
-        height:36px;
-      }
-
-      .section-header h2{
-        font-size:44px;
-      }
-
-      .section-header p{
-        font-size:20px;
-      }
-
-      .cat-photo img{
-        height:auto;
-        max-height:420px;
-        object-fit:contain;
-      }
-
-      .cat-copy h3{
-        font-size:36px;
-      }
-
-      .lightbox-close{
-        width:42px;
-        height:42px;
-        font-size:24px;
-        top:-6px;
-      }
-    }
+  /* ⚠️ TU WKLEJ SWÓJ ORYGINALNY CSS 1:1 (NIC NIE USUWAJ) */
   </style>
 </head>
+
 <body>
-  <div class="page-wrap">
+<div class="page-wrap">
 
-    <header class="topbar fade-in">
-      <div class="topbar-inner">
-        <div class="brand">Akwamaryn*PL</div>
+<header class="topbar fade-in">
+  <div class="topbar-inner">
+    <div class="brand">Akwamaryn*PL</div>
 
-        <nav class="nav">
-          <a href="index.html">Start</a>
-          <a href="kotki.html">Kotki hodowlane</a>
-          <a href="kocury.html">Kocury hodowlane</a>
-          <a href="kocieta.html">Moje kocięta</a>
-          <a href="miot.html">Aktualny miot</a>
-          <a href="galeria.html">Galeria</a>
-          <a href="kontakt.html">Kontakt</a>
-          <a href="rezerwacja.html" class="nav-cta">REZERWACJA</a>
-        </nav>
-      </div>
-    </header>
+    <nav class="nav">
+      <a href="index.html">Start</a>
+      <a href="kotki.html">Kotki hodowlane</a>
+      <a href="kocury.html">Kocury hodowlane</a>
+      <a href="miot.html">Aktualny miot</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="rezerwacja.html" class="nav-cta">REZERWACJA</a>
+      <a href="wychowanki.html">Nasze wychowanki</a>
+    </nav>
+  </div>
+</header>
 
-    <main class="container">
+<main class="container">
 
-      <section class="hero fade-in">
-        <div class="hero-copy">
-          <div class="hero-line"><span></span></div>
-          <h1>Kocury hodowlane</h1>
-          <div class="hero-accent">Elegancja, typ i wyjątkowe pochodzenie</div>
+<!-- ================= HERO ================= -->
 
-          <p>
-            W tej zakładce prezentujemy nasze kocury hodowlane – wyjątkowych przedstawicieli swoich ras,
-            którzy współtworzą charakter hodowli Akwamaryn*PL. To piękno, linie, zdrowie i temperament
-            zamknięte w wyjątkowych osobowościach.
-          </p>
+<section class="hero fade-in">
+  <div class="hero-copy">
+    <div class="hero-line"><span></span></div>
+    <h1>Kocury hodowlane</h1>
+    <div class="hero-accent">Elegancja, typ i wyjątkowe pochodzenie</div>
 
-          <div class="hero-mini">✦ Kocury hodowlane Akwamaryn*PL ✦</div>
+    <p>
+      W tej zakładce prezentujemy nasze kocury hodowlane – wyjątkowych przedstawicieli swoich ras,
+      którzy współtworzą charakter hodowli Akwamaryn*PL.
+    </p>
 
-          <a href="#kocury-lista" class="hero-btn">POZNAJ KOCURY</a>
-        </div>
+    <div class="hero-mini">✦ Kocury hodowlane Akwamaryn*PL ✦</div>
 
-        <div class="hero-image-wrap">
-          <div class="hero-image animated-frame">
-            <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL">
-          </div>
-        </div>
-      </section>
+    <a href="#kocury-lista" class="hero-btn">POZNAJ KOCURY</a>
+  </div>
 
-      <section class="section fade-in">
-        <div class="section-wrap">
-          <div class="section-header">
-            <div class="frame-title">
-              <span class="corner-in"></span>
-              <h2>Nasze kocury</h2>
-              <p>Ragdoll i norweski leśny w eleganckim wydaniu</p>
-            </div>
-          </div>
+  <div class="hero-image-wrap">
+    <div class="hero-image animated-frame">
+      <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png">
+    </div>
+  </div>
+</section>
 
-          <div class="intro-layout">
-            <div class="text-block">
-              <p>
-                Każdy z naszych kocurów wnosi do hodowli coś wyjątkowego – piękny typ, harmonijną budowę,
-                doskonałe pochodzenie oraz cudowny charakter. To starannie wybrane linie, które są dla nas
-                niezwykle ważne zarówno pod względem urody, jak i zdrowia.
-              </p>
-              <p>
-                Prezentujemy tu naszych reprezentantów rasy ragdoll oraz norweskiej leśnej – kocury,
-                które są nie tylko piękne, ale też wyjątkowe w codziennym kontakcie i temperamencie.
-              </p>
-            </div>
+<!-- ================= KOCURY ================= -->
 
-            <div class="info-cards">
-              <div class="info-card">
-                <strong>4</strong>
-                <span>kocury hodowlane</span>
-              </div>
-              <div class="info-card">
-                <strong>Ragdoll</strong>
-                <span>elegancja, łagodność i piękne umaszczenia</span>
-              </div>
-              <div class="info-card">
-                <strong>NFO</strong>
-                <span>mocny typ i wyjątkowa norweska linia</span>
-              </div>
-              <div class="info-card">
-                <strong>Badania</strong>
-                <span>dbamy o zdrowie i świadomą hodowlę</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+<section class="section fade-in" id="kocury-lista">
+  <div class="section-wrap">
 
-      <section class="section fade-in" id="kocury-lista">
-        <div class="section-wrap">
-          <div class="section-header">
-            <div class="frame-title">
-              <span class="corner-in"></span>
-              <h2>Kocury hodowlane</h2>
-              <p>Poznaj naszych wyjątkowych chłopców</p>
-            </div>
-          </div>
-
-          <div class="cats-grid">
-
-            <article class="cat-card fade-in" id="oreo">
-              <div class="cat-photo-wrap">
-                <div class="cat-photo animated-frame">
-                  <img src="file_000000009f0872438e4ae2b0c8ec575d.jpg" alt="Oreo Pałuckie Pupile*PL" onclick="openImage(this)">
-                </div>
-              </div>
-
-              <div class="cat-copy">
-                <div class="cat-label">Kocur hodowlany</div>
-                <h3>Oreo Pałuckie Pupile*PL</h3>
-
-                <div class="meta">
-                  <div><strong>Rasa:</strong> Ragdoll</div>
-                  <div><strong>Umaszczenie:</strong> Seal mitted</div>
-                  <div><strong>Kod EMS:</strong> RAG n 04</div>
-                  <div><strong>Status:</strong> kocur hodowlany</div>
-                </div>
-
-                <p>
-                  Oreo to wyjątkowy przedstawiciel rasy ragdoll o spokojnym, zrównoważonym charakterze
-                  i pięknej harmonijnej budowie. Wyróżnia się intensywnie niebieskimi oczami oraz klasycznym umaszczeniem.
-                </p>
-
-                <div class="badge-row">
-                  <span class="badge">HCM N/N</span>
-                  <span class="badge">PKD N/N</span>
-                  <span class="badge">FIV/FELV N/N</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="cat-card fade-in" id="ares">
-              <div class="cat-photo-wrap">
-                <div class="cat-photo animated-frame">
-                  <img src="file_0000000057687246842c044d7fb3e790.png" alt="Ares Chouchou Chat*PL" onclick="openImage(this)">
-                </div>
-              </div>
-
-              <div class="cat-copy">
-                <div class="cat-label">Kocur hodowlany</div>
-                <h3>Ares Chouchou Chat*PL</h3>
-
-                <div class="meta">
-                  <div><strong>Rasa:</strong> Ragdoll</div>
-                  <div><strong>Umaszczenie:</strong> Blue bicolor lynx</div>
-                  <div><strong>Kod EMS:</strong> RAG a 03 21</div>
-                  <div><strong>Status:</strong> kocur hodowlany</div>
-                </div>
-
-                <p>
-                  Ares to elegancki kocur o wyjątkowym umaszczeniu oraz doskonałej budowie.
-                  Charakteryzuje się spokojnym temperamentem, bardzo kontaktowym usposobieniem
-                  i pięknym wyrazem typowym dla rasy ragdoll.
-                </p>
-
-                <div class="badge-row">
-                  <span class="badge">HCM N/N</span>
-                  <span class="badge">PKD N/N</span>
-                  <span class="badge">FIV/FELV N/N</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="cat-card fade-in" id="amor">
-              <div class="cat-photo-wrap">
-                <div class="cat-photo animated-frame">
-                  <img src="02D8D665-A28D-49BF-8F27-C4CD270B46E9.PNG" alt="Amor Błękitne Sny*PL" onclick="openImage(this)">
-                </div>
-              </div>
-
-              <div class="cat-copy">
-                <div class="cat-label">Kocur hodowlany</div>
-                <h3>Amor Błękitne Sny*PL</h3>
-
-                <div class="meta">
-                  <div><strong>Rasa:</strong> Ragdoll</div>
-                  <div><strong>Umaszczenie:</strong> Blue bicolor</div>
-                  <div><strong>Kod EMS:</strong> RAG a 03</div>
-                  <div><strong>Status:</strong> kocur hodowlany</div>
-                </div>
-
-                <p>
-                  Amor to piękny i harmonijny kocur rasy ragdoll o wyjątkowo łagodnym charakterze.
-                  Wyróżnia się spokojem, elegancją oraz bardzo dobrym kontaktem z człowiekiem,
-                  co czyni go niezwykle szlachetnym reprezentantem rasy.
-                </p>
-
-                <div class="badge-row">
-                  <span class="badge">HCM N/N</span>
-                  <span class="badge">PKD N/N</span>
-                  <span class="badge">FIV/FELV N/N</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="cat-card fade-in" id="posejdon">
-              <div class="cat-photo-wrap">
-                <div class="cat-photo animated-frame">
-                  <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL" onclick="openImage(this)">
-                </div>
-              </div>
-
-              <div class="cat-copy">
-                <div class="cat-label">Kocur hodowlany</div>
-                <h3>Posejdon Iceland*NL</h3>
-
-                <div class="meta">
-                  <div><strong>Rasa:</strong> Norweski leśny</div>
-                  <div><strong>Umaszczenie:</strong> Red &amp; white bicolour tabby blotched</div>
-                  <div><strong>Kod EMS:</strong> NFO d 03 22</div>
-                  <div><strong>Status:</strong> kocur hodowlany</div>
-                </div>
-
-                <p>
-                  Posejdon to wyjątkowy przedstawiciel rasy norweskiej leśnej o efektownym wyglądzie,
-                  mocnej budowie i pięknym umaszczeniu. Importowany z Holandii, reprezentuje doskonałą linię hodowlaną.
-                </p>
-
-                <div class="badge-row">
-                  <span class="badge">HCM N/N</span>
-                  <span class="badge">PKD N/N</span>
-                  <span class="badge">FIV/FELV N/N</span>
-                  <span class="badge">GSD IV N/N</span>
-                </div>
-              </div>
-            </article>
-
-          </div>
-        </div>
-      </section>
-
-      <section class="section fade-in">
-        <div class="section-wrap">
-          <div class="section-header">
-            <div class="frame-title">
-              <span class="corner-in"></span>
-              <h2>Kontakt</h2>
-              <p>Zapytania dotyczące kocurów hodowlanych</p>
-            </div>
-          </div>
-
-          <div class="contact-layout">
-            <div class="contact-text">
-              Jeśli chcesz dowiedzieć się więcej o naszych kocurach hodowlanych, ich pochodzeniu,
-              badaniach lub planach hodowlanych, zapraszamy do kontaktu. Chętnie odpowiemy na pytania
-              i opowiemy więcej o naszych wyjątkowych chłopcach.
-            </div>
-
-            <div class="contact-box">
-              <h3>Skontaktuj się</h3>
-              <div class="contact-note">Kliknij w mail, numer telefonu lub Facebook</div>
-
-              <div class="contact-links">
-                <a class="contact-link" href="mailto:agnieszka90m@gmail.com">✉️ agnieszka90m@gmail.com</a>
-                <a class="contact-link" href="tel:+48572992736">📞 +48 572 992 736</a>
-                <a class="contact-link" href="https://www.facebook.com/share/1DWyWWbtVH/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook Akwamaryn*PL</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <div class="lightbox" id="lightbox">
-      <div class="lightbox-inner">
-        <button class="lightbox-close" type="button" aria-label="Zamknij" id="lightboxClose">✕</button>
-        <img id="lightboxImg" alt="">
+    <div class="section-header">
+      <div class="frame-title">
+        <span class="corner-in"></span>
+        <h2>Kocury hodowlane</h2>
+        <p>Poznaj naszych wyjątkowych chłopców</p>
       </div>
     </div>
 
-    <footer>
-      © 2026 Akwamaryn*PL
-    </footer>
+    <div class="cats-grid">
+
+      <!-- 🔥 TU WKLEJ SWOJE KOCURY 1:1 (NIC NIE USUWAJ) -->
+
+    </div>
 
   </div>
+</section>
 
-  <script>
-    function openImage(img){
-      document.getElementById("lightbox").classList.add("show");
-      document.getElementById("lightboxImg").src = img.src;
-      document.getElementById("lightboxImg").alt = img.alt || "";
-      document.body.style.overflow = "hidden";
+<!-- ================= WYCHOWANKI ================= -->
+
+<section class="section fade-in">
+  <div class="section-wrap">
+
+    <div class="section-header">
+      <div class="frame-title">
+        <span class="corner-in"></span>
+        <h2>Nasze wychowanki</h2>
+        <p>Kocięta z naszej hodowli w nowych domach</p>
+      </div>
+    </div>
+
+    <div class="intro-layout">
+
+      <div class="text-block">
+        <p>
+          W tej zakładce znajdziecie kocięta urodzone w naszej hodowli Akwamaryn*PL,
+          które dziś żyją w swoich nowych, kochających domach.
+        </p>
+
+        <p>
+          Każde z nich było częścią naszej codzienności – od pierwszych chwil życia,
+          przez wspólne chwile pełne czułości, aż po moment wyjazdu do nowej rodziny.
+        </p>
+
+        <p>
+          To właśnie tutaj kształtował się ich charakter, powstawała więź z człowiekiem
+          i rodziło się zaufanie, które zabierają ze sobą dalej.
+        </p>
+
+        <p>
+          Nasze wychowanki to nie tylko piękne koty – to przede wszystkim cudowne,
+          zrównoważone osobowości, które wnoszą do nowych domów spokój, radość i ogrom miłości.
+        </p>
+      </div>
+
+      <div class="info-cards">
+        <div class="info-card">
+          <strong>Domowy odchów</strong>
+          <span>bliskość i bezpieczeństwo od pierwszych dni</span>
+        </div>
+
+        <div class="info-card">
+          <strong>Socjalizacja</strong>
+          <span>kontakt z człowiekiem i codziennym życiem</span>
+        </div>
+
+        <div class="info-card">
+          <strong>Charakter</strong>
+          <span>stabilne i ufne kocięta</span>
+        </div>
+
+        <div class="info-card">
+          <strong>Akwamaryn*PL</strong>
+          <span>miłość, która zostaje na zawsze</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= KONTAKT ================= -->
+
+<section class="section fade-in">
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="frame-title">
+        <span class="corner-in"></span>
+        <h2>Kontakt</h2>
+        <p>Zapraszamy do kontaktu</p>
+      </div>
+    </div>
+
+    <div class="contact-layout">
+      <div class="contact-text">
+        Jeśli chcesz dowiedzieć się więcej o naszych kotach lub wychowankach,
+        zapraszamy do kontaktu.
+      </div>
+
+      <div class="contact-box">
+        <h3>Skontaktuj się</h3>
+
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:agnieszka90m@gmail.com">✉️ mail</a>
+          <a class="contact-link" href="tel:+48572992736">📞 telefon</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+© 2026 Akwamaryn*PL
+</footer>
+
+</div>
+
+<script>
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
     }
+  });
+},{threshold:0.18});
 
-    function closeImage(){
-      document.getElementById("lightbox").classList.remove("show");
-      document.body.style.overflow = "";
-    }
+document.querySelectorAll(".fade-in").forEach(el=>{
+  observer.observe(el);
+});
+</script>
 
-    document.getElementById("lightboxClose").addEventListener("click", closeImage);
-    document.getElementById("lightbox").addEventListener("click", (e)=>{
-      if(e.target.id === "lightbox"){
-        closeImage();
-      }
-    });
-
-    document.addEventListener("keydown", (e)=>{
-      const lightbox = document.getElementById("lightbox");
-      if(!lightbox.classList.contains("show")) return;
-      if(e.key === "Escape"){
-        closeImage();
-      }
-    });
-
-    const observer = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add("show");
-        }
-      });
-    }, { threshold:0.18 });
-
-    document.querySelectorAll(".fade-in").forEach(el=>{
-      observer.observe(el);
-    });
-  </script>
 </body>
 </html>
