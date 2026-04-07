@@ -1,249 +1,961 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Moje kocięta | Akwamaryn*PL</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moje kocięta | Akwamaryn*PL</title>
+  <meta name="description" content="Kocięta urodzone w hodowli Akwamaryn*PL oraz zdjęcia z nowych domów." />
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --bg1:#fffafc;
-  --bg2:#f8eef3;
-  --text:#654f58;
-  --strong:#7a5665;
-  --soft:#866873;
-  --line:#e4c8d2;
-  --panel:#fff8fb;
-  --shadow:0 16px 36px rgba(171,135,149,0.12);
-}
+  <style>
+    :root{
+      --bg-1:#fffafc;
+      --bg-2:#f8eef3;
+      --panel:#fff8fb;
+      --panel-2:rgba(255,255,255,0.88);
+      --line:#f0dfe6;
+      --line-strong:#e4c8d2;
+      --line-dark:#b78898;
+      --text:#654f58;
+      --text-strong:#7a5665;
+      --text-soft:#866873;
+      --badge:#f1e5ea;
+      --shadow:0 14px 34px rgba(0,0,0,0.05);
+      --shadow-hover:0 16px 30px rgba(171,135,149,0.14);
+      --max:1320px;
+    }
 
-*{box-sizing:border-box;margin:0;padding:0;}
-body{
-  font-family:"Inter",sans-serif;
-  background:linear-gradient(180deg,var(--bg1),var(--bg2));
-  color:var(--text);
-}
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
 
-a{text-decoration:none;color:inherit;}
+    html{
+      scroll-behavior:smooth;
+    }
 
-.topbar{
-  position:sticky;top:0;z-index:5000;
-  background:rgba(255,248,251,0.95);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(218,189,200,0.2);
-}
+    body{
+      font-family:"Inter",sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 100%);
+      overflow-x:hidden;
+    }
 
-.topbar-inner{
-  max-width:1280px;margin:auto;
-  padding:16px 20px;
-  display:flex;justify-content:space-between;
-}
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
 
-.brand{
-  font-family:"Cormorant Garamond";
-  font-size:44px;
-  color:var(--strong);
-}
+    img{
+      display:block;
+      max-width:100%;
+    }
 
-/* HERO */
-.hero{
-  position:relative;
-  height:420px;
-  overflow:hidden;
-}
+    button{
+      font:inherit;
+      border:none;
+      background:none;
+      cursor:pointer;
+    }
 
-.hero img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
+    .page-wrap{
+      position:relative;
+      overflow:hidden;
+    }
 
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to bottom,rgba(255,255,255,0) 60%,#f8eef3 100%);
-}
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:5000;
+      background:rgba(255,248,251,0.95);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(218,189,200,0.2);
+    }
 
-/* CONTENT */
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:40px 20px;
-}
+    .topbar-inner{
+      width:min(var(--max), calc(100% - 36px));
+      margin:auto;
+      min-height:88px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
 
-.section{
-  background:rgba(255,255,255,0.85);
-  padding:40px;
-  border-radius:30px;
-  box-shadow:var(--shadow);
-}
+    .brand{
+      font-family:"Cormorant Garamond",serif;
+      color:var(--text-strong);
+      white-space:nowrap;
+      font-size:58px;
+      line-height:0.95;
+      font-weight:600;
+      letter-spacing:0.2px;
+    }
 
-/* TITLE FRAME */
-.frame{
-  text-align:center;
-  margin-bottom:30px;
-  position:relative;
-}
+    .nav{
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:18px;
+      color:var(--text);
+    }
 
-.frame h1{
-  font-family:"Cormorant Garamond";
-  font-size:54px;
-  color:var(--strong);
-}
+    .nav a{
+      font-family:"Cormorant Garamond",serif;
+      font-size:21px;
+      color:var(--text);
+      transition:0.25s ease;
+    }
 
-.frame::before,
-.frame::after{
-  content:"";
-  position:absolute;
-  width:120px;
-  height:60px;
-  border:2px solid #b78898;
-}
+    .nav a:hover{
+      color:var(--text-strong);
+    }
 
-.frame::before{
-  top:0;left:0;
-}
-.frame::after{
-  bottom:0;right:0;
-}
+    .nav-cta{
+      min-width:152px;
+      min-height:42px;
+      padding:0 18px;
+      border:2px solid #d6b0be;
+      color:var(--text-strong);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:16px;
+      font-weight:600;
+      letter-spacing:0.5px;
+      position:relative;
+      margin-left:14px;
+      transition:0.25s ease;
+      overflow:hidden;
+      background:#fff8fb;
+      border-radius:16px;
+      box-shadow:0 8px 18px rgba(171,135,149,0.08);
+    }
 
-/* DOUBLE LINES */
-.line{
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  margin:20px 0;
-}
+    .nav-cta:hover{
+      box-shadow:0 12px 22px rgba(171,135,149,0.14);
+      transform:translateY(-2px);
+    }
 
-.line span{
-  height:2px;
-  border-radius:999px;
-}
+    .nav-cta::before,
+    .nav-cta::after{
+      content:"";
+      position:absolute;
+      width:14px;
+      height:14px;
+      border-color:#b78898;
+      z-index:2;
+    }
 
-.line .long{width:120px;background:#b78898;}
-.line .short{width:40px;background:#d8b8c4;}
+    .nav-cta::before{
+      top:-2px;
+      left:-2px;
+      border-top:3px solid #b78898;
+      border-left:3px solid #b78898;
+      border-radius:10px 0 0 0;
+    }
 
-/* TEXT */
-.desc{
-  text-align:center;
-  font-size:18px;
-  line-height:2;
-  max-width:900px;
-  margin:auto;
-  color:var(--soft);
-}
+    .nav-cta::after{
+      right:-2px;
+      bottom:-2px;
+      border-right:3px solid #b78898;
+      border-bottom:3px solid #b78898;
+      border-radius:0 0 10px 0;
+    }
 
-/* GRID */
-.grid{
-  margin-top:40px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:24px;
-}
+    .container{
+      width:min(var(--max), calc(100% - 36px));
+      margin:auto;
+      padding:34px 0 80px;
+      position:relative;
+      z-index:1;
+    }
 
-.card{
-  background:var(--panel);
-  border-radius:26px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-  transition:0.3s;
-}
+    .fade-in{
+      opacity:0;
+      transform:translateY(42px);
+      transition:opacity 0.85s ease, transform 0.85s ease;
+    }
 
-.card:hover{
-  transform:translateY(-6px);
-}
+    .fade-in.show{
+      opacity:1;
+      transform:translateY(0);
+    }
 
-.card img{
-  width:100%;
-  height:300px;
-  object-fit:cover;
-}
+    @keyframes softSweep{
+      0%{
+        transform:translateX(-180%) rotate(16deg);
+        opacity:0;
+      }
+      18%{
+        opacity:1;
+      }
+      100%{
+        transform:translateX(260%) rotate(16deg);
+        opacity:0;
+      }
+    }
 
-.card p{
-  padding:16px;
-  text-align:center;
-  font-size:16px;
-}
+    @keyframes frameGlow{
+      0%,100%{
+        box-shadow:
+          0 0 0 rgba(183,136,152,0),
+          0 12px 30px rgba(171,135,149,0.10);
+      }
+      50%{
+        box-shadow:
+          0 0 18px rgba(183,136,152,0.10),
+          0 16px 34px rgba(171,135,149,0.16);
+      }
+    }
 
-/* MOBILE */
-@media(max-width:768px){
-.hero{height:260px;}
-.frame h1{font-size:34px;}
-}
-</style>
+    .animated-frame{
+      position:relative;
+      overflow:hidden;
+      animation:frameGlow 3.2s ease-in-out infinite;
+    }
+
+    .animated-frame::before{
+      content:"";
+      position:absolute;
+      top:-130%;
+      left:-45%;
+      width:34%;
+      height:380%;
+      background:linear-gradient(
+        90deg,
+        rgba(183,136,152,0) 0%,
+        rgba(183,136,152,0.10) 40%,
+        rgba(255,255,255,0.55) 50%,
+        rgba(183,136,152,0.10) 60%,
+        rgba(183,136,152,0) 100%
+      );
+      transform:translateX(-180%) rotate(16deg);
+      opacity:0;
+      pointer-events:none;
+      z-index:3;
+    }
+
+    .animated-frame:hover::before{
+      opacity:1;
+      animation:softSweep 1.35s ease;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.02fr 0.98fr;
+      gap:34px;
+      align-items:center;
+      min-height:680px;
+      margin-bottom:54px;
+    }
+
+    .hero-copy{
+      padding:18px 0;
+    }
+
+    .hero-line{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:24px;
+    }
+
+    .hero-line::before{
+      content:"";
+      width:150px;
+      height:3px;
+      background:linear-gradient(90deg,#e4c8d2 0%, #b78898 50%, #e4c8d2 100%);
+      border-radius:999px;
+      flex-shrink:0;
+    }
+
+    .hero-line::after{
+      content:"";
+      width:26px;
+      height:2px;
+      background:#b78898;
+      border-radius:999px;
+      flex-shrink:0;
+    }
+
+    .hero-line span{
+      display:block;
+      width:150px;
+      height:3px;
+      background:linear-gradient(90deg,#e4c8d2 0%, #b78898 50%, #e4c8d2 100%);
+      border-radius:999px;
+      flex-shrink:0;
+    }
+
+    .hero-copy h1{
+      font-family:"Cormorant Garamond",serif;
+      font-size:82px;
+      line-height:0.94;
+      font-weight:600;
+      color:var(--text-strong);
+      margin-bottom:18px;
+    }
+
+    .hero-accent{
+      font-family:"Cormorant Garamond",serif;
+      font-size:28px;
+      line-height:1.2;
+      color:var(--text-soft);
+      font-style:italic;
+      margin-bottom:26px;
+    }
+
+    .hero-copy p{
+      max-width:700px;
+      font-size:17px;
+      line-height:2;
+      color:var(--text);
+      margin-bottom:26px;
+    }
+
+    .hero-mini{
+      color:var(--text-soft);
+      font-family:"Cormorant Garamond",serif;
+      font-size:28px;
+      line-height:1.2;
+      font-style:italic;
+      margin-bottom:28px;
+    }
+
+    .hero-btn{
+      min-width:150px;
+      min-height:42px;
+      padding:0 18px;
+      border:2px solid #d6b0be;
+      color:var(--text-strong);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:16px;
+      font-weight:600;
+      position:relative;
+      letter-spacing:0.3px;
+      transition:0.25s ease;
+      overflow:hidden;
+      border-radius:16px;
+      background:#fff8fb;
+      box-shadow:0 8px 18px rgba(171,135,149,0.08);
+    }
+
+    .hero-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 12px 22px rgba(171,135,149,0.14);
+    }
+
+    .hero-btn::before,
+    .hero-btn::after{
+      content:"";
+      position:absolute;
+      width:14px;
+      height:14px;
+      border-color:#b78898;
+      z-index:2;
+    }
+
+    .hero-btn::before{
+      top:-2px;
+      left:-2px;
+      border-top:3px solid #b78898;
+      border-left:3px solid #b78898;
+      border-radius:10px 0 0 0;
+    }
+
+    .hero-btn::after{
+      right:-2px;
+      bottom:-2px;
+      border-right:3px solid #b78898;
+      border-bottom:3px solid #b78898;
+      border-radius:0 0 10px 0;
+    }
+
+    .hero-image-wrap{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+    }
+
+    .hero-image{
+      width:100%;
+      max-width:100%;
+      display:block;
+      border:1px solid var(--line-strong);
+      padding:10px;
+      background:#fff8fb;
+      box-shadow:var(--shadow);
+      transition:0.4s ease;
+      border-radius:30px;
+    }
+
+    .hero-image:hover{
+      transform:translateY(-6px);
+      box-shadow:var(--shadow-hover);
+      border-color:#d6b0be;
+    }
+
+    .hero-image img{
+      display:block;
+      width:100%;
+      height:auto;
+      max-height:none;
+      object-fit:contain;
+      object-position:center;
+      border-radius:22px;
+      background:#fff8fb;
+    }
+
+    .section{
+      margin-bottom:54px;
+    }
+
+    .section-wrap{
+      background:var(--panel-2);
+      padding:40px;
+      border-radius:30px;
+      box-shadow:var(--shadow);
+    }
+
+    .section-header{
+      text-align:center;
+      margin-bottom:34px;
+      position:relative;
+    }
+
+    .frame-title{
+      display:inline-block;
+      position:relative;
+      padding:34px 46px;
+    }
+
+    .frame-title::before,
+    .frame-title::after,
+    .frame-title .corner-in::before,
+    .frame-title .corner-in::after{
+      content:"";
+      position:absolute;
+      pointer-events:none;
+    }
+
+    .frame-title::before{
+      top:0;
+      left:0;
+      width:120px;
+      height:78px;
+      border-top:2px solid var(--line-dark);
+      border-left:2px solid var(--line-dark);
+    }
+
+    .frame-title::after{
+      right:0;
+      bottom:0;
+      width:120px;
+      height:78px;
+      border-right:2px solid var(--line-dark);
+      border-bottom:2px solid var(--line-dark);
+    }
+
+    .frame-title .corner-in::before{
+      top:10px;
+      left:10px;
+      width:76px;
+      height:48px;
+      border-top:2px solid rgba(183,136,152,0.55);
+      border-left:2px solid rgba(183,136,152,0.55);
+    }
+
+    .frame-title .corner-in::after{
+      right:10px;
+      bottom:10px;
+      width:76px;
+      height:48px;
+      border-right:2px solid rgba(183,136,152,0.55);
+      border-bottom:2px solid rgba(183,136,152,0.55);
+    }
+
+    .section-header h2{
+      font-family:"Cormorant Garamond",serif;
+      font-size:64px;
+      font-weight:600;
+      line-height:1;
+      color:var(--text-strong);
+      margin-bottom:10px;
+      position:relative;
+      z-index:2;
+    }
+
+    .section-header p{
+      color:var(--text-soft);
+      font-family:"Cormorant Garamond",serif;
+      font-size:24px;
+      font-style:italic;
+      line-height:1.3;
+      position:relative;
+      z-index:2;
+    }
+
+    .text-block{
+      color:var(--text);
+      font-size:17px;
+      line-height:2;
+      max-width:1020px;
+      margin:0 auto;
+      text-align:center;
+    }
+
+    .text-block p{
+      margin-bottom:18px;
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+      margin-top:34px;
+    }
+
+    .gallery-item{
+      position:relative;
+      overflow:hidden;
+      border:1px solid var(--line-strong);
+      background:#fff8fb;
+      box-shadow:0 14px 30px rgba(171,135,149,0.10);
+      padding:10px;
+      border-radius:28px;
+      transition:0.35s ease;
+    }
+
+    .gallery-item:hover{
+      transform:translateY(-4px);
+      box-shadow:var(--shadow-hover);
+      border-color:#d6b0be;
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:360px;
+      object-fit:cover;
+      border-radius:20px;
+      cursor:pointer;
+      transition:transform 0.35s ease, filter 0.35s ease;
+      background:#fff8fb;
+    }
+
+    .gallery-item img:hover{
+      transform:scale(1.03);
+      filter:brightness(1.03);
+    }
+
+    .gallery-caption{
+      padding:14px 8px 4px;
+      text-align:center;
+    }
+
+    .gallery-caption h4{
+      font-family:"Cormorant Garamond",serif;
+      font-size:28px;
+      line-height:1;
+      color:var(--text-strong);
+      margin-bottom:8px;
+      font-weight:600;
+    }
+
+    .gallery-caption p{
+      color:var(--text);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.82);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+      padding:20px;
+      touch-action:none;
+    }
+
+    .lightbox.show{
+      display:flex;
+    }
+
+    .lightbox-inner{
+      position:relative;
+      width:min(100%, 1100px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .lightbox img{
+      max-width:92%;
+      max-height:92%;
+      border:2px solid #d6b0be;
+      box-shadow:0 24px 55px rgba(0,0,0,0.35);
+      user-select:none;
+      -webkit-user-drag:none;
+      border-radius:22px;
+      background:#fff8fb;
+    }
+
+    .lightbox-close{
+      position:absolute;
+      top:-10px;
+      right:0;
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.22);
+      color:#fff;
+      font-size:28px;
+      cursor:pointer;
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+    }
+
+    @media (max-width:1100px){
+      .gallery-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
+    @media (max-width:768px){
+      .topbar-inner{
+        width:min(var(--max), calc(100% - 20px));
+        justify-content:center;
+        padding:14px 0;
+      }
+
+      .brand{
+        width:100%;
+        text-align:center;
+        font-size:44px;
+      }
+
+      .nav{
+        justify-content:center;
+        gap:12px;
+      }
+
+      .nav a{
+        font-size:18px;
+      }
+
+      .nav-cta{
+        margin-left:0;
+      }
+
+      .container{
+        width:min(var(--max), calc(100% - 20px));
+        padding:20px 0 48px;
+      }
+
+      .hero{
+        grid-template-columns:1fr;
+        gap:20px;
+        min-height:auto;
+      }
+
+      .hero-copy{
+        order:2;
+      }
+
+      .hero-image-wrap{
+        order:1;
+        width:100%;
+        justify-content:center;
+      }
+
+      .hero-copy h1{
+        font-size:44px;
+      }
+
+      .hero-accent,
+      .hero-mini{
+        font-size:22px;
+      }
+
+      .hero-copy p,
+      .text-block{
+        font-size:16px;
+      }
+
+      .hero-image{
+        width:100%;
+        max-width:100%;
+        display:block;
+        padding:8px;
+      }
+
+      .hero-image img{
+        width:100%;
+        height:auto;
+        max-height:none;
+        object-fit:contain;
+        object-position:center;
+        margin:0;
+        border-radius:18px;
+      }
+
+      .frame-title{
+        padding:24px 22px;
+      }
+
+      .frame-title::before{
+        width:92px;
+        height:64px;
+      }
+
+      .frame-title::after{
+        width:92px;
+        height:64px;
+      }
+
+      .frame-title .corner-in::before{
+        width:56px;
+        height:36px;
+      }
+
+      .frame-title .corner-in::after{
+        width:56px;
+        height:36px;
+      }
+
+      .section-header h2{
+        font-size:44px;
+      }
+
+      .section-header p{
+        font-size:20px;
+      }
+
+      .gallery-grid{
+        grid-template-columns:1fr;
+      }
+
+      .gallery-item img{
+        height:300px;
+      }
+
+      .lightbox-close{
+        width:42px;
+        height:42px;
+        font-size:24px;
+        top:-6px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page-wrap">
 
-<div class="topbar">
-  <div class="topbar-inner">
-    <div class="brand">Akwamaryn*PL</div>
+    <header class="topbar fade-in">
+      <div class="topbar-inner">
+        <div class="brand">Akwamaryn*PL</div>
+
+        <nav class="nav">
+          <a href="index.html">Start</a>
+          <a href="kotki.html">Kotki hodowlane</a>
+          <a href="kocury.html">Kocury hodowlane</a>
+          <a href="kocieta.html">Moje kocięta</a>
+          <a href="miot.html">Aktualny miot</a>
+          <a href="galeria.html">Galeria</a>
+          <a href="kontakt.html">Kontakt</a>
+          <a href="rezerwacja.html" class="nav-cta">REZERWACJA</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <section class="hero fade-in">
+        <div class="hero-copy">
+          <div class="hero-line"><span></span></div>
+          <h1>Moje kocięta</h1>
+          <div class="hero-accent">Historie, które zaczęły się w naszej hodowli</div>
+
+          <p>
+            W tej zakładce znajdują się nasze kocięta – te, które przyszły na świat w hodowli Akwamaryn*PL,
+            dorastały przy nas, stawiały tu swoje pierwsze kroki, a później wyruszyły do nowych, kochających domów.
+          </p>
+
+          <div class="hero-mini">✦ Każde z nich na zawsze pozostaje częścią Akwamaryn*PL ✦</div>
+
+          <a href="#galeria-kociat" class="hero-btn">ZOBACZ KOCIĘTA</a>
+        </div>
+
+        <div class="hero-image-wrap">
+          <div class="hero-image animated-frame">
+            <img src="TU_WKLEJ_GLOWNE_ZDJECIE_KOCIAT.png" alt="Kocięta z hodowli Akwamaryn*PL">
+          </div>
+        </div>
+      </section>
+
+      <section class="section fade-in">
+        <div class="section-wrap">
+          <div class="section-header">
+            <div class="frame-title">
+              <span class="corner-in"></span>
+              <h2>Nasze kocięta</h2>
+              <p>Miłość, wspomnienia i najpiękniejszy początek nowego życia</p>
+            </div>
+          </div>
+
+          <div class="text-block">
+            <p>
+              To miejsce jest dla nas wyjątkowe, bo właśnie tutaj kryją się wszystkie te historie, które zaczynały się
+              w naszej hodowli od maleńkich łapek, pierwszego mruczenia i spojrzeń pełnych dziecięcej ciekawości.
+              Każde kocię urodzone w Akwamaryn*PL jest częścią naszej codzienności, naszych emocji i ogromnej miłości,
+              którą wkładamy w odchów, opiekę i przygotowanie do dalszego życia.
+            </p>
+            <p>
+              W tej zakładce pokazujemy kocięta, które przyszły na świat w naszej hodowli, dorastały przy nas,
+              a później trafiły do nowych rodzin, gdzie dziś są kochane, rozpieszczane i szczęśliwe.
+              Są tu także zdjęcia z nowych domów, piękne wspomnienia oraz chwile, które pokazują,
+              że więź z naszymi maluchami nie kończy się w dniu odbioru – ona trwa dalej.
+            </p>
+            <p>
+              To właśnie dlatego ta zakładka jest tak bliska sercu. Bo każde kocię to osobna historia,
+              osobny charakter, osobna miłość i ogromne wzruszenie. Każde z nich zostawia po sobie ślad,
+              a dla nas wszystkie na zawsze pozostają „naszymi dziećmi” – niezależnie od tego,
+              czy śpią jeszcze w naszym domu, czy już tulą się do swoich nowych opiekunów gdzieś daleko stąd.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section fade-in" id="galeria-kociat">
+        <div class="section-wrap">
+          <div class="section-header">
+            <div class="frame-title">
+              <span class="corner-in"></span>
+              <h2>Galeria kociąt</h2>
+              <p>Kocięta urodzone w naszej hodowli i zdjęcia z nowych domów</p>
+            </div>
+          </div>
+
+          <div class="gallery-grid">
+
+            <article class="gallery-item fade-in animated-frame">
+              <img src="TU_WKLEJ_ZDJECIE_KOCIAT_1.png" alt="Kocię z hodowli Akwamaryn*PL" onclick="openImage(this)">
+              <div class="gallery-caption">
+                <h4>Nasze maleństwo</h4>
+                <p>Jedno z kociąt urodzonych w naszej hodowli.</p>
+              </div>
+            </article>
+
+            <article class="gallery-item fade-in animated-frame">
+              <img src="TU_WKLEJ_ZDJECIE_KOCIAT_2.png" alt="Kocię z nowego domu" onclick="openImage(this)">
+              <div class="gallery-caption">
+                <h4>Nowy dom</h4>
+                <p>Piękne wspomnienie z nowej rodziny naszego malucha.</p>
+              </div>
+            </article>
+
+            <article class="gallery-item fade-in animated-frame">
+              <img src="TU_WKLEJ_ZDJECIE_KOCIAT_3.png" alt="Kocię z hodowli Akwamaryn*PL" onclick="openImage(this)">
+              <div class="gallery-caption">
+                <h4>Pierwsze chwile</h4>
+                <p>Kruche początki, które zostają w sercu na zawsze.</p>
+              </div>
+            </article>
+
+            <article class="gallery-item fade-in animated-frame">
+              <img src="TU_WKLEJ_ZDJECIE_KOCIAT_4.png" alt="Kocię w nowym domu" onclick="openImage(this)">
+              <div class="gallery-caption">
+                <h4>Szczęśliwe życie</h4>
+                <p>Zdjęcie z domu, do którego nasze kocię trafiło z miłością.</p>
+              </div>
+            </article>
+
+            <article class="gallery-item fade-in animated-frame">
+              <img src="TU_WKLEJ_ZDJECIE_KOCIAT_5.png" alt="Kocię z hodowli Akwamaryn*PL" onclick="openImage(this)">
+              <div class="gallery-caption">
+                <h4>Mała perełka</h4>
+                <p>Delikatność, słodycz i to spojrzenie, którego nie da się zapomnieć.</p>
+              </div>
+            </article>
+
+            <article class="gallery-item fade-in animated-frame">
+              <img src="TU_WKLEJ_ZDJECIE_KOCIAT_6.png" alt="Kocię z nowego domu" onclick="openImage(this)">
+              <div class="gallery-caption">
+                <h4>Wspomnienie</h4>
+                <p>Kolejna historia, która zaczęła się właśnie u nas.</p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <div class="lightbox" id="lightbox">
+      <div class="lightbox-inner">
+        <button class="lightbox-close" type="button" aria-label="Zamknij" id="lightboxClose">✕</button>
+        <img id="lightboxImg" alt="">
+      </div>
+    </div>
+
+    <footer>
+      © 2026 Akwamaryn*PL
+    </footer>
+
   </div>
-</div>
 
-<!-- HERO -->
-<section class="hero">
-  <img src="file_00000000a9f4720ab60032632f8d464e.png">
-</section>
+  <script>
+    function openImage(img){
+      document.getElementById("lightbox").classList.add("show");
+      document.getElementById("lightboxImg").src = img.src;
+      document.getElementById("lightboxImg").alt = img.alt || "";
+      document.body.style.overflow = "hidden";
+    }
 
-<div class="container">
-  <div class="section">
+    function closeImage(){
+      document.getElementById("lightbox").classList.remove("show");
+      document.body.style.overflow = "";
+    }
 
-    <div class="frame">
-      <h1>Moje kocięta</h1>
-    </div>
+    document.getElementById("lightboxClose").addEventListener("click", closeImage);
+    document.getElementById("lightbox").addEventListener("click", (e)=>{
+      if(e.target.id === "lightbox"){
+        closeImage();
+      }
+    });
 
-    <div class="line">
-      <span class="long"></span>
-      <span class="short"></span>
-      <span class="long"></span>
-    </div>
+    document.addEventListener("keydown", (e)=>{
+      const lightbox = document.getElementById("lightbox");
+      if(!lightbox.classList.contains("show")) return;
+      if(e.key === "Escape"){
+        closeImage();
+      }
+    });
 
-    <div class="desc">
-      To właśnie tutaj zaczyna się najpiękniejsza historia naszej hodowli.  
-      Każde kocię, które przyszło na świat w Akwamaryn*PL, to nie tylko nowe życie –  
-      to emocje, miłość, sleepless noce i chwile, których nie da się zapomnieć.
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold:0.14 });
 
-      <br><br>
-
-      Od pierwszego oddechu są częścią naszej rodziny. Dorastają przy nas, uczą się świata,
-      zasypiają wtulone w człowieka i budują swoje pierwsze więzi.
-
-      <br><br>
-
-      W tej zakładce znajdziesz zarówno nasze maluchy, które dopiero zaczynają swoją drogę,
-      jak i te, które już są w nowych, kochających domach.
-
-      <br><br>
-
-      Każdy z nich zostawia po sobie coś wyjątkowego.  
-      I każdy z nich na zawsze pozostaje częścią Akwamaryn.
-    </div>
-
-    <div class="grid">
-
-      <div class="card">
-        <img src="file_0000000094747246a63ed013e526d3c4.png">
-        <p>Maluch z naszej hodowli</p>
-      </div>
-
-      <div class="card">
-        <img src="file_0000000050b8724399c9df40c51226df.png">
-        <p>Nowy dom – szczęśliwe życie</p>
-      </div>
-
-      <div class="card">
-        <img src="file_000000009f0872438e4ae2b0c8ec575d.jpg">
-        <p>Pierwsze chwile razem</p>
-      </div>
-
-    </div>
-
-  </div>
-</div>
-
+    document.querySelectorAll(".fade-in").forEach(el=>{
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
