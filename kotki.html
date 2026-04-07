@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kotki hodowlane | Akwamaryn*PL</title>
-  <meta name="description" content="Kotki hodowlane w hodowli Akwamaryn*PL." />
+  <title>Akwamaryn*PL</title>
+  <meta name="description" content="Akwamaryn*PL – domowa hodowla kotów rasowych." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -506,31 +506,6 @@
       z-index:2;
     }
 
-    .back-wrap{
-      display:none;
-      justify-content:center;
-      margin-bottom:22px;
-    }
-
-    .back-wrap.show{
-      display:flex;
-    }
-
-    .back-button{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:44px;
-      padding:0 18px;
-      background:var(--badge);
-      color:var(--text-strong);
-      border-radius:18px;
-      font-size:15px;
-      font-weight:700;
-      border:1px solid #ead8e0;
-      box-shadow:0 8px 18px rgba(171,135,149,0.08);
-    }
-
     .intro-layout{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -587,136 +562,76 @@
       line-height:1.7;
     }
 
-    .cats-grid{
+    .story-layout{
       display:grid;
+      grid-template-columns:1fr 1fr;
       gap:28px;
-    }
-
-    .cat-card{
-      display:grid;
-      grid-template-columns:380px 1fr;
-      gap:28px;
-      padding:26px;
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:30px;
-      box-shadow:0 14px 32px rgba(171,135,149,0.08);
-      transition:transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    .cat-card:hover{
-      transform:translateY(-6px);
-      box-shadow:var(--shadow-hover);
-      border-color:#d6b0be;
-    }
-
-    .cat-photo-wrap{
-      display:flex;
       align-items:center;
-      justify-content:center;
     }
 
-    .cat-photo{
+    .story-photo{
       display:inline-block;
       border:1px solid var(--line-strong);
       padding:10px;
       background:#fff8fb;
       box-shadow:0 10px 30px rgba(171,135,149,0.10);
-      transition:all 0.4s ease;
       border-radius:30px;
     }
 
-    .cat-card:hover .cat-photo{
-      transform:translateY(-6px) scale(1.015);
+    .story-photo img{
+      display:block;
+      width:100%;
+      height:auto;
+      max-height:none;
+      object-fit:contain;
+      background:#fff8fb;
+      border-radius:22px;
+    }
+
+    .logos-box{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:24px;
+      margin-top:10px;
+    }
+
+    .logo-card{
+      text-align:center;
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:24px;
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow:0 10px 26px rgba(171,135,149,0.08);
+    }
+
+    .logo-card:hover{
+      transform:translateY(-6px);
       box-shadow:var(--shadow-hover);
       border-color:#d6b0be;
     }
 
-    .cat-photo img{
-      display:block;
-      width:auto;
-      max-width:100%;
-      height:auto;
-      max-height:430px;
-      object-fit:contain;
-      background:#fff8fb;
-      border-radius:22px;
-      cursor:pointer;
-    }
-
-    .cat-copy{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-
-    .cat-label{
-      display:inline-block;
-      width:max-content;
-      margin-bottom:16px;
-      color:var(--text-soft);
-      font-size:13px;
-      font-weight:700;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      background:var(--badge);
-      padding:8px 14px;
-      border-radius:999px;
-    }
-
-    .cat-copy h3{
-      font-family:"Cormorant Garamond",serif;
-      font-size:52px;
-      line-height:1;
-      color:var(--text-strong);
+    .logo-card img{
+      max-width:200px;
       margin-bottom:14px;
-      font-weight:600;
+      width:100%;
+      height:auto;
+      display:block;
+      margin-left:auto;
+      margin-right:auto;
     }
 
-    .meta{
-      display:grid;
-      gap:7px;
-      margin-bottom:18px;
-      color:var(--text);
-      font-size:16px;
-      line-height:1.8;
-    }
-
-    .meta strong{
+    .logo-card h3{
+      margin-bottom:10px;
+      font-family:"Cormorant Garamond",serif;
+      font-size:34px;
       color:var(--text-strong);
     }
 
-    .cat-copy p{
+    .logo-card p{
+      font-size:17px;
+      line-height:1.7;
       color:var(--text);
-      font-size:16px;
-      line-height:1.95;
-      margin-bottom:18px;
-    }
-
-    .badge-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .badge{
-      min-height:38px;
-      padding:0 14px;
-      border:1px solid #e4c8d2;
-      color:var(--text-strong);
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:700;
-      background:var(--badge);
-      transition:0.25s ease;
-    }
-
-    .badge:hover{
-      border-color:#d6b0be;
-      background:#efe0e7;
     }
 
     .contact-layout{
@@ -779,54 +694,36 @@
       border:1px solid #ead8e0;
     }
 
-    .lightbox{
+    .facebook-side{
       position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.82);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-      padding:20px;
-      touch-action:none;
-    }
-
-    .lightbox.show{
-      display:flex;
-    }
-
-    .lightbox-inner{
-      position:relative;
-      width:min(100%, 1100px);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .lightbox img{
-      max-width:92%;
-      max-height:92%;
-      border:2px solid #d6b0be;
-      box-shadow:0 24px 55px rgba(0,0,0,0.35);
-      user-select:none;
-      -webkit-user-drag:none;
-      border-radius:22px;
-      background:#fff8fb;
-    }
-
-    .lightbox-close{
-      position:absolute;
-      top:-10px;
       right:0;
-      width:48px;
-      height:48px;
-      border-radius:50%;
-      background:rgba(255,255,255,0.22);
+      top:50%;
+      transform:translateY(-50%);
+      background:#4267B2;
       color:#fff;
-      font-size:28px;
-      cursor:pointer;
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
+      padding:18px 12px;
+      border-radius:16px 0 0 16px;
+      font-weight:700;
+      font-size:16px;
+      line-height:1;
+      box-shadow:0 10px 24px rgba(0,0,0,0.18);
+      z-index:6000;
+      writing-mode:vertical-rl;
+      text-orientation:mixed;
+      letter-spacing:0.5px;
+      transition:transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .facebook-side:hover{
+      transform:translateY(-50%) translateX(-4px);
+      box-shadow:0 14px 28px rgba(0,0,0,0.24);
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      color:var(--text-soft);
+      font-size:14px;
     }
 
     @media (min-width:769px) and (max-width:1100px){
@@ -861,15 +758,17 @@
         margin:0;
       }
 
-      .intro-layout{
+      .intro-layout,
+      .story-layout{
         grid-template-columns:1fr;
       }
     }
 
     @media (max-width:980px){
-      .cat-card,
       .contact-layout,
-      .intro-layout{
+      .intro-layout,
+      .story-layout,
+      .logos-box{
         grid-template-columns:1fr;
       }
     }
@@ -989,27 +888,17 @@
         font-size:20px;
       }
 
-      .cat-photo img{
-        height:auto;
-        max-height:420px;
-        object-fit:contain;
-      }
-
-      .cat-copy h3{
-        font-size:36px;
-      }
-
-      .lightbox-close{
-        width:42px;
-        height:42px;
-        font-size:24px;
-        top:-6px;
+      .facebook-side{
+        font-size:14px;
+        padding:14px 10px;
       }
     }
   </style>
 </head>
 <body>
   <div class="page-wrap">
+
+    <a class="facebook-side" href="https://www.facebook.com/share/1DWyWWbtVH/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
 
     <header class="topbar fade-in">
       <div class="topbar-inner">
@@ -1019,9 +908,8 @@
           <a href="index.html">Start</a>
           <a href="kotki.html">Kotki hodowlane</a>
           <a href="kocury.html">Kocury hodowlane</a>
-          <a href="kocieta.html">Moje kocięta</a>
+          <a href="nasze-wychowanki.html">Nasze wychowanki</a>
           <a href="miot.html">Aktualny miot</a>
-          <a href="galeria.html">Galeria</a>
           <a href="kontakt.html">Kontakt</a>
           <a href="rezerwacja.html" class="nav-cta">REZERWACJA</a>
         </nav>
@@ -1033,178 +921,139 @@
       <section class="hero fade-in">
         <div class="hero-copy">
           <div class="hero-line"><span></span></div>
-          <h1>Kotki hodowlane</h1>
-          <div class="hero-accent">Piękno, typ i wyjątkowy charakter</div>
+          <h1>Akwamaryn*PL</h1>
+          <div class="hero-accent">Domowa hodowla kotów rasowych tworzona z serca</div>
 
           <p>
-            W tej zakładce prezentujemy nasze kotki hodowlane, ich urodę, charakter oraz najważniejsze informacje.
-            To właśnie one tworzą wyjątkowe oblicze hodowli Akwamaryn*PL i stanowią jej niezwykle ważną część.
+            To miejsce stworzone z ogromnej miłości do kotów, piękna rasy i codziennej bliskości z tymi
+            wyjątkowymi zwierzętami. W Akwamaryn*PL łączymy pasję, czułość, estetykę oraz odpowiedzialne
+            podejście do zdrowia i odchowu.
           </p>
 
-          <div class="hero-mini">✦ Kotki hodowlane Akwamaryn*PL ✦</div>
+          <div class="hero-mini">✦ Ragdoll i norweskie leśne w wyjątkowym wydaniu ✦</div>
 
-          <a href="#kotki-lista" class="hero-btn">POZNAJ KOTKI</a>
+          <a href="#o-nas" class="hero-btn">POZNAJ NAS</a>
         </div>
 
         <div class="hero-image-wrap">
           <div class="hero-image animated-frame">
-            <img src="file_0000000050b8724399c9df40c51226df.png" alt="Prada Pałuckie Pupile*PL">
+            <img src="file_00000000a9f4720ab60032632f8d464e.png" alt="Akwamaryn*PL">
           </div>
         </div>
       </section>
 
-      <section class="section fade-in">
+      <section class="section fade-in" id="o-nas">
         <div class="section-wrap">
-
-          <div class="back-wrap" id="backToMiotWrap">
-            <a class="back-button" href="miot.html">← Wróć do aktualnego miotu</a>
-          </div>
-
           <div class="section-header">
             <div class="frame-title">
               <span class="corner-in"></span>
-              <h2>Nasze kotki</h2>
-              <p>Elegancja, delikatność i wyjątkowa uroda</p>
+              <h2>O nas</h2>
+              <p>Pasja, która dojrzewała przez lata</p>
             </div>
           </div>
 
           <div class="intro-layout">
             <div class="text-block">
               <p>
-                Każda z naszych kotek wnosi do hodowli coś wyjątkowego – piękny typ, harmonijną budowę,
-                cudowny charakter i doskonałe pochodzenie. To one tworzą serce naszej hodowli i nadają jej niepowtarzalny charakter.
+                Cześć, mam na imię Agnieszka i to właśnie z ogromnej miłości do kotów powstała hodowla Akwamaryn*PL.
+                Koty były obecne w moim życiu od dziecka. Zawsze były mi bliskie – ich delikatność, inteligencja,
+                niezależność i niezwykłe ciepło, które wnoszą do domu, sprawiały, że od najmłodszych lat czułam,
+                że są częścią mojego świata.
               </p>
               <p>
-                Prezentujemy tu nasze kotki rasy ragdoll oraz norweskiej leśnej – piękne, subtelne,
-                a jednocześnie pełne klasy i wyjątkowej obecności.
+                Z czasem ta dziecięca miłość przerodziła się w coś znacznie głębszego – w świadomą pasję, potrzebę
+                tworzenia miejsca wyjątkowego, pełnego troski, piękna i odpowiedzialności. Tak narodził się
+                Akwamaryn*PL – hodowla, w której nie chodzi tylko o samą rasę, ale przede wszystkim o serce,
+                charakter, zdrowie i bliskość.
+              </p>
+              <p>
+                Chciałam stworzyć przestrzeń, w której koty będą dorastały w domowej atmosferze, z czułością,
+                spokojem i kontaktem z człowiekiem od pierwszych dni życia. Miejsce, w którym każde kocię jest
+                ważne, zauważone, zaopiekowane i przygotowane do życia w kochającym domu.
               </p>
             </div>
 
             <div class="info-cards">
               <div class="info-card">
-                <strong>3</strong>
-                <span>kotki hodowlane</span>
+                <strong>Domowa hodowla</strong>
+                <span>pełna czułości, spokoju i codziennej obecności człowieka</span>
               </div>
               <div class="info-card">
-                <strong>Ragdoll</strong>
-                <span>łagodność, elegancja i wyjątkowy kontakt z człowiekiem</span>
+                <strong>Miłość od dziecka</strong>
+                <span>z niej narodziła się prawdziwa i świadoma pasja do kotów</span>
               </div>
               <div class="info-card">
-                <strong>NFO</strong>
-                <span>piękna kryza, mocny typ i szlachetna sylwetka</span>
+                <strong>Piękno i zdrowie</strong>
+                <span>dbamy o typ, charakter, pochodzenie i odpowiedzialny odchów</span>
               </div>
               <div class="info-card">
-                <strong>Badania</strong>
-                <span>dbamy o zdrowie i świadomą hodowlę</span>
+                <strong>Akwamaryn*PL</strong>
+                <span>miejsce tworzone z serca, kobiecej wrażliwości i ogromnego zaangażowania</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section fade-in" id="kotki-lista">
+      <section class="section fade-in">
         <div class="section-wrap">
           <div class="section-header">
             <div class="frame-title">
               <span class="corner-in"></span>
-              <h2>Kotki hodowlane</h2>
-              <p>Poznaj nasze wyjątkowe dziewczyny</p>
+              <h2>Nasza historia</h2>
+              <p>Dlaczego właśnie koty i dlaczego właśnie hodowla</p>
             </div>
           </div>
 
-          <div class="cats-grid">
+          <div class="story-layout">
+            <div class="story-photo animated-frame">
+              <img src="file_00000000a9f4720ab60032632f8d464e.png" alt="Akwamaryn*PL koty">
+            </div>
 
-            <article class="cat-card fade-in" id="infinity">
-              <div class="cat-photo-wrap">
-                <div class="cat-photo animated-frame">
-                  <img src="file_0000000094747246a63ed013e526d3c4.png" alt="Infinity Ragtone*PL" onclick="openImage(this)">
-                </div>
-              </div>
+            <div class="text-block">
+              <p>
+                Dla mnie kot to nie tylko zwierzę. To obecność, emocja, codzienność i wyjątkowa więź, której
+                nie da się niczym zastąpić. Koty uczą delikatności, cierpliwości, uważności i tego, że prawdziwa
+                relacja buduje się spokojem, zaufaniem i sercem.
+              </p>
+              <p>
+                Decyzja o stworzeniu hodowli nie była przypadkiem. To był naturalny krok wynikający z lat obserwacji,
+                fascynacji rasą, zachwytu nad ich urodą i charakterem oraz potrzeby tworzenia czegoś pięknego
+                i prawdziwego. Chciałam, aby z mojej hodowli wychodziły kocięta nie tylko śliczne,
+                ale przede wszystkim dobrze prowadzone, socjalizowane i kochane od pierwszych dni.
+              </p>
+              <p>
+                Akwamaryn*PL to nie jest dla mnie tylko nazwa. To kawałek mojego serca, codzienna praca, emocje,
+                wzruszenia, piękne chwile i ogromna odpowiedzialność. To miejsce, w którym każda linia,
+                każde skojarzenie i każde kocię ma znaczenie.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div class="cat-copy">
-                <div class="cat-label">Kotka hodowlana</div>
-                <h3>Infinity Ragtone*PL</h3>
+      <section class="section fade-in">
+        <div class="section-wrap">
+          <div class="section-header">
+            <div class="frame-title">
+              <span class="corner-in"></span>
+              <h2>Rejestracje</h2>
+              <p>Przynależność i potwierdzenie jakości hodowli</p>
+            </div>
+          </div>
 
-                <div class="meta">
-                  <div><strong>Rasa:</strong> Ragdoll</div>
-                  <div><strong>Umaszczenie:</strong> blue bicolor</div>
-                  <div><strong>Kod EMS:</strong> RAG a 03</div>
-                  <div><strong>Status:</strong> kotka hodowlana</div>
-                </div>
+          <div class="logos-box">
+            <div class="logo-card">
+              <img src="Logo-WCF-green_transparent (1).png" alt="Logo WCF">
+              <h3>WCF</h3>
+              <p>World Cat Federation</p>
+            </div>
 
-                <p>
-                  Infinity to elegancka kotka ragdoll o spokojnym charakterze i harmonijnej budowie.
-                  Wyróżnia się pięknymi niebieskimi oczami oraz wyjątkową łagodnością typową dla rasy.
-                </p>
-
-                <div class="badge-row">
-                  <span class="badge">PKD N/N</span>
-                  <span class="badge">HCM N/N</span>
-                  <span class="badge">FIV/FELV N/N</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="cat-card fade-in" id="prada">
-              <div class="cat-photo-wrap">
-                <div class="cat-photo animated-frame">
-                  <img src="file_0000000050b8724399c9df40c51226df.png" alt="Prada Pałuckie Pupile*PL" onclick="openImage(this)">
-                </div>
-              </div>
-
-              <div class="cat-copy">
-                <div class="cat-label">Kotka hodowlana</div>
-                <h3>Prada Pałuckie Pupile*PL</h3>
-
-                <div class="meta">
-                  <div><strong>Rasa:</strong> Ragdoll</div>
-                  <div><strong>Umaszczenie:</strong> blue mitted</div>
-                  <div><strong>Kod EMS:</strong> RAG a 04</div>
-                  <div><strong>Status:</strong> kotka hodowlana</div>
-                </div>
-
-                <p>
-                  Prada, którą w domu nazywamy Pandorą, to bardzo spokojna i delikatna kotka
-                  o pięknym umaszczeniu blue mitted i wyjątkowo łagodnym charakterze.
-                </p>
-
-                <div class="badge-row">
-                  <span class="badge">PKD N/N</span>
-                  <span class="badge">HCM N/N</span>
-                  <span class="badge">FIV/FELV N/N</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="cat-card fade-in" id="dalia">
-              <div class="cat-photo-wrap">
-                <div class="cat-photo animated-frame">
-                  <img src="file_00000000a454724689df1045122b6b79.png" alt="Dalia Pałuckie Pupile*PL" onclick="openImage(this)">
-                </div>
-              </div>
-
-              <div class="cat-copy">
-                <div class="cat-label">Kotka hodowlana</div>
-                <h3>Dalia Pałuckie Pupile*PL</h3>
-
-                <div class="meta">
-                  <div><strong>Rasa:</strong> Norweska leśna</div>
-                  <div><strong>Umaszczenie:</strong> niebiesko-srebrny bicolor</div>
-                  <div><strong>Kod EMS:</strong> NFO as 03</div>
-                  <div><strong>Status:</strong> kotka hodowlana</div>
-                </div>
-
-                <p>
-                  Dalia to piękna kotka norweska leśna o mocnej budowie i wyjątkowo eleganckiej sylwetce.
-                  Charakteryzuje się gęstym futrem, piękną kryzą oraz spokojnym i inteligentnym temperamentem.
-                </p>
-
-                <div class="badge-row">
-                  <span class="badge">FIV/FELV N/N</span>
-                </div>
-              </div>
-            </article>
-
+            <div class="logo-card">
+              <img src="file_0000000057e87243a0ccc6268d392dfa.jpg" alt="Logo SKR">
+              <h3>SKR</h3>
+              <p>Stowarzyszenie Koty Rasowe</p>
+            </div>
           </div>
         </div>
       </section>
@@ -1215,15 +1064,15 @@
             <div class="frame-title">
               <span class="corner-in"></span>
               <h2>Kontakt</h2>
-              <p>Zapytania dotyczące kotek hodowlanych</p>
+              <p>Zapraszamy do kontaktu z hodowlą Akwamaryn*PL</p>
             </div>
           </div>
 
           <div class="contact-layout">
             <div class="contact-text">
-              Jeśli chcesz dowiedzieć się więcej o naszych kotkach hodowlanych, ich pochodzeniu,
-              badaniach lub planach hodowlanych, zapraszamy do kontaktu. Chętnie odpowiemy na pytania
-              i opowiemy więcej o naszych wyjątkowych dziewczynach.
+              Jeśli chcesz dowiedzieć się więcej o naszej hodowli, planowanych miotach, dostępnych kociętach
+              lub po prostu porozmawiać o rasie, serdecznie zapraszamy do kontaktu. Chętnie odpowiemy na pytania
+              i opowiemy więcej o naszych kotach oraz codzienności hodowli Akwamaryn*PL.
             </div>
 
             <div class="contact-box">
@@ -1242,13 +1091,6 @@
 
     </main>
 
-    <div class="lightbox" id="lightbox">
-      <div class="lightbox-inner">
-        <button class="lightbox-close" type="button" aria-label="Zamknij" id="lightboxClose">✕</button>
-        <img id="lightboxImg" alt="">
-      </div>
-    </div>
-
     <footer>
       © 2026 Akwamaryn*PL
     </footer>
@@ -1256,33 +1098,6 @@
   </div>
 
   <script>
-    function openImage(img){
-      document.getElementById("lightbox").classList.add("show");
-      document.getElementById("lightboxImg").src = img.src;
-      document.getElementById("lightboxImg").alt = img.alt || "";
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeImage(){
-      document.getElementById("lightbox").classList.remove("show");
-      document.body.style.overflow = "";
-    }
-
-    document.getElementById("lightboxClose").addEventListener("click", closeImage);
-    document.getElementById("lightbox").addEventListener("click", (e)=>{
-      if(e.target.id === "lightbox"){
-        closeImage();
-      }
-    });
-
-    document.addEventListener("keydown", (e)=>{
-      const lightbox = document.getElementById("lightbox");
-      if(!lightbox.classList.contains("show")) return;
-      if(e.key === "Escape"){
-        closeImage();
-      }
-    });
-
     const observer = new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{
         if(entry.isIntersecting){
@@ -1294,11 +1109,6 @@
     document.querySelectorAll(".fade-in").forEach(el=>{
       observer.observe(el);
     });
-
-    const params = new URLSearchParams(window.location.search);
-    if(params.get("from") === "miot"){
-      document.getElementById("backToMiotWrap").classList.add("show");
-    }
   </script>
 </body>
 </html>
