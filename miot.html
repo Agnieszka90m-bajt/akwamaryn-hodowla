@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aktualny miot | Akwamaryn*PL</title>
-  <meta name="description" content="Aktualny miot norweskich kotów leśnych w hodowli Akwamaryn*PL." />
+  <meta name="description" content="Aktualny miot w hodowli Akwamaryn*PL." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +18,7 @@
       --panel-2:rgba(255,255,255,0.88);
       --line:#f0dfe6;
       --line-strong:#e4c8d2;
+      --line-dark:#b78898;
       --text:#654f58;
       --text-strong:#7a5665;
       --text-soft:#866873;
@@ -312,7 +313,7 @@
     }
 
     .hero-copy p{
-      max-width:670px;
+      max-width:700px;
       font-size:17px;
       line-height:2;
       color:var(--text);
@@ -329,7 +330,7 @@
     }
 
     .hero-btn{
-      min-width:150px;
+      min-width:170px;
       min-height:42px;
       padding:0 18px;
       border:2px solid #d6b0be;
@@ -383,12 +384,13 @@
       display:flex;
       align-items:center;
       justify-content:center;
+      width:100%;
     }
 
     .hero-image{
-      width:auto;
+      width:100%;
       max-width:100%;
-      display:inline-block;
+      display:block;
       border:1px solid var(--line-strong);
       padding:10px;
       background:#fff8fb;
@@ -406,9 +408,12 @@
     .hero-image img{
       display:block;
       width:100%;
-      height:600px;
-      object-fit:cover;
+      height:auto;
+      max-height:none;
+      object-fit:contain;
+      object-position:center;
       border-radius:22px;
+      background:#fff8fb;
     }
 
     .section{
@@ -431,30 +436,52 @@
     .frame-title{
       display:inline-block;
       position:relative;
-      padding:28px 34px;
+      padding:34px 46px;
     }
 
     .frame-title::before,
-    .frame-title::after{
+    .frame-title::after,
+    .frame-title .corner-in::before,
+    .frame-title .corner-in::after{
       content:"";
       position:absolute;
-      width:108px;
-      height:64px;
-      border-color:#d6b0be;
+      pointer-events:none;
     }
 
     .frame-title::before{
       top:0;
       left:0;
-      border-top:2px solid #b78898;
-      border-left:2px solid #b78898;
+      width:120px;
+      height:78px;
+      border-top:2px solid var(--line-dark);
+      border-left:2px solid var(--line-dark);
     }
 
     .frame-title::after{
       right:0;
       bottom:0;
-      border-right:2px solid #b78898;
-      border-bottom:2px solid #b78898;
+      width:120px;
+      height:78px;
+      border-right:2px solid var(--line-dark);
+      border-bottom:2px solid var(--line-dark);
+    }
+
+    .frame-title .corner-in::before{
+      top:10px;
+      left:10px;
+      width:76px;
+      height:48px;
+      border-top:2px solid rgba(183,136,152,0.55);
+      border-left:2px solid rgba(183,136,152,0.55);
+    }
+
+    .frame-title .corner-in::after{
+      right:10px;
+      bottom:10px;
+      width:76px;
+      height:48px;
+      border-right:2px solid rgba(183,136,152,0.55);
+      border-bottom:2px solid rgba(183,136,152,0.55);
     }
 
     .section-header h2{
@@ -464,6 +491,8 @@
       line-height:1;
       color:var(--text-strong);
       margin-bottom:10px;
+      position:relative;
+      z-index:2;
     }
 
     .section-header p{
@@ -472,70 +501,24 @@
       font-size:24px;
       font-style:italic;
       line-height:1.3;
-    }
-
-    .intro-layout{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:34px;
-      align-items:start;
+      position:relative;
+      z-index:2;
     }
 
     .text-block{
       color:var(--text);
       font-size:17px;
       line-height:2;
+      max-width:1040px;
+      margin:0 auto;
+      text-align:center;
     }
 
     .text-block p{
       margin-bottom:18px;
     }
 
-    .info-cards{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-
-    .info-card{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:22px 20px;
-      min-height:132px;
-      box-shadow:0 10px 26px rgba(171,135,149,0.08);
-      transition:0.35s ease;
-    }
-
-    .info-card:hover{
-      transform:translateY(-4px);
-      border-color:#d6b0be;
-      box-shadow:var(--shadow-hover);
-    }
-
-    .info-card strong{
-      display:block;
-      font-family:"Cormorant Garamond",serif;
-      font-size:34px;
-      line-height:1;
-      color:var(--text-strong);
-      margin-bottom:10px;
-      font-weight:600;
-    }
-
-    .info-card span{
-      display:block;
-      color:var(--text);
-      font-size:15px;
-      line-height:1.7;
-    }
-
-    .parents-grid{
-      display:grid;
-      gap:28px;
-    }
-
-    .parent-card{
+    .litter-card{
       display:grid;
       grid-template-columns:380px 1fr;
       gap:28px;
@@ -545,33 +528,22 @@
       border-radius:30px;
       box-shadow:0 14px 32px rgba(171,135,149,0.08);
       transition:transform 0.4s ease, box-shadow 0.4s ease;
+      margin-top:26px;
     }
 
-    .parent-card:hover{
+    .litter-card:hover{
       transform:translateY(-6px);
       box-shadow:var(--shadow-hover);
       border-color:#d6b0be;
     }
 
-    .parent-card.reverse{
-      grid-template-columns:1fr 380px;
-    }
-
-    .parent-card.reverse .parent-copy{
-      order:1;
-    }
-
-    .parent-card.reverse .parent-photo-wrap{
-      order:2;
-    }
-
-    .parent-photo-wrap{
+    .litter-photo-wrap{
       display:flex;
       align-items:center;
       justify-content:center;
     }
 
-    .parent-photo{
+    .litter-photo{
       display:inline-block;
       border:1px solid var(--line-strong);
       padding:10px;
@@ -581,13 +553,13 @@
       border-radius:30px;
     }
 
-    .parent-card:hover .parent-photo{
+    .litter-card:hover .litter-photo{
       transform:translateY(-6px) scale(1.015);
       box-shadow:var(--shadow-hover);
       border-color:#d6b0be;
     }
 
-    .parent-photo img{
+    .litter-photo img{
       display:block;
       width:auto;
       max-width:100%;
@@ -596,15 +568,16 @@
       object-fit:contain;
       background:#fff8fb;
       border-radius:22px;
+      cursor:pointer;
     }
 
-    .parent-copy{
+    .litter-copy{
       display:flex;
       flex-direction:column;
       justify-content:center;
     }
 
-    .parent-label{
+    .litter-label{
       display:inline-block;
       width:max-content;
       margin-bottom:16px;
@@ -618,7 +591,7 @@
       border-radius:999px;
     }
 
-    .parent-copy h3{
+    .litter-copy h3{
       font-family:"Cormorant Garamond",serif;
       font-size:52px;
       line-height:1;
@@ -640,7 +613,7 @@
       color:var(--text-strong);
     }
 
-    .parent-copy p{
+    .litter-copy p{
       color:var(--text);
       font-size:16px;
       line-height:1.95;
@@ -673,129 +646,56 @@
       background:#efe0e7;
     }
 
-    .gallery-grid{
+    .parents-grid{
       display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:20px;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      margin-top:26px;
     }
 
-    .gallery-item{
-      position:relative;
-      overflow:hidden;
-      border:1px solid var(--line-strong);
-      background:#fff8fb;
-      box-shadow:0 14px 30px rgba(171,135,149,0.08);
-      padding:10px;
-      border-radius:26px;
-      transition:0.35s ease;
+    .parent-card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:22px;
+      box-shadow:0 10px 24px rgba(171,135,149,0.08);
+      transition:0.3s ease;
+      text-align:center;
     }
 
-    .gallery-item:hover{
+    .parent-card:hover{
       transform:translateY(-4px);
       box-shadow:var(--shadow-hover);
       border-color:#d6b0be;
     }
 
-    .gallery-item img{
-      width:100%;
-      height:420px;
-      object-fit:cover;
-      cursor:pointer;
-      transition:transform 0.35s ease, filter 0.35s ease;
-      border-radius:18px;
-    }
-
-    .gallery-item img:hover{
-      transform:scale(1.03);
-      filter:brightness(1.02);
-    }
-
-    .gallery-caption{
-      position:absolute;
-      left:24px;
-      right:24px;
-      bottom:24px;
-      padding:14px 16px;
-      background:rgba(255,255,255,0.84);
-      border:1px solid rgba(214,176,190,0.40);
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
-      border-radius:18px;
-    }
-
-    .gallery-caption h4{
+    .parent-card h3{
       font-family:"Cormorant Garamond",serif;
-      font-size:28px;
-      line-height:1;
-      color:var(--text-strong);
-      margin-bottom:6px;
-      font-weight:600;
-    }
-
-    .gallery-caption p{
-      color:var(--text);
-      font-size:14px;
-      line-height:1.6;
-    }
-
-    .contact-layout{
-      display:grid;
-      grid-template-columns:1.1fr 0.9fr;
-      gap:24px;
-      align-items:stretch;
-    }
-
-    .contact-text{
-      font-size:19px;
-      line-height:1.8;
-      color:var(--text);
-      text-align:left;
-    }
-
-    .contact-box{
-      text-align:center;
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:26px;
-      box-shadow:0 10px 24px rgba(171,135,149,0.08);
-    }
-
-    .contact-box h3{
-      font-size:30px;
+      font-size:34px;
       color:var(--text-strong);
       margin-bottom:10px;
-      font-family:"Cormorant Garamond",serif;
     }
 
-    .contact-note{
-      font-size:18px;
-      line-height:1.6;
-      color:var(--text-soft);
-      margin-bottom:18px;
-      font-style:italic;
-      font-family:"Cormorant Garamond",serif;
+    .parent-card p{
+      font-size:16px;
+      line-height:1.8;
+      color:var(--text);
+      margin-bottom:14px;
     }
 
-    .contact-links{
-      display:grid;
-      gap:12px;
-    }
-
-    .contact-link{
-      min-height:52px;
-      background:var(--badge);
-      color:var(--text-strong);
-      border-radius:18px;
-      display:flex;
+    .parent-link{
+      display:inline-flex;
       align-items:center;
       justify-content:center;
+      min-height:42px;
       padding:0 18px;
-      font-size:16px;
+      border-radius:16px;
+      background:var(--badge);
+      color:var(--text-strong);
+      font-size:15px;
       font-weight:700;
-      text-align:center;
-      box-shadow:0 8px 18px rgba(171,135,149,0.08);
       border:1px solid #ead8e0;
+      box-shadow:0 8px 18px rgba(171,135,149,0.08);
     }
 
     .lightbox{
@@ -848,6 +748,13 @@
       -webkit-backdrop-filter:blur(8px);
     }
 
+    footer{
+      text-align:center;
+      padding:30px;
+      color:var(--text-soft);
+      font-size:14px;
+    }
+
     @media (min-width:769px) and (max-width:1100px){
       .hero{
         grid-template-columns:1fr;
@@ -865,40 +772,25 @@
       }
 
       .hero-image{
-        width:auto;
+        width:100%;
         max-width:100%;
-        display:inline-block;
+        display:block;
         padding:10px;
       }
 
       .hero-image img{
-        width:auto;
-        max-width:100%;
+        width:100%;
         height:auto;
-        max-height:520px;
+        max-height:none;
         object-fit:contain;
-        margin:0 auto;
-      }
-
-      .intro-layout{
-        grid-template-columns:1fr;
+        object-position:center;
+        margin:0;
       }
     }
 
     @media (max-width:980px){
-      .parent-card,
-      .parent-card.reverse{
-        grid-template-columns:1fr;
-      }
-
-      .parent-card.reverse .parent-copy,
-      .parent-card.reverse .parent-photo-wrap{
-        order:initial;
-      }
-
-      .intro-layout,
-      .contact-layout,
-      .gallery-grid{
+      .litter-card,
+      .parents-grid{
         grid-template-columns:1fr;
       }
     }
@@ -935,8 +827,19 @@
       }
 
       .hero{
+        grid-template-columns:1fr;
         gap:20px;
         min-height:auto;
+      }
+
+      .hero-copy{
+        order:2;
+      }
+
+      .hero-image-wrap{
+        order:1;
+        width:100%;
+        justify-content:center;
       }
 
       .hero-copy h1{
@@ -949,34 +852,49 @@
       }
 
       .hero-copy p,
-      .text-block,
-      .contact-text{
+      .text-block{
         font-size:16px;
       }
 
-      .info-cards,
-      .gallery-grid{
-        grid-template-columns:1fr;
-      }
-
       .hero-image{
-        width:auto;
+        width:100%;
         max-width:100%;
-        display:inline-block;
+        display:block;
         padding:8px;
       }
 
       .hero-image img{
-        width:auto;
-        max-width:100%;
+        width:100%;
         height:auto;
-        max-height:340px;
+        max-height:none;
         object-fit:contain;
-        margin:0 auto;
+        object-position:center;
+        margin:0;
+        border-radius:18px;
       }
 
       .frame-title{
-        padding:22px 18px;
+        padding:24px 22px;
+      }
+
+      .frame-title::before{
+        width:92px;
+        height:64px;
+      }
+
+      .frame-title::after{
+        width:92px;
+        height:64px;
+      }
+
+      .frame-title .corner-in::before{
+        width:56px;
+        height:36px;
+      }
+
+      .frame-title .corner-in::after{
+        width:56px;
+        height:36px;
       }
 
       .section-header h2{
@@ -987,28 +905,8 @@
         font-size:20px;
       }
 
-      .parent-photo img{
-        height:auto;
-        max-height:420px;
-        object-fit:contain;
-      }
-
-      .parent-copy h3{
+      .litter-copy h3{
         font-size:36px;
-      }
-
-      .gallery-item img{
-        height:300px;
-      }
-
-      .gallery-caption{
-        left:18px;
-        right:18px;
-        bottom:18px;
-      }
-
-      .gallery-caption h4{
-        font-size:22px;
       }
 
       .lightbox-close{
@@ -1031,9 +929,8 @@
           <a href="index.html">Start</a>
           <a href="kotki.html">Kotki hodowlane</a>
           <a href="kocury.html">Kocury hodowlane</a>
-          <a href="kocieta.html">Moje kocięta</a>
+          <a href="nasze-wychowanki.html">Nasze wychowanki</a>
           <a href="miot.html">Aktualny miot</a>
-          <a href="galeria.html">Galeria</a>
           <a href="kontakt.html">Kontakt</a>
           <a href="rezerwacja.html" class="nav-cta">REZERWACJA</a>
         </nav>
@@ -1046,22 +943,22 @@
         <div class="hero-copy">
           <div class="hero-line"><span></span></div>
           <h1>Aktualny miot</h1>
-          <div class="hero-accent">Miot „M” – maluszki norweskie leśne</div>
+          <div class="hero-accent">Nasze najmłodsze skarby i najpiękniejszy początek nowej historii</div>
 
           <p>
-            27.03.2026 na świat przyszło pięć wyjątkowych dziewczynek. To starannie zaplanowany,
-            domowo wychowywany miot norweskich kotów leśnych, w którym piękne pochodzenie łączy się
-            z cudownym charakterem, elegancją i typem tak cenionym w rasie.
+            W tej zakładce prezentujemy aktualny miot dostępny w hodowli Akwamaryn*PL.
+            To tutaj znajdziecie informacje o maluszkach, ich rodzicach, umaszczeniach,
+            dostępności oraz pierwszych chwilach życia w naszej domowej hodowli.
           </p>
 
-          <div class="hero-mini">✦ Wszystkie maluszki są dostępne ✦</div>
+          <div class="hero-mini">✦ Miot na „M” – norweskie leśne ✦</div>
 
-          <a href="#miot-galeria" class="hero-btn">ZOBACZ GALERIĘ</a>
+          <a href="#miot-lista" class="hero-btn">POZNAJ MIOT</a>
         </div>
 
         <div class="hero-image-wrap">
           <div class="hero-image animated-frame">
-            <img src="file_0000000092607246a8e17fab58cb439d.png" alt="Maluszek z miotu M">
+            <img src="1775571158965.jpg" alt="Aktualny miot Akwamaryn*PL">
           </div>
         </div>
       </section>
@@ -1070,234 +967,85 @@
         <div class="section-wrap">
           <div class="section-header">
             <div class="frame-title">
-              <h2>Miot „M”</h2>
-              <p>Najważniejsze informacje o naszych maluszkach</p>
+              <span class="corner-in"></span>
+              <h2>O aktualnym miocie</h2>
+              <p>Delikatność pierwszych dni i wyjątkowe pochodzenie</p>
             </div>
           </div>
 
-          <div class="intro-layout">
-            <div class="text-block">
-              <p>
-                To wyjątkowy miot norweskich kotów leśnych, łączący elegancką kolorystykę,
-                piękne pochodzenie i domowe wychowanie. Od pierwszych chwil maluszki mają
-                bliski kontakt z człowiekiem i dorastają w spokojnej, pełnej troski atmosferze.
-              </p>
-              <p>
-                Nasze dziewczynki od pierwszych dni zachwycają delikatnością, pięknym wyrazem
-                i cudownym potencjałem. Szukamy dla nich najlepszych, świadomych i kochających domów.
-              </p>
-            </div>
-
-            <div class="info-cards">
-              <div class="info-card">
-                <strong>27.03.2026</strong>
-                <span>data urodzenia</span>
-              </div>
-              <div class="info-card">
-                <strong>5</strong>
-                <span>dziewczynek</span>
-              </div>
-              <div class="info-card">
-                <strong>Miot M</strong>
-                <span>norweskie leśne</span>
-              </div>
-              <div class="info-card">
-                <strong>Dostępne</strong>
-                <span>możliwość wyboru imion</span>
-              </div>
-              <div class="info-card">
-                <strong>3 + 2</strong>
-                <span>3 niebieskie srebrzyste szylkretki oraz 2 czarne srebrzyste szylkretki</span>
-              </div>
-              <div class="info-card">
-                <strong>Z nami</strong>
-                <span>kocięta wychowują się z nami od pierwszych dni życia</span>
-              </div>
-            </div>
+          <div class="text-block">
+            <p>
+              Nasz aktualny miot to wyjątkowe norweskie leśne maluszki urodzone 27.03.2026.
+              W miocie przyszło na świat 5 dziewczynek – 3 niebiesko-srebrne szylkretki
+              oraz 2 czarno-srebrne szylkretki.
+            </p>
+            <p>
+              Wszystkie kocięta są dostępne i już od pierwszych dni otoczone są troską,
+              spokojem oraz bliskością człowieka. Dorastają w domowej atmosferze, dzięki czemu
+              od początku uczą się kontaktu, bezpieczeństwa i zaufania.
+            </p>
+            <p>
+              To dla nas zawsze jeden z najpiękniejszych momentów – obserwowanie, jak
+              maleńkie życie rozwija się każdego dnia, nabiera siły i pokazuje swój pierwszy charakter.
+            </p>
           </div>
         </div>
       </section>
 
-      <section class="section fade-in">
+      <section class="section fade-in" id="miot-lista">
         <div class="section-wrap">
           <div class="section-header">
             <div class="frame-title">
-              <h2>Rodzice miotu</h2>
-              <p>Piękne linie, mocny typ i starannie dobrane skojarzenie</p>
+              <span class="corner-in"></span>
+              <h2>Miot na „M”</h2>
+              <p>Pięć wyjątkowych dziewczynek norweskich leśnych</p>
             </div>
           </div>
+
+          <article class="litter-card fade-in">
+            <div class="litter-photo-wrap">
+              <div class="litter-photo animated-frame">
+                <img src="1775571158965.jpg" alt="Miot na M Akwamaryn*PL" onclick="openImage(this)">
+              </div>
+            </div>
+
+            <div class="litter-copy">
+              <div class="litter-label">Aktualny miot</div>
+              <h3>Norweskie leśne</h3>
+
+              <div class="meta">
+                <div><strong>Data urodzenia:</strong> 27.03.2026</div>
+                <div><strong>Liczba kociąt:</strong> 5 dziewczynek</div>
+                <div><strong>Umaszczenia:</strong> 3 niebiesko-srebrne szylkretki, 2 czarno-srebrne szylkretki</div>
+                <div><strong>Dostępność:</strong> wszystkie maluszki dostępne</div>
+                <div><strong>Możliwość wyboru imienia:</strong> tak</div>
+              </div>
+
+              <p>
+                To wyjątkowy miot pełen subtelnego uroku, pięknych kontrastów i norweskiej elegancji.
+                Każda z dziewczynek rozwija się w domowej atmosferze, otoczona opieką, spokojem
+                i czułością od pierwszych chwil życia.
+              </p>
+
+              <div class="badge-row">
+                <span class="badge">Miot na „M”</span>
+                <span class="badge">Wszystkie dostępne</span>
+                <span class="badge">Norweskie leśne</span>
+              </div>
+            </div>
+          </article>
 
           <div class="parents-grid">
-
-            <article class="parent-card fade-in">
-              <div class="parent-photo-wrap">
-                <div class="parent-photo animated-frame">
-                  <img src="file_00000000a454724689df1045122b6b79.png" alt="Dalia Pałuckie Pupile*PL" onclick="openImage(this)">
-                </div>
-              </div>
-
-              <div class="parent-copy">
-                <div class="parent-label">Matka miotu</div>
-                <h3>Dalia Pałuckie Pupile*PL</h3>
-
-                <div class="meta">
-                  <div><strong>Rasa:</strong> Norweska leśna</div>
-                  <div><strong>Umaszczenie:</strong> niebiesko-srebrny bicolor</div>
-                  <div><strong>Kod EMS:</strong> NFO as 03</div>
-                  <div><strong>Status:</strong> kotka hodowlana</div>
-                </div>
-
-                <p>
-                  Dalia to piękna kotka norweska leśna o mocnej budowie, eleganckiej sylwetce i spokojnym temperamencie.
-                  Zachwyca piękną kryzą, wyrazem i klasą, które doskonale przekazuje potomstwu.
-                </p>
-
-                <div class="badge-row">
-                  <span class="badge">HCM N/N</span>
-                  <span class="badge">PKD N/N</span>
-                  <span class="badge">FIV/FELV N/N</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="parent-card reverse fade-in">
-              <div class="parent-copy">
-                <div class="parent-label">Ojciec miotu</div>
-                <h3>Posejdon Iceland*NL</h3>
-
-                <div class="meta">
-                  <div><strong>Rasa:</strong> Norweski leśny</div>
-                  <div><strong>Umaszczenie:</strong> Red &amp; white bicolour tabby blotched</div>
-                  <div><strong>Kod EMS:</strong> NFO d 03 22</div>
-                  <div><strong>Status:</strong> kocur hodowlany</div>
-                </div>
-
-                <p>
-                  Posejdon to wyjątkowy przedstawiciel rasy norweskiej leśnej o efektownym wyglądzie,
-                  mocnej budowie i pięknym umaszczeniu. Importowany z Holandii, reprezentuje doskonałą linię hodowlaną.
-                </p>
-
-                <div class="badge-row">
-                  <span class="badge">HCM N/N</span>
-                  <span class="badge">PKD N/N</span>
-                  <span class="badge">FIV/FELV N/N</span>
-                  <span class="badge">GSD IV N/N</span>
-                </div>
-              </div>
-
-              <div class="parent-photo-wrap">
-                <div class="parent-photo animated-frame">
-                  <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL" onclick="openImage(this)">
-                </div>
-              </div>
-            </article>
-
-          </div>
-        </div>
-      </section>
-
-      <section class="section fade-in" id="miot-galeria">
-        <div class="section-wrap">
-          <div class="section-header">
-            <div class="frame-title">
-              <h2>Galeria</h2>
-              <p>Zdjęcia naszych maluszków</p>
-            </div>
-          </div>
-
-          <div class="gallery-grid">
-            <article class="gallery-item fade-in animated-frame">
-              <img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Zdjęcie 1" onclick="openImage(this)">
-              <div class="gallery-caption">
-                <h4>Zdjęcie 1</h4>
-                <p>Czarna srebrzysta szylkretka</p>
-              </div>
-            </article>
-
-            <article class="gallery-item fade-in animated-frame">
-              <img src="file_000000001aa47243b5ef692c7926902d.png" alt="Zdjęcie 2" onclick="openImage(this)">
-              <div class="gallery-caption">
-                <h4>Zdjęcie 2</h4>
-                <p>Czarna srebrzysta szylkretka</p>
-              </div>
-            </article>
-
-            <article class="gallery-item fade-in animated-frame">
-              <img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Zdjęcie 3" onclick="openImage(this)">
-              <div class="gallery-caption">
-                <h4>Zdjęcie 3</h4>
-                <p>Czarna srebrzysta szylkretka</p>
-              </div>
-            </article>
-
-            <article class="gallery-item fade-in animated-frame">
-              <img src="file_0000000092607246a8e17fab58cb439d.png" alt="Zdjęcie 4" onclick="openImage(this)">
-              <div class="gallery-caption">
-                <h4>Zdjęcie 4</h4>
-                <p>Czarna srebrzysta szylkretka</p>
-              </div>
-            </article>
-
-            <article class="gallery-item fade-in animated-frame">
-              <img src="images/mioty/2026-03-27-norweskie/file_0000000090b8720bb77f08f165cf4553.png" alt="Zdjęcie 5" onclick="openImage(this)">
-              <div class="gallery-caption">
-                <h4>Zdjęcie 5</h4>
-                <p>Czarna srebrzysta szylkretka</p>
-              </div>
-            </article>
-
-            <article class="gallery-item fade-in animated-frame">
-              <img src="images/mioty/2026-03-27-norweskie/file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Zdjęcie 6" onclick="openImage(this)">
-              <div class="gallery-caption">
-                <h4>Zdjęcie 6</h4>
-                <p>Niebieska srebrzysta szylkretka</p>
-              </div>
-            </article>
-
-            <article class="gallery-item fade-in animated-frame">
-              <img src="images/mioty/2026-03-27-norweskie/file_00000000c60072439aee95ed8f84caaf.png" alt="Zdjęcie 7" onclick="openImage(this)">
-              <div class="gallery-caption">
-                <h4>Zdjęcie 7</h4>
-                <p>Niebieska srebrzysta szylkretka</p>
-              </div>
-            </article>
-
-            <article class="gallery-item fade-in animated-frame">
-              <img src="images/mioty/2026-03-27-norweskie/file_000000006f947243b32fb0f9a979bc82.png" alt="Zdjęcie 8" onclick="openImage(this)">
-              <div class="gallery-caption">
-                <h4>Zdjęcie 8</h4>
-                <p>Niebieska srebrzysta szylkretka</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section fade-in">
-        <div class="section-wrap">
-          <div class="section-header">
-            <div class="frame-title">
-              <h2>Kontakt</h2>
-              <p>Rezerwacja i szczegóły dotyczące maluszków</p>
-            </div>
-          </div>
-
-          <div class="contact-layout">
-            <div class="contact-text">
-              Jeśli interesuje Cię któryś z naszych maluszków, zapraszamy do kontaktu.
-              Chętnie opowiemy więcej o charakterze kociąt, planie odchowu oraz dalszych etapach rezerwacji.
-              Zależy nam na najlepszych, świadomych i kochających domach.
+            <div class="parent-card fade-in">
+              <h3>Matka</h3>
+              <p><strong>Dalia Pałuckie Pupile*PL</strong><br>NFO as 03</p>
+              <a class="parent-link" href="kotki.html#dalia">Zobacz kotkę</a>
             </div>
 
-            <div class="contact-box">
-              <h3>Skontaktuj się</h3>
-              <div class="contact-note">Kliknij w mail, numer telefonu lub Facebook</div>
-
-              <div class="contact-links">
-                <a class="contact-link" href="mailto:agnieszka90m@gmail.com">✉️ agnieszka90m@gmail.com</a>
-                <a class="contact-link" href="tel:+48572992736">📞 +48 572 992 736</a>
-                <a class="contact-link" href="https://www.facebook.com/share/1DWyWWbtVH/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook Akwamaryn*PL</a>
-              </div>
+            <div class="parent-card fade-in">
+              <h3>Ojciec</h3>
+              <p><strong>Posejdon Iceland*NL</strong><br>NFO d 03 22</p>
+              <a class="parent-link" href="kocury.html#posejdon">Zobacz kocura</a>
             </div>
           </div>
         </div>
@@ -1311,6 +1059,10 @@
         <img id="lightboxImg" alt="">
       </div>
     </div>
+
+    <footer>
+      © 2026 Akwamaryn*PL
+    </footer>
 
   </div>
 
@@ -1348,7 +1100,7 @@
           entry.target.classList.add("show");
         }
       });
-    }, { threshold:0.18 });
+    }, { threshold:0.14 });
 
     document.querySelectorAll(".fade-in").forEach(el=>{
       observer.observe(el);
