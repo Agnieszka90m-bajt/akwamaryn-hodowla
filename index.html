@@ -297,14 +297,13 @@
       position:relative;
     }
 
-    /* KLUCZOWE: jeden kontener, jeden radius, twarde clipowanie */
     .hero-image{
       width:100%;
       max-width:100%;
       position:relative;
       overflow:hidden;
       border-radius:var(--hero-radius);
-      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      -webkit-mask-image:-webkit-radial-gradient(white, black);
       isolation:isolate;
       line-height:0;
       background:transparent;
@@ -313,7 +312,6 @@
       padding:0;
     }
 
-    /* miękkie przejścia do tła */
     .hero-image::before{
       content:"";
       position:absolute;
@@ -354,7 +352,7 @@
       z-index:1;
       filter:saturate(1.02) brightness(1.02);
       overflow:hidden;
-      clip-path: inset(0 round var(--hero-radius));
+      clip-path:inset(0 round var(--hero-radius));
     }
 
     .hero-copy{
@@ -901,7 +899,7 @@
     </div>
 
     <a href="index.html" onclick="closeMenu()">Strona główna</a>
-    <a href="kotki.html" onclick="closeMenu()">Moje kotki</a>
+    <a href="kotki.html" onclick="closeMenu()">Kotki hodowlane</a>
     <a href="kocury.html" onclick="closeMenu()">Kocury hodowlane</a>
     <a href="kocieta.html" onclick="closeMenu()">Moje kocięta</a>
     <a href="miot.html" onclick="closeMenu()">Aktualny miot</a>
