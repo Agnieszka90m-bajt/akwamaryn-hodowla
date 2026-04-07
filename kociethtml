@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Moje kocięta | Akwamaryn*PL</title>
-  <meta name="description" content="Kocięta urodzone w hodowli Akwamaryn*PL oraz zdjęcia z nowych domów." />
+  <title>Nasze wychowanki | Akwamaryn*PL</title>
+  <meta name="description" content="Nasze wychowanki – kocięta urodzone w hodowli Akwamaryn*PL oraz zdjęcia z ich nowych domów." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -313,7 +313,7 @@
     }
 
     .hero-copy p{
-      max-width:700px;
+      max-width:720px;
       font-size:17px;
       line-height:2;
       color:var(--text);
@@ -330,7 +330,7 @@
     }
 
     .hero-btn{
-      min-width:150px;
+      min-width:170px;
       min-height:42px;
       padding:0 18px;
       border:2px solid #d6b0be;
@@ -509,7 +509,7 @@
       color:var(--text);
       font-size:17px;
       line-height:2;
-      max-width:1020px;
+      max-width:1040px;
       margin:0 auto;
       text-align:center;
     }
@@ -627,9 +627,31 @@
       -webkit-backdrop-filter:blur(8px);
     }
 
+    footer{
+      text-align:center;
+      padding:30px;
+      color:var(--text-soft);
+      font-size:14px;
+    }
+
     @media (max-width:1100px){
       .gallery-grid{
         grid-template-columns:repeat(2,1fr);
+      }
+
+      .hero{
+        grid-template-columns:1fr;
+        min-height:auto;
+      }
+
+      .hero-copy{
+        order:2;
+        padding-top:0;
+      }
+
+      .hero-image-wrap{
+        order:1;
+        justify-content:center;
       }
     }
 
@@ -771,9 +793,8 @@
           <a href="index.html">Start</a>
           <a href="kotki.html">Kotki hodowlane</a>
           <a href="kocury.html">Kocury hodowlane</a>
-          <a href="kocieta.html">Moje kocięta</a>
+          <a href="nasze-wychowanki.html">Nasze wychowanki</a>
           <a href="miot.html">Aktualny miot</a>
-          <a href="galeria.html">Galeria</a>
           <a href="kontakt.html">Kontakt</a>
           <a href="rezerwacja.html" class="nav-cta">REZERWACJA</a>
         </nav>
@@ -785,22 +806,23 @@
       <section class="hero fade-in">
         <div class="hero-copy">
           <div class="hero-line"><span></span></div>
-          <h1>Moje kocięta</h1>
+          <h1>Nasze wychowanki</h1>
           <div class="hero-accent">Historie, które zaczęły się w naszej hodowli</div>
 
           <p>
-            W tej zakładce znajdują się nasze kocięta – te, które przyszły na świat w hodowli Akwamaryn*PL,
-            dorastały przy nas, stawiały tu swoje pierwsze kroki, a później wyruszyły do nowych, kochających domów.
+            To miejsce jest dla nas wyjątkowe, bo właśnie tutaj kryją się wspomnienia o kociętach,
+            które przyszły na świat w hodowli Akwamaryn*PL, dorastały przy nas, a później wyruszyły
+            do swoich nowych, kochających domów.
           </p>
 
           <div class="hero-mini">✦ Każde z nich na zawsze pozostaje częścią Akwamaryn*PL ✦</div>
 
-          <a href="#galeria-kociat" class="hero-btn">ZOBACZ KOCIĘTA</a>
+          <a href="#galeria-wychowankow" class="hero-btn">ZOBACZ WYCHOWANKI</a>
         </div>
 
         <div class="hero-image-wrap">
           <div class="hero-image animated-frame">
-            <img src="TU_WKLEJ_GLOWNE_ZDJECIE_KOCIAT.png" alt="Kocięta z hodowli Akwamaryn*PL">
+            <img src="1775571158965.jpg" alt="Nasze wychowanki Akwamaryn*PL">
           </div>
         </div>
       </section>
@@ -810,91 +832,91 @@
           <div class="section-header">
             <div class="frame-title">
               <span class="corner-in"></span>
-              <h2>Nasze kocięta</h2>
+              <h2>Nasze wychowanki</h2>
               <p>Miłość, wspomnienia i najpiękniejszy początek nowego życia</p>
             </div>
           </div>
 
           <div class="text-block">
             <p>
-              To miejsce jest dla nas wyjątkowe, bo właśnie tutaj kryją się wszystkie te historie, które zaczynały się
-              w naszej hodowli od maleńkich łapek, pierwszego mruczenia i spojrzeń pełnych dziecięcej ciekawości.
-              Każde kocię urodzone w Akwamaryn*PL jest częścią naszej codzienności, naszych emocji i ogromnej miłości,
-              którą wkładamy w odchów, opiekę i przygotowanie do dalszego życia.
+              W tej zakładce znajdują się nasze wychowanki – kocięta, które urodziły się w hodowli Akwamaryn*PL,
+              dorastały przy nas, były otoczone codzienną troską, czułością i bliskością człowieka,
+              a później rozpoczęły nowy etap życia w swoich rodzinach.
             </p>
             <p>
-              W tej zakładce pokazujemy kocięta, które przyszły na świat w naszej hodowli, dorastały przy nas,
-              a później trafiły do nowych rodzin, gdzie dziś są kochane, rozpieszczane i szczęśliwe.
-              Są tu także zdjęcia z nowych domów, piękne wspomnienia oraz chwile, które pokazują,
-              że więź z naszymi maluchami nie kończy się w dniu odbioru – ona trwa dalej.
+              Każde z nich to osobna historia. To pierwsze mruczenie, pierwsze niepewne kroki, spojrzenia pełne ciekawości,
+              chwile zasypiania wtulonym w miękki kocyk i cały ten niezwykły czas, kiedy mały kotek dopiero odkrywa świat.
+              To właśnie tutaj zaczyna się coś naprawdę pięknego – więź, której nie da się zapomnieć.
             </p>
             <p>
-              To właśnie dlatego ta zakładka jest tak bliska sercu. Bo każde kocię to osobna historia,
-              osobny charakter, osobna miłość i ogromne wzruszenie. Każde z nich zostawia po sobie ślad,
-              a dla nas wszystkie na zawsze pozostają „naszymi dziećmi” – niezależnie od tego,
-              czy śpią jeszcze w naszym domu, czy już tulą się do swoich nowych opiekunów gdzieś daleko stąd.
+              Pokazujemy tu zarówno nasze maluchy z pierwszych chwil życia, jak i zdjęcia z nowych domów,
+              które zawsze są dla nas ogromnym wzruszeniem. Bo choć nasze kocięta wyjeżdżają do swoich rodzin,
+              dla nas nigdy nie przestają być „naszymi dziećmi”. Na zawsze pozostają częścią historii Akwamaryn*PL.
+            </p>
+            <p>
+              To zakładka pełna serca, wspomnień i dumy. Pełna życia, które zaczęło się właśnie tutaj.
             </p>
           </div>
         </div>
       </section>
 
-      <section class="section fade-in" id="galeria-kociat">
+      <section class="section fade-in" id="galeria-wychowankow">
         <div class="section-wrap">
           <div class="section-header">
             <div class="frame-title">
               <span class="corner-in"></span>
-              <h2>Galeria kociąt</h2>
-              <p>Kocięta urodzone w naszej hodowli i zdjęcia z nowych domów</p>
+              <h2>Zdjęcia naszych wychowanków</h2>
+              <p>Kocięta z naszej hodowli oraz chwile z ich nowych domów</p>
             </div>
           </div>
 
           <div class="gallery-grid">
 
             <article class="gallery-item fade-in animated-frame">
-              <img src="TU_WKLEJ_ZDJECIE_KOCIAT_1.png" alt="Kocię z hodowli Akwamaryn*PL" onclick="openImage(this)">
-              <div class="gallery-caption">
-                <h4>Nasze maleństwo</h4>
-                <p>Jedno z kociąt urodzonych w naszej hodowli.</p>
-              </div>
-            </article>
-
-            <article class="gallery-item fade-in animated-frame">
-              <img src="TU_WKLEJ_ZDJECIE_KOCIAT_2.png" alt="Kocię z nowego domu" onclick="openImage(this)">
-              <div class="gallery-caption">
-                <h4>Nowy dom</h4>
-                <p>Piękne wspomnienie z nowej rodziny naszego malucha.</p>
-              </div>
-            </article>
-
-            <article class="gallery-item fade-in animated-frame">
-              <img src="TU_WKLEJ_ZDJECIE_KOCIAT_3.png" alt="Kocię z hodowli Akwamaryn*PL" onclick="openImage(this)">
+              <img src="1775571158965.jpg" alt="Nasze wychowanki Akwamaryn*PL" onclick="openImage(this)">
               <div class="gallery-caption">
                 <h4>Pierwsze chwile</h4>
-                <p>Kruche początki, które zostają w sercu na zawsze.</p>
+                <p>Jedno z naszych maleństw urodzonych w hodowli Akwamaryn*PL.</p>
               </div>
             </article>
 
             <article class="gallery-item fade-in animated-frame">
-              <img src="TU_WKLEJ_ZDJECIE_KOCIAT_4.png" alt="Kocię w nowym domu" onclick="openImage(this)">
+              <img src="TU_WSTAW_ZDJECIE_1.jpg" alt="Wychowanek z naszej hodowli" onclick="openImage(this)">
               <div class="gallery-caption">
-                <h4>Szczęśliwe życie</h4>
-                <p>Zdjęcie z domu, do którego nasze kocię trafiło z miłością.</p>
+                <h4>Nowy rozdział</h4>
+                <p>Zdjęcie naszego wychowanka z nowego, kochającego domu.</p>
               </div>
             </article>
 
             <article class="gallery-item fade-in animated-frame">
-              <img src="TU_WKLEJ_ZDJECIE_KOCIAT_5.png" alt="Kocię z hodowli Akwamaryn*PL" onclick="openImage(this)">
+              <img src="TU_WSTAW_ZDJECIE_2.jpg" alt="Kocię z naszej hodowli" onclick="openImage(this)">
               <div class="gallery-caption">
-                <h4>Mała perełka</h4>
-                <p>Delikatność, słodycz i to spojrzenie, którego nie da się zapomnieć.</p>
+                <h4>Maleńka historia</h4>
+                <p>Każde kocię niesie ze sobą emocje, które zostają w sercu na zawsze.</p>
               </div>
             </article>
 
             <article class="gallery-item fade-in animated-frame">
-              <img src="TU_WKLEJ_ZDJECIE_KOCIAT_6.png" alt="Kocię z nowego domu" onclick="openImage(this)">
+              <img src="TU_WSTAW_ZDJECIE_3.jpg" alt="Wychowanek Akwamaryn*PL" onclick="openImage(this)">
               <div class="gallery-caption">
-                <h4>Wspomnienie</h4>
-                <p>Kolejna historia, która zaczęła się właśnie u nas.</p>
+                <h4>Nasze wspomnienie</h4>
+                <p>Zdjęcie, które przypomina najpiękniejsze dni odchowu.</p>
+              </div>
+            </article>
+
+            <article class="gallery-item fade-in animated-frame">
+              <img src="TU_WSTAW_ZDJECIE_4.jpg" alt="Kot z naszej hodowli" onclick="openImage(this)">
+              <div class="gallery-caption">
+                <h4>Szczęśliwy dom</h4>
+                <p>Nasze kocię w swojej nowej rodzinie i nowym życiu.</p>
+              </div>
+            </article>
+
+            <article class="gallery-item fade-in animated-frame">
+              <img src="TU_WSTAW_ZDJECIE_5.jpg" alt="Kocię urodzone w Akwamaryn*PL" onclick="openImage(this)">
+              <div class="gallery-caption">
+                <h4>Na zawsze nasze</h4>
+                <p>Choć dorastają gdzie indziej, zawsze pozostają częścią Akwamaryn*PL.</p>
               </div>
             </article>
 
