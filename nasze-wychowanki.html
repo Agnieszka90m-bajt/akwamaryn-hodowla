@@ -361,13 +361,32 @@
       border-color:#d6b0be;
     }
 
-    .card img{
+    .card-image-wrap{
       width:100%;
-      height:330px;
-      object-fit:cover;
+      min-height:330px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#fffdfd;
       border-radius:20px;
       margin-bottom:18px;
-      background:#fff8fb;
+      overflow:hidden;
+      padding:10px;
+    }
+
+    .card img{
+      width:100%;
+      height:auto;
+      max-height:310px;
+      object-fit:contain;
+      object-position:center;
+      border-radius:14px;
+      cursor:pointer;
+      transition:transform 0.25s ease;
+    }
+
+    .card img:hover{
+      transform:scale(1.02);
     }
 
     .card-content{
@@ -400,6 +419,43 @@
       color:var(--text);
     }
 
+    .coming-soon-box{
+      max-width:950px;
+      margin:0 auto;
+      background:#fff8fb;
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:34px 28px;
+      box-shadow:var(--shadow);
+      text-align:center;
+    }
+
+    .coming-soon-box h3{
+      font-size:42px;
+      line-height:1;
+      margin-bottom:14px;
+    }
+
+    .coming-soon-box p{
+      font-size:17px;
+      line-height:2;
+      color:var(--text);
+      max-width:760px;
+      margin:0 auto 14px;
+    }
+
+    .coming-soon-badge{
+      display:inline-block;
+      margin-top:8px;
+      padding:10px 16px;
+      border-radius:999px;
+      background:var(--badge);
+      color:var(--text-strong);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:0.5px;
+    }
+
     .bottom-note{
       margin-top:34px;
       text-align:center;
@@ -409,6 +465,55 @@
       color:var(--text-soft);
       font-size:16px;
       line-height:1.9;
+    }
+
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.82);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+      padding:20px;
+    }
+
+    .lightbox.show{
+      display:flex;
+    }
+
+    .lightbox-inner{
+      position:relative;
+      max-width:95vw;
+      max-height:95vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .lightbox img{
+      max-width:92vw;
+      max-height:90vh;
+      border-radius:22px;
+      border:2px solid #d6b0be;
+      background:#fff8fb;
+      box-shadow:0 24px 55px rgba(0,0,0,0.35);
+    }
+
+    .lightbox-close{
+      position:absolute;
+      top:-10px;
+      right:-6px;
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      border:none;
+      background:rgba(255,255,255,0.2);
+      color:#fff;
+      font-size:26px;
+      cursor:pointer;
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
     }
 
     footer{
@@ -517,12 +622,24 @@
         font-size:16px;
       }
 
+      .card-image-wrap{
+        min-height:280px;
+      }
+
       .card img{
-        height:280px;
+        max-height:260px;
       }
 
       .card-content h3{
         font-size:32px;
+      }
+
+      .coming-soon-box h3{
+        font-size:34px;
+      }
+
+      .coming-soon-box p{
+        font-size:16px;
       }
     }
   </style>
@@ -586,14 +703,16 @@
 
           <div class="subsection">
             <div class="subsection-title">
-              <h2>W nowych domkach</h2>
-              <p>Nasze maluszki, które odnalazły swoje wyjątkowe miejsca</p>
+              <h2>Nasze kocięta</h2>
+              <p>Pierwsze chwile, które na zawsze zostają w sercu</p>
             </div>
 
             <div class="gallery">
 
               <article class="card">
-                <img src="file_000000003488720ab10a35d2c061f697.jpg" alt="Inka ragdoll blue bicolor z hodowli Akwamaryn PL">
+                <div class="card-image-wrap">
+                  <img src="file_000000003488720ab10a35d2c061f697.jpg" alt="Inka ragdoll blue bicolor z hodowli Akwamaryn PL" onclick="openImage(this)">
+                </div>
                 <div class="card-content">
                   <h3>Inka</h3>
                   <div class="card-badge">Ragdoll blue bicolor</div>
@@ -607,7 +726,9 @@
               </article>
 
               <article class="card">
-                <img src="AAC29BB6-5D57-4612-9939-F0D4F3CC8790.jpg" alt="Henio ragdoll blue bicolor z hodowli Akwamaryn PL">
+                <div class="card-image-wrap">
+                  <img src="AAC29BB6-5D57-4612-9939-F0D4F3CC8790.jpg" alt="Henio ragdoll blue bicolor z hodowli Akwamaryn PL" onclick="openImage(this)">
+                </div>
                 <div class="card-content">
                   <h3>Henio</h3>
                   <div class="card-badge">Ragdoll blue bicolor</div>
@@ -621,7 +742,9 @@
               </article>
 
               <article class="card">
-                <img src="9DC7F011-E96F-4AAA-ACC2-D31F8355DBC1.PNG" alt="Rodzeństwo ragdolli z hodowli Akwamaryn PL">
+                <div class="card-image-wrap">
+                  <img src="9DC7F011-E96F-4AAA-ACC2-D31F8355DBC1.PNG" alt="Rodzeństwo ragdolli z hodowli Akwamaryn PL" onclick="openImage(this)">
+                </div>
                 <div class="card-content">
                   <h3>Ragdollowe rodzeństwo</h3>
                   <div class="card-badge">Wszystkie już w nowych domkach</div>
@@ -634,6 +757,27 @@
                 </div>
               </article>
 
+            </div>
+          </div>
+
+          <div class="subsection">
+            <div class="subsection-title">
+              <h2>W nowych domkach</h2>
+              <p>Już jutro uzupełnimy tę część o zdjęcia od nowych rodzin</p>
+            </div>
+
+            <div class="coming-soon-box">
+              <h3>To będzie piękna część tej historii</h3>
+              <p>
+                Tutaj już jutro pojawią się zdjęcia naszych wychowanków z ich nowych domków.
+                To właśnie te chwile są dla nas najpiękniejszym potwierdzeniem, że nasze maluszki
+                trafiają do kochających rodzin i rozpoczynają cudowne nowe życie.
+              </p>
+              <p>
+                Z każdym kolejnym zdjęciem ta zakładka będzie jeszcze pełniejsza, bardziej wzruszająca
+                i jeszcze piękniej pokaże dalsze losy kociąt urodzonych w Akwamaryn*PL.
+              </p>
+              <div class="coming-soon-badge">WKRÓTCE ZDJĘCIA Z NOWYCH DOMKÓW</div>
             </div>
           </div>
 
@@ -651,6 +795,13 @@
       © 2026 Akwamaryn*PL
     </footer>
 
+    <div class="lightbox" id="lightbox">
+      <div class="lightbox-inner">
+        <button class="lightbox-close" type="button" aria-label="Zamknij" onclick="closeImage()">✕</button>
+        <img id="lightboxImg" alt="">
+      </div>
+    </div>
+
   </div>
 
   <script>
@@ -664,6 +815,34 @@
 
     document.querySelectorAll(".fade-in").forEach(el=>{
       observer.observe(el);
+    });
+
+    function openImage(img){
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightboxImg");
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || "";
+      lightbox.classList.add("show");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeImage(){
+      document.getElementById("lightbox").classList.remove("show");
+      document.body.style.overflow = "";
+    }
+
+    document.getElementById("lightbox").addEventListener("click", function(e){
+      if(e.target.id === "lightbox"){
+        closeImage();
+      }
+    });
+
+    document.addEventListener("keydown", function(e){
+      const lightbox = document.getElementById("lightbox");
+      if(!lightbox.classList.contains("show")) return;
+      if(e.key === "Escape"){
+        closeImage();
+      }
     });
   </script>
 </body>
