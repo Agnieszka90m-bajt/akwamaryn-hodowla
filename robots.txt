@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://agnieszka90m-bajt.github.io/akwamaryn-hodowla/sitemap.xml
