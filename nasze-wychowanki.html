@@ -327,13 +327,13 @@
     .folders{
       margin-top:40px;
       display:grid;
-      gap:20px;
+      gap:22px;
     }
 
     .folder{
       background:#fff8fb;
-      border:1px solid var(--line);
-      border-radius:30px;
+      border:1px solid var(--line-strong);
+      border-radius:32px;
       box-shadow:var(--shadow);
       overflow:hidden;
       transition:0.3s ease;
@@ -359,19 +359,34 @@
       display:flex;
       align-items:center;
       gap:18px;
+      min-width:0;
     }
 
     .folder-icon{
-      width:62px;
-      height:62px;
-      border-radius:20px;
-      background:linear-gradient(180deg,#f7e8ef 0%, #f1dbe5 100%);
+      width:66px;
+      height:66px;
+      border-radius:22px;
+      background:linear-gradient(180deg,#f8eaf0 0%, #f2dde6 100%);
+      border:1px solid #ecd3dd;
+      box-shadow:0 8px 18px rgba(171,135,149,0.10);
       display:flex;
       align-items:center;
       justify-content:center;
       flex-shrink:0;
-      box-shadow:0 8px 18px rgba(171,135,149,0.10);
-      font-size:28px;
+    }
+
+    .folder-icon svg{
+      width:30px;
+      height:30px;
+      stroke:#9b7382;
+      fill:none;
+      stroke-width:1.8;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .folder-text{
+      min-width:0;
     }
 
     .folder-text h2{
@@ -387,11 +402,27 @@
       line-height:1.7;
     }
 
+    .folder-right{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:8px;
+      flex-shrink:0;
+    }
+
+    .folder-hint{
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:0.5px;
+      text-transform:uppercase;
+      color:var(--text-soft);
+    }
+
     .folder-arrow{
-      font-size:30px;
+      font-size:28px;
       color:var(--text-soft);
       transition:transform 0.3s ease;
-      flex-shrink:0;
+      line-height:1;
     }
 
     .folder.open .folder-arrow{
@@ -411,6 +442,16 @@
 
     .folder-inner{
       padding:28px;
+    }
+
+    .folder-end-hint{
+      margin-top:22px;
+      text-align:center;
+      color:var(--text-soft);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:0.5px;
+      text-transform:uppercase;
     }
 
     .gallery{
@@ -441,11 +482,13 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      background:#fffdfd;
-      border-radius:20px;
+      background:linear-gradient(180deg,#fffdfd 0%, #fff8fb 100%);
+      border:1px solid #eedbe3;
+      border-radius:24px;
       margin-bottom:18px;
       overflow:hidden;
-      padding:10px;
+      padding:12px;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,0.7);
     }
 
     .card img{
@@ -454,7 +497,7 @@
       max-height:310px;
       object-fit:contain;
       object-position:center;
-      border-radius:14px;
+      border-radius:18px;
       cursor:pointer;
       transition:transform 0.25s ease;
     }
@@ -682,10 +725,14 @@
       }
 
       .folder-icon{
-        width:54px;
-        height:54px;
+        width:56px;
+        height:56px;
         border-radius:18px;
-        font-size:24px;
+      }
+
+      .folder-icon svg{
+        width:26px;
+        height:26px;
       }
 
       .folder-text h2{
@@ -694,6 +741,14 @@
 
       .folder-text p{
         font-size:15px;
+      }
+
+      .folder-right{
+        gap:6px;
+      }
+
+      .folder-hint{
+        font-size:11px;
       }
 
       .folder-inner{
@@ -776,13 +831,21 @@
             <div class="folder open" id="folder-wychowanki">
               <button class="folder-toggle" type="button" onclick="toggleFolder('folder-wychowanki')">
                 <div class="folder-left">
-                  <div class="folder-icon">📁</div>
+                  <div class="folder-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M3 8.5a2 2 0 0 1 2-2h4l1.8 2H19a2 2 0 0 1 2 2v5.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                      <path d="M3 10.5h18"/>
+                    </svg>
+                  </div>
                   <div class="folder-text">
                     <h2>Nasze wychowanki</h2>
                     <p>Zdjęcia naszych kociąt z hodowli Akwamaryn*PL</p>
                   </div>
                 </div>
-                <div class="folder-arrow">⌄</div>
+                <div class="folder-right">
+                  <div class="folder-hint">Rozwiń galerię</div>
+                  <div class="folder-arrow">⌄</div>
+                </div>
               </button>
 
               <div class="folder-content">
@@ -838,6 +901,8 @@
                     </article>
 
                   </div>
+
+                  <div class="folder-end-hint">Zwiń galerię</div>
                 </div>
               </div>
             </div>
@@ -845,24 +910,35 @@
             <div class="folder" id="folder-domki">
               <button class="folder-toggle" type="button" onclick="toggleFolder('folder-domki')">
                 <div class="folder-left">
-                  <div class="folder-icon">🏡</div>
+                  <div class="folder-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M4 11.5L12 5l8 6.5"/>
+                      <path d="M6.5 10.5V19h11v-8.5"/>
+                      <path d="M10 19v-5h4v5"/>
+                    </svg>
+                  </div>
                   <div class="folder-text">
                     <h2>W nowych domkach</h2>
                     <p>Galeria zdjęć od nowych rodzin — gotowa do uzupełnienia</p>
                   </div>
                 </div>
-                <div class="folder-arrow">⌄</div>
+                <div class="folder-right">
+                  <div class="folder-hint">Rozwiń galerię</div>
+                  <div class="folder-arrow">⌄</div>
+                </div>
               </button>
 
               <div class="folder-content">
                 <div class="folder-inner">
                   <div class="folder-note">
                     <p>
-                      <strong>Już jutro</strong> uzupełnimy tę część o zdjęcia naszych wychowanków z ich nowych domków.
-                      To właśnie tutaj będą pojawiać się dalsze losy maluszków urodzonych w Akwamaryn*PL —
-                      pełne ciepła, miłości i pięknych wspomnień z ich nowych rodzin.
+                      <strong>Już wkrótce</strong> galeria będzie uzupełniona. To właśnie tutaj będą pojawiać się zdjęcia
+                      naszych wychowanków z ich nowych domków — pełne ciepła, miłości i pięknych wspomnień
+                      z ich nowych rodzin.
                     </p>
                   </div>
+
+                  <div class="folder-end-hint">Zwiń galerię</div>
                 </div>
               </div>
             </div>
@@ -905,6 +981,12 @@
       observer.observe(el);
     });
 
+    function updateFolderHints(folder){
+      const hint = folder.querySelector(".folder-hint");
+      if(!hint) return;
+      hint.textContent = folder.classList.contains("open") ? "Zwiń galerię" : "Rozwiń galerię";
+    }
+
     function toggleFolder(folderId){
       const folder = document.getElementById(folderId);
       const content = folder.querySelector(".folder-content");
@@ -916,6 +998,8 @@
       }else{
         content.style.maxHeight = "0px";
       }
+
+      updateFolderHints(folder);
     }
 
     function setInitialFolderHeights(){
@@ -926,6 +1010,7 @@
         }else{
           content.style.maxHeight = "0px";
         }
+        updateFolderHints(folder);
       });
     }
 
