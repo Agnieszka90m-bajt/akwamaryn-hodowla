@@ -57,6 +57,13 @@
       max-width:100%;
     }
 
+    button{
+      font:inherit;
+      border:none;
+      background:none;
+      cursor:pointer;
+    }
+
     .page-wrap{
       position:relative;
       overflow:hidden;
@@ -284,7 +291,7 @@
       border-bottom:2px solid rgba(183,136,152,0.55);
     }
 
-    h1, h2, h3{
+    h1,h2,h3{
       font-family:"Cormorant Garamond",serif;
       color:var(--text-strong);
     }
@@ -317,26 +324,93 @@
       margin-bottom:18px;
     }
 
-    .subsection{
-      margin-top:38px;
+    .folders{
+      margin-top:40px;
+      display:grid;
+      gap:20px;
     }
 
-    .subsection-title{
-      text-align:center;
-      margin-bottom:26px;
+    .folder{
+      background:#fff8fb;
+      border:1px solid var(--line);
+      border-radius:30px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      transition:0.3s ease;
     }
 
-    .subsection-title h2{
-      font-size:48px;
-      margin-bottom:8px;
+    .folder:hover{
+      box-shadow:var(--shadow-hover);
+      border-color:#d6b0be;
+    }
+
+    .folder-toggle{
+      width:100%;
+      padding:26px 28px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      text-align:left;
+      background:transparent;
+    }
+
+    .folder-left{
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+
+    .folder-icon{
+      width:62px;
+      height:62px;
+      border-radius:20px;
+      background:linear-gradient(180deg,#f7e8ef 0%, #f1dbe5 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      box-shadow:0 8px 18px rgba(171,135,149,0.10);
+      font-size:28px;
+    }
+
+    .folder-text h2{
+      font-size:40px;
       line-height:1;
+      margin-bottom:6px;
+      font-weight:600;
     }
 
-    .subsection-title p{
-      font-family:"Cormorant Garamond",serif;
-      font-style:italic;
-      font-size:22px;
+    .folder-text p{
       color:var(--text-soft);
+      font-size:16px;
+      line-height:1.7;
+    }
+
+    .folder-arrow{
+      font-size:30px;
+      color:var(--text-soft);
+      transition:transform 0.3s ease;
+      flex-shrink:0;
+    }
+
+    .folder.open .folder-arrow{
+      transform:rotate(180deg);
+    }
+
+    .folder-content{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height 0.5s ease;
+      border-top:1px solid transparent;
+    }
+
+    .folder.open .folder-content{
+      border-top:1px solid var(--line);
+    }
+
+    .folder-inner{
+      padding:28px;
     }
 
     .gallery{
@@ -419,41 +493,18 @@
       color:var(--text);
     }
 
-    .coming-soon-box{
-      max-width:950px;
+    .folder-note{
+      max-width:850px;
       margin:0 auto;
-      background:#fff8fb;
-      border:1px solid var(--line);
-      border-radius:28px;
-      padding:34px 28px;
-      box-shadow:var(--shadow);
       text-align:center;
-    }
-
-    .coming-soon-box h3{
-      font-size:42px;
-      line-height:1;
-      margin-bottom:14px;
-    }
-
-    .coming-soon-box p{
-      font-size:17px;
-      line-height:2;
       color:var(--text);
-      max-width:760px;
-      margin:0 auto 14px;
+      font-size:16px;
+      line-height:1.95;
     }
 
-    .coming-soon-badge{
-      display:inline-block;
-      margin-top:8px;
-      padding:10px 16px;
-      border-radius:999px;
-      background:var(--badge);
+    .folder-note strong{
       color:var(--text-strong);
-      font-size:13px;
       font-weight:700;
-      letter-spacing:0.5px;
     }
 
     .bottom-note{
@@ -530,6 +581,14 @@
 
       .hero-image-top img{
         height:360px;
+      }
+
+      .folder-toggle{
+        align-items:flex-start;
+      }
+
+      .folder-text h2{
+        font-size:34px;
       }
     }
 
@@ -610,16 +669,35 @@
         font-size:20px;
       }
 
-      .subsection-title h2{
-        font-size:36px;
-      }
-
-      .subsection-title p{
-        font-size:20px;
-      }
-
       .text-block{
         font-size:16px;
+      }
+
+      .folder-toggle{
+        padding:20px 18px;
+      }
+
+      .folder-left{
+        gap:14px;
+      }
+
+      .folder-icon{
+        width:54px;
+        height:54px;
+        border-radius:18px;
+        font-size:24px;
+      }
+
+      .folder-text h2{
+        font-size:30px;
+      }
+
+      .folder-text p{
+        font-size:15px;
+      }
+
+      .folder-inner{
+        padding:20px 16px 22px;
       }
 
       .card-image-wrap{
@@ -632,14 +710,6 @@
 
       .card-content h3{
         font-size:32px;
-      }
-
-      .coming-soon-box h3{
-        font-size:34px;
-      }
-
-      .coming-soon-box p{
-        font-size:16px;
       }
     }
   </style>
@@ -701,84 +771,102 @@
             </p>
           </div>
 
-          <div class="subsection">
-            <div class="subsection-title">
-              <h2>Nasze kocięta</h2>
-              <p>Pierwsze chwile, które na zawsze zostają w sercu</p>
+          <div class="folders">
+
+            <div class="folder open" id="folder-wychowanki">
+              <button class="folder-toggle" type="button" onclick="toggleFolder('folder-wychowanki')">
+                <div class="folder-left">
+                  <div class="folder-icon">📁</div>
+                  <div class="folder-text">
+                    <h2>Nasze wychowanki</h2>
+                    <p>Zdjęcia naszych kociąt z hodowli Akwamaryn*PL</p>
+                  </div>
+                </div>
+                <div class="folder-arrow">⌄</div>
+              </button>
+
+              <div class="folder-content">
+                <div class="folder-inner">
+                  <div class="gallery">
+
+                    <article class="card">
+                      <div class="card-image-wrap">
+                        <img src="file_000000003488720ab10a35d2c061f697.jpg" alt="Inka ragdoll blue bicolor z hodowli Akwamaryn PL" onclick="openImage(this)">
+                      </div>
+                      <div class="card-content">
+                        <h3>Inka</h3>
+                        <div class="card-badge">Ragdoll blue bicolor</div>
+                        <p>
+                          Inka to nasza piękna ragdollowa dziewczynka w umaszczeniu blue bicolor. Dziś mieszka niedaleko,
+                          w Darłowie, co sprawia nam szczególną radość. To niezwykle delikatna i urocza koteczka, która
+                          od pierwszych chwil zachwycała swoim spokojem, subtelnością i słodkim spojrzeniem. Cieszymy się,
+                          że dorasta w kochającym domu i pozostaje tak blisko nas.
+                        </p>
+                      </div>
+                    </article>
+
+                    <article class="card">
+                      <div class="card-image-wrap">
+                        <img src="AAC29BB6-5D57-4612-9939-F0D4F3CC8790.jpg" alt="Henio ragdoll blue bicolor z hodowli Akwamaryn PL" onclick="openImage(this)">
+                      </div>
+                      <div class="card-content">
+                        <h3>Henio</h3>
+                        <div class="card-badge">Ragdoll blue bicolor</div>
+                        <p>
+                          Henio to nasz przeuroczy ragdollowy chłopiec w umaszczeniu blue bicolor, który już zamieszkał
+                          ze swoją nową rodzinką. Od najmłodszych dni był wyjątkowo kochany, łagodny i bardzo kontaktowy.
+                          To jeden z tych maluszków, które od razu skradły serce swoim spokojem i ciepłym charakterem.
+                          Jesteśmy szczęśliwi, że trafił do domu pełnego miłości i troski.
+                        </p>
+                      </div>
+                    </article>
+
+                    <article class="card">
+                      <div class="card-image-wrap">
+                        <img src="9DC7F011-E96F-4AAA-ACC2-D31F8355DBC1.PNG" alt="Rodzeństwo ragdolli z hodowli Akwamaryn PL" onclick="openImage(this)">
+                      </div>
+                      <div class="card-content">
+                        <h3>Ragdollowe rodzeństwo</h3>
+                        <div class="card-badge">Wszystkie już w nowych domkach</div>
+                        <p>
+                          To wyjątkowe ragdollowe rodzeństwo, które przyszło na świat w naszej hodowli i dziś wszystkie
+                          maluszki są już w swoich nowych domkach. Każde z nich rozpoczęło własną, piękną historię,
+                          niosąc ze sobą domowe ciepło, łagodność i bliskość, w jakiej dorastały od pierwszych dni życia.
+                          To właśnie takie chwile najmocniej pokazują sens naszej pracy i ogrom serca wkładany w każdy miot.
+                        </p>
+                      </div>
+                    </article>
+
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="gallery">
+            <div class="folder" id="folder-domki">
+              <button class="folder-toggle" type="button" onclick="toggleFolder('folder-domki')">
+                <div class="folder-left">
+                  <div class="folder-icon">🏡</div>
+                  <div class="folder-text">
+                    <h2>W nowych domkach</h2>
+                    <p>Galeria zdjęć od nowych rodzin — gotowa do uzupełnienia</p>
+                  </div>
+                </div>
+                <div class="folder-arrow">⌄</div>
+              </button>
 
-              <article class="card">
-                <div class="card-image-wrap">
-                  <img src="file_000000003488720ab10a35d2c061f697.jpg" alt="Inka ragdoll blue bicolor z hodowli Akwamaryn PL" onclick="openImage(this)">
+              <div class="folder-content">
+                <div class="folder-inner">
+                  <div class="folder-note">
+                    <p>
+                      <strong>Już jutro</strong> uzupełnimy tę część o zdjęcia naszych wychowanków z ich nowych domków.
+                      To właśnie tutaj będą pojawiać się dalsze losy maluszków urodzonych w Akwamaryn*PL —
+                      pełne ciepła, miłości i pięknych wspomnień z ich nowych rodzin.
+                    </p>
+                  </div>
                 </div>
-                <div class="card-content">
-                  <h3>Inka</h3>
-                  <div class="card-badge">Ragdoll blue bicolor</div>
-                  <p>
-                    Inka to nasza piękna ragdollowa dziewczynka w umaszczeniu blue bicolor. Dziś mieszka niedaleko,
-                    w Darłowie, co sprawia nam szczególną radość. To niezwykle delikatna i urocza koteczka, która
-                    od pierwszych chwil zachwycała swoim spokojem, subtelnością i słodkim spojrzeniem. Cieszymy się,
-                    że dorasta w kochającym domu i pozostaje tak blisko nas.
-                  </p>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-image-wrap">
-                  <img src="AAC29BB6-5D57-4612-9939-F0D4F3CC8790.jpg" alt="Henio ragdoll blue bicolor z hodowli Akwamaryn PL" onclick="openImage(this)">
-                </div>
-                <div class="card-content">
-                  <h3>Henio</h3>
-                  <div class="card-badge">Ragdoll blue bicolor</div>
-                  <p>
-                    Henio to nasz przeuroczy ragdollowy chłopiec w umaszczeniu blue bicolor, który już zamieszkał
-                    ze swoją nową rodzinką. Od najmłodszych dni był wyjątkowo kochany, łagodny i bardzo kontaktowy.
-                    To jeden z tych maluszków, które od razu skradły serce swoim spokojem i ciepłym charakterem.
-                    Jesteśmy szczęśliwi, że trafił do domu pełnego miłości i troski.
-                  </p>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-image-wrap">
-                  <img src="9DC7F011-E96F-4AAA-ACC2-D31F8355DBC1.PNG" alt="Rodzeństwo ragdolli z hodowli Akwamaryn PL" onclick="openImage(this)">
-                </div>
-                <div class="card-content">
-                  <h3>Ragdollowe rodzeństwo</h3>
-                  <div class="card-badge">Wszystkie już w nowych domkach</div>
-                  <p>
-                    To wyjątkowe ragdollowe rodzeństwo, które przyszło na świat w naszej hodowli i dziś wszystkie
-                    maluszki są już w swoich nowych domkach. Każde z nich rozpoczęło własną, piękną historię,
-                    niosąc ze sobą domowe ciepło, łagodność i bliskość, w jakiej dorastały od pierwszych dni życia.
-                    To właśnie takie chwile najmocniej pokazują sens naszej pracy i ogrom serca wkładany w każdy miot.
-                  </p>
-                </div>
-              </article>
-
-            </div>
-          </div>
-
-          <div class="subsection">
-            <div class="subsection-title">
-              <h2>W nowych domkach</h2>
-              <p>Już jutro uzupełnimy tę część o zdjęcia od nowych rodzin</p>
+              </div>
             </div>
 
-            <div class="coming-soon-box">
-              <h3>To będzie piękna część tej historii</h3>
-              <p>
-                Tutaj już jutro pojawią się zdjęcia naszych wychowanków z ich nowych domków.
-                To właśnie te chwile są dla nas najpiękniejszym potwierdzeniem, że nasze maluszki
-                trafiają do kochających rodzin i rozpoczynają cudowne nowe życie.
-              </p>
-              <p>
-                Z każdym kolejnym zdjęciem ta zakładka będzie jeszcze pełniejsza, bardziej wzruszająca
-                i jeszcze piękniej pokaże dalsze losy kociąt urodzonych w Akwamaryn*PL.
-              </p>
-              <div class="coming-soon-badge">WKRÓTCE ZDJĘCIA Z NOWYCH DOMKÓW</div>
-            </div>
           </div>
 
           <div class="bottom-note">
@@ -816,6 +904,33 @@
     document.querySelectorAll(".fade-in").forEach(el=>{
       observer.observe(el);
     });
+
+    function toggleFolder(folderId){
+      const folder = document.getElementById(folderId);
+      const content = folder.querySelector(".folder-content");
+
+      folder.classList.toggle("open");
+
+      if(folder.classList.contains("open")){
+        content.style.maxHeight = content.scrollHeight + "px";
+      }else{
+        content.style.maxHeight = "0px";
+      }
+    }
+
+    function setInitialFolderHeights(){
+      document.querySelectorAll(".folder").forEach(folder=>{
+        const content = folder.querySelector(".folder-content");
+        if(folder.classList.contains("open")){
+          content.style.maxHeight = content.scrollHeight + "px";
+        }else{
+          content.style.maxHeight = "0px";
+        }
+      });
+    }
+
+    window.addEventListener("load", setInitialFolderHeights);
+    window.addEventListener("resize", setInitialFolderHeights);
 
     function openImage(img){
       const lightbox = document.getElementById("lightbox");
