@@ -444,14 +444,29 @@
       padding:28px;
     }
 
-    .folder-end-hint{
+    .folder-end-wrap{
+      display:flex;
+      justify-content:center;
       margin-top:22px;
-      text-align:center;
+    }
+
+    .folder-end-button{
+      padding:12px 20px;
+      border-radius:999px;
+      background:#f5e7ed;
+      border:1px solid #ead3dc;
       color:var(--text-soft);
       font-size:13px;
       font-weight:700;
       letter-spacing:0.5px;
       text-transform:uppercase;
+      transition:0.25s ease;
+    }
+
+    .folder-end-button:hover{
+      background:#f1dfe7;
+      color:var(--text-strong);
+      transform:translateY(-1px);
     }
 
     .gallery{
@@ -484,7 +499,7 @@
       justify-content:center;
       background:linear-gradient(180deg,#fffdfd 0%, #fff8fb 100%);
       border:1px solid #eedbe3;
-      border-radius:24px;
+      border-radius:28px;
       margin-bottom:18px;
       overflow:hidden;
       padding:12px;
@@ -497,7 +512,7 @@
       max-height:310px;
       object-fit:contain;
       object-position:center;
-      border-radius:18px;
+      border-radius:24px;
       cursor:pointer;
       transition:transform 0.25s ease;
     }
@@ -757,10 +772,12 @@
 
       .card-image-wrap{
         min-height:280px;
+        border-radius:24px;
       }
 
       .card img{
         max-height:260px;
+        border-radius:20px;
       }
 
       .card-content h3{
@@ -902,7 +919,11 @@
 
                   </div>
 
-                  <div class="folder-end-hint">Zwiń galerię</div>
+                  <div class="folder-end-wrap">
+                    <button class="folder-end-button" type="button" onclick="toggleFolder('folder-wychowanki')">
+                      Zwiń galerię
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -938,7 +959,11 @@
                     </p>
                   </div>
 
-                  <div class="folder-end-hint">Zwiń galerię</div>
+                  <div class="folder-end-wrap">
+                    <button class="folder-end-button" type="button" onclick="toggleFolder('folder-domki')">
+                      Zwiń galerię
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
