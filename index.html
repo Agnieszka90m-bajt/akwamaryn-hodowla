@@ -1,154 +1,1133 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="vhbXQ7X6O4r9UYSqRJ-n6o5Htdsf_eMAsmdFhPw2dVo" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hodowla kotów rasowych Polska Ragdoll i norweskich leśnych | Akwamaryn*PL</title>
-  <meta name="description" content="Akwamaryn*PL to domowa hodowla kotów rasowych w Polsce. Hodujemy ragdolle i norweskie koty leśne. Nasze kocięta wychowują się w domu, z troską o zdrowie, charakter i prawidłową socjalizację." />
-  <meta name="keywords" content="hodowla kotów rasowych, hodowla ragdoll, hodowla norweskich leśnych, ragdoll Polska, norweski leśny Polska, hodowla kotów zachodniopomorskie, koty rasowe Polska, kocięta ragdoll, kocięta norweskie leśne, Akwamaryn PL" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://akwamaryn-pl.com/" />
+<!DOCTYPE html>  <html lang="pl">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="google-site-verification" content="vhbXQ7X6O4r9UYSqRJ-n6o5Htdsf_eMAsmdFhPw2dVo" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+  <title>Hodowla kotów rasowych Polska Ragdoll i norweskich leśnych | Akwamaryn*PL</title>  
+  <meta name="description" content="Akwamaryn*PL to domowa hodowla kotów rasowych. Hodujemy ragdolle i norweskie koty leśne. Jesteśmy hodowlą z Polski, z województwa zachodniopomorskiego. Nasze kocięta wychowują się w domu, z troską o zdrowie, charakter i prawidłową socjalizację." />  
+  <meta name="keywords" content="hodowla kotów rasowych, hodowla ragdoll, hodowla norweskich leśnych, ragdoll Polska, norweski leśny Polska, hodowla kotów zachodniopomorskie, koty rasowe Polska, kocięta ragdoll, kocięta norweskie leśne, Akwamaryn PL" />  
+  <meta name="robots" content="index, follow" />  
+  <link rel="canonical" href="https://akwamaryn-pl.com/" />    <link rel="preconnect" href="https://fonts.googleapis.com">  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">    <style>  
+    :root{  
+      --bg-1:#fffafc;  
+      --bg-2:#f8eef3;  
+      --panel:#fff8fb;  
+      --panel-2:rgba(255,255,255,0.88);  
+      --line:#f0dfe6;  
+      --line-strong:#e4c8d2;  
+      --line-dark:#b78898;  
+      --text:#654f58;  
+      --text-strong:#7a5665;  
+      --text-soft:#866873;  
+      --badge:#f1e5ea;  
+      --shadow:0 14px 34px rgba(0,0,0,0.05);  
+      --shadow-hover:0 16px 30px rgba(171,135,149,0.14);  
+      --max:1320px;  
+      --hero-radius:34px;  
+    }  
+  
+    *{  
+      box-sizing:border-box;  
+      margin:0;  
+      padding:0;  
+    }  
+  
+    html{  
+      scroll-behavior:smooth;  
+    }  
+  
+    body{  
+      font-family:"Inter",sans-serif;  
+      color:var(--text);  
+      background:linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 100%);  
+      overflow-x:hidden;  
+    }  
+  
+    a{  
+      color:inherit;  
+      text-decoration:none;  
+    }  
+  
+    img{  
+      display:block;  
+      max-width:100%;  
+    }  
+  
+    button{  
+      font:inherit;  
+      border:none;  
+      background:none;  
+      cursor:pointer;  
+    }  
+  
+    .page-wrap{  
+      position:relative;  
+      overflow:hidden;  
+    }  
+  
+    .topbar{  
+      position:sticky;  
+      top:0;  
+      z-index:5000;  
+      background:rgba(255,248,251,0.95);  
+      backdrop-filter:blur(10px);  
+      -webkit-backdrop-filter:blur(10px);  
+      border-bottom:1px solid rgba(218,189,200,0.2);  
+    }  
+  
+    .topbar-inner{  
+      width:min(var(--max), calc(100% - 36px));  
+      margin:auto;  
+      min-height:88px;  
+      display:flex;  
+      align-items:center;  
+      justify-content:space-between;  
+      gap:18px;  
+      flex-wrap:wrap;  
+    }  
+  
+    .brand{  
+      font-family:"Cormorant Garamond",serif;  
+      color:var(--text-strong);  
+      white-space:nowrap;  
+      font-size:58px;  
+      line-height:0.95;  
+      font-weight:600;  
+      letter-spacing:0.2px;  
+    }  
+  
+    .nav{  
+      display:flex;  
+      align-items:center;  
+      flex-wrap:wrap;  
+      gap:18px;  
+      color:var(--text);  
+    }  
+  
+    .nav a{  
+      font-family:"Cormorant Garamond",serif;  
+      font-size:21px;  
+      color:var(--text);  
+      transition:0.25s ease;  
+    }  
+  
+    .nav a:hover{  
+      color:var(--text-strong);  
+    }  
+  
+    .nav-cta{  
+      min-width:152px;  
+      min-height:42px;  
+      padding:0 18px;  
+      border:2px solid #d6b0be;  
+      color:var(--text-strong);  
+      display:inline-flex;  
+      align-items:center;  
+      justify-content:center;  
+      font-size:16px;  
+      font-weight:600;  
+      letter-spacing:0.5px;  
+      position:relative;  
+      margin-left:14px;  
+      transition:0.25s ease;  
+      overflow:hidden;  
+      background:#fff8fb;  
+      border-radius:16px;  
+      box-shadow:0 8px 18px rgba(171,135,149,0.08);  
+    }  
+  
+    .nav-cta:hover{  
+      box-shadow:0 12px 22px rgba(171,135,149,0.14);  
+      transform:translateY(-2px);  
+    }  
+  
+    .nav-cta::before,  
+    .nav-cta::after{  
+      content:"";  
+      position:absolute;  
+      width:14px;  
+      height:14px;  
+      border-color:#b78898;  
+      z-index:2;  
+    }  
+  
+    .nav-cta::before{  
+      top:-2px;  
+      left:-2px;  
+      border-top:3px solid #b78898;  
+      border-left:3px solid #b78898;  
+      border-radius:10px 0 0 0;  
+    }  
+  
+    .nav-cta::after{  
+      right:-2px;  
+      bottom:-2px;  
+      border-right:3px solid #b78898;  
+      border-bottom:3px solid #b78898;  
+      border-radius:0 0 10px 0;  
+    }  
+  
+    .container{  
+      width:min(var(--max), calc(100% - 36px));  
+      margin:auto;  
+      padding:34px 0 80px;  
+      position:relative;  
+      z-index:1;  
+    }  
+  
+    .fade-in{  
+      opacity:0;  
+      transform:translateY(42px);  
+      transition:opacity 0.85s ease, transform 0.85s ease;  
+    }  
+  
+    .fade-in.show{  
+      opacity:1;  
+      transform:translateY(0);  
+    }  
+  
+    @keyframes softSweep{  
+      0%{  
+        transform:translateX(-180%) rotate(16deg);  
+        opacity:0;  
+      }  
+      18%{  
+        opacity:1;  
+      }  
+      100%{  
+        transform:translateX(260%) rotate(16deg);  
+        opacity:0;  
+      }  
+    }  
+  
+    @keyframes frameGlow{  
+      0%,100%{  
+        box-shadow:  
+          0 0 0 rgba(183,136,152,0),  
+          0 12px 30px rgba(171,135,149,0.10);  
+      }  
+      50%{  
+        box-shadow:  
+          0 0 18px rgba(183,136,152,0.10),  
+          0 16px 34px rgba(171,135,149,0.16);  
+      }  
+    }  
+  
+    .animated-frame{  
+      position:relative;  
+      overflow:hidden;  
+      animation:frameGlow 3.2s ease-in-out infinite;  
+    }  
+  
+    .animated-frame::before{  
+      content:"";  
+      position:absolute;  
+      top:-130%;  
+      left:-45%;  
+      width:34%;  
+      height:380%;  
+      background:linear-gradient(  
+        90deg,  
+        rgba(183,136,152,0) 0%,  
+        rgba(183,136,152,0.10) 40%,  
+        rgba(255,255,255,0.55) 50%,  
+        rgba(183,136,152,0.10) 60%,  
+        rgba(183,136,152,0) 100%  
+      );  
+      transform:translateX(-180%) rotate(16deg);  
+      opacity:0;  
+      pointer-events:none;  
+      z-index:3;  
+    }  
+  
+    .animated-frame:hover::before{  
+      opacity:1;  
+      animation:softSweep 1.35s ease;  
+    }  
+  
+    .hero{  
+      display:grid;  
+      grid-template-columns:1.02fr 0.98fr;  
+      gap:34px;  
+      align-items:center;  
+      min-height:680px;  
+      margin-bottom:54px;  
+    }  
+  
+    .hero-copy{  
+      padding:18px 0;  
+    }  
+  
+    .hero-line{  
+      display:flex;  
+      align-items:center;  
+      gap:12px;  
+      margin-bottom:24px;  
+    }  
+  
+    .hero-line::before{  
+      content:"";  
+      width:150px;  
+      height:3px;  
+      background:linear-gradient(90deg,#e4c8d2 0%, #b78898 50%, #e4c8d2 100%);  
+      border-radius:999px;  
+      flex-shrink:0;  
+    }  
+  
+    .hero-line::after{  
+      content:"";  
+      width:26px;  
+      height:2px;  
+      background:#b78898;  
+      border-radius:999px;  
+      flex-shrink:0;  
+    }  
+  
+    .hero-line span{  
+      display:block;  
+      width:150px;  
+      height:3px;  
+      background:linear-gradient(90deg,#e4c8d2 0%, #b78898 50%, #e4c8d2 100%);  
+      border-radius:999px;  
+      flex-shrink:0;  
+    }  
+  
+    .hero-copy h1{  
+      font-family:"Cormorant Garamond",serif;  
+      font-size:82px;  
+      line-height:0.94;  
+      font-weight:600;  
+      color:var(--text-strong);  
+      margin-bottom:18px;  
+    }  
+  
+    .hero-accent{  
+      font-family:"Cormorant Garamond",serif;  
+      font-size:28px;  
+      line-height:1.2;  
+      color:var(--text-soft);  
+      font-style:italic;  
+      margin-bottom:26px;  
+    }  
+  
+    .hero-copy p{  
+      max-width:670px;  
+      font-size:17px;  
+      line-height:2;  
+      color:var(--text);  
+      margin-bottom:26px;  
+    }  
+  
+    .hero-mini{  
+      color:var(--text-soft);  
+      font-family:"Cormorant Garamond",serif;  
+      font-size:28px;  
+      line-height:1.2;  
+      font-style:italic;  
+      margin-bottom:28px;  
+    }  
+  
+    .hero-btn{  
+      min-width:150px;  
+      min-height:42px;  
+      padding:0 18px;  
+      border:2px solid #d6b0be;  
+      color:var(--text-strong);  
+      display:inline-flex;  
+      align-items:center;  
+      justify-content:center;  
+      font-size:16px;  
+      font-weight:600;  
+      position:relative;  
+      letter-spacing:0.3px;  
+      transition:0.25s ease;  
+      overflow:hidden;  
+      border-radius:16px;  
+      background:#fff8fb;  
+      box-shadow:0 8px 18px rgba(171,135,149,0.08);  
+    }  
+  
+    .hero-btn:hover{  
+      transform:translateY(-2px);  
+      box-shadow:0 12px 22px rgba(171,135,149,0.14);  
+    }  
+  
+    .hero-btn::before,  
+    .hero-btn::after{  
+      content:"";  
+      position:absolute;  
+      width:14px;  
+      height:14px;  
+      border-color:#b78898;  
+      z-index:2;  
+    }  
+  
+    .hero-btn::before{  
+      top:-2px;  
+      left:-2px;  
+      border-top:3px solid #b78898;  
+      border-left:3px solid #b78898;  
+      border-radius:10px 0 0 0;  
+    }  
+  
+    .hero-btn::after{  
+      right:-2px;  
+      bottom:-2px;  
+      border-right:3px solid #b78898;  
+      border-bottom:3px solid #b78898;  
+      border-radius:0 0 10px 0;  
+    }  
+  
+    .hero-image-wrap{  
+      display:flex;  
+      align-items:center;  
+      justify-content:center;  
+      width:100%;  
+    }  
+  
+    .hero-image{  
+      width:100%;  
+      max-width:100%;  
+      display:block;  
+      border:1px solid var(--line-strong);  
+      padding:10px;  
+      background:#fff8fb;  
+      box-shadow:var(--shadow);  
+      transition:0.4s ease;  
+      border-radius:30px;  
+    }  
+  
+    .hero-image:hover{  
+      transform:translateY(-6px);  
+      box-shadow:var(--shadow-hover);  
+      border-color:#d6b0be;  
+    }  
+  
+    .hero-image img{  
+      display:block;  
+      width:100%;  
+      height:auto;  
+      max-height:none;  
+      object-fit:contain;  
+      object-position:center;  
+      border-radius:22px;  
+      background:#fff8fb;  
+    }  
+  
+    .section{  
+      margin-bottom:54px;  
+    }  
+  
+    .section-wrap{  
+      background:var(--panel-2);  
+      padding:40px;  
+      border-radius:30px;  
+      box-shadow:var(--shadow);  
+    }  
+  
+    .section-header{  
+      text-align:center;  
+      margin-bottom:34px;  
+      position:relative;  
+    }  
+  
+    .frame-title{  
+      display:inline-block;  
+      position:relative;  
+      padding:34px 46px;  
+    }  
+  
+    .frame-title::before,  
+    .frame-title::after,  
+    .frame-title .corner-in::before,  
+    .frame-title .corner-in::after{  
+      content:"";  
+      position:absolute;  
+      pointer-events:none;  
+    }  
+  
+    .frame-title::before{  
+      top:0;  
+      left:0;  
+      width:120px;  
+      height:78px;  
+      border-top:2px solid var(--line-dark);  
+      border-left:2px solid var(--line-dark);  
+    }  
+  
+    .frame-title::after{  
+      right:0;  
+      bottom:0;  
+      width:120px;  
+      height:78px;  
+      border-right:2px solid var(--line-dark);  
+      border-bottom:2px solid var(--line-dark);  
+    }  
+  
+    .frame-title .corner-in::before{  
+      top:10px;  
+      left:10px;  
+      width:76px;  
+      height:48px;  
+      border-top:2px solid rgba(183,136,152,0.55);  
+      border-left:2px solid rgba(183,136,152,0.55);  
+    }  
+  
+    .frame-title .corner-in::after{  
+      right:10px;  
+      bottom:10px;  
+      width:76px;  
+      height:48px;  
+      border-right:2px solid rgba(183,136,152,0.55);  
+      border-bottom:2px solid rgba(183,136,152,0.55);  
+    }  
+  
+    .section-header h2{  
+      font-family:"Cormorant Garamond",serif;  
+      font-size:64px;  
+      font-weight:600;  
+      line-height:1;  
+      color:var(--text-strong);  
+      margin-bottom:10px;  
+      position:relative;  
+      z-index:2;  
+    }  
+  
+    .section-header p{  
+      color:var(--text-soft);  
+      font-family:"Cormorant Garamond",serif;  
+      font-size:24px;  
+      font-style:italic;  
+      line-height:1.3;  
+      position:relative;  
+      z-index:2;  
+    }  
+  
+    .intro-layout{  
+      display:grid;  
+      grid-template-columns:1fr 1fr;  
+      gap:34px;  
+      align-items:start;  
+    }  
+  
+    .text-block{  
+      color:var(--text);  
+      font-size:17px;  
+      line-height:2;  
+    }  
+  
+    .text-block p{  
+      margin-bottom:18px;  
+    }  
+  
+    .info-cards{  
+      display:grid;  
+      grid-template-columns:1fr 1fr;  
+      gap:16px;  
+    }  
+  
+    .info-card{  
+      background:var(--panel);  
+      border:1px solid var(--line);  
+      border-radius:22px;  
+      padding:22px 20px;  
+      min-height:132px;  
+      box-shadow:0 10px 26px rgba(171,135,149,0.08);  
+      transition:0.35s ease;  
+    }  
+  
+    .info-card:hover{  
+      transform:translateY(-4px);  
+      border-color:#d6b0be;  
+      box-shadow:var(--shadow-hover);  
+    }  
+  
+    .info-card strong{  
+      display:block;  
+      font-family:"Cormorant Garamond",serif;  
+      font-size:34px;  
+      line-height:1;  
+      color:var(--text-strong);  
+      margin-bottom:10px;  
+      font-weight:600;  
+    }  
+  
+    .info-card span{  
+      display:block;  
+      color:var(--text);  
+      font-size:15px;  
+      line-height:1.7;  
+    }  
+  
+    .story-layout{  
+      display:grid;  
+      grid-template-columns:1fr 1fr;  
+      gap:28px;  
+      align-items:center;  
+    }  
+  
+    .story-photo{  
+      display:inline-block;  
+      border:1px solid var(--line-strong);  
+      padding:10px;  
+      background:#fff8fb;  
+      box-shadow:0 10px 30px rgba(171,135,149,0.10);  
+      border-radius:30px;  
+    }  
+  
+    .story-photo img{  
+      display:block;  
+      width:100%;  
+      height:auto;  
+      max-height:none;  
+      object-fit:contain;  
+      background:#fff8fb;  
+      border-radius:22px;  
+    }  
+  
+    .logos-box{  
+      display:grid;  
+      grid-template-columns:repeat(2,1fr);  
+      gap:24px;  
+      margin-top:10px;  
+    }  
+  
+    .logo-card{  
+      text-align:center;  
+      background:var(--panel);  
+      border:1px solid var(--line);  
+      border-radius:24px;  
+      padding:24px;  
+      transition:transform 0.3s ease, box-shadow 0.3s ease;  
+      box-shadow:0 10px 26px rgba(171,135,149,0.08);  
+    }  
+  
+    .logo-card:hover{  
+      transform:translateY(-6px);  
+      box-shadow:var(--shadow-hover);  
+      border-color:#d6b0be;  
+    }  
+  
+    .logo-card img{  
+      max-width:200px;  
+      margin-bottom:14px;  
+      width:100%;  
+      height:auto;  
+      display:block;  
+      margin-left:auto;  
+      margin-right:auto;  
+    }  
+  
+    .logo-card h3{  
+      margin-bottom:10px;  
+      font-family:"Cormorant Garamond",serif;  
+      font-size:34px;  
+      color:var(--text-strong);  
+    }  
+  
+    .logo-card p{  
+      font-size:17px;  
+      line-height:1.7;  
+      color:var(--text);  
+    }  
+  
+    .contact-layout{  
+      display:grid;  
+      grid-template-columns:1.1fr 0.9fr;  
+      gap:24px;  
+      align-items:stretch;  
+    }  
+  
+    .contact-text{  
+      font-size:19px;  
+      line-height:1.8;  
+      color:var(--text);  
+      text-align:left;  
+    }  
+  
+    .contact-box{  
+      text-align:center;  
+      background:var(--panel);  
+      border:1px solid var(--line);  
+      border-radius:24px;  
+      padding:26px;  
+      box-shadow:0 10px 24px rgba(171,135,149,0.08);  
+    }  
+  
+    .contact-box h3{  
+      font-size:30px;  
+      color:var(--text-strong);  
+      margin-bottom:10px;  
+      font-family:"Cormorant Garamond",serif;  
+    }  
+  
+    .contact-note{  
+      font-size:18px;  
+      line-height:1.6;  
+      color:var(--text-soft);  
+      margin-bottom:18px;  
+      font-style:italic;  
+      font-family:"Cormorant Garamond",serif;  
+    }  
+  
+    .contact-links{  
+      display:grid;  
+      gap:12px;  
+    }  
+  
+    .contact-link{  
+      min-height:52px;  
+      background:var(--badge);  
+      color:var(--text-strong);  
+      border-radius:18px;  
+      display:flex;  
+      align-items:center;  
+      justify-content:center;  
+      padding:0 18px;  
+      font-size:16px;  
+      font-weight:700;  
+      text-align:center;  
+      box-shadow:0 8px 18px rgba(171,135,149,0.08);  
+      border:1px solid #ead8e0;  
+    }  
+  
+    .facebook-side{  
+      position:fixed;  
+      right:0;  
+      top:50%;  
+      transform:translateY(-50%);  
+      background:#4267B2;  
+      color:#fff;  
+      padding:18px 12px;  
+      border-radius:16px 0 0 16px;  
+      font-weight:700;  
+      font-size:16px;  
+      line-height:1;  
+      box-shadow:0 10px 24px rgba(0,0,0,0.18);  
+      z-index:6000;  
+      writing-mode:vertical-rl;  
+      text-orientation:mixed;  
+      letter-spacing:0.5px;  
+      transition:transform 0.25s ease, box-shadow 0.25s ease;  
+    }  
+  
+    .facebook-side:hover{  
+      transform:translateY(-50%) translateX(-4px);  
+      box-shadow:0 14px 28px rgba(0,0,0,0.24);  
+    }  
+  
+    footer{  
+      text-align:center;  
+      padding:30px;  
+      color:var(--text-soft);  
+      font-size:14px;  
+    }  
+  
+    @media (min-width:769px) and (max-width:1100px){  
+      .hero{  
+        grid-template-columns:1fr;  
+        min-height:auto;  
+      }  
+  
+      .hero-copy{  
+        order:2;  
+        padding-top:0;  
+      }  
+  
+      .hero-image-wrap{  
+        order:1;  
+        justify-content:center;  
+      }  
+  
+      .hero-image{  
+        width:100%;  
+        max-width:100%;  
+        display:block;  
+        padding:10px;  
+      }  
+  
+      .hero-image img{  
+        width:100%;  
+        height:auto;  
+        max-height:none;  
+        object-fit:contain;  
+        object-position:center;  
+        margin:0;  
+      }  
+  
+      .intro-layout,  
+      .story-layout{  
+        grid-template-columns:1fr;  
+      }  
+    }  
+  
+    @media (max-width:980px){  
+      .contact-layout,  
+      .intro-layout,  
+      .story-layout,  
+      .logos-box{  
+        grid-template-columns:1fr;  
+      }  
+    }  
+  
+    @media (max-width:768px){  
+      .topbar-inner{  
+        width:min(var(--max), calc(100% - 20px));  
+        justify-content:center;  
+        padding:14px 0;  
+      }  
+  
+      .brand{  
+        width:100%;  
+        text-align:center;  
+        font-size:44px;  
+      }  
+  
+      .nav{  
+        justify-content:center;  
+        gap:12px;  
+      }  
+  
+      .nav a{  
+        font-size:18px;  
+      }  
+  
+      .nav-cta{  
+        margin-left:0;  
+      }  
+  
+      .container{  
+        width:min(var(--max), calc(100% - 20px));  
+        padding:20px 0 48px;  
+      }  
+  
+      .hero{  
+        grid-template-columns:1fr;  
+        gap:20px;  
+        min-height:auto;  
+      }  
+  
+      .hero-copy{  
+        order:2;  
+      }  
+  
+      .hero-image-wrap{  
+        order:1;  
+        width:100%;  
+        justify-content:center;  
+      }  
+  
+      .hero-copy h1{  
+        font-size:44px;  
+      }  
+  
+      .hero-accent,  
+      .hero-mini{  
+        font-size:22px;  
+      }  
+  
+      .hero-copy p,  
+      .text-block,  
+      .contact-text{  
+        font-size:16px;  
+      }  
+  
+      .info-cards{  
+        grid-template-columns:1fr;  
+      }  
+  
+      .hero-image{  
+        width:100%;  
+        max-width:100%;  
+        display:block;  
+        padding:8px;  
+      }  
+  
+      .hero-image img{  
+        width:100%;  
+        height:auto;  
+        max-height:none;  
+        object-fit:contain;  
+        object-position:center;  
+        margin:0;  
+        border-radius:18px;  
+      }  
+  
+      .frame-title{  
+        padding:24px 22px;  
+      }  
+  
+      .frame-title::before{  
+        width:92px;  
+        height:64px;  
+      }  
+  
+      .frame-title::after{  
+        width:92px;  
+        height:64px;  
+      }  
+  
+      .frame-title .corner-in::before{  
+        width:56px;  
+        height:36px;  
+      }  
+  
+      .frame-title .corner-in::after{  
+        width:56px;  
+        height:36px;  
+      }  
+  
+      .section-header h2{  
+        font-size:44px;  
+      }  
+  
+      .section-header p{  
+        font-size:20px;  
+      }  
+  
+      .facebook-side{  
+        font-size:14px;  
+        padding:14px 10px;  
+      }  
+    }  
+  </style>  </head>  
+<body>  
+  <div class="page-wrap">  <a class="facebook-side" href="https://www.facebook.com/share/1DWyWWbtVH/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>  
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<header class="topbar fade-in">  
+  <div class="topbar-inner">  
+    <div class="brand">Akwamaryn*PL</div>  
 
-  <style>
-/* TU NIC NIE RUSZAŁAM — TWÓJ CSS 1:1 */
-  </style>
-</head>
-<body>
-  <div class="page-wrap">
+    <nav class="nav">  
+      <a href="index.html">Start</a>  
+      <a href="kotki.html">Kotki hodowlane</a>  
+      <a href="kocury.html">Kocury hodowlane</a>  
+      <a href="nasze-wychowanki.html">Nasze wychowanki</a>  
+      <a href="miot.html">Aktualny miot</a>  
+      <a href="kontakt.html">Kontakt</a>  
+      <a href="rezerwacja.html" class="nav-cta">REZERWACJA</a>  
+    </nav>  
+  </div>  
+</header>  
 
-    <a class="facebook-side" href="https://www.facebook.com/share/1DWyWWbtVH/?mibextid=wwXIfr" target="_blank">Facebook</a>
+<main class="container">  
 
-    <header class="topbar fade-in">
-      <div class="topbar-inner">
-        <div class="brand">Akwamaryn*PL</div>
+  <section class="hero fade-in">  
+    <div class="hero-copy">  
+      <div class="hero-line"><span></span></div>  
+      <h1>Hodowla kotów rasowych Ragdoll i norweskich leśnych Akwamaryn*PL</h1>  
+      <div class="hero-accent">Domowa hodowla kotów rasowych tworzona z serca</div>  
 
-        <nav class="nav">
-          <a href="index.html">Start</a>
-          <a href="kotki.html">Kotki hodowlane</a>
-          <a href="kocury.html">Kocury hodowlane</a>
-          <a href="nasze-wychowanki.html">Nasze wychowanki</a>
-          <a href="miot.html">Aktualny miot</a>
-          <a href="kontakt.html">Kontakt</a>
-          <a href="rezerwacja.html" class="nav-cta">REZERWACJA</a>
-        </nav>
-      </div>
-    </header>
+      <p>  
+        Akwamaryn*PL to domowa hodowla kotów rasowych, w której piękno spotyka się z troską i spokojem.  
+        Z miłości do ragdolli i norweskich kotów leśnych stworzyliśmy miejsce wyjątkowe – pełne harmonii,  
+        ciepła i uważności na każdy detal. Nasze koty dorastają razem z nami, w domowej przestrzeni,  
+        gdzie liczy się bezpieczeństwo, bliskość człowieka oraz spokojny rytm codzienności.  
+      </p>  
 
-    <main class="container">
+      <div class="hero-mini">✦ Ragdoll i norweskie leśne w wyjątkowym wydaniu ✦</div>  
 
-      <section class="hero fade-in">
-        <div class="hero-copy">
-          <div class="hero-line"><span></span></div>
+      <a href="#o-nas" class="hero-btn">POZNAJ NAS</a>  
+    </div>  
 
-          <div class="hero-accent">Witamy w kocim świecie Akwamarynu</div>
+    <div class="hero-image-wrap">  
+      <div class="hero-image animated-frame">  
+        <img src="file_00000000a9f4720ab60032632f8d464e.png" alt="Hodowla kotów rasowych Akwamaryn PL Ragdoll i norweski leśny">  
+      </div>  
+    </div>  
+  </section>  
 
-          <h1>Hodowla kotów rasowych Ragdoll i norweskich leśnych Akwamaryn*PL</h1>
+  <section class="section fade-in" id="o-nas">  
+    <div class="section-wrap">  
+      <div class="section-header">  
+        <div class="frame-title">  
+          <span class="corner-in"></span>  
+          <h2>O nas</h2>  
+          <p>Pasja, która dojrzewała przez lata</p>  
+        </div>  
+      </div>  
 
-          <p>
-            Akwamaryn*PL to domowa hodowla kotów rasowych w Polsce, w której piękno spotyka się z troską i spokojem.
-            Specjalizujemy się w rasach ragdoll oraz norweski kot leśny, dbając o zdrowie, charakter i prawidłową socjalizację naszych kociąt.
-            Nasze koty dorastają razem z nami, w domowej przestrzeni, gdzie liczy się bezpieczeństwo, bliskość człowieka oraz spokojny rytm codzienności.
-          </p>
+      <div class="intro-layout">  
+        <div class="text-block">  
+          <p>  
+            Cześć, mam na imię Agnieszka i to właśnie z ogromnej miłości do kotów powstała hodowla Akwamaryn*PL.  
+            Koty były obecne w moim życiu od dziecka. Zawsze były mi bliskie – ich delikatność, inteligencja,  
+            niezależność i niezwykłe ciepło, które wnoszą do domu, sprawiały, że od najmłodszych lat czułam,  
+            że są częścią mojego świata.  
+          </p>  
+          <p>  
+            Z czasem ta dziecięca miłość przerodziła się w coś znacznie głębszego – w świadomą pasję, potrzebę  
+            tworzenia miejsca wyjątkowego, pełnego troski, piękna i odpowiedzialności. Tak narodził się  
+            Akwamaryn*PL – hodowla, w której nie chodzi tylko o samą rasę, ale przede wszystkim o serce,  
+            charakter, zdrowie i bliskość.  
+          </p>  
+          <p>  
+            Chciałam stworzyć przestrzeń, w której koty będą dorastały w domowej atmosferze, z czułością,  
+            spokojem i kontaktem z człowiekiem od pierwszych dni życia. Miejsce, w którym każde kocię jest  
+            ważne, zauważone, zaopiekowane i przygotowane do życia w kochającym domu.  
+          </p>  
+        </div>  
 
-          <div class="hero-mini">✦ Ragdoll i norweskie leśne w wyjątkowym wydaniu ✦</div>
+        <div class="info-cards">  
+          <div class="info-card">  
+            <strong>Domowa hodowla</strong>  
+            <span>pełna czułości, spokoju i codziennej obecności człowieka</span>  
+          </div>  
+          <div class="info-card">  
+            <strong>Miłość od dziecka</strong>  
+            <span>z niej narodziła się prawdziwa i świadoma pasja do kotów</span>  
+          </div>  
+          <div class="info-card">  
+            <strong>Piękno i zdrowie</strong>  
+            <span>dbamy o typ, charakter, pochodzenie i odpowiedzialny odchów</span>  
+          </div>  
+          <div class="info-card">  
+            <strong>Akwamaryn*PL</strong>  
+            <span>miejsce tworzone z serca, kobiecej wrażliwości i ogromnego zaangażowania</span>  
+          </div>  
+        </div>  
+      </div>  
+    </div>  
+  </section>  
 
-          <a href="#o-nas" class="hero-btn">POZNAJ NAS</a>
-        </div>
+  <section class="section fade-in">  
+    <div class="section-wrap">  
+      <div class="section-header">  
+        <div class="frame-title">  
+          <span class="corner-in"></span>  
+          <h2>Nasza historia</h2>  
+          <p>Dlaczego właśnie koty i dlaczego właśnie hodowla</p>  
+        </div>  
+      </div>  
 
-        <div class="hero-image-wrap">
-          <div class="hero-image animated-frame">
-            <img src="file_00000000a9f4720ab60032632f8d464e.png">
-          </div>
-        </div>
-      </section>
+      <div class="story-layout">  
+        <div class="story-photo animated-frame">  
+          <img src="file_00000000a9f4720ab60032632f8d464e.png" alt="Domowa hodowla kotów Akwamaryn PL">  
+        </div>  
 
-      <section class="section fade-in" id="o-nas">
-        <div class="section-wrap">
-          <div class="section-header">
-            <div class="frame-title">
-              <span class="corner-in"></span>
-              <h2>O nas</h2>
-              <p>Pasja, która dojrzewała przez lata</p>
-            </div>
-          </div>
+        <div class="text-block">  
+          <p>  
+            Dla mnie kot to nie tylko zwierzę. To obecność, emocja, codzienność i wyjątkowa więź, której  
+            nie da się niczym zastąpić. Koty uczą delikatności, cierpliwości, uważności i tego, że prawdziwa  
+            relacja buduje się spokojem, zaufaniem i sercem.  
+          </p>  
+          <p>  
+            Decyzja o stworzeniu hodowli nie była przypadkiem. To był naturalny krok wynikający z lat obserwacji,  
+            fascynacji rasą, zachwytu nad ich urodą i charakterem oraz potrzeby tworzenia czegoś pięknego  
+            i prawdziwego. Chciałam, aby z mojej hodowli wychodziły kocięta nie tylko śliczne,  
+            ale przede wszystkim dobrze prowadzone, socjalizowane i kochane od pierwszych dni.  
+          </p>  
+          <p>  
+            Akwamaryn*PL to nie jest dla mnie tylko nazwa. To kawałek mojego serca, codzienna praca, emocje,  
+            wzruszenia, piękne chwile i ogromna odpowiedzialność. To miejsce, w którym każda linia,  
+            każde skojarzenie i każde kocię ma znaczenie.  
+          </p>  
+        </div>  
+      </div>  
+    </div>  
+  </section>  
 
-          <div class="intro-layout">
+  <section class="section fade-in">  
+    <div class="section-wrap">  
+      <div class="section-header">  
+        <div class="frame-title">  
+          <span class="corner-in"></span>  
+          <h2>Rejestracje</h2>  
+          <p>Przynależność i potwierdzenie jakości hodowli</p>  
+        </div>  
+      </div>  
 
-            <!-- LEWA STRONA TEKST -->
-            <div class="text-block">
-              <p>
-                Cześć, mam na imię Agnieszka i to właśnie z ogromnej miłości do kotów powstała hodowla Akwamaryn*PL.
-                Koty były obecne w moim życiu od dziecka i zawsze były mi bliskie.
-              </p>
-              <p>
-                Z czasem ta miłość przerodziła się w świadomą pasję i potrzebę stworzenia miejsca wyjątkowego,
-                pełnego troski, piękna i odpowiedzialności.
-              </p>
-              <p>
-                Chciałam stworzyć hodowlę, w której kocięta dorastają w domu, z czułością i spokojem,
-                przygotowane do życia w kochających rodzinach.
-              </p>
-            </div>
+      <div class="logos-box">  
+        <div class="logo-card">  
+          <img src="Logo-WCF-green_transparent (1).png" alt="Logo WCF hodowla kotów rasowych">  
+          <h3>WCF</h3>  
+          <p>World Cat Federation</p>  
+        </div>  
 
-            <!-- PRAWA STRONA: TWOJE ZDJĘCIE + KAFELKI -->
-            <div>
+        <div class="logo-card">  
+          <img src="file_0000000057e87243a0ccc6268d392dfa.jpg" alt="Logo SKR hodowla kotów Akwamaryn">  
+          <h3>SKR</h3>  
+          <p>Stowarzyszenie Koty Rasowe</p>  
+        </div>  
+      </div>  
+    </div>  
+  </section>  
 
-              <div class="story-photo animated-frame" style="margin-bottom:20px;">
-                <img src="file_000000007c4071f49df56074f684d66e.png" alt="Akwamaryn hodowla kotów">
-              </div>
+  <section class="section fade-in">  
+    <div class="section-wrap">  
+      <div class="section-header">  
+        <div class="frame-title">  
+          <span class="corner-in"></span>  
+          <h2>Nasza hodowla</h2>  
+          <p>Domowe ciepło, zdrowie i najlepszy start w życie</p>  
+        </div>  
+      </div>  
 
-              <div class="info-cards">
-                <div class="info-card">
-                  <strong>Domowa hodowla</strong>
-                  <span>pełna czułości i obecności człowieka</span>
-                </div>
-                <div class="info-card">
-                  <strong>Ragdoll i norweski</strong>
-                  <span>wyjątkowe rasy o cudownym charakterze</span>
-                </div>
-                <div class="info-card">
-                  <strong>Zdrowie i typ</strong>
-                  <span>świadoma selekcja i odpowiedzialny odchów</span>
-                </div>
-                <div class="info-card">
-                  <strong>Akwamaryn*PL</strong>
-                  <span>hodowla kotów rasowych Polska</span>
-                </div>
-              </div>
+      <div class="text-block">  
+        <p>  
+          Nasza hodowla znajduje się w województwie zachodniopomorskim. W naszej hodowli mieszkają koty rasy ragdoll oraz norweskie koty leśne, które wychowują się razem z nami w domu, w spokojnej i pełnej ciepła atmosferze.  
+        </p>  
+        <p>  
+          Dbamy o zdrowie, piękny typ, zrównoważony charakter oraz prawidłową socjalizację każdego kocięcia. Nasze kocięta od pierwszych dni mają bliski kontakt z człowiekiem, dzięki czemu są ufne, spokojne i doskonale przygotowane do życia w nowych rodzinach.  
+        </p>  
+        <p>  
+          Akwamaryn*PL to domowa hodowla kotów rasowych w Polsce, tworzona z miłości do ragdolli i norweskich kotów leśnych, z troską o każdy detal codziennego życia naszych kotów i maluszków.  
+        </p>  
+      </div>  
+    </div>  
+  </section>  
 
-            </div>
+  <section class="section fade-in">  
+    <div class="section-wrap">  
+      <div class="section-header">  
+        <div class="frame-title">  
+          <span class="corner-in"></span>  
+          <h2>Kontakt</h2>  
+          <p>Zapraszamy do kontaktu z hodowlą Akwamaryn*PL</p>  
+        </div>  
+      </div>  
 
-          </div>
-        </div>
-      </section>
+      <div class="contact-layout">  
+        <div class="contact-text">  
+          Jeśli chcesz dowiedzieć się więcej o naszej hodowli, planowanych miotach, dostępnych kociętach  
+          lub po prostu porozmawiać o rasie, serdecznie zapraszamy do kontaktu. Chętnie odpowiemy na pytania  
+          i opowiemy więcej o naszych kotach oraz codzienności hodowli Akwamaryn*PL.  
+        </div>  
 
-      <!-- RESZTA TWOJEGO KODU ZOSTAŁA NIETKNIĘTA -->
-      
-    </main>
+        <div class="contact-box">  
+          <h3>Skontaktuj się</h3>  
+          <div class="contact-note">Kliknij w mail, numer telefonu lub Facebook</div>  
 
-    <footer>
-      © 2026 Akwamaryn*PL
-    </footer>
+          <div class="contact-links">  
+            <a class="contact-link" href="mailto:agnieszka90m@gmail.com">✉️ agnieszka90m@gmail.com</a>  
+            <a class="contact-link" href="tel:+48572992736">📞 +48 572 992 736</a>  
+            <a class="contact-link" href="https://www.facebook.com/share/1DWyWWbtVH/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook Akwamaryn*PL</a>  
+          </div>  
+        </div>  
+      </div>  
+    </div>  
+  </section>  
 
-  </div>
+</main>  
 
-  <script>
-    const observer = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add("show");
-        }
-      });
-    }, { threshold:0.14 });
+<footer>  
+  © 2026 Akwamaryn*PL  
+</footer>
 
-    document.querySelectorAll(".fade-in").forEach(el=>{
-      observer.observe(el);
-    });
-  </script>
-</body>
+  </div>    <script>  
+    const observer = new IntersectionObserver((entries)=>{  
+      entries.forEach(entry=>{  
+        if(entry.isIntersecting){  
+          entry.target.classList.add("show");  
+        }  
+      });  
+    }, { threshold:0.14 });  
+  
+    document.querySelectorAll(".fade-in").forEach(el=>{  
+      observer.observe(el);  
+    });  
+  </script>  </body>  
 </html>
+To jes
