@@ -27,6 +27,7 @@ color:var(--text);
 overflow-x:hidden;
 }
 
+/* HEADER */
 header{
 position:fixed;
 top:0;
@@ -69,6 +70,7 @@ margin:20px 0;
 font-size:18px;
 }
 
+/* HERO */
 main{padding-top:100px;}
 
 .hero{
@@ -86,6 +88,7 @@ margin-top:10px;
 font-size:18px;
 }
 
+/* SEKCJE */
 .section{
 padding:50px 20px;
 max-width:1200px;
@@ -99,6 +102,7 @@ margin-bottom:30px;
 text-align:center;
 }
 
+/* INFO */
 .info{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -113,6 +117,7 @@ text-align:center;
 box-shadow:0 10px 20px rgba(0,0,0,0.05);
 }
 
+/* GALERIA */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -135,6 +140,7 @@ width:100%;
 border-radius:15px;
 }
 
+/* PROFIL KOTKI */
 .kitten{
 background:white;
 padding:25px;
@@ -149,6 +155,7 @@ font-size:32px;
 margin-bottom:10px;
 }
 
+/* FOLDERY */
 .folder{
 margin-bottom:20px;
 border-radius:20px;
@@ -167,14 +174,16 @@ justify-content:space-between;
 .folder-content{
 max-height:0;
 overflow:hidden;
-transition:.4s;
+transition:.4s ease;
 padding:0 20px;
 }
 
 .folder.open .folder-content{
+max-height:5000px;
 padding:20px;
 }
 
+/* LIGHTBOX */
 .lightbox{
 position:fixed;
 top:0;
@@ -238,17 +247,17 @@ font-size:14px;
 
 <div class="kitten">
 <h3>Mia</h3>
-<p>Na tym etapie już wyraźnie widać jej delikatność i potrzebę bliskości – bardzo kontaktowa, miękka w zachowaniu.</p>
+<p>Na tym etapie zaczyna być w niej widać ogromną potrzebę bliskości. Bardzo kontaktowa, miękka w zachowaniu, spokojna.</p>
 </div>
 
 <div class="kitten">
 <h3>Milka</h3>
-<p>Słodka, spokojna, ale zaczyna już eksplorować świat i interesować się wszystkim wokół.</p>
+<p>Delikatna i subtelna, taka „miękka” w odbiorze. Z dnia na dzień coraz bardziej otwiera się na świat.</p>
 </div>
 
 <div class="kitten">
 <h3>Morigan</h3>
-<p>Najbardziej wyrazista – odważna, ciekawska i zdecydowanie pokazuje swój charakter.</p>
+<p>Wyrazista dziewczynka, w której już teraz widać charakter. Piękna, świadoma, bardzo przyciąga uwagę.</p>
 </div>
 
 </section>
@@ -256,8 +265,8 @@ font-size:14px;
 <section class="section">
 <h2>Galeria</h2>
 
-<!-- 🔥 4 TYDZIEŃ -->
-<div class="folder open" onclick="toggleFolder(this)">
+<!-- 4 TYDZIEŃ -->
+<div class="folder" onclick="toggleFolder(this)">
 <div class="folder-header">
 <span>4 tydzień</span><span>⌄</span>
 </div>
@@ -282,11 +291,9 @@ font-size:14px;
 
 <div class="folder-content">
 <div class="grid">
-
 <div class="card"><img src="images/1.jpg" onclick="openImg(event,this)"></div>
 <div class="card"><img src="images/2.jpg" onclick="openImg(event,this)"></div>
 <div class="card"><img src="images/3.jpg" onclick="openImg(event,this)"></div>
-
 </div>
 </div>
 </div>
@@ -299,10 +306,8 @@ font-size:14px;
 
 <div class="folder-content">
 <div class="grid">
-
 <div class="card"><img src="images/4.jpg" onclick="openImg(event,this)"></div>
 <div class="card"><img src="images/5.jpg" onclick="openImg(event,this)"></div>
-
 </div>
 </div>
 </div>
@@ -324,12 +329,6 @@ document.getElementById("menu").classList.toggle("open");
 
 function toggleFolder(el){
 el.classList.toggle("open");
-let content = el.querySelector(".folder-content");
-if(el.classList.contains("open")){
-content.style.maxHeight = content.scrollHeight+"px";
-}else{
-content.style.maxHeight = null;
-}
 }
 
 function openImg(e,img){
