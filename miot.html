@@ -27,7 +27,6 @@ color:var(--text);
 overflow-x:hidden;
 }
 
-/* HEADER */
 header{
 position:fixed;
 top:0;
@@ -70,7 +69,6 @@ margin:20px 0;
 font-size:18px;
 }
 
-/* HERO */
 main{padding-top:100px;}
 
 .hero{
@@ -88,7 +86,6 @@ margin-top:10px;
 font-size:18px;
 }
 
-/* SEKCJE */
 .section{
 padding:50px 20px;
 max-width:1200px;
@@ -102,7 +99,6 @@ margin-bottom:30px;
 text-align:center;
 }
 
-/* INFO */
 .info{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -117,7 +113,6 @@ text-align:center;
 box-shadow:0 10px 20px rgba(0,0,0,0.05);
 }
 
-/* GALERIA */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -140,7 +135,6 @@ width:100%;
 border-radius:15px;
 }
 
-/* PROFIL KOTKI */
 .kitten{
 background:white;
 padding:25px;
@@ -155,7 +149,6 @@ font-size:32px;
 margin-bottom:10px;
 }
 
-/* FOLDERY */
 .folder{
 margin-bottom:20px;
 border-radius:20px;
@@ -182,7 +175,6 @@ padding:0 20px;
 padding:20px;
 }
 
-/* LIGHTBOX */
 .lightbox{
 position:fixed;
 top:0;
@@ -246,17 +238,17 @@ font-size:14px;
 
 <div class="kitten">
 <h3>Mia</h3>
-<p>Delikatna, spokojna i bardzo kontaktowa.</p>
+<p>Na tym etapie już wyraźnie widać jej delikatność i potrzebę bliskości – bardzo kontaktowa, miękka w zachowaniu.</p>
 </div>
 
 <div class="kitten">
 <h3>Milka</h3>
-<p>Miękka w wyrazie, słodka i bardzo subtelna.</p>
+<p>Słodka, spokojna, ale zaczyna już eksplorować świat i interesować się wszystkim wokół.</p>
 </div>
 
 <div class="kitten">
 <h3>Morigan</h3>
-<p>Wyrazista, piękna i pełna charakteru.</p>
+<p>Najbardziej wyrazista – odważna, ciekawska i zdecydowanie pokazuje swój charakter.</p>
 </div>
 
 </section>
@@ -264,6 +256,25 @@ font-size:14px;
 <section class="section">
 <h2>Galeria</h2>
 
+<!-- 🔥 4 TYDZIEŃ -->
+<div class="folder open" onclick="toggleFolder(this)">
+<div class="folder-header">
+<span>4 tydzień</span><span>⌄</span>
+</div>
+
+<div class="folder-content">
+<div class="grid">
+
+<div class="card"><img src="images/mioty/images/file_000000006628720a9942fd2e7ae02e69.png" onclick="openImg(event,this)"></div>
+<div class="card"><img src="images/mioty/images/file_0000000073f87246bac0cdfabcf631ab.png" onclick="openImg(event,this)"></div>
+<div class="card"><img src="images/mioty/images/file_0000000096287243ad66184382c5e5c1.png" onclick="openImg(event,this)"></div>
+<div class="card"><img src="images/mioty/images/file_00000000b33c720a92139d93efcd31ed.png" onclick="openImg(event,this)"></div>
+
+</div>
+</div>
+</div>
+
+<!-- 2 TYDZIEŃ -->
 <div class="folder" onclick="toggleFolder(this)">
 <div class="folder-header">
 <span>2 tydzień</span><span>⌄</span>
@@ -280,6 +291,7 @@ font-size:14px;
 </div>
 </div>
 
+<!-- 1 TYDZIEŃ -->
 <div class="folder" onclick="toggleFolder(this)">
 <div class="folder-header">
 <span>1 tydzień</span><span>⌄</span>
