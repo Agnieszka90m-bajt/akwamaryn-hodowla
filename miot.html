@@ -18,10 +18,18 @@
 --accent:#b78898;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
 
 body{
-font-family:Inter;
+font-family:Inter, sans-serif;
 background:linear-gradient(var(--bg),var(--bg2));
 color:var(--text);
 overflow-x:hidden;
@@ -29,63 +37,78 @@ overflow-x:hidden;
 
 /* HEADER */
 header{
-position:fixed;
+position:sticky;
 top:0;
 width:100%;
-background:rgba(255,255,255,0.9);
+background:rgba(255,255,255,0.94);
 backdrop-filter:blur(10px);
+-webkit-backdrop-filter:blur(10px);
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 30px;
+padding:18px 34px;
 z-index:999;
+box-shadow:0 8px 22px rgba(183,136,152,0.08);
 }
 
 .logo{
-font-family:"Cormorant Garamond";
-font-size:42px;
+font-family:"Cormorant Garamond", serif;
+font-size:46px;
+line-height:1;
+color:var(--text);
 }
 
 .menu-btn{
-font-size:28px;
+font-size:30px;
 cursor:pointer;
+color:var(--text);
 }
 
 nav{
 position:fixed;
 right:-100%;
 top:0;
-width:260px;
+width:280px;
 height:100%;
-background:white;
-padding:60px 30px;
-transition:.4s;
+background:#fff;
+padding:80px 32px;
+transition:.35s ease;
+z-index:1000;
+box-shadow:-12px 0 30px rgba(0,0,0,0.08);
 }
 
-nav.open{right:0;}
+nav.open{
+right:0;
+}
 
 nav a{
 display:block;
 margin:20px 0;
 font-size:18px;
+color:var(--text);
+text-decoration:none;
 }
 
 /* HERO */
-main{padding-top:100px;}
+main{
+padding-top:20px;
+}
 
 .hero{
 text-align:center;
-padding:60px 20px;
+padding:80px 20px 60px;
 }
 
 .hero h1{
-font-family:"Cormorant Garamond";
-font-size:70px;
+font-family:"Cormorant Garamond", serif;
+font-size:76px;
+line-height:1;
+color:var(--text);
 }
 
 .hero p{
-margin-top:10px;
-font-size:18px;
+margin-top:14px;
+font-size:19px;
 }
 
 /* SEKCJE */
@@ -96,10 +119,12 @@ margin:auto;
 }
 
 .section h2{
-font-family:"Cormorant Garamond";
-font-size:50px;
-margin-bottom:30px;
+font-family:"Cormorant Garamond", serif;
+font-size:56px;
+line-height:1.05;
+margin-bottom:34px;
 text-align:center;
+color:var(--text);
 }
 
 /* INFO */
@@ -111,76 +136,111 @@ gap:20px;
 
 .info div{
 background:white;
-padding:20px;
-border-radius:20px;
+padding:22px;
+border-radius:22px;
 text-align:center;
-box-shadow:0 10px 20px rgba(0,0,0,0.05);
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+border:1px solid rgba(229,200,211,0.55);
+}
+
+/* PROFIL KOTKI */
+.kitten{
+background:white;
+padding:26px;
+border-radius:25px;
+box-shadow:0 15px 30px rgba(0,0,0,0.05);
+margin-bottom:26px;
+border:1px solid rgba(229,200,211,0.55);
+}
+
+.kitten h3{
+font-family:"Cormorant Garamond", serif;
+font-size:36px;
+margin-bottom:10px;
+color:var(--text);
+}
+
+.kitten p{
+font-size:16px;
+line-height:1.8;
+}
+
+/* FOLDERY */
+.folder{
+margin-bottom:22px;
+border-radius:22px;
+background:white;
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+overflow:hidden;
+border:1px solid rgba(229,200,211,0.55);
+}
+
+.folder-header{
+padding:22px 24px;
+cursor:pointer;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:18px;
+}
+
+.folder-header span:first-child{
+font-weight:500;
+}
+
+.folder-arrow{
+transition:.25s ease;
+}
+
+.folder.open .folder-arrow{
+transform:rotate(180deg);
+}
+
+/* NAJWAŻNIEJSZA NAPRAWA */
+.folder-content{
+display:none;
+padding:0 24px 24px;
+}
+
+.folder.open .folder-content{
+display:block;
 }
 
 /* GALERIA */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
+gap:22px;
 }
 
 .card{
-background:white;
-padding:10px;
-border-radius:20px;
+background:#fff8fb;
+padding:12px;
+border-radius:22px;
 box-shadow:0 10px 25px rgba(0,0,0,0.05);
 cursor:pointer;
 transition:.3s;
+border:1px solid rgba(229,200,211,0.55);
 }
 
-.card:hover{transform:translateY(-5px);}
+.card:hover{
+transform:translateY(-5px);
+}
 
 .card img{
 width:100%;
-border-radius:15px;
+height:330px;
+object-fit:cover;
+object-position:center;
+border-radius:16px;
+display:block;
 }
 
-/* PROFIL KOTKI */
-.kitten{
-background:white;
-padding:25px;
-border-radius:25px;
-box-shadow:0 15px 30px rgba(0,0,0,0.05);
-margin-bottom:30px;
-}
-
-.kitten h3{
-font-family:"Cormorant Garamond";
-font-size:32px;
-margin-bottom:10px;
-}
-
-/* FOLDERY */
-.folder{
-margin-bottom:20px;
-border-radius:20px;
-background:white;
-box-shadow:0 10px 25px rgba(0,0,0,0.05);
-overflow:hidden;
-}
-
-.folder-header{
-padding:20px;
-cursor:pointer;
-display:flex;
-justify-content:space-between;
-}
-
-.folder-content{
-max-height:0;
-overflow:hidden;
-transition:.4s ease;
-padding:0 20px;
-}
-
-.folder.open .folder-content{
-max-height:5000px;
-padding:20px;
+.card p{
+font-size:15px;
+line-height:1.7;
+padding:14px 6px 4px;
+text-align:center;
 }
 
 /* LIGHTBOX */
@@ -195,18 +255,49 @@ display:none;
 justify-content:center;
 align-items:center;
 z-index:9999;
+padding:20px;
 }
 
 .lightbox img{
-max-width:90%;
+max-width:92%;
 max-height:90%;
 border-radius:20px;
 }
 
 footer{
 text-align:center;
-padding:40px;
+padding:46px 20px;
 font-size:14px;
+}
+
+@media(max-width:768px){
+header{
+padding:16px 22px;
+}
+
+.logo{
+font-size:40px;
+}
+
+.hero{
+padding:60px 20px 42px;
+}
+
+.hero h1{
+font-size:58px;
+}
+
+.section{
+padding:38px 16px;
+}
+
+.section h2{
+font-size:44px;
+}
+
+.card img{
+height:300px;
+}
 }
 </style>
 </head>
@@ -219,11 +310,11 @@ font-size:14px;
 </header>
 
 <nav id="menu">
-<a href="#">Start</a>
-<a href="#">Kotki</a>
-<a href="#">Kocury</a>
-<a href="#">Miot</a>
-<a href="#">Kontakt</a>
+<a href="index.html">Start</a>
+<a href="kotki.html">Kotki hodowlane</a>
+<a href="kocury.html">Kocury hodowlane</a>
+<a href="miot.html">Aktualny miot</a>
+<a href="kontakt.html">Kontakt</a>
 </nav>
 
 <main>
@@ -235,6 +326,7 @@ font-size:14px;
 
 <section class="section">
 <h2>Najważniejsze informacje</h2>
+
 <div class="info">
 <div>Data urodzenia<br><strong>27.03.2026</strong></div>
 <div>Ilość<br><strong>5 dziewczynek</strong></div>
@@ -247,17 +339,17 @@ font-size:14px;
 
 <div class="kitten">
 <h3>Mia</h3>
-<p>Na tym etapie zaczyna być w niej widać ogromną potrzebę bliskości. Bardzo kontaktowa, miękka w zachowaniu, spokojna.</p>
+<p>Na tym etapie zaczyna być w niej widać ogromną potrzebę bliskości. Bardzo kontaktowa, miękka w zachowaniu i spokojna.</p>
 </div>
 
 <div class="kitten">
 <h3>Milka</h3>
-<p>Delikatna i subtelna, taka „miękka” w odbiorze. Z dnia na dzień coraz bardziej otwiera się na świat.</p>
+<p>Delikatna i subtelna, taka miękka w odbiorze. Z dnia na dzień coraz bardziej otwiera się na świat.</p>
 </div>
 
 <div class="kitten">
 <h3>Morigan</h3>
-<p>Wyrazista dziewczynka, w której już teraz widać charakter. Piękna, świadoma, bardzo przyciąga uwagę.</p>
+<p>Wyrazista dziewczynka, w której już teraz widać charakter. Piękna, świadoma i bardzo przyciąga uwagę.</p>
 </div>
 
 </section>
@@ -265,49 +357,83 @@ font-size:14px;
 <section class="section">
 <h2>Galeria</h2>
 
-<!-- 4 TYDZIEŃ -->
-<div class="folder" onclick="toggleFolder(this)">
-<div class="folder-header">
-<span>4 tydzień</span><span>⌄</span>
+<div class="folder">
+<div class="folder-header" onclick="toggleFolder(this)">
+<span>4 tydzień</span><span class="folder-arrow">⌄</span>
 </div>
 
 <div class="folder-content">
 <div class="grid">
 
-<div class="card"><img src="images/mioty/images/file_000000006628720a9942fd2e7ae02e69.png" onclick="openImg(event,this)"></div>
-<div class="card"><img src="images/mioty/images/file_0000000073f87246bac0cdfabcf631ab.png" onclick="openImg(event,this)"></div>
-<div class="card"><img src="images/mioty/images/file_0000000096287243ad66184382c5e5c1.png" onclick="openImg(event,this)"></div>
-<div class="card"><img src="images/mioty/images/file_00000000b33c720a92139d93efcd31ed.png" onclick="openImg(event,this)"></div>
+<div class="card">
+<img src="images/mioty/images/file_000000006628720a9942fd2e7ae02e69.png" onclick="openImg(event,this)">
+<p>Maluszki kończą 4 tygodnie — już coraz pewniej chodzą, zaczynają biegać i interesować się całym światem.</p>
+</div>
+
+<div class="card">
+<img src="images/mioty/images/file_0000000073f87246bac0cdfabcf631ab.png" onclick="openImg(event,this)">
+<p>Widać pierwsze zabawy, zaczepki i ten cudowny moment, kiedy z maleńkich kuleczek robią się małe koty.</p>
+</div>
+
+<div class="card">
+<img src="images/mioty/images/file_0000000096287243ad66184382c5e5c1.png" onclick="openImg(event,this)">
+<p>Każda dziewczynka zaczyna pokazywać coś swojego — jedne są spokojniejsze, inne bardziej ciekawe i odważne.</p>
+</div>
+
+<div class="card">
+<img src="images/mioty/images/file_00000000b33c720a92139d93efcd31ed.png" onclick="openImg(event,this)">
+<p>To piękny etap — więcej kontaktu, więcej ruchu, więcej charakteru i coraz więcej uroku w każdym spojrzeniu.</p>
+</div>
 
 </div>
 </div>
 </div>
 
-<!-- 2 TYDZIEŃ -->
-<div class="folder" onclick="toggleFolder(this)">
-<div class="folder-header">
-<span>2 tydzień</span><span>⌄</span>
+<div class="folder">
+<div class="folder-header" onclick="toggleFolder(this)">
+<span>2 tydzień</span><span class="folder-arrow">⌄</span>
 </div>
 
 <div class="folder-content">
 <div class="grid">
-<div class="card"><img src="images/1.jpg" onclick="openImg(event,this)"></div>
-<div class="card"><img src="images/2.jpg" onclick="openImg(event,this)"></div>
-<div class="card"><img src="images/3.jpg" onclick="openImg(event,this)"></div>
+
+<div class="card">
+<img src="images/1.jpg" onclick="openImg(event,this)">
+<p>Drugi tydzień życia — maluszki zaczynają coraz wyraźniej otwierać się na świat.</p>
+</div>
+
+<div class="card">
+<img src="images/2.jpg" onclick="openImg(event,this)">
+<p>Delikatne, spokojne i jeszcze bardzo malutkie, ale już z tym pięknym kocim wyrazem.</p>
+</div>
+
+<div class="card">
+<img src="images/3.jpg" onclick="openImg(event,this)">
+<p>Każdy dzień przynosi małe zmiany, które w tym wieku są wyjątkowo wzruszające.</p>
+</div>
+
 </div>
 </div>
 </div>
 
-<!-- 1 TYDZIEŃ -->
-<div class="folder" onclick="toggleFolder(this)">
-<div class="folder-header">
-<span>1 tydzień</span><span>⌄</span>
+<div class="folder">
+<div class="folder-header" onclick="toggleFolder(this)">
+<span>1 tydzień</span><span class="folder-arrow">⌄</span>
 </div>
 
 <div class="folder-content">
 <div class="grid">
-<div class="card"><img src="images/4.jpg" onclick="openImg(event,this)"></div>
-<div class="card"><img src="images/5.jpg" onclick="openImg(event,this)"></div>
+
+<div class="card">
+<img src="images/4.jpg" onclick="openImg(event,this)">
+<p>Pierwszy tydzień — najdelikatniejszy, najcichszy i najbardziej wzruszający początek.</p>
+</div>
+
+<div class="card">
+<img src="images/5.jpg" onclick="openImg(event,this)">
+<p>Maleńkie dziewczynki, które dopiero zaczynały swoją historię w naszym kocim świecie.</p>
+</div>
+
 </div>
 </div>
 </div>
@@ -327,8 +453,9 @@ function toggleMenu(){
 document.getElementById("menu").classList.toggle("open");
 }
 
-function toggleFolder(el){
-el.classList.toggle("open");
+function toggleFolder(header){
+const folder = header.closest(".folder");
+folder.classList.toggle("open");
 }
 
 function openImg(e,img){
