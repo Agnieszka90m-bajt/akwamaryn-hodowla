@@ -39,8 +39,9 @@
     .nav-cta::before{ top:-2px; left:-2px; border-top:3px solid #b78898; border-left:3px solid #b78898; border-radius:10px 0 0 0; }
     .nav-cta::after{ right:-2px; bottom:-2px; border-right:3px solid #b78898; border-bottom:3px solid #b78898; border-radius:0 0 10px 0; }
     .container{ width:min(var(--max), calc(100% - 36px)); margin:auto; padding:34px 0 80px; position:relative; z-index:1; }
-    .fade-in{ opacity:0; transform:translateY(42px); transition:opacity 0.85s ease, transform 0.85s ease; }
-    .fade-in.show{ opacity:1; transform:translateY(0); }
+    .fade-in{ opacity:1; transform:translateY(0); transition:opacity 0.85s ease, transform 0.85s ease; }
+    .js-on .fade-in{ opacity:0; transform:translateY(42px); }
+    .js-on .fade-in.show{ opacity:1; transform:translateY(0); }
     @keyframes softSweep{ 0%{ transform:translateX(-180%) rotate(16deg); opacity:0; } 18%{ opacity:1; } 100%{ transform:translateX(260%) rotate(16deg); opacity:0; } }
     @keyframes frameGlow{ 0%,100%{ box-shadow:0 0 0 rgba(183,136,152,0), 0 12px 30px rgba(171,135,149,0.10); } 50%{ box-shadow:0 0 18px rgba(183,136,152,0.10), 0 16px 34px rgba(171,135,149,0.16); } }
     .animated-frame{ position:relative; overflow:hidden; animation:frameGlow 3.2s ease-in-out infinite; }
@@ -142,8 +143,7 @@
     .lightbox img{ max-width:90vw; max-height:88vh; border-radius:22px; border:2px solid #d6b0be; background:#fff8fb; box-shadow:0 24px 55px rgba(0,0,0,0.35); }
     .lightbox-close{ position:absolute; top:-12px; right:-6px; width:48px; height:48px; border-radius:50%; border:none; background:rgba(255,255,255,0.2); color:#fff; font-size:26px; cursor:pointer; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); z-index:3; }
     .lightbox-nav{ position:absolute; top:50%; transform:translateY(-50%); width:52px; height:52px; border-radius:50%; border:none; background:rgba(255,255,255,0.16); color:#fff; font-size:34px; line-height:1; display:flex; align-items:center; justify-content:center; cursor:pointer; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); z-index:3; }
-    .lightbox-prev{ left:-68px; }
-    .lightbox-next{ right:-68px; }
+    .lightbox-prev{ left:-68px; } .lightbox-next{ right:-68px; }
     footer{ text-align:center; padding:30px; color:var(--text-soft); font-size:14px; }
     @media (max-width:1100px){
       .hero, .intro-layout, .contact-layout, .parent-card, .parent-card.reverse{ grid-template-columns:1fr; }
@@ -261,9 +261,7 @@
                   <div><strong>Status:</strong> kotka hodowlana</div>
                 </div>
                 <p>Dalia to piękna kotka norweska leśna o mocnej budowie, eleganckiej sylwetce i spokojnym temperamencie. Zachwyca piękną kryzą, wyrazem i klasą, które doskonale przekazuje potomstwu.</p>
-                <div class="badge-row">
-                  <span class="badge">HCM N/N</span><span class="badge">PKD N/N</span><span class="badge">FIV/FELV N/N</span>
-                </div>
+                <div class="badge-row"><span class="badge">HCM N/N</span><span class="badge">PKD N/N</span><span class="badge">FIV/FELV N/N</span></div>
               </div>
             </article>
 
@@ -278,9 +276,7 @@
                   <div><strong>Status:</strong> kocur hodowlany</div>
                 </div>
                 <p>Posejdon to wyjątkowy przedstawiciel rasy norweskiej leśnej o efektownym wyglądzie, mocnej budowie i pięknym umaszczeniu. Importowany z Holandii, reprezentuje doskonałą linię hodowlaną.</p>
-                <div class="badge-row">
-                  <span class="badge">HCM N/N</span><span class="badge">PKD N/N</span><span class="badge">FIV/FELV N/N</span><span class="badge">GSD IV N/N</span>
-                </div>
+                <div class="badge-row"><span class="badge">HCM N/N</span><span class="badge">PKD N/N</span><span class="badge">FIV/FELV N/N</span><span class="badge">GSD IV N/N</span></div>
               </div>
               <div class="parent-photo-wrap">
                 <div class="parent-photo animated-frame">
@@ -291,35 +287,28 @@
           </div>
         </div>
       </section>
-            <section class="section fade-in" id="miot-galeria">
+
+      <section class="section fade-in" id="miot-galeria">
         <div class="section-wrap">
           <div class="section-header">
             <div class="frame-title"><span class="corner-in"></span><h2>Galeria</h2><p>Nasz koci świat Akwamarynu</p></div>
           </div>
 
-          <div class="gallery-note">
-            Galeria będzie regularnie uzupełniana, abyście mogli razem z nami obserwować, jak nasze maluszki rosną, zmieniają się i z każdym dniem pokazują coraz więcej swojego wyjątkowego charakteru. To najpiękniejszy etap, którym bardzo chętnie się z Wami dzielimy.
-          </div>
+          <div class="gallery-note">Galeria będzie regularnie uzupełniana, abyście mogli razem z nami obserwować, jak nasze maluszki rosną, zmieniają się i z każdym dniem pokazują coraz więcej swojego wyjątkowego charakteru. To najpiękniejszy etap, którym bardzo chętnie się z Wami dzielimy.</div>
 
           <div class="folders">
 
             <div class="folder open" id="folder-4tyg">
               <button class="folder-header" type="button" onclick="toggleFolder('folder-4tyg')">
                 <div class="folder-left">
-                  <div class="folder-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24"><path d="M3 8.5a2 2 0 0 1 2-2h4l1.8 2H19a2 2 0 0 1 2 2v5.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 10.5h18"/></svg>
-                  </div>
+                  <div class="folder-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8.5a2 2 0 0 1 2-2h4l1.8 2H19a2 2 0 0 1 2 2v5.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 10.5h18"/></svg></div>
                   <div class="folder-copy">
                     <h3>Norweskie leśne — 4 tydzień</h3>
                     <p>Nasze maluszki są coraz bardziej aktywne, ciekawe świata i wyraźnie reagują na nasz głos</p>
                   </div>
                 </div>
-                <div class="folder-right">
-                  <div class="folder-hint">Rozwiń galerię</div>
-                  <div class="folder-arrow">⌄</div>
-                </div>
+                <div class="folder-right"><div class="folder-hint">Rozwiń galerię</div><div class="folder-arrow">⌄</div></div>
               </button>
-
               <div class="folder-content">
                 <div class="folder-inner">
                   <div class="folder-intro">
@@ -327,7 +316,115 @@
                     <p>Dziewczynki są już naprawdę aktywne — coraz pewniej stawiają kroki, coraz odważniej eksplorują swoje gniazdko i jego najbliższe okolice. Zaczynają bawić się ze sobą, delikatnie zaczepiać siostry łapką, podskakiwać i odkrywać, że świat jest dużo większy, ciekawszy i bardziej kolorowy, niż im się wcześniej wydawało.</p>
                     <p>To także ten wyjątkowy moment, kiedy zaczynają wyraźnie reagować na nasz głos — podążają za nim, podnoszą główki, kiedy się do nich odzywamy, i z każdym dniem coraz mocniej budują swoją więź z człowiekiem. W ich spojrzeniach widać już prawdziwy charakter, ciekawość i tę cudowną kocią mądrość, która od pierwszych chwil kradnie serce.</p>
                   </div>
-
                   <div class="gallery-grid">
                     <article class="gallery-item fade-in">
-                      <div class="gallery-image-wrap"><img src="images/mioty/images/file_00000000b33c720a92139d93efcd31ed
+                      <div class="gallery-image-wrap"><img src="images/mioty/images/file_00000000b33c720a92139d93efcd31ed.png" alt="Dziewczynka z miotu M – 4 tydzień" onclick="openImage(this)"></div>
+                      <div class="gallery-caption"><h4>Dziewczynka z miotu M</h4><div class="gallery-badge">4 tydzień</div><p>Czwarty tydzień to czas małych odkryć — coraz pewniej stawia kroki i z ciekawością wygląda poza swoje gniazdko.</p></div>
+                    </article>
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap"><img src="images/mioty/images/file_0000000096287243ad66184382c5e5c1.png" alt="Dziewczynka z miotu M – 4 tydzień" onclick="openImage(this)"></div>
+                      <div class="gallery-caption"><h4>Dziewczynka z miotu M</h4><div class="gallery-badge">4 tydzień</div><p>W tym wieku zaczyna się prawdziwa magia — oczka są już duże i błyszczące, a w spojrzeniu pojawia się ta cudowna kocia ciekawość świata.</p></div>
+                    </article>
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap"><img src="images/mioty/images/file_0000000073f87246bac0cdfabcf631ab.png" alt="Dziewczynka z miotu M – 4 tydzień" onclick="openImage(this)"></div>
+                      <div class="gallery-caption"><h4>Dziewczynka z miotu M</h4><div class="gallery-badge">4 tydzień</div><p>Pierwsze nieśmiałe próby zabawy z rodzeństwem — delikatne łapki, ostrożne podskoki i mnóstwo wzajemnej czułości.</p></div>
+                    </article>
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap"><img src="images/mioty/images/file_000000006628720a9942fd2e7ae02e69.png" alt="Dziewczynka z miotu M – 4 tydzień" onclick="openImage(this)"></div>
+                      <div class="gallery-caption"><h4>Dziewczynka z miotu M</h4><div class="gallery-badge">4 tydzień</div><p>Coraz więcej puszystości, coraz więcej charakteru — i ten cudowny moment, kiedy maluszek wyraźnie reaguje na ludzki głos i podąża za nim spojrzeniem.</p></div>
+                    </article>
+                  </div>
+                  <div class="folder-end-wrap"><button class="folder-end-button" type="button" onclick="toggleFolder('folder-4tyg')">Zwiń galerię</button></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="folder" id="folder-2tyg">
+              <button class="folder-header" type="button" onclick="toggleFolder('folder-2tyg')">
+                <div class="folder-left">
+                  <div class="folder-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8.5a2 2 0 0 1 2-2h4l1.8 2H19a2 2 0 0 1 2 2v5.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 10.5h18"/></svg></div>
+                  <div class="folder-copy">
+                    <h3>Norweskie leśne — 2 tydzień</h3>
+                    <p>Nowe zdjęcia naszych maluszków, które właśnie kończą dwa tygodnie</p>
+                  </div>
+                </div>
+                <div class="folder-right"><div class="folder-hint">Rozwiń galerię</div><div class="folder-arrow">⌄</div></div>
+              </button>
+              <div class="folder-content">
+                <div class="folder-inner">
+                  <div class="folder-intro">
+                    <p><strong>Witamy w naszym kocim świecie Akwamarynu…</strong> nasze maluszki właśnie kończą dwa tygodnie i z każdym dniem coraz wyraźniej pokazują swój urok, delikatność i to wyjątkowe spojrzenie, które od razu kradnie serce.</p>
+                    <p>Trzy z naszych dziewczynek mają już swoje imiona — <strong>Mia</strong>, <strong>Milka</strong> i <strong>Morigan</strong>. I nie zostały one wybrane przypadkowo… już teraz widać, że każda z nich ma w sobie coś wyjątkowego, miękkiego i bardzo swojego.</p>
+                  </div>
+                  <div class="gallery-grid">
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap"><img src="images/mioty/images/mioty/miot-norweski-M-2026-2tyg-nowe/IMG-20260411-WA0000.jpg" alt="Dziewczynka z miotu M – 2 tydzień" onclick="openImage(this)"></div>
+                      <div class="gallery-caption"><h4>Dziewczynka z miotu M</h4><div class="gallery-badge">2 tydzień</div><p>Delikatna, miękka w wyrazie i bardzo urocza. W jej spojrzeniu jest coś spokojnego i ciepłego, co od razu zatrzymuje wzrok.</p></div>
+                    </article>
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap"><img src="images/mioty/images/mioty/miot-norweski-M-2026-2tyg-nowe/IMG-20260411-WA0002.jpg" alt="Dziewczynka z miotu M – 2 tydzień" onclick="openImage(this)"></div>
+                      <div class="gallery-caption"><h4>Dziewczynka z miotu M</h4><div class="gallery-badge">2 tydzień</div><p>Mały puszysty skarb, który z dnia na dzień coraz bardziej otwiera się na świat. Taka maleńka, a już pełna uroku i subtelnego charakteru.</p></div>
+                    </article>
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap"><img src="images/mioty/images/mioty/miot-norweski-M-2026-2tyg-nowe/IMG-20260411-WA0003.jpg" alt="Dziewczynka z miotu M – 2 tydzień" onclick="openImage(this)"></div>
+                      <div class="gallery-caption"><h4>Dziewczynka z miotu M</h4><div class="gallery-badge">2 tydzień</div><p>Jest w niej coś niezwykle słodkiego i miękkiego. Taki rodzaj delikatności, który sprawia, że trudno przejść obok niej obojętnie.</p></div>
+                    </article>
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap"><img src="images/mioty/images/mioty/miot-norweski-M-2026-2tyg-nowe/IMG-20260411-WA0004.jpg" alt="Dziewczynka z miotu M – 2 tydzień" onclick="openImage(this)"></div>
+                      <div class="gallery-caption"><h4>Dziewczynka z miotu M</h4><div class="gallery-badge">2 tydzień</div><p>Łagodna, spokojna i przeurocza. Właśnie na tym etapie zaczynają być widoczne te małe cechy, które później tworzą ich wyjątkowy charakter.</p></div>
+                    </article>
+                  </div>
+                  <div class="folder-end-wrap"><button class="folder-end-button" type="button" onclick="toggleFolder('folder-2tyg')">Zwiń galerię</button></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="folder" id="folder-1tyg">
+              <button class="folder-header" type="button" onclick="toggleFolder('folder-1tyg')">
+                <div class="folder-left">
+                  <div class="folder-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8.5a2 2 0 0 1 2-2h4l1.8 2H19a2 2 0 0 1 2 2v5.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 10.5h18"/></svg></div>
+                  <div class="folder-copy">
+                    <h3>Norweskie leśne — 1 tydzień</h3>
+                    <p>Pierwsze chwile naszych dziewczynek uchwycone w ich pierwszym tygodniu życia</p>
+                  </div>
+                </div>
+                <div class="folder-right"><div class="folder-hint">Rozwiń galerię</div><div class="folder-arrow">⌄</div></div>
+              </button>
+              <div class="folder-content">
+                <div class="folder-inner">
+                  <div class="folder-intro">
+                    <p><strong>Witamy w naszym kocim świecie Akwamarynu…</strong> nasze maluszki skończyły pierwszy tydzień i właśnie tak wyglądał ich najdelikatniejszy, najwcześniejszy etap życia — miękki, spokojny i pełen tej maleńkiej, wzruszającej kruchości.</p>
+                  </div>
+                  <div class="gallery-grid">
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap"><img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Maluszek z miotu M – 1 tydzień" onclick="openImage(this)"></div>
+                      <div class="gallery-caption"><h4>Pierwszy tydzień</h4><div class="gallery-badge">1 tydzień</div><p>Maleńkie, spokojne i jeszcze bardzo kruche — właśnie takie są pierwsze dni, które zawsze zostają w pamięci najmocniej.</p></div>
+                    </article>
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap"><img src="file_000000001aa47243b5ef692c7926902d.png" alt="Maluszek z miotu M – 1 tydzień" onclick="openImage(this)"></div>
+                      <div class="gallery-caption"><h4>Pierwszy tydzień</h4><div class="gallery-badge">1 tydzień</div><p>W tych pierwszych chwilach jest coś niezwykle cichego i pięknego — sama delikatność, ciepło i malutkie serduszka bijące tuż obok nas.</p></div>
+                    </article>
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap"><img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Maluszek z miotu M – 1 tydzień" onclick="openImage(this)"></div>
+                      <div class="gallery-caption"><h4>Pierwszy tydzień</h4><div class="gallery-badge">1 tydzień</div><p>To właśnie wtedy zaczyna się ich historia — jeszcze bardzo maleńka, ale już pełna obietnicy czegoś naprawdę wyjątkowego.</p></div>
+                    </article>
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap"><img src="file_0000000092607246a8e17fab58cb439d.png" alt="Maluszek z miotu M – 1 tydzień" onclick="openImage(this)"></div>
+                      <div class="gallery-caption"><h4>Pierwszy tydzień</h4><div class="gallery-badge">1 tydzień</div><p>Taki maleńki koci skarb, a już potrafi zatrzymać spojrzenie na dłużej. Ten etap ma w sobie wyjątkowy spokój i ogrom wzruszenia.</p></div>
+                    </article>
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap"><img src="images/mioty/2026-03-27-norweskie/file_0000000090b8720bb77f08f165cf4553.png" alt="Maluszek z miotu M – 1 tydzień" onclick="openImage(this)"></div>
+                      <div class="gallery-caption"><h4>Pierwszy tydzień</h4><div class="gallery-badge">1 tydzień</div><p>Pierwsze dni życia są najcichsze, ale zarazem najbardziej poruszające. To wtedy wszystko dopiero się zaczyna.</p></div>
+                    </article>
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap"><img src="images/mioty/2026-03-27-norweskie/file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Maluszek z miotu M – 1 tydzień" onclick="openImage(this)"></div>
+                      <div class="gallery-caption"><h4>Pierwszy tydzień</h4><div class="gallery-badge">1 tydzień</div><p>Maleńka dziewczynka z tym miękkim, spokojnym wyrazem, który od razu budzi czułość i ogromne wzruszenie.</p></div>
+                    </article>
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap"><img src="images/mioty/2026-03-27-norweskie/file_00000000c60072439aee95ed8f84caaf.png" alt="Maluszek z miotu M – 1 tydzień" onclick="openImage(this)"></div>
+                      <div class="gallery-caption"><h4>Pierwszy tydzień</h4><div class="gallery-badge">1 tydzień</div><p>Każdy z tych kadrów zatrzymuje moment, który mija bardzo szybko, ale zostaje w sercu już na zawsze.</p></div>
+                    </article>
+                    <article class="gallery-item fade-in">
+                      <di **...**
+
+_This response is too long to display in full._
