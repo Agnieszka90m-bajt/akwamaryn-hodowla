@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aktualny miot | Akwamaryn*PL</title>
-  <meta name="description" content="Aktualny miot Akwamaryn*PL. Miot M – norweskie koty leśne. Poznaj nasze maluszki, zobacz zdjęcia z pierwszego, drugiego i czwartego tygodnia życia oraz najważniejsze informacje o miocie." />
+  <meta name="description" content="Aktualny miot Akwamaryn*PL. Miot M â€“ norweskie koty leĹ›ne. Poznaj nasze maluszki, zobacz zdjÄ™cia z pierwszego, drugiego i czwartego tygodnia ĹĽycia oraz najwaĹĽniejsze informacje o miocie." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://akwamaryn-pl.com/miot.html" />
 
@@ -14,81 +14,163 @@
 
   <style>
     :root{
-      --bg-1:#fffafc; --bg-2:#f8eef3; --panel:#fff8fb; --panel-2:rgba(255,255,255,0.88);
-      --line:#f0dfe6; --line-strong:#e4c8d2; --line-dark:#b78898;
-      --text:#654f58; --text-strong:#7a5665; --text-soft:#866873;
-      --badge:#f1e5ea; --shadow:0 14px 34px rgba(0,0,0,0.05);
-      --shadow-hover:0 16px 30px rgba(171,135,149,0.14); --max:1320px;
+      --bg-1:#fffafc;
+      --bg-2:#f8eef3;
+      --panel:#fff8fb;
+      --panel-2:rgba(255,255,255,0.88);
+      --line:#f0dfe6;
+      --line-strong:#e4c8d2;
+      --line-dark:#b78898;
+      --text:#654f58;
+      --text-strong:#7a5665;
+      --text-soft:#866873;
+      --badge:#f1e5ea;
+      --shadow:0 14px 34px rgba(0,0,0,0.05);
+      --shadow-hover:0 16px 30px rgba(171,135,149,0.14);
+      --max:1320px;
     }
+
     *{ box-sizing:border-box; margin:0; padding:0; }
     html{ scroll-behavior:smooth; }
-    body{ font-family:"Inter",sans-serif; color:var(--text); background:linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 100%); overflow-x:hidden; }
+    body{
+      font-family:"Inter",sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 100%);
+      overflow-x:hidden;
+    }
     a{ color:inherit; text-decoration:none; }
     img{ display:block; max-width:100%; }
     button{ font:inherit; border:none; background:none; cursor:pointer; }
+
     .page-wrap{ position:relative; overflow:hidden; }
-    .topbar{ position:sticky; top:0; z-index:5000; background:rgba(255,248,251,0.95); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid rgba(218,189,200,0.2); }
-    .topbar-inner{ width:min(var(--max), calc(100% - 36px)); margin:auto; min-height:88px; display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; }
-    .brand{ font-family:"Cormorant Garamond",serif; color:var(--text-strong); white-space:nowrap; font-size:58px; line-height:0.95; font-weight:600; letter-spacing:0.2px; }
+
+    .topbar{
+      position:sticky; top:0; z-index:5000;
+      background:rgba(255,248,251,0.95);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(218,189,200,0.2);
+    }
+    .topbar-inner{
+      width:min(var(--max), calc(100% - 36px));
+      margin:auto; min-height:88px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:18px; flex-wrap:wrap;
+    }
+    .brand{
+      font-family:"Cormorant Garamond",serif;
+      color:var(--text-strong); white-space:nowrap;
+      font-size:58px; line-height:0.95; font-weight:600; letter-spacing:0.2px;
+    }
     .nav{ display:flex; align-items:center; flex-wrap:wrap; gap:18px; color:var(--text); }
     .nav a{ font-family:"Cormorant Garamond",serif; font-size:21px; color:var(--text); transition:0.25s ease; }
     .nav a:hover{ color:var(--text-strong); }
-    .nav-cta{ min-width:152px; min-height:42px; padding:0 18px; border:2px solid #d6b0be; color:var(--text-strong); display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:600; letter-spacing:0.5px; position:relative; margin-left:14px; transition:0.25s ease; overflow:hidden; background:#fff8fb; border-radius:16px; box-shadow:0 8px 18px rgba(171,135,149,0.08); }
+    .nav-cta{
+      min-width:152px; min-height:42px; padding:0 18px;
+      border:2px solid #d6b0be; color:var(--text-strong);
+      display:inline-flex; align-items:center; justify-content:center;
+      font-size:16px; font-weight:600; letter-spacing:0.5px;
+      position:relative; margin-left:14px; transition:0.25s ease;
+      overflow:hidden; background:#fff8fb; border-radius:16px;
+      box-shadow:0 8px 18px rgba(171,135,149,0.08);
+    }
     .nav-cta:hover{ box-shadow:0 12px 22px rgba(171,135,149,0.14); transform:translateY(-2px); }
-    .nav-cta::before, .nav-cta::after{ content:""; position:absolute; width:14px; height:14px; border-color:#b78898; z-index:2; }
+    .nav-cta::before, .nav-cta::after{
+      content:""; position:absolute; width:14px; height:14px; border-color:#b78898; z-index:2;
+    }
     .nav-cta::before{ top:-2px; left:-2px; border-top:3px solid #b78898; border-left:3px solid #b78898; border-radius:10px 0 0 0; }
     .nav-cta::after{ right:-2px; bottom:-2px; border-right:3px solid #b78898; border-bottom:3px solid #b78898; border-radius:0 0 10px 0; }
-    .container{ width:min(var(--max), calc(100% - 36px)); margin:auto; padding:34px 0 80px; position:relative; z-index:1; }
+
+    .container{
+      width:min(var(--max), calc(100% - 36px));
+      margin:auto; padding:34px 0 80px; position:relative; z-index:1;
+    }
+
     .fade-in{ opacity:1; transform:none; }
-    @keyframes softSweep{ 0%{ transform:translateX(-180%) rotate(16deg); opacity:0; } 18%{ opacity:1; } 100%{ transform:translateX(260%) rotate(16deg); opacity:0; } }
-    @keyframes frameGlow{ 0%,100%{ box-shadow:0 0 0 rgba(183,136,152,0), 0 12px 30px rgba(171,135,149,0.10); } 50%{ box-shadow:0 0 18px rgba(183,136,152,0.10), 0 16px 34px rgba(171,135,149,0.16); } }
+
+    @keyframes softSweep{
+      0%{ transform:translateX(-180%) rotate(16deg); opacity:0; }
+      18%{ opacity:1; }
+      100%{ transform:translateX(260%) rotate(16deg); opacity:0; }
+    }
+    @keyframes frameGlow{
+      0%,100%{ box-shadow:0 0 0 rgba(183,136,152,0), 0 12px 30px rgba(171,135,149,0.10); }
+      50%{ box-shadow:0 0 18px rgba(183,136,152,0.10), 0 16px 34px rgba(171,135,149,0.16); }
+    }
     .animated-frame{ position:relative; overflow:hidden; animation:frameGlow 3.2s ease-in-out infinite; }
-    .animated-frame::before{ content:""; position:absolute; top:-130%; left:-45%; width:34%; height:380%; background:linear-gradient(90deg, rgba(183,136,152,0) 0%, rgba(183,136,152,0.10) 40%, rgba(255,255,255,0.55) 50%, rgba(183,136,152,0.10) 60%, rgba(183,136,152,0) 100%); transform:translateX(-180%) rotate(16deg); opacity:0; pointer-events:none; z-index:3; }
+    .animated-frame::before{
+      content:""; position:absolute; top:-130%; left:-45%; width:34%; height:380%;
+      background:linear-gradient(90deg, rgba(183,136,152,0) 0%, rgba(183,136,152,0.10) 40%, rgba(255,255,255,0.55) 50%, rgba(183,136,152,0.10) 60%, rgba(183,136,152,0) 100%);
+      transform:translateX(-180%) rotate(16deg); opacity:0; pointer-events:none; z-index:3;
+    }
     .animated-frame:hover::before{ opacity:1; animation:softSweep 1.35s ease; }
+
     .hero{ display:grid; grid-template-columns:1.02fr 0.98fr; gap:34px; align-items:center; min-height:680px; margin-bottom:54px; }
     .hero-copy{ padding:18px 0; }
     .hero-line{ display:flex; align-items:center; gap:12px; margin-bottom:24px; }
+    .hero-line::before{ content:""; width:150px; height:3px; background:linear-gradient(90deg,#e4c8d2 0%, #b78898 50%, #e4c8d2 100%); border-radius:999px; flex-shrink:0; }
+    .hero-line::after{ content:""; width:26px; height:2px; background:#b78898; border-radius:999px; flex-shrink:0; }
     .hero-line span{ display:block; width:150px; height:3px; background:linear-gradient(90deg,#e4c8d2 0%, #b78898 50%, #e4c8d2 100%); border-radius:999px; flex-shrink:0; }
+
     .hero-copy h1{ font-family:"Cormorant Garamond",serif; font-size:82px; line-height:0.94; font-weight:600; color:var(--text-strong); margin-bottom:18px; }
     .hero-accent{ font-family:"Cormorant Garamond",serif; font-size:28px; line-height:1.2; color:var(--text-soft); font-style:italic; margin-bottom:26px; }
     .hero-copy p{ max-width:670px; font-size:17px; line-height:2; color:var(--text); margin-bottom:26px; }
     .hero-mini{ color:var(--text-soft); font-family:"Cormorant Garamond",serif; font-size:28px; line-height:1.2; font-style:italic; margin-bottom:28px; }
-    .hero-btn{ min-width:150px; min-height:42px; padding:0 18px; border:2px solid #d6b0be; color:var(--text-strong); display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:600; position:relative; letter-spacing:0.3px; transition:0.25s ease; overflow:hidden; border-radius:16px; background:#fff8fb; box-shadow:0 8px 18px rgba(171,135,149,0.08); }
+
+    .hero-btn{
+      min-width:150px; min-height:42px; padding:0 18px;
+      border:2px solid #d6b0be; color:var(--text-strong);
+      display:inline-flex; align-items:center; justify-content:center;
+      font-size:16px; font-weight:600; position:relative; letter-spacing:0.3px;
+      transition:0.25s ease; overflow:hidden; border-radius:16px; background:#fff8fb;
+      box-shadow:0 8px 18px rgba(171,135,149,0.08);
+    }
     .hero-btn:hover{ transform:translateY(-2px); box-shadow:0 12px 22px rgba(171,135,149,0.14); }
     .hero-btn::before, .hero-btn::after{ content:""; position:absolute; width:14px; height:14px; border-color:#b78898; z-index:2; }
     .hero-btn::before{ top:-2px; left:-2px; border-top:3px solid #b78898; border-left:3px solid #b78898; border-radius:10px 0 0 0; }
     .hero-btn::after{ right:-2px; bottom:-2px; border-right:3px solid #b78898; border-bottom:3px solid #b78898; border-radius:0 0 10px 0; }
+
     .hero-image-wrap{ display:flex; align-items:center; justify-content:center; width:100%; }
-    .hero-image{ width:100%; max-width:100%; display:block; border:1px solid var(--line-strong); padding:10px; background:#fff8fb; box-shadow:var(--shadow); transition:0.4s ease; border-radius:30px; }
+    .hero-image{
+      width:100%; max-width:100%; display:block;
+      border:1px solid var(--line-strong); padding:10px; background:#fff8fb;
+      box-shadow:var(--shadow); transition:0.4s ease; border-radius:30px;
+    }
     .hero-image:hover{ transform:translateY(-6px); box-shadow:var(--shadow-hover); border-color:#d6b0be; }
     .hero-image img{ display:block; width:100%; height:auto; max-height:none; object-fit:contain; object-position:center; border-radius:22px; background:#fff8fb; }
+
     .section{ margin-bottom:54px; }
     .section-wrap{ background:var(--panel-2); padding:40px; border-radius:30px; box-shadow:var(--shadow); }
     .section-header{ text-align:center; margin-bottom:34px; position:relative; }
+
     .frame-title{ display:inline-block; position:relative; padding:34px 46px; }
     .frame-title::before, .frame-title::after, .frame-title .corner-in::before, .frame-title .corner-in::after{ content:""; position:absolute; pointer-events:none; }
     .frame-title::before{ top:0; left:0; width:120px; height:78px; border-top:2px solid var(--line-dark); border-left:2px solid var(--line-dark); }
     .frame-title::after{ right:0; bottom:0; width:120px; height:78px; border-right:2px solid var(--line-dark); border-bottom:2px solid var(--line-dark); }
     .frame-title .corner-in::before{ top:10px; left:10px; width:76px; height:48px; border-top:2px solid rgba(183,136,152,0.55); border-left:2px solid rgba(183,136,152,0.55); }
     .frame-title .corner-in::after{ right:10px; bottom:10px; width:76px; height:48px; border-right:2px solid rgba(183,136,152,0.55); border-bottom:2px solid rgba(183,136,152,0.55); }
+
     .section-header h2{ font-family:"Cormorant Garamond",serif; font-size:64px; font-weight:600; line-height:1; color:var(--text-strong); margin-bottom:10px; position:relative; z-index:2; }
     .section-header p{ color:var(--text-soft); font-family:"Cormorant Garamond",serif; font-size:24px; font-style:italic; line-height:1.3; position:relative; z-index:2; }
+
     .intro-layout{ display:grid; grid-template-columns:1fr 1fr; gap:34px; align-items:start; }
     .text-block{ color:var(--text); font-size:17px; line-height:2; }
     .text-block p{ margin-bottom:18px; }
+
     .info-cards{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
     .info-card{ background:var(--panel); border:1px solid var(--line); border-radius:22px; padding:22px 20px; min-height:132px; box-shadow:0 10px 26px rgba(171,135,149,0.08); transition:0.35s ease; }
     .info-card:hover{ transform:translateY(-4px); border-color:#d6b0be; box-shadow:var(--shadow-hover); }
     .info-card strong{ display:block; font-family:"Cormorant Garamond",serif; font-size:34px; line-height:1; color:var(--text-strong); margin-bottom:10px; font-weight:600; }
     .info-card span{ display:block; color:var(--text); font-size:15px; line-height:1.7; }
+
     .parents-grid{ display:grid; gap:32px; }
     .parent-card{ display:grid; grid-template-columns:0.95fr 1.05fr; gap:30px; align-items:center; background:rgba(255,248,251,0.7); border:1px solid var(--line); border-radius:28px; padding:22px; box-shadow:0 10px 24px rgba(171,135,149,0.08); }
     .parent-card.reverse{ grid-template-columns:1.05fr 0.95fr; }
     .parent-card.reverse .parent-copy{ order:1; }
     .parent-card.reverse .parent-photo-wrap{ order:2; }
     .parent-photo-wrap{ width:100%; }
-    .parent-photo{ position:relative; border:1px solid var(--line-strong); padding:10px; background:#fff8fb; border-radius:28px; box-shadow:0 10px 28px rgba(171,135,149,0.10); overflow:hidden; }
-    .parent-photo img{ position:relative; z-index:5; width:100%; height:auto; border-radius:20px; object-fit:cover; cursor:pointer; background:#fff8fb; display:block; }
+    .parent-photo{ border:1px solid var(--line-strong); padding:10px; background:#fff8fb; border-radius:28px; box-shadow:0 10px 28px rgba(171,135,149,0.10); overflow:hidden; }
+    .parent-photo img{ width:100%; height:auto; border-radius:20px; object-fit:cover; cursor:pointer; background:#fff8fb; display:block; }
     .parent-copy{ color:var(--text); }
     .parent-label{ display:inline-flex; padding:8px 14px; border-radius:999px; background:var(--badge); color:var(--text-strong); font-size:13px; font-weight:700; letter-spacing:0.4px; margin-bottom:16px; }
     .parent-copy h3{ font-family:"Cormorant Garamond",serif; font-size:42px; color:var(--text-strong); margin-bottom:14px; line-height:1; }
@@ -96,17 +178,18 @@
     .parent-copy p{ font-size:16px; line-height:1.9; margin-bottom:16px; }
     .badge-row{ display:flex; flex-wrap:wrap; gap:10px; }
     .badge{ display:inline-flex; align-items:center; justify-content:center; min-height:36px; padding:0 14px; border-radius:999px; background:#f4e8ed; color:var(--text-strong); font-size:13px; font-weight:700; border:1px solid #ead7df; }
+
     .gallery-note{ max-width:960px; margin:0 auto 30px; text-align:center; color:var(--text-soft); font-size:16px; line-height:1.95; }
     .folders{ display:grid; gap:24px; margin-top:18px; }
     .folder{ background:#fff8fb; border:1px solid var(--line-strong); border-radius:30px; box-shadow:var(--shadow); overflow:hidden; transition:0.3s ease; }
     .folder:hover{ box-shadow:var(--shadow-hover); border-color:#d6b0be; }
-    .folder-header{ width:100%; padding:26px 28px; display:flex; align-items:center; justify-content:space-between; gap:18px; text-align:left; background:transparent; cursor:pointer; user-select:none; -webkit-tap-highlight-color:rgba(183,136,152,0.12); }
-    .folder-left{ display:flex; align-items:center; gap:18px; min-width:0; pointer-events:none; }
+    .folder-header{ width:100%; padding:26px 28px; display:flex; align-items:center; justify-content:space-between; gap:18px; text-align:left; background:transparent; }
+    .folder-left{ display:flex; align-items:center; gap:18px; min-width:0; }
     .folder-icon{ width:66px; height:66px; border-radius:22px; background:linear-gradient(180deg,#f8eaf0 0%, #f2dde6 100%); border:1px solid #ecd3dd; box-shadow:0 8px 18px rgba(171,135,149,0.10); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
     .folder-icon svg{ width:30px; height:30px; stroke:#9b7382; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
     .folder-copy h3{ font-family:"Cormorant Garamond",serif; font-size:42px; line-height:1; color:var(--text-strong); margin-bottom:8px; }
     .folder-copy p{ color:var(--text-soft); font-size:16px; line-height:1.8; }
-    .folder-right{ display:flex; flex-direction:column; align-items:flex-end; gap:8px; flex-shrink:0; pointer-events:none; }
+    .folder-right{ display:flex; flex-direction:column; align-items:flex-end; gap:8px; flex-shrink:0; }
     .folder-hint{ font-size:13px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--text-soft); }
     .folder-arrow{ font-size:28px; color:var(--text-soft); transition:transform 0.3s ease; line-height:1; }
     .folder.open .folder-arrow{ transform:rotate(180deg); }
@@ -115,19 +198,22 @@
     .folder-inner{ padding:28px; }
     .folder-intro{ max-width:960px; margin:0 auto 28px; text-align:center; color:var(--text); font-size:16px; line-height:1.95; }
     .folder-intro strong{ color:var(--text-strong); }
+
     .gallery-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
     .gallery-item{ background:#fff8fb; border:1px solid var(--line); border-radius:28px; padding:12px; box-shadow:var(--shadow); transition:0.3s ease; overflow:hidden; }
     .gallery-item:hover{ transform:translateY(-6px); box-shadow:var(--shadow-hover); border-color:#d6b0be; }
-    .gallery-image-wrap{ position:relative; width:100%; aspect-ratio:4 / 5; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,#fffdfd 0%, #fff8fb 100%); border:1px solid #eedbe3; border-radius:28px; margin-bottom:18px; overflow:hidden; padding:14px; box-shadow:inset 0 0 0 1px rgba(255,255,255,0.7); }
-    .gallery-item img{ position:relative; z-index:5; width:100%; height:100%; object-fit:cover; object-position:center; border-radius:24px; cursor:pointer; transition:transform 0.25s ease; display:block; background:#fff8fb; }
+    .gallery-image-wrap{ width:100%; aspect-ratio:4 / 5; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,#fffdfd 0%, #fff8fb 100%); border:1px solid #eedbe3; border-radius:28px; margin-bottom:18px; overflow:hidden; padding:14px; box-shadow:inset 0 0 0 1px rgba(255,255,255,0.7); }
+    .gallery-item img{ width:100%; height:100%; object-fit:cover; object-position:center; border-radius:24px; cursor:pointer; transition:transform 0.25s ease; display:block; background:#fff8fb; }
     .gallery-item img:hover{ transform:scale(1.02); }
     .gallery-caption{ text-align:center; padding:4px 8px 12px; }
     .gallery-caption h4{ font-family:"Cormorant Garamond",serif; font-size:38px; line-height:1; color:var(--text-strong); margin-bottom:12px; font-weight:600; }
     .gallery-badge{ display:inline-block; padding:8px 14px; border-radius:999px; background:var(--badge); color:var(--text-strong); font-size:13px; font-weight:700; letter-spacing:0.4px; margin-bottom:14px; }
     .gallery-caption p{ font-size:15px; line-height:1.85; color:var(--text); }
+
     .folder-end-wrap{ display:flex; justify-content:center; margin-top:24px; }
-    .folder-end-button{ padding:12px 20px; border-radius:999px; background:#f5e7ed; border:1px solid #ead3dc; color:var(--text-soft); font-size:13px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; transition:0.25s ease; cursor:pointer; }
+    .folder-end-button{ padding:12px 20px; border-radius:999px; background:#f5e7ed; border:1px solid #ead3dc; color:var(--text-soft); font-size:13px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; transition:0.25s ease; }
     .folder-end-button:hover{ background:#f1dfe7; color:var(--text-strong); transform:translateY(-1px); }
+
     .contact-layout{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:24px; align-items:stretch; }
     .contact-text{ font-size:19px; line-height:1.8; color:var(--text); text-align:left; }
     .contact-box{ text-align:center; background:var(--panel); border:1px solid var(--line); border-radius:24px; padding:26px; box-shadow:0 10px 24px rgba(171,135,149,0.08); }
@@ -135,39 +221,56 @@
     .contact-note{ font-size:18px; line-height:1.6; color:var(--text-soft); margin-bottom:18px; font-style:italic; font-family:"Cormorant Garamond",serif; }
     .contact-links{ display:grid; gap:12px; }
     .contact-link{ min-height:52px; background:var(--badge); color:var(--text-strong); border-radius:18px; display:flex; align-items:center; justify-content:center; padding:0 18px; font-size:16px; font-weight:700; text-align:center; box-shadow:0 8px 18px rgba(171,135,149,0.08); border:1px solid #ead8e0; }
+
     .lightbox{ position:fixed; inset:0; background:rgba(0,0,0,0.84); display:none; align-items:center; justify-content:center; z-index:9999; padding:20px; }
     .lightbox.show{ display:flex; }
     .lightbox-inner{ position:relative; max-width:95vw; max-height:95vh; display:flex; align-items:center; justify-content:center; }
     .lightbox img{ max-width:90vw; max-height:88vh; border-radius:22px; border:2px solid #d6b0be; background:#fff8fb; box-shadow:0 24px 55px rgba(0,0,0,0.35); }
     .lightbox-close{ position:absolute; top:-12px; right:-6px; width:48px; height:48px; border-radius:50%; border:none; background:rgba(255,255,255,0.2); color:#fff; font-size:26px; cursor:pointer; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); z-index:3; }
     .lightbox-nav{ position:absolute; top:50%; transform:translateY(-50%); width:52px; height:52px; border-radius:50%; border:none; background:rgba(255,255,255,0.16); color:#fff; font-size:34px; line-height:1; display:flex; align-items:center; justify-content:center; cursor:pointer; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); z-index:3; }
-    .lightbox-prev{ left:-68px; } .lightbox-next{ right:-68px; }
+    .lightbox-prev{ left:-68px; }
+    .lightbox-next{ right:-68px; }
+
     footer{ text-align:center; padding:30px; color:var(--text-soft); font-size:14px; }
+
     @media (max-width:1100px){
       .hero, .intro-layout, .contact-layout, .parent-card, .parent-card.reverse{ grid-template-columns:1fr; }
       .gallery-grid{ grid-template-columns:repeat(2,1fr); }
-      .lightbox-prev{ left:10px; } .lightbox-next{ right:10px; }
+      .lightbox-prev{ left:10px; }
+      .lightbox-next{ right:10px; }
     }
+
     @media (max-width:768px){
       .topbar-inner{ width:min(var(--max), calc(100% - 20px)); justify-content:center; padding:14px 0; }
       .brand{ width:100%; text-align:center; font-size:44px; }
-      .nav{ justify-content:center; gap:12px; } .nav a{ font-size:18px; } .nav-cta{ margin-left:0; }
+      .nav{ justify-content:center; gap:12px; }
+      .nav a{ font-size:18px; }
+      .nav-cta{ margin-left:0; }
       .container{ width:min(var(--max), calc(100% - 20px)); padding:20px 0 48px; }
       .hero{ grid-template-columns:1fr; gap:20px; min-height:auto; }
-      .hero-copy{ order:2; } .hero-image-wrap{ order:1; }
-      .hero-copy h1{ font-size:48px; } .hero-accent, .hero-mini{ font-size:22px; }
+      .hero-copy{ order:2; }
+      .hero-image-wrap{ order:1; }
+      .hero-copy h1{ font-size:48px; }
+      .hero-accent, .hero-mini{ font-size:22px; }
       .hero-copy p, .text-block, .gallery-note, .folder-intro, .contact-text{ font-size:16px; }
-      .hero-image{ padding:8px; } .hero-image img{ border-radius:18px; }
+      .hero-image{ padding:8px; }
+      .hero-image img{ border-radius:18px; }
       .section-wrap{ padding:26px 18px; }
       .frame-title{ padding:24px 22px; }
-      .frame-title::before, .frame-title::after{ width:92px; height:64px; }
-      .frame-title .corner-in::before, .frame-title .corner-in::after{ width:56px; height:36px; }
-      .section-header h2{ font-size:44px; } .section-header p{ font-size:20px; }
+      .frame-title::before{ width:92px; height:64px; }
+      .frame-title::after{ width:92px; height:64px; }
+      .frame-title .corner-in::before{ width:56px; height:36px; }
+      .frame-title .corner-in::after{ width:56px; height:36px; }
+      .section-header h2{ font-size:44px; }
+      .section-header p{ font-size:20px; }
       .info-cards, .gallery-grid{ grid-template-columns:1fr; }
       .folder-header{ padding:20px 18px; align-items:flex-start; }
-      .folder-left{ gap:14px; } .folder-icon{ width:56px; height:56px; border-radius:18px; }
+      .folder-left{ gap:14px; }
+      .folder-icon{ width:56px; height:56px; border-radius:18px; }
       .folder-icon svg{ width:26px; height:26px; }
-      .folder-copy h3{ font-size:32px; } .folder-copy p{ font-size:15px; } .folder-hint{ font-size:11px; }
+      .folder-copy h3{ font-size:32px; }
+      .folder-copy p{ font-size:15px; }
+      .folder-hint{ font-size:11px; }
       .folder-inner{ padding:20px 16px 22px; }
       .gallery-image-wrap{ min-height:auto; aspect-ratio:4 / 5; border-radius:24px; padding:12px; }
       .gallery-item img{ height:100%; max-height:none; border-radius:20px; }
@@ -175,14 +278,15 @@
       .lightbox img{ max-width:94vw; max-height:82vh; }
       .lightbox-close{ top:-54px; right:0; }
       .lightbox-prev, .lightbox-next{ width:44px; height:44px; font-size:28px; top:auto; bottom:-58px; transform:none; }
-      .lightbox-prev{ left:calc(50% - 56px); } .lightbox-next{ right:calc(50% - 56px); }
+      .lightbox-prev{ left:calc(50% - 56px); }
+      .lightbox-next{ right:calc(50% - 56px); }
     }
   </style>
 </head>
 <body>
   <div class="page-wrap">
 
-    <header class="topbar">
+    <header class="topbar fade-in">
       <div class="topbar-inner">
         <div class="brand">Akwamaryn*PL</div>
         <nav class="nav">
@@ -199,14 +303,18 @@
 
     <main class="container">
 
-      <section class="hero">
+      <section class="hero fade-in">
         <div class="hero-copy">
           <div class="hero-line"><span></span></div>
           <h1>Aktualny miot</h1>
-          <div class="hero-accent">Miot „M” – maluszki norweskie leśne</div>
-          <p>27.03.2026 na świat przyszło pięć wyjątkowych dziewczynek. To starannie zaplanowany, domowo wychowywany miot norweskich kotów leśnych, w którym piękne pochodzenie łączy się z cudownym charakterem, elegancją i typem tak cenionym w rasie.</p>
-          <div class="hero-mini">✦ Wszystkie maluszki są dostępne ✦</div>
-          <a href="#miot-galeria" class="hero-btn">ZOBACZ GALERIĘ</a>
+          <div class="hero-accent">Miot â€žMâ€ť â€“ maluszki norweskie leĹ›ne</div>
+          <p>
+            27.03.2026 na Ĺ›wiat przyszĹ‚o piÄ™Ä‡ wyjÄ…tkowych dziewczynek. To starannie zaplanowany,
+            domowo wychowywany miot norweskich kotĂłw leĹ›nych, w ktĂłrym piÄ™kne pochodzenie Ĺ‚Ä…czy siÄ™
+            z cudownym charakterem, elegancjÄ… i typem tak cenionym w rasie.
+          </p>
+          <div class="hero-mini">âś¦ Wszystkie maluszki sÄ… dostÄ™pne âś¦</div>
+          <a href="#miot-galeria" class="hero-btn">ZOBACZ GALERIÄ</a>
         </div>
         <div class="hero-image-wrap">
           <div class="hero-image animated-frame">
@@ -215,67 +323,97 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section fade-in">
         <div class="section-wrap">
           <div class="section-header">
-            <div class="frame-title"><span class="corner-in"></span><h2>Miot „M”</h2><p>Najważniejsze informacje o naszych maluszkach</p></div>
+            <div class="frame-title">
+              <span class="corner-in"></span>
+              <h2>Miot â€žMâ€ť</h2>
+              <p>NajwaĹĽniejsze informacje o naszych maluszkach</p>
+            </div>
           </div>
           <div class="intro-layout">
             <div class="text-block">
-              <p>To wyjątkowy miot norweskich kotów leśnych, łączący elegancką kolorystykę, piękne pochodzenie i domowe wychowanie. Od pierwszych chwil maluszki mają bliski kontakt z człowiekiem i dorastają w spokojnej, pełnej troski atmosferze.</p>
-              <p>Nasze dziewczynki od pierwszych dni zachwycają delikatnością, pięknym wyrazem i cudownym potencjałem. Szukamy dla nich najlepszych, świadomych i kochających domów.</p>
+              <p>
+                To wyjÄ…tkowy miot norweskich kotĂłw leĹ›nych, Ĺ‚Ä…czÄ…cy eleganckÄ… kolorystykÄ™,
+                piÄ™kne pochodzenie i domowe wychowanie. Od pierwszych chwil maluszki majÄ…
+                bliski kontakt z czĹ‚owiekiem i dorastajÄ… w spokojnej, peĹ‚nej troski atmosferze.
+              </p>
+              <p>
+                Nasze dziewczynki od pierwszych dni zachwycajÄ… delikatnoĹ›ciÄ…, piÄ™knym wyrazem
+                i cudownym potencjaĹ‚em. Szukamy dla nich najlepszych, Ĺ›wiadomych i kochajÄ…cych domĂłw.
+              </p>
             </div>
             <div class="info-cards">
               <div class="info-card"><strong>27.03.2026</strong><span>data urodzenia</span></div>
               <div class="info-card"><strong>5</strong><span>dziewczynek</span></div>
-              <div class="info-card"><strong>Miot M</strong><span>norweskie leśne</span></div>
-              <div class="info-card"><strong>Dostępne</strong><span>dziewczynki szukają kochających domów</span></div>
+              <div class="info-card"><strong>Miot M</strong><span>norweskie leĹ›ne</span></div>
+              <div class="info-card"><strong>DostÄ™pne</strong><span>dziewczynki szukajÄ… kochajÄ…cych domĂłw</span></div>
               <div class="info-card"><strong>3 + 2</strong><span>3 niebieskie srebrzyste szylkretki oraz 2 czarne srebrzyste szylkretki</span></div>
-              <div class="info-card"><strong>Z nami</strong><span>kocięta wychowują się z nami od pierwszych dni życia</span></div>
+              <div class="info-card"><strong>Z nami</strong><span>kociÄ™ta wychowujÄ… siÄ™ z nami od pierwszych dni ĹĽycia</span></div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section fade-in">
         <div class="section-wrap">
           <div class="section-header">
-            <div class="frame-title"><span class="corner-in"></span><h2>Rodzice miotu</h2><p>Piękne linie, mocny typ i starannie dobrane skojarzenie</p></div>
+            <div class="frame-title">
+              <span class="corner-in"></span>
+              <h2>Rodzice miotu</h2>
+              <p>PiÄ™kne linie, mocny typ i starannie dobrane skojarzenie</p>
+            </div>
           </div>
           <div class="parents-grid">
 
-            <article class="parent-card">
+            <article class="parent-card fade-in">
               <div class="parent-photo-wrap">
                 <div class="parent-photo animated-frame">
-                  <img src="file_00000000a454724689df1045122b6b79.png" alt="Dalia Pałuckie Pupile*PL" onclick="openImage(this)">
+                  <img src="file_00000000a454724689df1045122b6b79.png" alt="Dalia PaĹ‚uckie Pupile*PL" onclick="openImage(this)">
                 </div>
               </div>
               <div class="parent-copy">
                 <div class="parent-label">Matka miotu</div>
-                <h3>Dalia Pałuckie Pupile*PL</h3>
+                <h3>Dalia PaĹ‚uckie Pupile*PL</h3>
                 <div class="meta">
-                  <div><strong>Rasa:</strong> Norweska leśna</div>
+                  <div><strong>Rasa:</strong> Norweska leĹ›na</div>
                   <div><strong>Umaszczenie:</strong> niebiesko-srebrny bicolor</div>
                   <div><strong>Kod EMS:</strong> NFO as 03</div>
                   <div><strong>Status:</strong> kotka hodowlana</div>
                 </div>
-                <p>Dalia to piękna kotka norweska leśna o mocnej budowie, eleganckiej sylwetce i spokojnym temperamencie. Zachwyca piękną kryzą, wyrazem i klasą, które doskonale przekazuje potomstwu.</p>
-                <div class="badge-row"><span class="badge">HCM N/N</span><span class="badge">PKD N/N</span><span class="badge">FIV/FELV N/N</span></div>
+                <p>
+                  Dalia to piÄ™kna kotka norweska leĹ›na o mocnej budowie, eleganckiej sylwetce i spokojnym temperamencie.
+                  Zachwyca piÄ™knÄ… kryzÄ…, wyrazem i klasÄ…, ktĂłre doskonale przekazuje potomstwu.
+                </p>
+                <div class="badge-row">
+                  <span class="badge">HCM N/N</span>
+                  <span class="badge">PKD N/N</span>
+                  <span class="badge">FIV/FELV N/N</span>
+                </div>
               </div>
             </article>
 
-            <article class="parent-card reverse">
+            <article class="parent-card reverse fade-in">
               <div class="parent-copy">
                 <div class="parent-label">Ojciec miotu</div>
                 <h3>Posejdon Iceland*NL</h3>
                 <div class="meta">
-                  <div><strong>Rasa:</strong> Norweski leśny</div>
+                  <div><strong>Rasa:</strong> Norweski leĹ›ny</div>
                   <div><strong>Umaszczenie:</strong> Red &amp; white bicolour tabby blotched</div>
                   <div><strong>Kod EMS:</strong> NFO d 03 22</div>
                   <div><strong>Status:</strong> kocur hodowlany</div>
                 </div>
-                <p>Posejdon to wyjątkowy przedstawiciel rasy norweskiej leśnej o efektownym wyglądzie, mocnej budowie i pięknym umaszczeniu. Importowany z Holandii, reprezentuje doskonałą linię hodowlaną.</p>
-                <div class="badge-row"><span class="badge">HCM N/N</span><span class="badge">PKD N/N</span><span class="badge">FIV/FELV N/N</span><span class="badge">GSD IV N/N</span></div>
+                <p>
+                  Posejdon to wyjÄ…tkowy przedstawiciel rasy norweskiej leĹ›nej o efektownym wyglÄ…dzie,
+                  mocnej budowie i piÄ™knym umaszczeniu. Importowany z Holandii, reprezentuje doskonaĹ‚Ä… liniÄ™ hodowlanÄ….
+                </p>
+                <div class="badge-row">
+                  <span class="badge">HCM N/N</span>
+                  <span class="badge">PKD N/N</span>
+                  <span class="badge">FIV/FELV N/N</span>
+                  <span class="badge">GSD IV N/N</span>
+                </div>
               </div>
               <div class="parent-photo-wrap">
                 <div class="parent-photo animated-frame">
@@ -288,35 +426,528 @@
         </div>
       </section>
 
-      <section class="section" id="miot-galeria">
+      <section class="section fade-in" id="miot-galeria">
         <div class="section-wrap">
           <div class="section-header">
-            <div class="frame-title"><span class="corner-in"></span><h2>Galeria</h2><p>Nasz koci świat Akwamarynu</p></div>
+            <div class="frame-title">
+              <span class="corner-in"></span>
+              <h2>Galeria</h2>
+              <p>Nasz koci Ĺ›wiat Akwamarynu</p>
+            </div>
           </div>
 
-          <div class="gallery-note">Galeria będzie regularnie uzupełniana, abyście mogli razem z nami obserwować, jak nasze maluszki rosną, zmieniają się i z każdym dniem pokazują coraz więcej swojego wyjątkowego charakteru. To najpiękniejszy etap, którym bardzo chętnie się z Wami dzielimy.</div>
+          <div class="gallery-note">
+            Galeria bÄ™dzie regularnie uzupeĹ‚niana, abyĹ›cie mogli razem z nami obserwowaÄ‡,
+            jak nasze maluszki rosnÄ…, zmieniajÄ… siÄ™ i z kaĹĽdym dniem pokazujÄ… coraz wiÄ™cej
+            swojego wyjÄ…tkowego charakteru. To najpiÄ™kniejszy etap, ktĂłrym bardzo chÄ™tnie siÄ™ z Wami dzielimy.
+          </div>
 
           <div class="folders">
 
             <div class="folder open" id="folder-4tyg">
-              <div class="folder-header" onclick="toggleFolder('folder-4tyg')">
+              <button class="folder-header" type="button" onclick="toggleFolder('folder-4tyg')">
                 <div class="folder-left">
-                  <div class="folder-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8.5a2 2 0 0 1 2-2h4l1.8 2H19a2 2 0 0 1 2 2v5.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 10.5h18"/></svg></div>
+                  <div class="folder-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M3 8.5a2 2 0 0 1 2-2h4l1.8 2H19a2 2 0 0 1 2 2v5.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                      <path d="M3 10.5h18"/>
+                    </svg>
+                  </div>
                   <div class="folder-copy">
-                    <h3>Norweskie leśne — 4 tydzień</h3>
-                    <p>Nasze maluszki są coraz bardziej aktywne, ciekawe świata i wyraźnie reagują na nasz głos</p>
+                    <h3>Norweskie leĹ›ne â€” 4 tydzieĹ„</h3>
+                    <p>Nasze maluszki sÄ… coraz bardziej aktywne, ciekawe Ĺ›wiata i wyraĹşnie reagujÄ… na nasz gĹ‚os</p>
                   </div>
                 </div>
-                <div class="folder-right"><div class="folder-hint">Zwiń galerię</div><div class="folder-arrow">⌄</div></div>
-              </div>
+                <div class="folder-right">
+                  <div class="folder-hint">RozwiĹ„ galeriÄ™</div>
+                  <div class="folder-arrow">âŚ„</div>
+                </div>
+              </button>
+
               <div class="folder-content">
                 <div class="folder-inner">
+
                   <div class="folder-intro">
-                    <p><strong>Witamy w naszym kocim świecie Akwamarynu…</strong> nasze maluszki kończą właśnie czwarty tydzień życia i każdy dzień z nimi to mała, cudowna eksplozja energii i osobowości.</p>
-                    <p>Dziewczynki są już naprawdę aktywne — coraz pewniej stawiają kroki, coraz odważniej eksplorują swoje gniazdko i jego najbliższe okolice. Zaczynają bawić się ze sobą, delikatnie zaczepiać siostry łapką, podskakiwać i odkrywać, że świat jest dużo większy, ciekawszy i bardziej kolorowy, niż im się wcześniej wydawało.</p>
-                    <p>To także ten wyjątkowy moment, kiedy zaczynają wyraźnie reagować na nasz głos — podążają za nim, podnoszą główki, kiedy się do nich odzywamy, i z każdym dniem coraz mocniej budują swoją więź z człowiekiem. W ich spojrzeniach widać już prawdziwy charakter, ciekawość i tę cudowną kocią mądrość, która od pierwszych chwil kradnie serce.</p>
+                    <p>
+                      <strong>Witamy w naszym kocim Ĺ›wiecie Akwamarynuâ€¦</strong> nasze maluszki koĹ„czÄ… wĹ‚aĹ›nie czwarty tydzieĹ„ ĹĽycia
+                      i kaĹĽdy dzieĹ„ z nimi to maĹ‚a, cudowna eksplozja energii i osobowoĹ›ci.
+                    </p>
+                    <p>
+                      Dziewczynki sÄ… juĹĽ naprawdÄ™ aktywne â€” coraz pewniej stawiajÄ… kroki, coraz odwaĹĽniej eksplorujÄ… swoje gniazdko
+                      i jego najbliĹĽsze okolice. ZaczynajÄ… bawiÄ‡ siÄ™ ze sobÄ…, delikatnie zaczepiaÄ‡ siostry Ĺ‚apkÄ…, podskakiwaÄ‡
+                      i odkrywaÄ‡, ĹĽe Ĺ›wiat jest duĹĽo wiÄ™kszy, ciekawszy i bardziej kolorowy, niĹĽ im siÄ™ wczeĹ›niej wydawaĹ‚o.
+                    </p>
+                    <p>
+                      To takĹĽe ten wyjÄ…tkowy moment, kiedy zaczynajÄ… wyraĹşnie reagowaÄ‡ na nasz gĹ‚os â€” podÄ…ĹĽajÄ… za nim,
+                      podnoszÄ… gĹ‚Ăłwki, kiedy siÄ™ do nich odzywamy, i z kaĹĽdym dniem coraz mocniej budujÄ… swojÄ… wiÄ™Ĺş z czĹ‚owiekiem.
+                      W ich spojrzeniach widaÄ‡ juĹĽ prawdziwy charakter, ciekawoĹ›Ä‡ i tÄ™ cudownÄ… kociÄ… mÄ…droĹ›Ä‡, ktĂłra od pierwszych chwil kradnie serce.
+                    </p>
                   </div>
+
                   <div class="gallery-grid">
-                    <article class="gallery-item">
-                      <div class="gallery-image-wrap"><img src="images/mioty/images/file_00000000b33c720a92139d93efcd31ed.png" alt="Dziewczynka z miotu M – 4 tydzień" onclick="openImage(this)"></div>
-                      <div class="gallery-caption"><h4>Dziewczynka z miotu M</h4><div class="gallery-badge">4 tydzień</div>
+
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap">
+                        <img src="images/mioty/images/file_00000000b33c720a92139d93efcd31ed.png" alt="Dziewczynka z miotu M â€“ 4 tydzieĹ„" onclick="openImage(this)">
+                      </div>
+                      <div class="gallery-caption">
+                        <h4>Dziewczynka z miotu M</h4>
+                        <div class="gallery-badge">4 tydzieĹ„</div>
+                        <p>
+                          Czwarty tydzieĹ„ to czas maĹ‚ych odkryÄ‡ â€” coraz pewniej stawia kroki
+                          i z ciekawoĹ›ciÄ… wyglÄ…da poza swoje gniazdko.
+                        </p>
+                      </div>
+                    </article>
+
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap">
+                        <img src="images/mioty/images/file_0000000096287243ad66184382c5e5c1.png" alt="Dziewczynka z miotu M â€“ 4 tydzieĹ„" onclick="openImage(this)">
+                      </div>
+                      <div class="gallery-caption">
+                        <h4>Dziewczynka z miotu M</h4>
+                        <div class="gallery-badge">4 tydzieĹ„</div>
+                        <p>
+                          W tym wieku zaczyna siÄ™ prawdziwa magia â€” oczka sÄ… juĹĽ duĹĽe i bĹ‚yszczÄ…ce,
+                          a w spojrzeniu pojawia siÄ™ ta cudowna kocia ciekawoĹ›Ä‡ Ĺ›wiata.
+                        </p>
+                      </div>
+                    </article>
+
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap">
+                        <img src="images/mioty/images/file_0000000073f87246bac0cdfabcf631ab.png" alt="Dziewczynka z miotu M â€“ 4 tydzieĹ„" onclick="openImage(this)">
+                      </div>
+                      <div class="gallery-caption">
+                        <h4>Dziewczynka z miotu M</h4>
+                        <div class="gallery-badge">4 tydzieĹ„</div>
+                        <p>
+                          Pierwsze nieĹ›miaĹ‚e prĂłby zabawy z rodzeĹ„stwem â€” delikatne Ĺ‚apki,
+                          ostroĹĽne podskoki i mnĂłstwo wzajemnej czuĹ‚oĹ›ci.
+                        </p>
+                      </div>
+                    </article>
+
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap">
+                        <img src="images/mioty/images/file_000000006628720a9942fd2e7ae02e69.png" alt="Dziewczynka z miotu M â€“ 4 tydzieĹ„" onclick="openImage(this)">
+                      </div>
+                      <div class="gallery-caption">
+                        <h4>Dziewczynka z miotu M</h4>
+                        <div class="gallery-badge">4 tydzieĹ„</div>
+                        <p>
+                          Coraz wiÄ™cej puszystoĹ›ci, coraz wiÄ™cej charakteru â€” i ten cudowny moment,
+                          kiedy maluszek wyraĹşnie reaguje na ludzki gĹ‚os i podÄ…ĹĽa za nim spojrzeniem.
+                        </p>
+                      </div>
+                    </article>
+
+                  </div>
+
+                  <div class="folder-end-wrap">
+                    <button class="folder-end-button" type="button" onclick="toggleFolder('folder-4tyg')">
+                      ZwiĹ„ galeriÄ™
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="folder" id="folder-2tyg">
+              <button class="folder-header" type="button" onclick="toggleFolder('folder-2tyg')">
+                <div class="folder-left">
+                  <div class="folder-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M3 8.5a2 2 0 0 1 2-2h4l1.8 2H19a2 2 0 0 1 2 2v5.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                      <path d="M3 10.5h18"/>
+                    </svg>
+                  </div>
+                  <div class="folder-copy">
+                    <h3>Norweskie leĹ›ne â€” 2 tydzieĹ„</h3>
+                    <p>Nowe zdjÄ™cia naszych maluszkĂłw, ktĂłre wĹ‚aĹ›nie koĹ„czÄ… dwa tygodnie</p>
+                  </div>
+                </div>
+                <div class="folder-right">
+                  <div class="folder-hint">RozwiĹ„ galeriÄ™</div>
+                  <div class="folder-arrow">âŚ„</div>
+                </div>
+              </button>
+
+              <div class="folder-content">
+                <div class="folder-inner">
+
+                  <div class="folder-intro">
+                    <p>
+                      <strong>Witamy w naszym kocim Ĺ›wiecie Akwamarynuâ€¦</strong> nasze maluszki wĹ‚aĹ›nie koĹ„czÄ… dwa tygodnie
+                      i z kaĹĽdym dniem coraz wyraĹşniej pokazujÄ… swĂłj urok, delikatnoĹ›Ä‡ i to wyjÄ…tkowe spojrzenie,
+                      ktĂłre od razu kradnie serce.
+                    </p>
+                    <p>
+                      Trzy z naszych dziewczynek majÄ… juĹĽ swoje imiona â€” <strong>Mia</strong>, <strong>Milka</strong> i <strong>Morigan</strong>.
+                      I nie zostaĹ‚y one wybrane przypadkowoâ€¦ juĹĽ teraz widaÄ‡, ĹĽe kaĹĽda z nich ma w sobie coĹ› wyjÄ…tkowego,
+                      miÄ™kkiego i bardzo swojego.
+                    </p>
+                  </div>
+
+                  <div class="gallery-grid">
+
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap">
+                        <img src="images/mioty/images/mioty/miot-norweski-M-2026-2tyg-nowe/IMG-20260411-WA0000.jpg" alt="Dziewczynka z miotu M â€“ 2 tydzieĹ„" onclick="openImage(this)">
+                      </div>
+                      <div class="gallery-caption">
+                        <h4>Dziewczynka z miotu M</h4>
+                        <div class="gallery-badge">2 tydzieĹ„</div>
+                        <p>
+                          Delikatna, miÄ™kka w wyrazie i bardzo urocza. W jej spojrzeniu jest coĹ› spokojnego i ciepĹ‚ego,
+                          co od razu zatrzymuje wzrok.
+                        </p>
+                      </div>
+                    </article>
+
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap">
+                        <img src="images/mioty/images/mioty/miot-norweski-M-2026-2tyg-nowe/IMG-20260411-WA0002.jpg" alt="Dziewczynka z miotu M â€“ 2 tydzieĹ„" onclick="openImage(this)">
+                      </div>
+                      <div class="gallery-caption">
+                        <h4>Dziewczynka z miotu M</h4>
+                        <div class="gallery-badge">2 tydzieĹ„</div>
+                        <p>
+                          MaĹ‚y puszysty skarb, ktĂłry z dnia na dzieĹ„ coraz bardziej otwiera siÄ™ na Ĺ›wiat.
+                          Taka maleĹ„ka, a juĹĽ peĹ‚na uroku i subtelnego charakteru.
+                        </p>
+                      </div>
+                    </article>
+
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap">
+                        <img src="images/mioty/images/mioty/miot-norweski-M-2026-2tyg-nowe/IMG-20260411-WA0003.jpg" alt="Dziewczynka z miotu M â€“ 2 tydzieĹ„" onclick="openImage(this)">
+                      </div>
+                      <div class="gallery-caption">
+                        <h4>Dziewczynka z miotu M</h4>
+                        <div class="gallery-badge">2 tydzieĹ„</div>
+                        <p>
+                          Jest w niej coĹ› niezwykle sĹ‚odkiego i miÄ™kkiego. Taki rodzaj delikatnoĹ›ci,
+                          ktĂłry sprawia, ĹĽe trudno przejĹ›Ä‡ obok niej obojÄ™tnie.
+                        </p>
+                      </div>
+                    </article>
+
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap">
+                        <img src="images/mioty/images/mioty/miot-norweski-M-2026-2tyg-nowe/IMG-20260411-WA0004.jpg" alt="Dziewczynka z miotu M â€“ 2 tydzieĹ„" onclick="openImage(this)">
+                      </div>
+                      <div class="gallery-caption">
+                        <h4>Dziewczynka z miotu M</h4>
+                        <div class="gallery-badge">2 tydzieĹ„</div>
+                        <p>
+                          Ĺagodna, spokojna i przeurocza. WĹ‚aĹ›nie na tym etapie zaczynajÄ… byÄ‡ widoczne te maĹ‚e cechy,
+                          ktĂłre pĂłĹşniej tworzÄ… ich wyjÄ…tkowy charakter.
+                        </p>
+                      </div>
+                    </article>
+
+                  </div>
+
+                  <div class="folder-end-wrap">
+                    <button class="folder-end-button" type="button" onclick="toggleFolder('folder-2tyg')">
+                      ZwiĹ„ galeriÄ™
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="folder" id="folder-1tyg">
+              <button class="folder-header" type="button" onclick="toggleFolder('folder-1tyg')">
+                <div class="folder-left">
+                  <div class="folder-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M3 8.5a2 2 0 0 1 2-2h4l1.8 2H19a2 2 0 0 1 2 2v5.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                      <path d="M3 10.5h18"/>
+                    </svg>
+                  </div>
+                  <div class="folder-copy">
+                    <h3>Norweskie leĹ›ne â€” 1 tydzieĹ„</h3>
+                    <p>Pierwsze chwile naszych dziewczynek uchwycone w ich pierwszym tygodniu ĹĽycia</p>
+                  </div>
+                </div>
+                <div class="folder-right">
+                  <div class="folder-hint">RozwiĹ„ galeriÄ™</div>
+                  <div class="folder-arrow">âŚ„</div>
+                </div>
+              </button>
+
+              <div class="folder-content">
+                <div class="folder-inner">
+
+                  <div class="folder-intro">
+                    <p>
+                      <strong>Witamy w naszym kocim Ĺ›wiecie Akwamarynuâ€¦</strong> nasze maluszki skoĹ„czyĹ‚y pierwszy tydzieĹ„
+                      i wĹ‚aĹ›nie tak wyglÄ…daĹ‚ ich najdelikatniejszy, najwczeĹ›niejszy etap ĹĽycia â€” miÄ™kki, spokojny
+                      i peĹ‚en tej maleĹ„kiej, wzruszajÄ…cej kruchoĹ›ci.
+                    </p>
+                  </div>
+
+                  <div class="gallery-grid">
+
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap">
+                        <img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Maluszek z miotu M â€“ 1 tydzieĹ„" onclick="openImage(this)">
+                      </div>
+                      <div class="gallery-caption">
+                        <h4>Pierwszy tydzieĹ„</h4>
+                        <div class="gallery-badge">1 tydzieĹ„</div>
+                        <p>
+                          MaleĹ„kie, spokojne i jeszcze bardzo kruche â€” wĹ‚aĹ›nie takie sÄ… pierwsze dni,
+                          ktĂłre zawsze zostajÄ… w pamiÄ™ci najmocniej.
+                        </p>
+                      </div>
+                    </article>
+
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap">
+                        <img src="file_000000001aa47243b5ef692c7926902d.png" alt="Maluszek z miotu M â€“ 1 tydzieĹ„" onclick="openImage(this)">
+                      </div>
+                      <div class="gallery-caption">
+                        <h4>Pierwszy tydzieĹ„</h4>
+                        <div class="gallery-badge">1 tydzieĹ„</div>
+                        <p>
+                          W tych pierwszych chwilach jest coĹ› niezwykle cichego i piÄ™knego â€”
+                          sama delikatnoĹ›Ä‡, ciepĹ‚o i malutkie serduszka bijÄ…ce tuĹĽ obok nas.
+                        </p>
+                      </div>
+                    </article>
+
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap">
+                        <img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Maluszek z miotu M â€“ 1 tydzieĹ„" onclick="openImage(this)">
+                      </div>
+                      <div class="gallery-caption">
+                        <h4>Pierwszy tydzieĹ„</h4>
+                        <div class="gallery-badge">1 tydzieĹ„</div>
+                        <p>
+                          To wĹ‚aĹ›nie wtedy zaczyna siÄ™ ich historia â€” jeszcze bardzo maleĹ„ka,
+                          ale juĹĽ peĹ‚na obietnicy czegoĹ› naprawdÄ™ wyjÄ…tkowego.
+                        </p>
+                      </div>
+                    </article>
+
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap">
+                        <img src="file_0000000092607246a8e17fab58cb439d.png" alt="Maluszek z miotu M â€“ 1 tydzieĹ„" onclick="openImage(this)">
+                      </div>
+                      <div class="gallery-caption">
+                        <h4>Pierwszy tydzieĹ„</h4>
+                        <div class="gallery-badge">1 tydzieĹ„</div>
+                        <p>
+                          Taki maleĹ„ki koci skarb, a juĹĽ potrafi zatrzymaÄ‡ spojrzenie na dĹ‚uĹĽej.
+                          Ten etap ma w sobie wyjÄ…tkowy spokĂłj i ogrom wzruszenia.
+                        </p>
+                      </div>
+                    </article>
+
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap">
+                        <img src="images/mioty/2026-03-27-norweskie/file_0000000090b8720bb77f08f165cf4553.png" alt="Maluszek z miotu M â€“ 1 tydzieĹ„" onclick="openImage(this)">
+                      </div>
+                      <div class="gallery-caption">
+                        <h4>Pierwszy tydzieĹ„</h4>
+                        <div class="gallery-badge">1 tydzieĹ„</div>
+                        <p>
+                          Pierwsze dni ĹĽycia sÄ… najcichsze, ale zarazem najbardziej poruszajÄ…ce.
+                          To wtedy wszystko dopiero siÄ™ zaczyna.
+                        </p>
+                      </div>
+                    </article>
+
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap">
+                        <img src="images/mioty/2026-03-27-norweskie/file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Maluszek z miotu M â€“ 1 tydzieĹ„" onclick="openImage(this)">
+                      </div>
+                      <div class="gallery-caption">
+                        <h4>Pierwszy tydzieĹ„</h4>
+                        <div class="gallery-badge">1 tydzieĹ„</div>
+                        <p>
+                          MaleĹ„ka dziewczynka z tym miÄ™kkim, spokojnym wyrazem,
+                          ktĂłry od razu budzi czuĹ‚oĹ›Ä‡ i ogromne wzruszenie.
+                        </p>
+                      </div>
+                    </article>
+
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap">
+                        <img src="images/mioty/2026-03-27-norweskie/file_00000000c60072439aee95ed8f84caaf.png" alt="Maluszek z miotu M â€“ 1 tydzieĹ„" onclick="openImage(this)">
+                      </div>
+                      <div class="gallery-caption">
+                        <h4>Pierwszy tydzieĹ„</h4>
+                        <div class="gallery-badge">1 tydzieĹ„</div>
+                        <p>
+                          KaĹĽdy z tych kadrĂłw zatrzymuje moment, ktĂłry mija bardzo szybko,
+                          ale zostaje w sercu juĹĽ na zawsze.
+                        </p>
+                      </div>
+                    </article>
+
+                    <article class="gallery-item fade-in">
+                      <div class="gallery-image-wrap">
+                        <img src="images/mioty/2026-03-27-norweskie/file_000000006f947243b32fb0f9a979bc82.png" alt="Maluszek z miotu M â€“ 1 tydzieĹ„" onclick="openImage(this)">
+                      </div>
+                      <div class="gallery-caption">
+                        <h4>Pierwszy tydzieĹ„</h4>
+                        <div class="gallery-badge">1 tydzieĹ„</div>
+                        <p>
+                          W pierwszym tygodniu wszystko jest jeszcze takie delikatne, miÄ™kkie i ciche â€”
+                          i moĹĽe wĹ‚aĹ›nie dlatego tak bardzo piÄ™kne.
+                        </p>
+                      </div>
+                    </article>
+
+                  </div>
+
+                  <div class="folder-end-wrap">
+                    <button class="folder-end-button" type="button" onclick="toggleFolder('folder-1tyg')">
+                      ZwiĹ„ galeriÄ™
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section fade-in">
+        <div class="section-wrap">
+          <div class="section-header">
+            <div class="frame-title">
+              <span class="corner-in"></span>
+              <h2>Kontakt</h2>
+              <p>Rezerwacja i szczegĂłĹ‚y dotyczÄ…ce maluszkĂłw</p>
+            </div>
+          </div>
+
+          <div class="contact-layout">
+            <div class="contact-text">
+              JeĹ›li interesuje CiÄ™ ktĂłryĹ› z naszych maluszkĂłw, zapraszamy do kontaktu.
+              ChÄ™tnie opowiemy wiÄ™cej o charakterze kociÄ…t, planie odchowu oraz dalszych etapach rezerwacji.
+              ZaleĹĽy nam na najlepszych, Ĺ›wiadomych i kochajÄ…cych domach.
+            </div>
+
+            <div class="contact-box">
+              <h3>Skontaktuj siÄ™</h3>
+              <div class="contact-note">Kliknij w mail, numer telefonu lub Facebook</div>
+              <div class="contact-links">
+                <a class="contact-link" href="mailto:agnieszka90m@gmail.com">âś‰ď¸Ź agnieszka90m@gmail.com</a>
+                <a class="contact-link" href="tel:+48572992736">đź“ž +48 572 992 736</a>
+                <a class="contact-link" href="https://www.facebook.com/share/1DWyWWbtVH/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook Akwamaryn*PL</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <div class="lightbox" id="lightbox">
+      <div class="lightbox-inner">
+        <button class="lightbox-nav lightbox-prev" type="button" aria-label="Poprzednie zdjÄ™cie" id="lightboxPrev">â€ą</button>
+        <button class="lightbox-close" type="button" aria-label="Zamknij" id="lightboxClose">âś•</button>
+        <img id="lightboxImg" alt="">
+        <button class="lightbox-nav lightbox-next" type="button" aria-label="NastÄ™pne zdjÄ™cie" id="lightboxNext">â€ş</button>
+      </div>
+    </div>
+
+    <footer>Â© 2026 Akwamaryn*PL</footer>
+
+  </div>
+
+  <script>
+    var galleryImages = [];
+    var currentImageIndex = 0;
+
+    function refreshGalleryImages(){
+      galleryImages = Array.prototype.slice.call(document.querySelectorAll('.gallery-grid img, .parent-photo img'));
+    }
+
+    function setLightboxImage(){
+      var lbImg = document.getElementById('lightboxImg');
+      var img = galleryImages[currentImageIndex];
+      if(!lbImg || !img) return;
+      lbImg.src = img.src;
+      lbImg.alt = img.alt || '';
+    }
+
+    function openImage(img){
+      var lb = document.getElementById('lightbox');
+      if(!lb || !img) return;
+      refreshGalleryImages();
+      currentImageIndex = galleryImages.indexOf(img);
+      if(currentImageIndex < 0) currentImageIndex = 0;
+      setLightboxImage();
+      lb.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImage(){
+      var lb = document.getElementById('lightbox');
+      if(lb){ lb.classList.remove('show'); document.body.style.overflow = ''; }
+    }
+
+    function showPrevImage(){
+      if(!galleryImages.length) refreshGalleryImages();
+      if(!galleryImages.length) return;
+      currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+      setLightboxImage();
+    }
+
+    function showNextImage(){
+      if(!galleryImages.length) refreshGalleryImages();
+      if(!galleryImages.length) return;
+      currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+      setLightboxImage();
+    }
+
+    function toggleFolder(folderId){
+      var folder = document.getElementById(folderId);
+      if(!folder) return;
+      folder.classList.toggle('open');
+      var hint = folder.querySelector('.folder-hint');
+      if(hint) hint.textContent = folder.classList.contains('open') ? 'ZwiĹ„ galeriÄ™' : 'RozwiĹ„ galeriÄ™';
+    }
+
+    function setInitialFolderHints(){
+      var folders = document.querySelectorAll('.folder');
+      for(var i = 0; i < folders.length; i++){
+        var folder = folders[i];
+        var hint = folder.querySelector('.folder-hint');
+        if(hint) hint.textContent = folder.classList.contains('open') ? 'ZwiĹ„ galeriÄ™' : 'RozwiĹ„ galeriÄ™';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      setInitialFolderHints();
+      var lb = document.getElementById('lightbox');
+      var lbClose = document.getElementById('lightboxClose');
+      var lbPrev = document.getElementById('lightboxPrev');
+      var lbNext = document.getElementById('lightboxNext');
+      if(lbClose) lbClose.addEventListener('click', closeImage);
+      if(lbPrev) lbPrev.addEventListener('click', showPrevImage);
+      if(lbNext) lbNext.addEventListener('click', showNextImage);
+      if(lb) lb.addEventListener('click', function(e){ if(e.target === lb) closeImage(); });
+    });
+
+    document.addEventListener('keydown', function(e){
+      var lb = document.getElementById('lightbox');
+      if(!lb || !lb.classList.contains('show')) return;
+      if(e.key === 'Escape') closeImage();
+      if(e.key === 'ArrowLeft') showPrevImage();
+      if(e.key === 'ArrowRight') showNextImage();
+    });
+  </script>
+</body>
+</html>
