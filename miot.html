@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aktualny miot | Akwamaryn*PL</title>
-  <meta name="description" content="Aktualny miot Akwamaryn*PL. Miot M – norweskie koty leśne. Poznaj nasze maluszki, zobacz zdjęcia z pierwszego i drugiego tygodnia życia oraz najważniejsze informacje o miocie." />
+  <meta name="description" content="Aktualny miot Akwamaryn*PL. Miot M – norweskie koty leśne. Poznaj nasze maluszki, zobacz zdjęcia z pierwszego, drugiego i czwartego tygodnia życia oraz najważniejsze informacje o miocie." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://akwamaryn-pl.com/miot.html" />
 
@@ -14,1273 +14,170 @@
 
   <style>
     :root{
-      --bg-1:#fffafc;
-      --bg-2:#f8eef3;
-      --panel:#fff8fb;
-      --panel-2:rgba(255,255,255,0.88);
-      --line:#f0dfe6;
-      --line-strong:#e4c8d2;
-      --line-dark:#b78898;
-      --text:#654f58;
-      --text-strong:#7a5665;
-      --text-soft:#866873;
-      --badge:#f1e5ea;
-      --shadow:0 14px 34px rgba(0,0,0,0.05);
-      --shadow-hover:0 16px 30px rgba(171,135,149,0.14);
-      --max:1320px;
-    }
-
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      font-family:"Inter",sans-serif;
-      color:var(--text);
-      background:linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 100%);
-      overflow-x:hidden;
-    }
-
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-    img{
-      display:block;
-      max-width:100%;
-    }
-
-    button{
-      font:inherit;
-      border:none;
-      background:none;
-      cursor:pointer;
-    }
-
-    .page-wrap{
-      position:relative;
-      overflow:hidden;
-    }
-
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:5000;
-      background:rgba(255,248,251,0.95);
-      backdrop-filter:blur(10px);
-      -webkit-backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(218,189,200,0.2);
-    }
-
-    .topbar-inner{
-      width:min(var(--max), calc(100% - 36px));
-      margin:auto;
-      min-height:88px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
-    }
-
-    .brand{
-      font-family:"Cormorant Garamond",serif;
-      color:var(--text-strong);
-      white-space:nowrap;
-      font-size:58px;
-      line-height:0.95;
-      font-weight:600;
-      letter-spacing:0.2px;
-    }
-
-    .nav{
-      display:flex;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:18px;
-      color:var(--text);
-    }
-
-    .nav a{
-      font-family:"Cormorant Garamond",serif;
-      font-size:21px;
-      color:var(--text);
-      transition:0.25s ease;
-    }
-
-    .nav a:hover{
-      color:var(--text-strong);
-    }
-
-    .nav-cta{
-      min-width:152px;
-      min-height:42px;
-      padding:0 18px;
-      border:2px solid #d6b0be;
-      color:var(--text-strong);
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      font-size:16px;
-      font-weight:600;
-      letter-spacing:0.5px;
-      position:relative;
-      margin-left:14px;
-      transition:0.25s ease;
-      overflow:hidden;
-      background:#fff8fb;
-      border-radius:16px;
-      box-shadow:0 8px 18px rgba(171,135,149,0.08);
-    }
-
-    .nav-cta:hover{
-      box-shadow:0 12px 22px rgba(171,135,149,0.14);
-      transform:translateY(-2px);
-    }
-
-    .nav-cta::before,
-    .nav-cta::after{
-      content:"";
-      position:absolute;
-      width:14px;
-      height:14px;
-      border-color:#b78898;
-      z-index:2;
-    }
-
-    .nav-cta::before{
-      top:-2px;
-      left:-2px;
-      border-top:3px solid #b78898;
-      border-left:3px solid #b78898;
-      border-radius:10px 0 0 0;
-    }
-
-    .nav-cta::after{
-      right:-2px;
-      bottom:-2px;
-      border-right:3px solid #b78898;
-      border-bottom:3px solid #b78898;
-      border-radius:0 0 10px 0;
-    }
-
-    .container{
-      width:min(var(--max), calc(100% - 36px));
-      margin:auto;
-      padding:34px 0 80px;
-      position:relative;
-      z-index:1;
-    }
-
-    .fade-in{
-      opacity:0;
-      transform:translateY(42px);
-      transition:opacity 0.85s ease, transform 0.85s ease;
-    }
-
-    .fade-in.show{
-      opacity:1;
-      transform:translateY(0);
-    }
-
-    @keyframes softSweep{
-      0%{
-        transform:translateX(-180%) rotate(16deg);
-        opacity:0;
-      }
-      18%{
-        opacity:1;
-      }
-      100%{
-        transform:translateX(260%) rotate(16deg);
-        opacity:0;
-      }
-    }
-
-    @keyframes frameGlow{
-      0%,100%{
-        box-shadow:
-          0 0 0 rgba(183,136,152,0),
-          0 12px 30px rgba(171,135,149,0.10);
-      }
-      50%{
-        box-shadow:
-          0 0 18px rgba(183,136,152,0.10),
-          0 16px 34px rgba(171,135,149,0.16);
-      }
-    }
-
-    .animated-frame{
-      position:relative;
-      overflow:hidden;
-      animation:frameGlow 3.2s ease-in-out infinite;
-    }
-
-    .animated-frame::before{
-      content:"";
-      position:absolute;
-      top:-130%;
-      left:-45%;
-      width:34%;
-      height:380%;
-      background:linear-gradient(
-        90deg,
-        rgba(183,136,152,0) 0%,
-        rgba(183,136,152,0.10) 40%,
-        rgba(255,255,255,0.55) 50%,
-        rgba(183,136,152,0.10) 60%,
-        rgba(183,136,152,0) 100%
-      );
-      transform:translateX(-180%) rotate(16deg);
-      opacity:0;
-      pointer-events:none;
-      z-index:3;
-    }
-
-    .animated-frame:hover::before{
-      opacity:1;
-      animation:softSweep 1.35s ease;
-    }
-
-    .hero{
-      display:grid;
-      grid-template-columns:1.02fr 0.98fr;
-      gap:34px;
-      align-items:center;
-      min-height:680px;
-      margin-bottom:54px;
-    }
-
-    .hero-copy{
-      padding:18px 0;
-    }
-
-    .hero-line{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-bottom:24px;
-    }
-
-    .hero-line::before{
-      content:"";
-      width:150px;
-      height:3px;
-      background:linear-gradient(90deg,#e4c8d2 0%, #b78898 50%, #e4c8d2 100%);
-      border-radius:999px;
-      flex-shrink:0;
-    }
-
-    .hero-line::after{
-      content:"";
-      width:26px;
-      height:2px;
-      background:#b78898;
-      border-radius:999px;
-      flex-shrink:0;
-    }
-
-    .hero-line span{
-      display:block;
-      width:150px;
-      height:3px;
-      background:linear-gradient(90deg,#e4c8d2 0%, #b78898 50%, #e4c8d2 100%);
-      border-radius:999px;
-      flex-shrink:0;
-    }
-
-    .hero-copy h1{
-      font-family:"Cormorant Garamond",serif;
-      font-size:82px;
-      line-height:0.94;
-      font-weight:600;
-      color:var(--text-strong);
-      margin-bottom:18px;
-    }
-
-    .hero-accent{
-      font-family:"Cormorant Garamond",serif;
-      font-size:28px;
-      line-height:1.2;
-      color:var(--text-soft);
-      font-style:italic;
-      margin-bottom:26px;
-    }
-
-    .hero-copy p{
-      max-width:670px;
-      font-size:17px;
-      line-height:2;
-      color:var(--text);
-      margin-bottom:26px;
-    }
-
-    .hero-mini{
-      color:var(--text-soft);
-      font-family:"Cormorant Garamond",serif;
-      font-size:28px;
-      line-height:1.2;
-      font-style:italic;
-      margin-bottom:28px;
-    }
-
-    .hero-btn{
-      min-width:150px;
-      min-height:42px;
-      padding:0 18px;
-      border:2px solid #d6b0be;
-      color:var(--text-strong);
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      font-size:16px;
-      font-weight:600;
-      position:relative;
-      letter-spacing:0.3px;
-      transition:0.25s ease;
-      overflow:hidden;
-      border-radius:16px;
-      background:#fff8fb;
-      box-shadow:0 8px 18px rgba(171,135,149,0.08);
-    }
-
-    .hero-btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 12px 22px rgba(171,135,149,0.14);
-    }
-
-    .hero-btn::before,
-    .hero-btn::after{
-      content:"";
-      position:absolute;
-      width:14px;
-      height:14px;
-      border-color:#b78898;
-      z-index:2;
-    }
-
-    .hero-btn::before{
-      top:-2px;
-      left:-2px;
-      border-top:3px solid #b78898;
-      border-left:3px solid #b78898;
-      border-radius:10px 0 0 0;
-    }
-
-    .hero-btn::after{
-      right:-2px;
-      bottom:-2px;
-      border-right:3px solid #b78898;
-      border-bottom:3px solid #b78898;
-      border-radius:0 0 10px 0;
-    }
-
-    .hero-image-wrap{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      width:100%;
-    }
-
-    .hero-image{
-      width:100%;
-      max-width:100%;
-      display:block;
-      border:1px solid var(--line-strong);
-      padding:10px;
-      background:#fff8fb;
-      box-shadow:var(--shadow);
-      transition:0.4s ease;
-      border-radius:30px;
-    }
-
-    .hero-image:hover{
-      transform:translateY(-6px);
-      box-shadow:var(--shadow-hover);
-      border-color:#d6b0be;
-    }
-
-    .hero-image img{
-      display:block;
-      width:100%;
-      height:auto;
-      max-height:none;
-      object-fit:contain;
-      object-position:center;
-      border-radius:22px;
-      background:#fff8fb;
-    }
-
-    .section{
-      margin-bottom:54px;
-    }
-
-    .section-wrap{
-      background:var(--panel-2);
-      padding:40px;
-      border-radius:30px;
-      box-shadow:var(--shadow);
-    }
-
-    .section-header{
-      text-align:center;
-      margin-bottom:34px;
-      position:relative;
-    }
-
-    .frame-title{
-      display:inline-block;
-      position:relative;
-      padding:34px 46px;
-    }
-
-    .frame-title::before,
-    .frame-title::after,
-    .frame-title .corner-in::before,
-    .frame-title .corner-in::after{
-      content:"";
-      position:absolute;
-      pointer-events:none;
-    }
-
-    .frame-title::before{
-      top:0;
-      left:0;
-      width:120px;
-      height:78px;
-      border-top:2px solid var(--line-dark);
-      border-left:2px solid var(--line-dark);
-    }
-
-    .frame-title::after{
-      right:0;
-      bottom:0;
-      width:120px;
-      height:78px;
-      border-right:2px solid var(--line-dark);
-      border-bottom:2px solid var(--line-dark);
-    }
-
-    .frame-title .corner-in::before{
-      top:10px;
-      left:10px;
-      width:76px;
-      height:48px;
-      border-top:2px solid rgba(183,136,152,0.55);
-      border-left:2px solid rgba(183,136,152,0.55);
-    }
-
-    .frame-title .corner-in::after{
-      right:10px;
-      bottom:10px;
-      width:76px;
-      height:48px;
-      border-right:2px solid rgba(183,136,152,0.55);
-      border-bottom:2px solid rgba(183,136,152,0.55);
-    }
-
-    .section-header h2{
-      font-family:"Cormorant Garamond",serif;
-      font-size:64px;
-      font-weight:600;
-      line-height:1;
-      color:var(--text-strong);
-      margin-bottom:10px;
-      position:relative;
-      z-index:2;
-    }
-
-    .section-header p{
-      color:var(--text-soft);
-      font-family:"Cormorant Garamond",serif;
-      font-size:24px;
-      font-style:italic;
-      line-height:1.3;
-      position:relative;
-      z-index:2;
-    }
-
-    .intro-layout{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:34px;
-      align-items:start;
-    }
-
-    .text-block{
-      color:var(--text);
-      font-size:17px;
-      line-height:2;
-    }
-
-    .text-block p{
-      margin-bottom:18px;
-    }
-
-    .info-cards{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-
-    .info-card{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:22px 20px;
-      min-height:132px;
-      box-shadow:0 10px 26px rgba(171,135,149,0.08);
-      transition:0.35s ease;
-    }
-
-    .info-card:hover{
-      transform:translateY(-4px);
-      border-color:#d6b0be;
-      box-shadow:var(--shadow-hover);
-    }
-
-    .info-card strong{
-      display:block;
-      font-family:"Cormorant Garamond",serif;
-      font-size:34px;
-      line-height:1;
-      color:var(--text-strong);
-      margin-bottom:10px;
-      font-weight:600;
-    }
-
-    .info-card span{
-      display:block;
-      color:var(--text);
-      font-size:15px;
-      line-height:1.7;
-    }
-
-    .parents-grid{
-      display:grid;
-      gap:32px;
-    }
-
-    .parent-card{
-      display:grid;
-      grid-template-columns:0.95fr 1.05fr;
-      gap:30px;
-      align-items:center;
-      background:rgba(255,248,251,0.7);
-      border:1px solid var(--line);
-      border-radius:28px;
-      padding:22px;
-      box-shadow:0 10px 24px rgba(171,135,149,0.08);
-    }
-
-    .parent-card.reverse{
-      grid-template-columns:1.05fr 0.95fr;
-    }
-
-    .parent-card.reverse .parent-copy{
-      order:1;
-    }
-
-    .parent-card.reverse .parent-photo-wrap{
-      order:2;
-    }
-
-    .parent-photo-wrap{
-      width:100%;
-    }
-
-    .parent-photo{
-      border:1px solid var(--line-strong);
-      padding:10px;
-      background:#fff8fb;
-      border-radius:28px;
-      box-shadow:0 10px 28px rgba(171,135,149,0.10);
-      overflow:hidden;
-    }
-
-    .parent-photo img{
-      width:100%;
-      height:auto;
-      border-radius:20px;
-      object-fit:cover;
-      cursor:pointer;
-      background:#fff8fb;
-      display:block;
-    }
-
-    .parent-copy{
-      color:var(--text);
-    }
-
-    .parent-label{
-      display:inline-flex;
-      padding:8px 14px;
-      border-radius:999px;
-      background:var(--badge);
-      color:var(--text-strong);
-      font-size:13px;
-      font-weight:700;
-      letter-spacing:0.4px;
-      margin-bottom:16px;
-    }
-
-    .parent-copy h3{
-      font-family:"Cormorant Garamond",serif;
-      font-size:42px;
-      color:var(--text-strong);
-      margin-bottom:14px;
-      line-height:1;
-    }
-
-    .meta{
-      display:grid;
-      gap:8px;
-      margin-bottom:18px;
-      font-size:15px;
-      line-height:1.7;
-    }
-
-    .parent-copy p{
-      font-size:16px;
-      line-height:1.9;
-      margin-bottom:16px;
-    }
-
-    .badge-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:36px;
-      padding:0 14px;
-      border-radius:999px;
-      background:#f4e8ed;
-      color:var(--text-strong);
-      font-size:13px;
-      font-weight:700;
-      border:1px solid #ead7df;
-    }
-
-    .gallery-note{
-      max-width:960px;
-      margin:0 auto 30px;
-      text-align:center;
-      color:var(--text-soft);
-      font-size:16px;
-      line-height:1.95;
-    }
-
-    .folders{
-      display:grid;
-      gap:24px;
-      margin-top:18px;
-    }
-
-    .folder{
-      background:#fff8fb;
-      border:1px solid var(--line-strong);
-      border-radius:30px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      transition:0.3s ease;
-    }
-
-    .folder:hover{
-      box-shadow:var(--shadow-hover);
-      border-color:#d6b0be;
-    }
-
-    .folder-header{
-      width:100%;
-      padding:26px 28px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      text-align:left;
-      background:transparent;
-    }
-
-    .folder-left{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      min-width:0;
-    }
-
-    .folder-icon{
-      width:66px;
-      height:66px;
-      border-radius:22px;
-      background:linear-gradient(180deg,#f8eaf0 0%, #f2dde6 100%);
-      border:1px solid #ecd3dd;
-      box-shadow:0 8px 18px rgba(171,135,149,0.10);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-shrink:0;
-    }
-
-    .folder-icon svg{
-      width:30px;
-      height:30px;
-      stroke:#9b7382;
-      fill:none;
-      stroke-width:1.8;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-    }
-
-    .folder-copy h3{
-      font-family:"Cormorant Garamond",serif;
-      font-size:42px;
-      line-height:1;
-      color:var(--text-strong);
-      margin-bottom:8px;
-    }
-
-    .folder-copy p{
-      color:var(--text-soft);
-      font-size:16px;
-      line-height:1.8;
-    }
-
-    .folder-right{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-end;
-      gap:8px;
-      flex-shrink:0;
-    }
-
-    .folder-hint{
-      font-size:13px;
-      font-weight:700;
-      letter-spacing:0.5px;
-      text-transform:uppercase;
-      color:var(--text-soft);
-    }
-
-    .folder-arrow{
-      font-size:28px;
-      color:var(--text-soft);
-      transition:transform 0.3s ease;
-      line-height:1;
-    }
-
-    .folder.open .folder-arrow{
-      transform:rotate(180deg);
-    }
-
-    .folder-content{
-      max-height:0;
-      overflow:hidden;
-      transition:max-height 0.55s ease;
-      border-top:1px solid transparent;
-    }
-
-    .folder.open .folder-content{
-      border-top:1px solid var(--line);
-    }
-
-    .folder-inner{
-      padding:28px;
-    }
-
-    .folder-intro{
-      max-width:960px;
-      margin:0 auto 28px;
-      text-align:center;
-      color:var(--text);
-      font-size:16px;
-      line-height:1.95;
-    }
-
-    .folder-intro strong{
-      color:var(--text-strong);
-    }
-
-    .gallery-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:24px;
-    }
-
-    .gallery-item{
-      background:#fff8fb;
-      border:1px solid var(--line);
-      border-radius:28px;
-      padding:12px;
-      box-shadow:var(--shadow);
-      transition:0.3s ease;
-      overflow:hidden;
-    }
-
-    .gallery-item:hover{
-      transform:translateY(-6px);
-      box-shadow:var(--shadow-hover);
-      border-color:#d6b0be;
-    }
-
-    .gallery-image-wrap{
-      width:100%;
-      aspect-ratio:4 / 5;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:linear-gradient(180deg,#fffdfd 0%, #fff8fb 100%);
-      border:1px solid #eedbe3;
-      border-radius:28px;
-      margin-bottom:18px;
-      overflow:hidden;
-      padding:14px;
-      box-shadow:inset 0 0 0 1px rgba(255,255,255,0.7);
-    }
-
-    .gallery-item img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center;
-      border-radius:24px;
-      cursor:pointer;
-      transition:transform 0.25s ease;
-      display:block;
-      background:#fff8fb;
-    }
-
-    .gallery-item img:hover{
-      transform:scale(1.02);
-    }
-
-    .gallery-caption{
-      text-align:center;
-      padding:4px 8px 12px;
-    }
-
-    .gallery-caption h4{
-      font-family:"Cormorant Garamond",serif;
-      font-size:38px;
-      line-height:1;
-      color:var(--text-strong);
-      margin-bottom:12px;
-      font-weight:600;
-    }
-
-    .gallery-badge{
-      display:inline-block;
-      padding:8px 14px;
-      border-radius:999px;
-      background:var(--badge);
-      color:var(--text-strong);
-      font-size:13px;
-      font-weight:700;
-      letter-spacing:0.4px;
-      margin-bottom:14px;
-    }
-
-    .gallery-caption p{
-      font-size:15px;
-      line-height:1.85;
-      color:var(--text);
-    }
-
-    .folder-end-wrap{
-      display:flex;
-      justify-content:center;
-      margin-top:24px;
-    }
-
-    .folder-end-button{
-      padding:12px 20px;
-      border-radius:999px;
-      background:#f5e7ed;
-      border:1px solid #ead3dc;
-      color:var(--text-soft);
-      font-size:13px;
-      font-weight:700;
-      letter-spacing:0.5px;
-      text-transform:uppercase;
-      transition:0.25s ease;
-    }
-
-    .folder-end-button:hover{
-      background:#f1dfe7;
-      color:var(--text-strong);
-      transform:translateY(-1px);
-    }
-
-    .contact-layout{
-      display:grid;
-      grid-template-columns:1.1fr 0.9fr;
-      gap:24px;
-      align-items:stretch;
-    }
-
-    .contact-text{
-      font-size:19px;
-      line-height:1.8;
-      color:var(--text);
-      text-align:left;
-    }
-
-    .contact-box{
-      text-align:center;
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:26px;
-      box-shadow:0 10px 24px rgba(171,135,149,0.08);
-    }
-
-    .contact-box h3{
-      font-size:30px;
-      color:var(--text-strong);
-      margin-bottom:10px;
-      font-family:"Cormorant Garamond",serif;
-    }
-
-    .contact-note{
-      font-size:18px;
-      line-height:1.6;
-      color:var(--text-soft);
-      margin-bottom:18px;
-      font-style:italic;
-      font-family:"Cormorant Garamond",serif;
-    }
-
-    .contact-links{
-      display:grid;
-      gap:12px;
-    }
-
-    .contact-link{
-      min-height:52px;
-      background:var(--badge);
-      color:var(--text-strong);
-      border-radius:18px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:0 18px;
-      font-size:16px;
-      font-weight:700;
-      text-align:center;
-      box-shadow:0 8px 18px rgba(171,135,149,0.08);
-      border:1px solid #ead8e0;
-    }
-
-    .lightbox{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.84);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-      padding:20px;
-    }
-
-    .lightbox.show{
-      display:flex;
-    }
-
-    .lightbox-inner{
-      position:relative;
-      max-width:95vw;
-      max-height:95vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .lightbox img{
-      max-width:90vw;
-      max-height:88vh;
-      border-radius:22px;
-      border:2px solid #d6b0be;
-      background:#fff8fb;
-      box-shadow:0 24px 55px rgba(0,0,0,0.35);
-    }
-
-    .lightbox-close{
-      position:absolute;
-      top:-12px;
-      right:-6px;
-      width:48px;
-      height:48px;
-      border-radius:50%;
-      border:none;
-      background:rgba(255,255,255,0.2);
-      color:#fff;
-      font-size:26px;
-      cursor:pointer;
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
-      z-index:3;
-    }
-
-    .lightbox-nav{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      width:52px;
-      height:52px;
-      border-radius:50%;
-      border:none;
-      background:rgba(255,255,255,0.16);
-      color:#fff;
-      font-size:34px;
-      line-height:1;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
-      z-index:3;
-    }
-
-    .lightbox-prev{
-      left:-68px;
-    }
-
-    .lightbox-next{
-      right:-68px;
-    }
-
-    footer{
-      text-align:center;
-      padding:30px;
-      color:var(--text-soft);
-      font-size:14px;
-    }
-
+      --bg-1:#fffafc; --bg-2:#f8eef3; --panel:#fff8fb; --panel-2:rgba(255,255,255,0.88);
+      --line:#f0dfe6; --line-strong:#e4c8d2; --line-dark:#b78898;
+      --text:#654f58; --text-strong:#7a5665; --text-soft:#866873;
+      --badge:#f1e5ea; --shadow:0 14px 34px rgba(0,0,0,0.05);
+      --shadow-hover:0 16px 30px rgba(171,135,149,0.14); --max:1320px;
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
+    body{ font-family:"Inter",sans-serif; color:var(--text); background:linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 100%); overflow-x:hidden; }
+    a{ color:inherit; text-decoration:none; }
+    img{ display:block; max-width:100%; }
+    button{ font:inherit; border:none; background:none; cursor:pointer; }
+    .page-wrap{ position:relative; overflow:hidden; }
+    .topbar{ position:sticky; top:0; z-index:5000; background:rgba(255,248,251,0.95); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid rgba(218,189,200,0.2); }
+    .topbar-inner{ width:min(var(--max), calc(100% - 36px)); margin:auto; min-height:88px; display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+    .brand{ font-family:"Cormorant Garamond",serif; color:var(--text-strong); white-space:nowrap; font-size:58px; line-height:0.95; font-weight:600; letter-spacing:0.2px; }
+    .nav{ display:flex; align-items:center; flex-wrap:wrap; gap:18px; color:var(--text); }
+    .nav a{ font-family:"Cormorant Garamond",serif; font-size:21px; color:var(--text); transition:0.25s ease; }
+    .nav a:hover{ color:var(--text-strong); }
+    .nav-cta{ min-width:152px; min-height:42px; padding:0 18px; border:2px solid #d6b0be; color:var(--text-strong); display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:600; letter-spacing:0.5px; position:relative; margin-left:14px; transition:0.25s ease; overflow:hidden; background:#fff8fb; border-radius:16px; box-shadow:0 8px 18px rgba(171,135,149,0.08); }
+    .nav-cta:hover{ box-shadow:0 12px 22px rgba(171,135,149,0.14); transform:translateY(-2px); }
+    .nav-cta::before, .nav-cta::after{ content:""; position:absolute; width:14px; height:14px; border-color:#b78898; z-index:2; }
+    .nav-cta::before{ top:-2px; left:-2px; border-top:3px solid #b78898; border-left:3px solid #b78898; border-radius:10px 0 0 0; }
+    .nav-cta::after{ right:-2px; bottom:-2px; border-right:3px solid #b78898; border-bottom:3px solid #b78898; border-radius:0 0 10px 0; }
+    .container{ width:min(var(--max), calc(100% - 36px)); margin:auto; padding:34px 0 80px; position:relative; z-index:1; }
+    .fade-in{ opacity:0; transform:translateY(42px); transition:opacity 0.85s ease, transform 0.85s ease; }
+    .fade-in.show{ opacity:1; transform:translateY(0); }
+    @keyframes softSweep{ 0%{ transform:translateX(-180%) rotate(16deg); opacity:0; } 18%{ opacity:1; } 100%{ transform:translateX(260%) rotate(16deg); opacity:0; } }
+    @keyframes frameGlow{ 0%,100%{ box-shadow:0 0 0 rgba(183,136,152,0), 0 12px 30px rgba(171,135,149,0.10); } 50%{ box-shadow:0 0 18px rgba(183,136,152,0.10), 0 16px 34px rgba(171,135,149,0.16); } }
+    .animated-frame{ position:relative; overflow:hidden; animation:frameGlow 3.2s ease-in-out infinite; }
+    .animated-frame::before{ content:""; position:absolute; top:-130%; left:-45%; width:34%; height:380%; background:linear-gradient(90deg, rgba(183,136,152,0) 0%, rgba(183,136,152,0.10) 40%, rgba(255,255,255,0.55) 50%, rgba(183,136,152,0.10) 60%, rgba(183,136,152,0) 100%); transform:translateX(-180%) rotate(16deg); opacity:0; pointer-events:none; z-index:3; }
+    .animated-frame:hover::before{ opacity:1; animation:softSweep 1.35s ease; }
+    .hero{ display:grid; grid-template-columns:1.02fr 0.98fr; gap:34px; align-items:center; min-height:680px; margin-bottom:54px; }
+    .hero-copy{ padding:18px 0; }
+    .hero-line{ display:flex; align-items:center; gap:12px; margin-bottom:24px; }
+    .hero-line span{ display:block; width:150px; height:3px; background:linear-gradient(90deg,#e4c8d2 0%, #b78898 50%, #e4c8d2 100%); border-radius:999px; flex-shrink:0; }
+    .hero-copy h1{ font-family:"Cormorant Garamond",serif; font-size:82px; line-height:0.94; font-weight:600; color:var(--text-strong); margin-bottom:18px; }
+    .hero-accent{ font-family:"Cormorant Garamond",serif; font-size:28px; line-height:1.2; color:var(--text-soft); font-style:italic; margin-bottom:26px; }
+    .hero-copy p{ max-width:670px; font-size:17px; line-height:2; color:var(--text); margin-bottom:26px; }
+    .hero-mini{ color:var(--text-soft); font-family:"Cormorant Garamond",serif; font-size:28px; line-height:1.2; font-style:italic; margin-bottom:28px; }
+    .hero-btn{ min-width:150px; min-height:42px; padding:0 18px; border:2px solid #d6b0be; color:var(--text-strong); display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:600; position:relative; letter-spacing:0.3px; transition:0.25s ease; overflow:hidden; border-radius:16px; background:#fff8fb; box-shadow:0 8px 18px rgba(171,135,149,0.08); }
+    .hero-btn:hover{ transform:translateY(-2px); box-shadow:0 12px 22px rgba(171,135,149,0.14); }
+    .hero-btn::before, .hero-btn::after{ content:""; position:absolute; width:14px; height:14px; border-color:#b78898; z-index:2; }
+    .hero-btn::before{ top:-2px; left:-2px; border-top:3px solid #b78898; border-left:3px solid #b78898; border-radius:10px 0 0 0; }
+    .hero-btn::after{ right:-2px; bottom:-2px; border-right:3px solid #b78898; border-bottom:3px solid #b78898; border-radius:0 0 10px 0; }
+    .hero-image-wrap{ display:flex; align-items:center; justify-content:center; width:100%; }
+    .hero-image{ width:100%; max-width:100%; display:block; border:1px solid var(--line-strong); padding:10px; background:#fff8fb; box-shadow:var(--shadow); transition:0.4s ease; border-radius:30px; }
+    .hero-image:hover{ transform:translateY(-6px); box-shadow:var(--shadow-hover); border-color:#d6b0be; }
+    .hero-image img{ display:block; width:100%; height:auto; max-height:none; object-fit:contain; object-position:center; border-radius:22px; background:#fff8fb; }
+    .section{ margin-bottom:54px; }
+    .section-wrap{ background:var(--panel-2); padding:40px; border-radius:30px; box-shadow:var(--shadow); }
+    .section-header{ text-align:center; margin-bottom:34px; position:relative; }
+    .frame-title{ display:inline-block; position:relative; padding:34px 46px; }
+    .frame-title::before, .frame-title::after, .frame-title .corner-in::before, .frame-title .corner-in::after{ content:""; position:absolute; pointer-events:none; }
+    .frame-title::before{ top:0; left:0; width:120px; height:78px; border-top:2px solid var(--line-dark); border-left:2px solid var(--line-dark); }
+    .frame-title::after{ right:0; bottom:0; width:120px; height:78px; border-right:2px solid var(--line-dark); border-bottom:2px solid var(--line-dark); }
+    .frame-title .corner-in::before{ top:10px; left:10px; width:76px; height:48px; border-top:2px solid rgba(183,136,152,0.55); border-left:2px solid rgba(183,136,152,0.55); }
+    .frame-title .corner-in::after{ right:10px; bottom:10px; width:76px; height:48px; border-right:2px solid rgba(183,136,152,0.55); border-bottom:2px solid rgba(183,136,152,0.55); }
+    .section-header h2{ font-family:"Cormorant Garamond",serif; font-size:64px; font-weight:600; line-height:1; color:var(--text-strong); margin-bottom:10px; position:relative; z-index:2; }
+    .section-header p{ color:var(--text-soft); font-family:"Cormorant Garamond",serif; font-size:24px; font-style:italic; line-height:1.3; position:relative; z-index:2; }
+    .intro-layout{ display:grid; grid-template-columns:1fr 1fr; gap:34px; align-items:start; }
+    .text-block{ color:var(--text); font-size:17px; line-height:2; }
+    .text-block p{ margin-bottom:18px; }
+    .info-cards{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .info-card{ background:var(--panel); border:1px solid var(--line); border-radius:22px; padding:22px 20px; min-height:132px; box-shadow:0 10px 26px rgba(171,135,149,0.08); transition:0.35s ease; }
+    .info-card:hover{ transform:translateY(-4px); border-color:#d6b0be; box-shadow:var(--shadow-hover); }
+    .info-card strong{ display:block; font-family:"Cormorant Garamond",serif; font-size:34px; line-height:1; color:var(--text-strong); margin-bottom:10px; font-weight:600; }
+    .info-card span{ display:block; color:var(--text); font-size:15px; line-height:1.7; }
+    .parents-grid{ display:grid; gap:32px; }
+    .parent-card{ display:grid; grid-template-columns:0.95fr 1.05fr; gap:30px; align-items:center; background:rgba(255,248,251,0.7); border:1px solid var(--line); border-radius:28px; padding:22px; box-shadow:0 10px 24px rgba(171,135,149,0.08); }
+    .parent-card.reverse{ grid-template-columns:1.05fr 0.95fr; }
+    .parent-card.reverse .parent-copy{ order:1; }
+    .parent-card.reverse .parent-photo-wrap{ order:2; }
+    .parent-photo-wrap{ width:100%; }
+    .parent-photo{ border:1px solid var(--line-strong); padding:10px; background:#fff8fb; border-radius:28px; box-shadow:0 10px 28px rgba(171,135,149,0.10); overflow:hidden; }
+    .parent-photo img{ width:100%; height:auto; border-radius:20px; object-fit:cover; cursor:pointer; background:#fff8fb; display:block; }
+    .parent-copy{ color:var(--text); }
+    .parent-label{ display:inline-flex; padding:8px 14px; border-radius:999px; background:var(--badge); color:var(--text-strong); font-size:13px; font-weight:700; letter-spacing:0.4px; margin-bottom:16px; }
+    .parent-copy h3{ font-family:"Cormorant Garamond",serif; font-size:42px; color:var(--text-strong); margin-bottom:14px; line-height:1; }
+    .meta{ display:grid; gap:8px; margin-bottom:18px; font-size:15px; line-height:1.7; }
+    .parent-copy p{ font-size:16px; line-height:1.9; margin-bottom:16px; }
+    .badge-row{ display:flex; flex-wrap:wrap; gap:10px; }
+    .badge{ display:inline-flex; align-items:center; justify-content:center; min-height:36px; padding:0 14px; border-radius:999px; background:#f4e8ed; color:var(--text-strong); font-size:13px; font-weight:700; border:1px solid #ead7df; }
+    .gallery-note{ max-width:960px; margin:0 auto 30px; text-align:center; color:var(--text-soft); font-size:16px; line-height:1.95; }
+    .folders{ display:grid; gap:24px; margin-top:18px; }
+    .folder{ background:#fff8fb; border:1px solid var(--line-strong); border-radius:30px; box-shadow:var(--shadow); overflow:hidden; transition:0.3s ease; }
+    .folder:hover{ box-shadow:var(--shadow-hover); border-color:#d6b0be; }
+    .folder-header{ width:100%; padding:26px 28px; display:flex; align-items:center; justify-content:space-between; gap:18px; text-align:left; background:transparent; }
+    .folder-left{ display:flex; align-items:center; gap:18px; min-width:0; }
+    .folder-icon{ width:66px; height:66px; border-radius:22px; background:linear-gradient(180deg,#f8eaf0 0%, #f2dde6 100%); border:1px solid #ecd3dd; box-shadow:0 8px 18px rgba(171,135,149,0.10); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .folder-icon svg{ width:30px; height:30px; stroke:#9b7382; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+    .folder-copy h3{ font-family:"Cormorant Garamond",serif; font-size:42px; line-height:1; color:var(--text-strong); margin-bottom:8px; }
+    .folder-copy p{ color:var(--text-soft); font-size:16px; line-height:1.8; }
+    .folder-right{ display:flex; flex-direction:column; align-items:flex-end; gap:8px; flex-shrink:0; }
+    .folder-hint{ font-size:13px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:var(--text-soft); }
+    .folder-arrow{ font-size:28px; color:var(--text-soft); transition:transform 0.3s ease; line-height:1; }
+    .folder.open .folder-arrow{ transform:rotate(180deg); }
+    .folder-content{ max-height:0; overflow:hidden; transition:max-height 0.55s ease; border-top:1px solid transparent; }
+    .folder.open .folder-content{ border-top:1px solid var(--line); }
+    .folder-inner{ padding:28px; }
+    .folder-intro{ max-width:960px; margin:0 auto 28px; text-align:center; color:var(--text); font-size:16px; line-height:1.95; }
+    .folder-intro strong{ color:var(--text-strong); }
+    .gallery-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .gallery-item{ background:#fff8fb; border:1px solid var(--line); border-radius:28px; padding:12px; box-shadow:var(--shadow); transition:0.3s ease; overflow:hidden; }
+    .gallery-item:hover{ transform:translateY(-6px); box-shadow:var(--shadow-hover); border-color:#d6b0be; }
+    .gallery-image-wrap{ width:100%; aspect-ratio:4 / 5; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,#fffdfd 0%, #fff8fb 100%); border:1px solid #eedbe3; border-radius:28px; margin-bottom:18px; overflow:hidden; padding:14px; box-shadow:inset 0 0 0 1px rgba(255,255,255,0.7); }
+    .gallery-item img{ width:100%; height:100%; object-fit:cover; object-position:center; border-radius:24px; cursor:pointer; transition:transform 0.25s ease; display:block; background:#fff8fb; }
+    .gallery-item img:hover{ transform:scale(1.02); }
+    .gallery-caption{ text-align:center; padding:4px 8px 12px; }
+    .gallery-caption h4{ font-family:"Cormorant Garamond",serif; font-size:38px; line-height:1; color:var(--text-strong); margin-bottom:12px; font-weight:600; }
+    .gallery-badge{ display:inline-block; padding:8px 14px; border-radius:999px; background:var(--badge); color:var(--text-strong); font-size:13px; font-weight:700; letter-spacing:0.4px; margin-bottom:14px; }
+    .gallery-caption p{ font-size:15px; line-height:1.85; color:var(--text); }
+    .folder-end-wrap{ display:flex; justify-content:center; margin-top:24px; }
+    .folder-end-button{ padding:12px 20px; border-radius:999px; background:#f5e7ed; border:1px solid #ead3dc; color:var(--text-soft); font-size:13px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; transition:0.25s ease; }
+    .folder-end-button:hover{ background:#f1dfe7; color:var(--text-strong); transform:translateY(-1px); }
+    .contact-layout{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:24px; align-items:stretch; }
+    .contact-text{ font-size:19px; line-height:1.8; color:var(--text); text-align:left; }
+    .contact-box{ text-align:center; background:var(--panel); border:1px solid var(--line); border-radius:24px; padding:26px; box-shadow:0 10px 24px rgba(171,135,149,0.08); }
+    .contact-box h3{ font-size:30px; color:var(--text-strong); margin-bottom:10px; font-family:"Cormorant Garamond",serif; }
+    .contact-note{ font-size:18px; line-height:1.6; color:var(--text-soft); margin-bottom:18px; font-style:italic; font-family:"Cormorant Garamond",serif; }
+    .contact-links{ display:grid; gap:12px; }
+    .contact-link{ min-height:52px; background:var(--badge); color:var(--text-strong); border-radius:18px; display:flex; align-items:center; justify-content:center; padding:0 18px; font-size:16px; font-weight:700; text-align:center; box-shadow:0 8px 18px rgba(171,135,149,0.08); border:1px solid #ead8e0; }
+    .lightbox{ position:fixed; inset:0; background:rgba(0,0,0,0.84); display:none; align-items:center; justify-content:center; z-index:9999; padding:20px; }
+    .lightbox.show{ display:flex; }
+    .lightbox-inner{ position:relative; max-width:95vw; max-height:95vh; display:flex; align-items:center; justify-content:center; }
+    .lightbox img{ max-width:90vw; max-height:88vh; border-radius:22px; border:2px solid #d6b0be; background:#fff8fb; box-shadow:0 24px 55px rgba(0,0,0,0.35); }
+    .lightbox-close{ position:absolute; top:-12px; right:-6px; width:48px; height:48px; border-radius:50%; border:none; background:rgba(255,255,255,0.2); color:#fff; font-size:26px; cursor:pointer; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); z-index:3; }
+    .lightbox-nav{ position:absolute; top:50%; transform:translateY(-50%); width:52px; height:52px; border-radius:50%; border:none; background:rgba(255,255,255,0.16); color:#fff; font-size:34px; line-height:1; display:flex; align-items:center; justify-content:center; cursor:pointer; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); z-index:3; }
+    .lightbox-prev{ left:-68px; }
+    .lightbox-next{ right:-68px; }
+    footer{ text-align:center; padding:30px; color:var(--text-soft); font-size:14px; }
     @media (max-width:1100px){
-      .hero,
-      .intro-layout,
-      .contact-layout,
-      .parent-card,
-      .parent-card.reverse{
-        grid-template-columns:1fr;
-      }
-
-      .gallery-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-      .lightbox-prev{
-        left:10px;
-      }
-
-      .lightbox-next{
-        right:10px;
-      }
+      .hero, .intro-layout, .contact-layout, .parent-card, .parent-card.reverse{ grid-template-columns:1fr; }
+      .gallery-grid{ grid-template-columns:repeat(2,1fr); }
+      .lightbox-prev{ left:10px; } .lightbox-next{ right:10px; }
     }
-
     @media (max-width:768px){
-      .topbar-inner{
-        width:min(var(--max), calc(100% - 20px));
-        justify-content:center;
-        padding:14px 0;
-      }
-
-      .brand{
-        width:100%;
-        text-align:center;
-        font-size:44px;
-      }
-
-      .nav{
-        justify-content:center;
-        gap:12px;
-      }
-
-      .nav a{
-        font-size:18px;
-      }
-
-      .nav-cta{
-        margin-left:0;
-      }
-
-      .container{
-        width:min(var(--max), calc(100% - 20px));
-        padding:20px 0 48px;
-      }
-
-      .hero{
-        grid-template-columns:1fr;
-        gap:20px;
-        min-height:auto;
-      }
-
-      .hero-copy{
-        order:2;
-      }
-
-      .hero-image-wrap{
-        order:1;
-      }
-
-      .hero-copy h1{
-        font-size:48px;
-      }
-
-      .hero-accent,
-      .hero-mini{
-        font-size:22px;
-      }
-
-      .hero-copy p,
-      .text-block,
-      .gallery-note,
-      .folder-intro,
-      .contact-text{
-        font-size:16px;
-      }
-
-      .hero-image{
-        padding:8px;
-      }
-
-      .hero-image img{
-        border-radius:18px;
-      }
-
-      .section-wrap{
-        padding:26px 18px;
-      }
-
-      .frame-title{
-        padding:24px 22px;
-      }
-
-      .frame-title::before{
-        width:92px;
-        height:64px;
-      }
-
-      .frame-title::after{
-        width:92px;
-        height:64px;
-      }
-
-      .frame-title .corner-in::before{
-        width:56px;
-        height:36px;
-      }
-
-      .frame-title .corner-in::after{
-        width:56px;
-        height:36px;
-      }
-
-      .section-header h2{
-        font-size:44px;
-      }
-
-      .section-header p{
-        font-size:20px;
-      }
-
-      .info-cards,
-      .gallery-grid{
-        grid-template-columns:1fr;
-      }
-
-      .folder-header{
-        padding:20px 18px;
-        align-items:flex-start;
-      }
-
-      .folder-left{
-        gap:14px;
-      }
-
-      .folder-icon{
-        width:56px;
-        height:56px;
-        border-radius:18px;
-      }
-
-      .folder-icon svg{
-        width:26px;
-        height:26px;
-      }
-
-      .folder-copy h3{
-        font-size:32px;
-      }
-
-      .folder-copy p{
-        font-size:15px;
-      }
-
-      .folder-hint{
-        font-size:11px;
-      }
-
-      .folder-inner{
-        padding:20px 16px 22px;
-      }
-
-      .gallery-image-wrap{
-        min-height:auto;
-        aspect-ratio:4 / 5;
-        border-radius:24px;
-        padding:12px;
-      }
-
-      .gallery-item img{
-        height:100%;
-        max-height:none;
-        border-radius:20px;
-      }
-
-      .gallery-caption h4{
-        font-size:34px;
-      }
-
-      .lightbox img{
-        max-width:94vw;
-        max-height:82vh;
-      }
-
-      .lightbox-close{
-        top:-54px;
-        right:0;
-      }
-
-      .lightbox-prev,
-      .lightbox-next{
-        width:44px;
-        height:44px;
-        font-size:28px;
-        top:auto;
-        bottom:-58px;
-        transform:none;
-      }
-
-      .lightbox-prev{
-        left:calc(50% - 56px);
-      }
-
-      .lightbox-next{
-        right:calc(50% - 56px);
-      }
+      .topbar-inner{ width:min(var(--max), calc(100% - 20px)); justify-content:center; padding:14px 0; }
+      .brand{ width:100%; text-align:center; font-size:44px; }
+      .nav{ justify-content:center; gap:12px; } .nav a{ font-size:18px; } .nav-cta{ margin-left:0; }
+      .container{ width:min(var(--max), calc(100% - 20px)); padding:20px 0 48px; }
+      .hero{ grid-template-columns:1fr; gap:20px; min-height:auto; }
+      .hero-copy{ order:2; } .hero-image-wrap{ order:1; }
+      .hero-copy h1{ font-size:48px; } .hero-accent, .hero-mini{ font-size:22px; }
+      .hero-copy p, .text-block, .gallery-note, .folder-intro, .contact-text{ font-size:16px; }
+      .hero-image{ padding:8px; } .hero-image img{ border-radius:18px; }
+      .section-wrap{ padding:26px 18px; }
+      .frame-title{ padding:24px 22px; }
+      .frame-title::before, .frame-title::after{ width:92px; height:64px; }
+      .frame-title .corner-in::before, .frame-title .corner-in::after{ width:56px; height:36px; }
+      .section-header h2{ font-size:44px; } .section-header p{ font-size:20px; }
+      .info-cards, .gallery-grid{ grid-template-columns:1fr; }
+      .folder-header{ padding:20px 18px; align-items:flex-start; }
+      .folder-left{ gap:14px; } .folder-icon{ width:56px; height:56px; border-radius:18px; }
+      .folder-icon svg{ width:26px; height:26px; }
+      .folder-copy h3{ font-size:32px; } .folder-copy p{ font-size:15px; } .folder-hint{ font-size:11px; }
+      .folder-inner{ padding:20px 16px 22px; }
+      .gallery-image-wrap{ min-height:auto; aspect-ratio:4 / 5; border-radius:24px; padding:12px; }
+      .gallery-item img{ height:100%; max-height:none; border-radius:20px; }
+      .gallery-caption h4{ font-size:34px; }
+      .lightbox img{ max-width:94vw; max-height:82vh; }
+      .lightbox-close{ top:-54px; right:0; }
+      .lightbox-prev, .lightbox-next{ width:44px; height:44px; font-size:28px; top:auto; bottom:-58px; transform:none; }
+      .lightbox-prev{ left:calc(50% - 56px); } .lightbox-next{ right:calc(50% - 56px); }
     }
   </style>
 </head>
@@ -1290,7 +187,6 @@
     <header class="topbar fade-in">
       <div class="topbar-inner">
         <div class="brand">Akwamaryn*PL</div>
-
         <nav class="nav">
           <a href="index.html">Start</a>
           <a href="kotki.html">Kotki hodowlane</a>
@@ -1310,18 +206,10 @@
           <div class="hero-line"><span></span></div>
           <h1>Aktualny miot</h1>
           <div class="hero-accent">Miot „M” – maluszki norweskie leśne</div>
-
-          <p>
-            27.03.2026 na świat przyszło pięć wyjątkowych dziewczynek. To starannie zaplanowany,
-            domowo wychowywany miot norweskich kotów leśnych, w którym piękne pochodzenie łączy się
-            z cudownym charakterem, elegancją i typem tak cenionym w rasie.
-          </p>
-
+          <p>27.03.2026 na świat przyszło pięć wyjątkowych dziewczynek. To starannie zaplanowany, domowo wychowywany miot norweskich kotów leśnych, w którym piękne pochodzenie łączy się z cudownym charakterem, elegancją i typem tak cenionym w rasie.</p>
           <div class="hero-mini">✦ Wszystkie maluszki są dostępne ✦</div>
-
           <a href="#miot-galeria" class="hero-btn">ZOBACZ GALERIĘ</a>
         </div>
-
         <div class="hero-image-wrap">
           <div class="hero-image animated-frame">
             <img src="file_0000000092607246a8e17fab58cb439d.png" alt="Maluszek z miotu M">
@@ -1332,51 +220,20 @@
       <section class="section fade-in">
         <div class="section-wrap">
           <div class="section-header">
-            <div class="frame-title">
-              <span class="corner-in"></span>
-              <h2>Miot „M”</h2>
-              <p>Najważniejsze informacje o naszych maluszkach</p>
-            </div>
+            <div class="frame-title"><span class="corner-in"></span><h2>Miot „M”</h2><p>Najważniejsze informacje o naszych maluszkach</p></div>
           </div>
-
           <div class="intro-layout">
             <div class="text-block">
-              <p>
-                To wyjątkowy miot norweskich kotów leśnych, łączący elegancką kolorystykę,
-                piękne pochodzenie i domowe wychowanie. Od pierwszych chwil maluszki mają
-                bliski kontakt z człowiekiem i dorastają w spokojnej, pełnej troski atmosferze.
-              </p>
-              <p>
-                Nasze dziewczynki od pierwszych dni zachwycają delikatnością, pięknym wyrazem
-                i cudownym potencjałem. Szukamy dla nich najlepszych, świadomych i kochających domów.
-              </p>
+              <p>To wyjątkowy miot norweskich kotów leśnych, łączący elegancką kolorystykę, piękne pochodzenie i domowe wychowanie. Od pierwszych chwil maluszki mają bliski kontakt z człowiekiem i dorastają w spokojnej, pełnej troski atmosferze.</p>
+              <p>Nasze dziewczynki od pierwszych dni zachwycają delikatnością, pięknym wyrazem i cudownym potencjałem. Szukamy dla nich najlepszych, świadomych i kochających domów.</p>
             </div>
-
             <div class="info-cards">
-              <div class="info-card">
-                <strong>27.03.2026</strong>
-                <span>data urodzenia</span>
-              </div>
-              <div class="info-card">
-                <strong>5</strong>
-                <span>dziewczynek</span>
-              </div>
-              <div class="info-card">
-                <strong>Miot M</strong>
-                <span>norweskie leśne</span>
-              </div>
-              <div class="info-card">
-                <strong>Dostępne</strong>
-                <span>dziewczynki szukają kochających domów</span>
-              </div>
-              <div class="info-card">
-                <strong>3 + 2</strong>
-                <span>3 niebieskie srebrzyste szylkretki oraz 2 czarne srebrzyste szylkretki</span>
-              </div>
-              <div class="info-card">
-                <strong>Z nami</strong>
-                <span>kocięta wychowują się z nami od pierwszych dni życia</span>
-              </div>
+              <div class="info-card"><strong>27.03.2026</strong><span>data urodzenia</span></div>
+              <div class="info-card"><strong>5</strong><span>dziewczynek</span></div>
+              <div class="info-card"><strong>Miot M</strong><span>norweskie leśne</span></div>
+              <div class="info-card"><strong>Dostępne</strong><span>dziewczynki szukają kochających domów</span></div>
+              <div class="info-card"><strong>3 + 2</strong><span>3 niebieskie srebrzyste szylkretki oraz 2 czarne srebrzyste szylkretki</span></div>
+              <div class="info-card"><strong>Z nami</strong><span>kocięta wychowują się z nami od pierwszych dni życia</span></div>
             </div>
           </div>
         </div>
@@ -1385,42 +242,27 @@
       <section class="section fade-in">
         <div class="section-wrap">
           <div class="section-header">
-            <div class="frame-title">
-              <span class="corner-in"></span>
-              <h2>Rodzice miotu</h2>
-              <p>Piękne linie, mocny typ i starannie dobrane skojarzenie</p>
-            </div>
+            <div class="frame-title"><span class="corner-in"></span><h2>Rodzice miotu</h2><p>Piękne linie, mocny typ i starannie dobrane skojarzenie</p></div>
           </div>
-
           <div class="parents-grid">
-
             <article class="parent-card fade-in">
               <div class="parent-photo-wrap">
                 <div class="parent-photo animated-frame">
                   <img src="file_00000000a454724689df1045122b6b79.png" alt="Dalia Pałuckie Pupile*PL" onclick="openImage(this)">
                 </div>
               </div>
-
               <div class="parent-copy">
                 <div class="parent-label">Matka miotu</div>
                 <h3>Dalia Pałuckie Pupile*PL</h3>
-
                 <div class="meta">
                   <div><strong>Rasa:</strong> Norweska leśna</div>
                   <div><strong>Umaszczenie:</strong> niebiesko-srebrny bicolor</div>
                   <div><strong>Kod EMS:</strong> NFO as 03</div>
                   <div><strong>Status:</strong> kotka hodowlana</div>
                 </div>
-
-                <p>
-                  Dalia to piękna kotka norweska leśna o mocnej budowie, eleganckiej sylwetce i spokojnym temperamencie.
-                  Zachwyca piękną kryzą, wyrazem i klasą, które doskonale przekazuje potomstwu.
-                </p>
-
+                <p>Dalia to piękna kotka norweska leśna o mocnej budowie, eleganckiej sylwetce i spokojnym temperamencie. Zachwyca piękną kryzą, wyrazem i klasą, które doskonale przekazuje potomstwu.</p>
                 <div class="badge-row">
-                  <span class="badge">HCM N/N</span>
-                  <span class="badge">PKD N/N</span>
-                  <span class="badge">FIV/FELV N/N</span>
+                  <span class="badge">HCM N/N</span><span class="badge">PKD N/N</span><span class="badge">FIV/FELV N/N</span>
                 </div>
               </div>
             </article>
@@ -1429,68 +271,47 @@
               <div class="parent-copy">
                 <div class="parent-label">Ojciec miotu</div>
                 <h3>Posejdon Iceland*NL</h3>
-
                 <div class="meta">
                   <div><strong>Rasa:</strong> Norweski leśny</div>
                   <div><strong>Umaszczenie:</strong> Red &amp; white bicolour tabby blotched</div>
                   <div><strong>Kod EMS:</strong> NFO d 03 22</div>
                   <div><strong>Status:</strong> kocur hodowlany</div>
                 </div>
-
-                <p>
-                  Posejdon to wyjątkowy przedstawiciel rasy norweskiej leśnej o efektownym wyglądzie,
-                  mocnej budowie i pięknym umaszczeniu. Importowany z Holandii, reprezentuje doskonałą linię hodowlaną.
-                </p>
-
+                <p>Posejdon to wyjątkowy przedstawiciel rasy norweskiej leśnej o efektownym wyglądzie, mocnej budowie i pięknym umaszczeniu. Importowany z Holandii, reprezentuje doskonałą linię hodowlaną.</p>
                 <div class="badge-row">
-                  <span class="badge">HCM N/N</span>
-                  <span class="badge">PKD N/N</span>
-                  <span class="badge">FIV/FELV N/N</span>
-                  <span class="badge">GSD IV N/N</span>
+                  <span class="badge">HCM N/N</span><span class="badge">PKD N/N</span><span class="badge">FIV/FELV N/N</span><span class="badge">GSD IV N/N</span>
                 </div>
               </div>
-
               <div class="parent-photo-wrap">
                 <div class="parent-photo animated-frame">
                   <img src="B8FE2EFD-C7AE-4C56-BD72-DD39642B5189.png" alt="Posejdon Iceland*NL" onclick="openImage(this)">
                 </div>
               </div>
             </article>
-
           </div>
         </div>
       </section>
-
-      <section class="section fade-in" id="miot-galeria">
+            <section class="section fade-in" id="miot-galeria">
         <div class="section-wrap">
           <div class="section-header">
-            <div class="frame-title">
-              <span class="corner-in"></span>
-              <h2>Galeria</h2>
-              <p>Nasz koci świat Akwamarynu</p>
-            </div>
+            <div class="frame-title"><span class="corner-in"></span><h2>Galeria</h2><p>Nasz koci świat Akwamarynu</p></div>
           </div>
 
           <div class="gallery-note">
-            Galeria będzie regularnie uzupełniana, abyście mogli razem z nami obserwować,
-            jak nasze maluszki rosną, zmieniają się i z każdym dniem pokazują coraz więcej
-            swojego wyjątkowego charakteru. To najpiękniejszy etap, którym bardzo chętnie się z Wami dzielimy.
+            Galeria będzie regularnie uzupełniana, abyście mogli razem z nami obserwować, jak nasze maluszki rosną, zmieniają się i z każdym dniem pokazują coraz więcej swojego wyjątkowego charakteru. To najpiękniejszy etap, którym bardzo chętnie się z Wami dzielimy.
           </div>
 
           <div class="folders">
 
-            <div class="folder open" id="folder-2tyg">
-              <button class="folder-header" type="button" onclick="toggleFolder('folder-2tyg')">
+            <div class="folder open" id="folder-4tyg">
+              <button class="folder-header" type="button" onclick="toggleFolder('folder-4tyg')">
                 <div class="folder-left">
                   <div class="folder-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                      <path d="M3 8.5a2 2 0 0 1 2-2h4l1.8 2H19a2 2 0 0 1 2 2v5.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                      <path d="M3 10.5h18"/>
-                    </svg>
+                    <svg viewBox="0 0 24 24"><path d="M3 8.5a2 2 0 0 1 2-2h4l1.8 2H19a2 2 0 0 1 2 2v5.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 10.5h18"/></svg>
                   </div>
                   <div class="folder-copy">
-                    <h3>Norweskie leśne — 2 tydzień</h3>
-                    <p>Nowe zdjęcia naszych maluszków, które właśnie kończą dwa tygodnie</p>
+                    <h3>Norweskie leśne — 4 tydzień</h3>
+                    <p>Nasze maluszki są coraz bardziej aktywne, ciekawe świata i wyraźnie reagują na nasz głos</p>
                   </div>
                 </div>
                 <div class="folder-right">
@@ -1501,404 +322,12 @@
 
               <div class="folder-content">
                 <div class="folder-inner">
-
                   <div class="folder-intro">
-                    <p>
-                      <strong>Witamy w naszym kocim świecie Akwamarynu…</strong> nasze maluszki właśnie kończą dwa tygodnie
-                      i z każdym dniem coraz wyraźniej pokazują swój urok, delikatność i to wyjątkowe spojrzenie,
-                      które od razu kradnie serce.
-                    </p>
-                    <p>
-                      Trzy z naszych dziewczynek mają już swoje imiona — <strong>Mia</strong>, <strong>Milka</strong> i <strong>Morigan</strong>.
-                      I nie zostały one wybrane przypadkowo… już teraz widać, że każda z nich ma w sobie coś wyjątkowego,
-                      miękkiego i bardzo swojego.
-                    </p>
+                    <p><strong>Witamy w naszym kocim świecie Akwamarynu…</strong> nasze maluszki kończą właśnie czwarty tydzień życia i każdy dzień z nimi to mała, cudowna eksplozja energii i osobowości.</p>
+                    <p>Dziewczynki są już naprawdę aktywne — coraz pewniej stawiają kroki, coraz odważniej eksplorują swoje gniazdko i jego najbliższe okolice. Zaczynają bawić się ze sobą, delikatnie zaczepiać siostry łapką, podskakiwać i odkrywać, że świat jest dużo większy, ciekawszy i bardziej kolorowy, niż im się wcześniej wydawało.</p>
+                    <p>To także ten wyjątkowy moment, kiedy zaczynają wyraźnie reagować na nasz głos — podążają za nim, podnoszą główki, kiedy się do nich odzywamy, i z każdym dniem coraz mocniej budują swoją więź z człowiekiem. W ich spojrzeniach widać już prawdziwy charakter, ciekawość i tę cudowną kocią mądrość, która od pierwszych chwil kradnie serce.</p>
                   </div>
 
                   <div class="gallery-grid">
-
                     <article class="gallery-item fade-in">
-                      <div class="gallery-image-wrap">
-                        <img src="images/mioty/images/mioty/miot-norweski-M-2026-2tyg-nowe/IMG-20260411-WA0000.jpg" alt="Dziewczynka z miotu M – 2 tydzień" onclick="openImage(this)">
-                      </div>
-                      <div class="gallery-caption">
-                        <h4>Dziewczynka z miotu M</h4>
-                        <div class="gallery-badge">2 tydzień</div>
-                        <p>
-                          Delikatna, miękka w wyrazie i bardzo urocza. W jej spojrzeniu jest coś spokojnego i ciepłego,
-                          co od razu zatrzymuje wzrok.
-                        </p>
-                      </div>
-                    </article>
-
-                    <article class="gallery-item fade-in">
-                      <div class="gallery-image-wrap">
-                        <img src="images/mioty/images/mioty/miot-norweski-M-2026-2tyg-nowe/IMG-20260411-WA0002.jpg" alt="Dziewczynka z miotu M – 2 tydzień" onclick="openImage(this)">
-                      </div>
-                      <div class="gallery-caption">
-                        <h4>Dziewczynka z miotu M</h4>
-                        <div class="gallery-badge">2 tydzień</div>
-                        <p>
-                          Mały puszysty skarb, który z dnia na dzień coraz bardziej otwiera się na świat.
-                          Taka maleńka, a już pełna uroku i subtelnego charakteru.
-                        </p>
-                      </div>
-                    </article>
-
-                    <article class="gallery-item fade-in">
-                      <div class="gallery-image-wrap">
-                        <img src="images/mioty/images/mioty/miot-norweski-M-2026-2tyg-nowe/IMG-20260411-WA0003.jpg" alt="Dziewczynka z miotu M – 2 tydzień" onclick="openImage(this)">
-                      </div>
-                      <div class="gallery-caption">
-                        <h4>Dziewczynka z miotu M</h4>
-                        <div class="gallery-badge">2 tydzień</div>
-                        <p>
-                          Jest w niej coś niezwykle słodkiego i miękkiego. Taki rodzaj delikatności,
-                          który sprawia, że trudno przejść obok niej obojętnie.
-                        </p>
-                      </div>
-                    </article>
-
-                    <article class="gallery-item fade-in">
-                      <div class="gallery-image-wrap">
-                        <img src="images/mioty/images/mioty/miot-norweski-M-2026-2tyg-nowe/IMG-20260411-WA0004.jpg" alt="Dziewczynka z miotu M – 2 tydzień" onclick="openImage(this)">
-                      </div>
-                      <div class="gallery-caption">
-                        <h4>Dziewczynka z miotu M</h4>
-                        <div class="gallery-badge">2 tydzień</div>
-                        <p>
-                          Łagodna, spokojna i przeurocza. Właśnie na tym etapie zaczynają być widoczne te małe cechy,
-                          które później tworzą ich wyjątkowy charakter.
-                        </p>
-                      </div>
-                    </article>
-
-                  </div>
-
-                  <div class="folder-end-wrap">
-                    <button class="folder-end-button" type="button" onclick="toggleFolder('folder-2tyg')">
-                      Zwiń galerię
-                    </button>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-            <div class="folder" id="folder-1tyg">
-              <button class="folder-header" type="button" onclick="toggleFolder('folder-1tyg')">
-                <div class="folder-left">
-                  <div class="folder-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                      <path d="M3 8.5a2 2 0 0 1 2-2h4l1.8 2H19a2 2 0 0 1 2 2v5.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                      <path d="M3 10.5h18"/>
-                    </svg>
-                  </div>
-                  <div class="folder-copy">
-                    <h3>Norweskie leśne — 1 tydzień</h3>
-                    <p>Pierwsze chwile naszych dziewczynek uchwycone w ich pierwszym tygodniu życia</p>
-                  </div>
-                </div>
-                <div class="folder-right">
-                  <div class="folder-hint">Rozwiń galerię</div>
-                  <div class="folder-arrow">⌄</div>
-                </div>
-              </button>
-
-              <div class="folder-content">
-                <div class="folder-inner">
-
-                  <div class="folder-intro">
-                    <p>
-                      <strong>Witamy w naszym kocim świecie Akwamarynu…</strong> nasze maluszki skończyły pierwszy tydzień
-                      i właśnie tak wyglądał ich najdelikatniejszy, najwcześniejszy etap życia — miękki, spokojny
-                      i pełen tej maleńkiej, wzruszającej kruchości.
-                    </p>
-                  </div>
-
-                  <div class="gallery-grid">
-
-                    <article class="gallery-item fade-in">
-                      <div class="gallery-image-wrap">
-                        <img src="file_00000000166072439b0458ff2eaa1e44.png" alt="Maluszek z miotu M – 1 tydzień" onclick="openImage(this)">
-                      </div>
-                      <div class="gallery-caption">
-                        <h4>Pierwszy tydzień</h4>
-                        <div class="gallery-badge">1 tydzień</div>
-                        <p>
-                          Maleńkie, spokojne i jeszcze bardzo kruche — właśnie takie są pierwsze dni,
-                          które zawsze zostają w pamięci najmocniej.
-                        </p>
-                      </div>
-                    </article>
-
-                    <article class="gallery-item fade-in">
-                      <div class="gallery-image-wrap">
-                        <img src="file_000000001aa47243b5ef692c7926902d.png" alt="Maluszek z miotu M – 1 tydzień" onclick="openImage(this)">
-                      </div>
-                      <div class="gallery-caption">
-                        <h4>Pierwszy tydzień</h4>
-                        <div class="gallery-badge">1 tydzień</div>
-                        <p>
-                          W tych pierwszych chwilach jest coś niezwykle cichego i pięknego —
-                          sama delikatność, ciepło i malutkie serduszka bijące tuż obok nas.
-                        </p>
-                      </div>
-                    </article>
-
-                    <article class="gallery-item fade-in">
-                      <div class="gallery-image-wrap">
-                        <img src="file_00000000830c7246abb014fcfb6edff0.png" alt="Maluszek z miotu M – 1 tydzień" onclick="openImage(this)">
-                      </div>
-                      <div class="gallery-caption">
-                        <h4>Pierwszy tydzień</h4>
-                        <div class="gallery-badge">1 tydzień</div>
-                        <p>
-                          To właśnie wtedy zaczyna się ich historia — jeszcze bardzo maleńka,
-                          ale już pełna obietnicy czegoś naprawdę wyjątkowego.
-                        </p>
-                      </div>
-                    </article>
-
-                    <article class="gallery-item fade-in">
-                      <div class="gallery-image-wrap">
-                        <img src="file_0000000092607246a8e17fab58cb439d.png" alt="Maluszek z miotu M – 1 tydzień" onclick="openImage(this)">
-                      </div>
-                      <div class="gallery-caption">
-                        <h4>Pierwszy tydzień</h4>
-                        <div class="gallery-badge">1 tydzień</div>
-                        <p>
-                          Taki maleńki koci skarb, a już potrafi zatrzymać spojrzenie na dłużej.
-                          Ten etap ma w sobie wyjątkowy spokój i ogrom wzruszenia.
-                        </p>
-                      </div>
-                    </article>
-
-                    <article class="gallery-item fade-in">
-                      <div class="gallery-image-wrap">
-                        <img src="images/mioty/2026-03-27-norweskie/file_0000000090b8720bb77f08f165cf4553.png" alt="Maluszek z miotu M – 1 tydzień" onclick="openImage(this)">
-                      </div>
-                      <div class="gallery-caption">
-                        <h4>Pierwszy tydzień</h4>
-                        <div class="gallery-badge">1 tydzień</div>
-                        <p>
-                          Pierwsze dni życia są najcichsze, ale zarazem najbardziej poruszające.
-                          To wtedy wszystko dopiero się zaczyna.
-                        </p>
-                      </div>
-                    </article>
-
-                    <article class="gallery-item fade-in">
-                      <div class="gallery-image-wrap">
-                        <img src="images/mioty/2026-03-27-norweskie/file_00000000b24c7246b1ed773e2b9cf89d.png" alt="Maluszek z miotu M – 1 tydzień" onclick="openImage(this)">
-                      </div>
-                      <div class="gallery-caption">
-                        <h4>Pierwszy tydzień</h4>
-                        <div class="gallery-badge">1 tydzień</div>
-                        <p>
-                          Maleńka dziewczynka z tym miękkim, spokojnym wyrazem,
-                          który od razu budzi czułość i ogromne wzruszenie.
-                        </p>
-                      </div>
-                    </article>
-
-                    <article class="gallery-item fade-in">
-                      <div class="gallery-image-wrap">
-                        <img src="images/mioty/2026-03-27-norweskie/file_00000000c60072439aee95ed8f84caaf.png" alt="Maluszek z miotu M – 1 tydzień" onclick="openImage(this)">
-                      </div>
-                      <div class="gallery-caption">
-                        <h4>Pierwszy tydzień</h4>
-                        <div class="gallery-badge">1 tydzień</div>
-                        <p>
-                          Każdy z tych kadrów zatrzymuje moment, który mija bardzo szybko,
-                          ale zostaje w sercu już na zawsze.
-                        </p>
-                      </div>
-                    </article>
-
-                    <article class="gallery-item fade-in">
-                      <div class="gallery-image-wrap">
-                        <img src="images/mioty/2026-03-27-norweskie/file_000000006f947243b32fb0f9a979bc82.png" alt="Maluszek z miotu M – 1 tydzień" onclick="openImage(this)">
-                      </div>
-                      <div class="gallery-caption">
-                        <h4>Pierwszy tydzień</h4>
-                        <div class="gallery-badge">1 tydzień</div>
-                        <p>
-                          W pierwszym tygodniu wszystko jest jeszcze takie delikatne, miękkie i ciche —
-                          i może właśnie dlatego tak bardzo piękne.
-                        </p>
-                      </div>
-                    </article>
-
-                  </div>
-
-                  <div class="folder-end-wrap">
-                    <button class="folder-end-button" type="button" onclick="toggleFolder('folder-1tyg')">
-                      Zwiń galerię
-                    </button>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <section class="section fade-in">
-        <div class="section-wrap">
-          <div class="section-header">
-            <div class="frame-title">
-              <span class="corner-in"></span>
-              <h2>Kontakt</h2>
-              <p>Rezerwacja i szczegóły dotyczące maluszków</p>
-            </div>
-          </div>
-
-          <div class="contact-layout">
-            <div class="contact-text">
-              Jeśli interesuje Cię któryś z naszych maluszków, zapraszamy do kontaktu.
-              Chętnie opowiemy więcej o charakterze kociąt, planie odchowu oraz dalszych etapach rezerwacji.
-              Zależy nam na najlepszych, świadomych i kochających domach.
-            </div>
-
-            <div class="contact-box">
-              <h3>Skontaktuj się</h3>
-              <div class="contact-note">Kliknij w mail, numer telefonu lub Facebook</div>
-
-              <div class="contact-links">
-                <a class="contact-link" href="mailto:agnieszka90m@gmail.com">✉️ agnieszka90m@gmail.com</a>
-                <a class="contact-link" href="tel:+48572992736">📞 +48 572 992 736</a>
-                <a class="contact-link" href="https://www.facebook.com/share/1DWyWWbtVH/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook Akwamaryn*PL</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <div class="lightbox" id="lightbox">
-      <div class="lightbox-inner">
-        <button class="lightbox-nav lightbox-prev" type="button" aria-label="Poprzednie zdjęcie" id="lightboxPrev">‹</button>
-        <button class="lightbox-close" type="button" aria-label="Zamknij" id="lightboxClose">✕</button>
-        <img id="lightboxImg" alt="">
-        <button class="lightbox-nav lightbox-next" type="button" aria-label="Następne zdjęcie" id="lightboxNext">›</button>
-      </div>
-    </div>
-
-    <footer>
-      © 2026 Akwamaryn*PL
-    </footer>
-
-  </div>
-
-  <script>
-    const observer = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add("show");
-        }
-      });
-    }, { threshold:0.14 });
-
-    document.querySelectorAll(".fade-in").forEach(el=>{
-      observer.observe(el);
-    });
-
-    function updateFolderHints(folder){
-      const hint = folder.querySelector(".folder-hint");
-      if(!hint) return;
-      hint.textContent = folder.classList.contains("open") ? "Zwiń galerię" : "Rozwiń galerię";
-    }
-
-    function toggleFolder(folderId){
-      const folder = document.getElementById(folderId);
-      const content = folder.querySelector(".folder-content");
-
-      folder.classList.toggle("open");
-
-      if(folder.classList.contains("open")){
-        content.style.maxHeight = content.scrollHeight + "px";
-      }else{
-        content.style.maxHeight = "0px";
-      }
-
-      updateFolderHints(folder);
-    }
-
-    function setInitialFolderHeights(){
-      document.querySelectorAll(".folder").forEach(folder=>{
-        const content = folder.querySelector(".folder-content");
-        if(folder.classList.contains("open")){
-          content.style.maxHeight = content.scrollHeight + "px";
-        }else{
-          content.style.maxHeight = "0px";
-        }
-        updateFolderHints(folder);
-      });
-    }
-
-    window.addEventListener("load", setInitialFolderHeights);
-    window.addEventListener("resize", setInitialFolderHeights);
-
-    const galleryImages = Array.from(document.querySelectorAll('.gallery-grid img, .parent-photo img'));
-    let currentImageIndex = 0;
-
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxClose = document.getElementById('lightboxClose');
-    const lightboxPrev = document.getElementById('lightboxPrev');
-    const lightboxNext = document.getElementById('lightboxNext');
-
-    function openImage(img){
-      currentImageIndex = galleryImages.indexOf(img);
-      if(currentImageIndex < 0) currentImageIndex = 0;
-      updateLightboxImage();
-      lightbox.classList.add('show');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function updateLightboxImage(){
-      const img = galleryImages[currentImageIndex];
-      if(!img) return;
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt || '';
-    }
-
-    function closeImage(){
-      lightbox.classList.remove('show');
-      document.body.style.overflow = '';
-    }
-
-    function showPrevImage(){
-      currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-      updateLightboxImage();
-    }
-
-    function showNextImage(){
-      currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-      updateLightboxImage();
-    }
-
-    lightboxClose.addEventListener('click', closeImage);
-    lightboxPrev.addEventListener('click', showPrevImage);
-    lightboxNext.addEventListener('click', showNextImage);
-
-    lightbox.addEventListener('click', function(e){
-      if(e.target === lightbox){
-        closeImage();
-      }
-    });
-
-    document.addEventListener('keydown', function(e){
-      if(!lightbox.classList.contains('show')) return;
-
-      if(e.key === 'Escape') closeImage();
-      if(e.key === 'ArrowLeft') showPrevImage();
-      if(e.key === 'ArrowRight') showNextImage();
-    });
-  </script>
-</body>
-</html>
+                      <div class="gallery-image-wrap"><img src="images/mioty/images/file_00000000b33c720a92139d93efcd31ed
