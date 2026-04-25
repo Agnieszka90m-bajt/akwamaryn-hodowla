@@ -39,9 +39,7 @@
     .nav-cta::before{ top:-2px; left:-2px; border-top:3px solid #b78898; border-left:3px solid #b78898; border-radius:10px 0 0 0; }
     .nav-cta::after{ right:-2px; bottom:-2px; border-right:3px solid #b78898; border-bottom:3px solid #b78898; border-radius:0 0 10px 0; }
     .container{ width:min(var(--max), calc(100% - 36px)); margin:auto; padding:34px 0 80px; position:relative; z-index:1; }
-    .fade-in{ opacity:1; transform:translateY(0); transition:opacity 0.85s ease, transform 0.85s ease; }
-    .js-on .fade-in{ opacity:0; transform:translateY(42px); }
-    .js-on .fade-in.show{ opacity:1; transform:translateY(0); }
+    .fade-in{ opacity:1; transform:none; }
     @keyframes softSweep{ 0%{ transform:translateX(-180%) rotate(16deg); opacity:0; } 18%{ opacity:1; } 100%{ transform:translateX(260%) rotate(16deg); opacity:0; } }
     @keyframes frameGlow{ 0%,100%{ box-shadow:0 0 0 rgba(183,136,152,0), 0 12px 30px rgba(171,135,149,0.10); } 50%{ box-shadow:0 0 18px rgba(183,136,152,0.10), 0 16px 34px rgba(171,135,149,0.16); } }
     .animated-frame{ position:relative; overflow:hidden; animation:frameGlow 3.2s ease-in-out infinite; }
@@ -179,3 +177,96 @@
       .lightbox-prev, .lightbox-next{ width:44px; height:44px; font-size:28px; top:auto; bottom:-58px; transform:none; }
       .lightbox-prev{ left:calc(50% - 56px); } .lightbox-next{ right:calc(50% - 56px); }
     }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">Akwamaryn*PL</div>
+        <nav class="nav">
+          <a href="index.html">Start</a>
+          <a href="kotki.html">Kotki hodowlane</a>
+          <a href="kocury.html">Kocury hodowlane</a>
+          <a href="nasze-wychowanki.html">Nasze wychowanki</a>
+          <a href="miot.html">Aktualny miot</a>
+          <a href="kontakt.html">Kontakt</a>
+          <a href="rezerwacja.html" class="nav-cta">REZERWACJA</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="hero-line"><span></span></div>
+          <h1>Aktualny miot</h1>
+          <div class="hero-accent">Miot „M” – maluszki norweskie leśne</div>
+          <p>27.03.2026 na świat przyszło pięć wyjątkowych dziewczynek. To starannie zaplanowany, domowo wychowywany miot norweskich kotów leśnych, w którym piękne pochodzenie łączy się z cudownym charakterem, elegancją i typem tak cenionym w rasie.</p>
+          <div class="hero-mini">✦ Wszystkie maluszki są dostępne ✦</div>
+          <a href="#miot-galeria" class="hero-btn">ZOBACZ GALERIĘ</a>
+        </div>
+        <div class="hero-image-wrap">
+          <div class="hero-image animated-frame">
+            <img src="file_0000000092607246a8e17fab58cb439d.png" alt="Maluszek z miotu M">
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-wrap">
+          <div class="section-header">
+            <div class="frame-title"><span class="corner-in"></span><h2>Miot „M”</h2><p>Najważniejsze informacje o naszych maluszkach</p></div>
+          </div>
+          <div class="intro-layout">
+            <div class="text-block">
+              <p>To wyjątkowy miot norweskich kotów leśnych, łączący elegancką kolorystykę, piękne pochodzenie i domowe wychowanie. Od pierwszych chwil maluszki mają bliski kontakt z człowiekiem i dorastają w spokojnej, pełnej troski atmosferze.</p>
+              <p>Nasze dziewczynki od pierwszych dni zachwycają delikatnością, pięknym wyrazem i cudownym potencjałem. Szukamy dla nich najlepszych, świadomych i kochających domów.</p>
+            </div>
+            <div class="info-cards">
+              <div class="info-card"><strong>27.03.2026</strong><span>data urodzenia</span></div>
+              <div class="info-card"><strong>5</strong><span>dziewczynek</span></div>
+              <div class="info-card"><strong>Miot M</strong><span>norweskie leśne</span></div>
+              <div class="info-card"><strong>Dostępne</strong><span>dziewczynki szukają kochających domów</span></div>
+              <div class="info-card"><strong>3 + 2</strong><span>3 niebieskie srebrzyste szylkretki oraz 2 czarne srebrzyste szylkretki</span></div>
+              <div class="info-card"><strong>Z nami</strong><span>kocięta wychowują się z nami od pierwszych dni życia</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-wrap">
+          <div class="section-header">
+            <div class="frame-title"><span class="corner-in"></span><h2>Rodzice miotu</h2><p>Piękne linie, mocny typ i starannie dobrane skojarzenie</p></div>
+          </div>
+          <div class="parents-grid">
+            <article class="parent-card">
+              <div class="parent-photo-wrap">
+                <div class="parent-photo animated-frame">
+                  <img src="file_00000000a454724689df1045122b6b79.png" alt="Dalia Pałuckie Pupile*PL">
+                </div>
+              </div>
+              <div class="parent-copy">
+                <div class="parent-label">Matka miotu</div>
+                <h3>Dalia Pałuckie Pupile*PL</h3>
+                <div class="meta">
+                  <div><strong>Rasa:</strong> Norweska leśna</div>
+                  <div><strong>Umaszczenie:</strong> niebiesko-srebrny bicolor</div>
+                  <div><strong>Kod EMS:</strong> NFO as 03</div>
+                  <div><strong>Status:</strong> kotka hodowlana</div>
+                </div>
+                <p>Dalia to piękna kotka norweska leśna o mocnej budowie, eleganckiej sylwetce i spokojnym temperamencie. Zachwyca piękną kryzą, wyrazem i klasą, które doskonale przekazuje potomstwu.</p>
+                <div class="badge-row"><span class="badge">HCM N/N</span><span class="badge">PKD N/N</span><span class="badge">FIV/FELV N/N</span></div>
+              </div>
+            </article>
+
+            <article class="parent-card reverse">
+              <div class="parent-copy">
+                <div class="parent-label">Ojciec miotu</div>
+                <h3>Posejdon Iceland*NL</h3>
+                <div class="meta">
+                  <div><strong>Rasa:</strong> Norweski leśny</div>
+                  <div><strong>
